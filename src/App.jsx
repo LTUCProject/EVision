@@ -1,23 +1,30 @@
-import React, { Component, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-// Component import
+// Component imports
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
 import EVisionPage from "./components/Home/EVisionPage";
- import LoginSignup from "./components/Account/LoginSignup";
+import LoginSignup from "./components/Account/LoginSignup";
+import Logout from "./components/Account/Logout";
+import ResponsiveMenu from "./components/Navbar/ResponsiveMenu";
 
 const App = () => {
-  // dark mode start
-  const [theme, setTheme] = useState(
-    localStorage.getItem("theme") ? localStorage.getItem("theme") : "light"
-  );
-  const element = document.documentElement;
+  const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
+  const [isAuthenticated, setIsAuthenticated] = useState(!!localStorage.getItem("token")); // Check if user is authenticated
+  const [showMenu, setShowMenu] = useState(false); // Track menu visibility
+
+  const handleLogout = () => {
+    setIsAuthenticated(false); // Update authentication state
+    localStorage.removeItem("token"); // Clear token on logout
+    localStorage.removeItem("username");
+    localStorage.removeItem("role");
+  };
 
   useEffect(() => {
+    const element = document.documentElement;
     if (theme === "dark") {
       element.classList.add("dark");
       localStorage.setItem("theme", "dark");
@@ -26,9 +33,8 @@ const App = () => {
       localStorage.setItem("theme", "light");
     }
   }, [theme]);
-  // dark mode end
 
-  React.useEffect(() => {
+  useEffect(() => {
     AOS.init({
       offset: 100,
       duration: 800,
@@ -37,17 +43,25 @@ const App = () => {
     });
     AOS.refresh();
   }, []);
+
   return (
     <div className="bg-white dark:bg-black dark:text-white text-black overflow-x-hidden">
-            <Router>
-            <Navbar theme={theme} setTheme={setTheme} />
-            <Routes>
-            <Route path="/" element={<EVisionPage/>} />
-            <Route path="/login" element={<LoginSignup />} />
-            </Routes>
-            <Footer />
-            </Router>
- 
+      <Router>
+        <Navbar
+          theme={theme}
+          setTheme={setTheme}
+          isAuthenticated={isAuthenticated}
+          onLogout={handleLogout}
+          setShowMenu={setShowMenu}
+        />
+        <ResponsiveMenu showMenu={showMenu} /> {/* Add ResponsiveMenu component */}
+        <Routes>
+          <Route path="/" element={<EVisionPage />} />
+          <Route path="/login" element={<LoginSignup setIsAuthenticated={setIsAuthenticated} />} />
+          <Route path="/logout" element={<Logout onLogout={handleLogout} />} /> {/* Add the logout route */}
+        </Routes>
+        <Footer />
+      </Router>
     </div>
   );
 };
