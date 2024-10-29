@@ -1,10 +1,51 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { FaUserCircle } from "react-icons/fa";
-
+import axios from "axios";
 import { Navlinks } from "./Navbar";
 
-const ResponsiveMenu = ({ showMenu }) => {
-  console.log("showMenu", showMenu);
+const ResponsiveMenu = ({ showMenu, onLogout }) => {
+  const [username, setUsername] = useState("");
+  const [role, setRole] = useState("");
+
+  useEffect(() => {
+    setUsername(localStorage.getItem("username") || "Guest"); // Retrieve username
+
+    try {
+      const storedRoles = JSON.parse(localStorage.getItem("roles"));
+      setRole(storedRoles ? storedRoles.join(", ") : "User"); // Set role(s) as a comma-separated string
+    } catch (error) {
+      // Fallback if parsing fails, assumes roles as plain string
+      setRole(localStorage.getItem("roles") || "User");
+    }
+  }, []);
+
+  const handleDeleteAccount = async () => {
+    if (!username || username === "Guest") {
+      return alert("No user is logged in."); // Alert if user is not logged in
+    }
+
+    const confirmDelete = window.confirm("Are you sure you want to delete your account?");
+    if (!confirmDelete) return;
+
+    try {
+      const response = await axios.delete(`https://localhost:7080/api/Account/DeleteAccount`, {
+        params: { username },
+        headers: { "Content-Type": "application/json" },
+      });
+
+      alert(response.data.message || "Account deleted successfully.");
+      localStorage.clear(); // Clear all user-related data
+      if (onLogout) onLogout(); // Call logout function if it exists
+
+      // Set a timeout to refresh the page after 3 seconds
+      setTimeout(() => {
+        window.location.reload();
+      }, 1000);
+    } catch (error) {
+      alert("Failed to delete account: " + (error.response?.data?.message || "Server error"));
+    }
+  };
+
   return (
     <div
       className={`${
@@ -15,14 +56,14 @@ const ResponsiveMenu = ({ showMenu }) => {
         <div className="flex items-center justify-start gap-3">
           <FaUserCircle size={50} />
           <div>
-            <h1>Hello User</h1>
-            <h1 className="text-sm text-slate-500">Premium user</h1>
+            <h1>Hello {username}</h1>
+            <h1 className="text-sm text-slate-500">{role}</h1>
           </div>
         </div>
         <nav className="mt-12">
           <ul className="space-y-4 text-xl">
-            {Navlinks.map((data) => (
-              <li>
+            {Navlinks.map((data, index) => (
+              <li key={index}>
                 <a href={data.link} className="mb-5 inline-block">
                   {data.name}
                 </a>
@@ -32,12 +73,20 @@ const ResponsiveMenu = ({ showMenu }) => {
         </nav>
       </div>
       <div className="footer">
+        <button onClick={handleDeleteAccount} className="btn-delete-account text-red-500">
+          Delete Account
+        </button>
         <h1>
-          Made with ❤ by <a href="https://dilshad-ahmed.github.io/">Dilshad</a>{" "}
+          Made with ❤ by <a href="https://github.com/LTUCProject">PowerTeam</a>
         </h1>
       </div>
     </div>
   );
+};
+
+// Default prop for onLogout
+ResponsiveMenu.defaultProps = {
+  onLogout: () => console.log("Default logout action"), // Default implementation
 };
 
 export default ResponsiveMenu;
