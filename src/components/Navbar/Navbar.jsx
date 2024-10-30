@@ -4,26 +4,10 @@ import { HiMenuAlt3, HiMenuAlt1 } from "react-icons/hi";
 import ResponsiveMenu from "./ResponsiveMenu";
 
 export const Navlinks = [
-  {
-    id: 1,
-    name: "HOME",
-    link: "/#",
-  },
-  {
-    id: 2,
-    name: "CARS",
-    link: "/#cars",
-  },
-  {
-    id: 3,
-    name: "ABOUT",
-    link: "/#about",
-  },
-  {
-    id: 4,
-    name: "BOOKING",
-    link: "/#booking",
-  },
+  { id: 1, name: "HOME", link: "/#" },
+  { id: 2, name: "CARS", link: "/#cars" },
+  { id: 3, name: "ABOUT", link: "/#about" },
+  { id: 4, name: "BOOKING", link: "/#booking" },
 ];
 
 const Navbar = ({ theme, setTheme, isAuthenticated, onLogout }) => {
@@ -35,12 +19,12 @@ const Navbar = ({ theme, setTheme, isAuthenticated, onLogout }) => {
 
   return (
     <div className="relative z-10 shadow-md w-full dark:bg-black dark:text-white duration-300">
-      <div className="container py-2 md:py-0">
+      <div className="container py-2">
         <div className="flex justify-between items-center">
           <div>
             <span className="text-3xl font-bold font-serif">EVISION</span>
           </div>
-          <nav className="hidden md:block">
+          <nav className="hidden md:flex">
             <ul className="flex items-center gap-8">
               {!isAuthenticated ? (
                 <>
@@ -63,14 +47,9 @@ const Navbar = ({ theme, setTheme, isAuthenticated, onLogout }) => {
                   </li>
                 </>
               )}
-              {theme === 'dark' ? (
-                <BiSolidSun onClick={() => setTheme('light')} className="text-2xl cursor-pointer" />
-              ) : (
-                <BiSolidMoon onClick={() => setTheme('dark')} className="text-2xl cursor-pointer" />
-              )}
             </ul>
           </nav>
-          <div className="flex items-center gap-4 md:hidden">
+          <div className="flex items-center gap-4">
             {theme === 'dark' ? (
               <BiSolidSun onClick={() => setTheme('light')} className="text-2xl cursor-pointer" />
             ) : (
@@ -84,7 +63,7 @@ const Navbar = ({ theme, setTheme, isAuthenticated, onLogout }) => {
           </div>
         </div>
       </div>
-      <ResponsiveMenu showMenu={showMenu} />
+      <ResponsiveMenu showMenu={showMenu} onLogout={onLogout} />
     </div>
   );
 };
