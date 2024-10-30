@@ -14,9 +14,13 @@ const Logout = ({ onLogout }) => {
             'Content-Type': 'application/json',
           },
         });
-        localStorage.removeItem('token'); // Clear token
-        localStorage.removeItem('username'); // Clear username
-        localStorage.removeItem('roles'); // Clear roles
+
+        // Clear all stored user information from localStorage
+        localStorage.removeItem('token');
+        localStorage.removeItem('username');
+        localStorage.removeItem('roles'); // Ensure roles are removed
+
+        localStorage.clear(); 
 
         onLogout(); // Call the logout function passed as a prop
         navigate('/'); // Redirect to home or any other page
@@ -26,6 +30,7 @@ const Logout = ({ onLogout }) => {
       }
     };
 
+    
     handleLogout();
   }, [navigate, onLogout]);
 

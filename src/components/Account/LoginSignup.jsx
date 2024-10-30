@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
+import { useNavigate } from "react-router-dom"; // Import useNavigate
+import "react-toastify/dist/ReactToastify.css";
 import "./Login.css";
 
 const Login = ({ setIsAuthenticated }) => {
@@ -10,6 +13,8 @@ const Login = ({ setIsAuthenticated }) => {
   const [signupEmail, setSignupEmail] = useState("");
   const [signupPassword, setSignupPassword] = useState("");
   const [signupRole, setSignupRole] = useState("Client");
+
+  const navigate = useNavigate(); // Initialize useNavigate
 
   const handleSwitch = () => {
     setIsLoginActive(!isLoginActive);
@@ -34,17 +39,21 @@ const Login = ({ setIsAuthenticated }) => {
       localStorage.setItem("username", loginUsername); // Save username
       localStorage.setItem("roles", response.data.roles); // Save role if returned from API
       setIsAuthenticated(true); // Update authentication state
-      alert("Login successful");
-      window.location.reload(); // Refresh the page
+      toast.success("Login successful");
+      
+      setTimeout(() => {
+        navigate("/"); // Redirect to home page after successful login
+        window.location.reload();
+      }, 1500); // Optional delay to show the toast before redirecting
     } catch (error) {
-      alert("Login failed: " + (error.response?.data?.message || "Server error"));
+      toast.error("Login failed: " + (error.response?.data?.message || "Server error"));
     }
   };
 
   const handleSignupSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(
+      await axios.post(
         "https://localhost:7080/api/Account/Register",
         {
           userName: signupUsername,
@@ -58,14 +67,15 @@ const Login = ({ setIsAuthenticated }) => {
           },
         }
       );
-      alert("Signup successful");
+      toast.success("Signup successful");
     } catch (error) {
-      alert("Signup failed: " + (error.response?.data?.message || "Server error"));
+      toast.error("Signup failed: " + (error.response?.data?.message || "Server error"));
     }
   };
 
   return (
     <section className="forms-section">
+      <ToastContainer position="top-center" autoClose={3000} hideProgressBar={false} />
       <h1 className="section-title">Login & Signup Forms</h1>
       <div className="forms">
         {/* Login Form */}

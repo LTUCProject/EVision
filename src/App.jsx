@@ -10,6 +10,7 @@ import EVisionPage from "./components/Home/EVisionPage";
 import LoginSignup from "./components/Account/LoginSignup";
 import Logout from "./components/Account/Logout";
 import ResponsiveMenu from "./components/Navbar/ResponsiveMenu";
+import Vehicles from "./components/Vehicle/Vehicle"; // Import your Vehicles component
 
 const App = () => {
   const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
@@ -20,7 +21,8 @@ const App = () => {
     setIsAuthenticated(false); // Update authentication state
     localStorage.removeItem("token"); // Clear token on logout
     localStorage.removeItem("username");
-    localStorage.removeItem("role");
+    localStorage.removeItem("roles");
+    window.location.reload();
   };
 
   useEffect(() => {
@@ -58,7 +60,8 @@ const App = () => {
         <Routes>
           <Route path="/" element={<EVisionPage />} />
           <Route path="/login" element={<LoginSignup setIsAuthenticated={setIsAuthenticated} />} />
-          <Route path="/logout" element={<Logout onLogout={handleLogout} />} /> {/* Add the logout route */}
+          <Route path="/logout" element={<Logout onLogout={handleLogout} />} /> 
+          <Route path="/vehicles" element={<Vehicles />} /> {/* Ensure Vehicles component is defined */}
         </Routes>
         <Footer />
       </Router>
