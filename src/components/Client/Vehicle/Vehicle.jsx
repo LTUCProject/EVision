@@ -1,5 +1,6 @@
 // components/Vehicles/Vehicles.js
 import React, { useState, useEffect } from "react";
+import axios from "axios";
 
 const Vehicles = () => {
   const [vehicles, setVehicles] = useState([]);
@@ -10,6 +11,7 @@ const Vehicles = () => {
     batteryCapacity: "",
     electricType: "",
   });
+  const userId = 1; // Replace this with the actual logged-in user ID
 
   // Function to handle form input changes
   const handleInputChange = (e) => {
@@ -20,22 +22,13 @@ const Vehicles = () => {
   // Function to submit the vehicle data
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await fetch("https://localhost:7080/api/Clients/vehicle", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "*/*",
-      },
-      body: JSON.stringify({
+    try {
+      const response = await axios.post("https://localhost:7080/api/Clients/vehicle", {
         vehicleId: 0, // Assuming vehicleId is auto-generated
-        clientId: 1, // Replace with actual clientId
+        clientId: userId, // Use the actual clientId
         ...formData,
-      }),
-    });
-
-    if (response.ok) {
-      const newVehicle = await response.json();
-      setVehicles((prevVehicles) => [...prevVehicles, newVehicle]);
+      });
+      setVehicles((prevVehicles) => [...prevVehicles, response.data]);
       setFormData({
         licensePlate: "",
         model: "",
@@ -43,20 +36,34 @@ const Vehicles = () => {
         batteryCapacity: "",
         electricType: "",
       }); // Reset form
-    } else {
-      console.error("Error adding vehicle");
+    } catch (error) {
+      console.error("Error adding vehicle:", error);
+    }
+  };
+
+  // Function to fetch vehicles from the API
+  const fetchVehicles = async () => {
+    try {
+      const response = await axios.get(`https://localhost:7080/api/Clients/vehicles/${userId}`);
+      setVehicles(response.data);
+    } catch (error) {
+      console.error("Error fetching vehicles:", error);
+    }
+  };
+
+  // Function to delete a vehicle
+  const handleDelete = async (vehicleId) => {
+    try {
+      await axios.delete(`https://localhost:7080/api/Clients/vehicles/${vehicleId}`);
+      setVehicles((prevVehicles) => prevVehicles.filter((vehicle) => vehicle.vehicleId !== vehicleId));
+    } catch (error) {
+      console.error("Error deleting vehicle:", error);
     }
   };
 
   useEffect(() => {
-    // Fetch existing vehicles on component mount (optional)
-    const fetchVehicles = async () => {
-      const response = await fetch("https://localhost:7080/api/Clients/vehicles"); // Adjust endpoint if necessary
-      const data = await response.json();
-      setVehicles(data);
-    };
     fetchVehicles();
-  }, []);
+  }, [userId]);
 
   return (
     <div className="container mx-auto p-4">
@@ -119,37 +126,31 @@ const Vehicles = () => {
         </button>
       </form>
 
-      <h2 className="text-xl font-semibold mb-2">Existing Vehicles</h2>
-      <table className="min-w-full bg-white border rounded-lg shadow-lg">
-        <thead>
-          <tr className="bg-gray-200">
-            <th className="py-2 px-4 border-b">License Plate</th>
-            <th className="py-2 px-4 border-b">Model</th>
-            <th className="py-2 px-4 border-b">Year</th>
-            <th className="py-2 px-4 border-b">Battery Capacity</th>
-            <th className="py-2 px-4 border-b">Electric Type</th>
-          </tr>
-        </thead>
-        <tbody>
-          {vehicles.length > 0 ? (
-            vehicles.map((vehicle) => (
-              <tr key={vehicle.vehicleId}>
-                <td className="py-2 px-4 border-b">{vehicle.licensePlate}</td>
-                <td className="py-2 px-4 border-b">{vehicle.model}</td>
-                <td className="py-2 px-4 border-b">{vehicle.year}</td>
-                <td className="py-2 px-4 border-b">{vehicle.batteryCapacity} kWh</td>
-                <td className="py-2 px-4 border-b">{vehicle.electricType}</td>
-              </tr>
-            ))
-          ) : (
-            <tr>
-              <td colSpan="5" className="text-center py-4">No vehicles found.</td>
-            </tr>
-          )}
-        </tbody>
-      </table>
+      <h2 className="text-xl font-semibold mb-2">Your Vehicles</h2>
+      {vehicles.length === 0 ? (
+        <p>No vehicles found.</p>
+      ) : (
+        <ul style={{ listStyleType: 'none', padding: '0' }}>
+          {vehicles.map((vehicle) => (
+            <li key={vehicle.vehicleId} style={{ marginBottom: '10px', border: '1px solid #ccc', padding: '10px', borderRadius: '5px' }}>
+              <strong>License Plate:</strong> {vehicle.licensePlate} <br />
+              <strong>Model:</strong> {vehicle.model} <br />
+              <strong>Year:</strong> {vehicle.year} <br />
+              <strong>Battery Capacity:</strong> {vehicle.batteryCapacity} kWh <br />
+              <strong>Electric Type:</strong> {vehicle.electricType} <br />
+              <button
+                onClick={() => handleDelete(vehicle.vehicleId)}
+                className="mt-2 bg-red-500 text-white py-1 px-2 rounded hover:bg-red-600 transition duration-200"
+              >
+                Delete Vehicle
+              </button>
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   );
 };
+
 
 export default Vehicles;
