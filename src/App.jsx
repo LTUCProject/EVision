@@ -11,6 +11,7 @@ import LoginSignup from "./components/Account/LoginSignup";
 import Logout from "./components/Account/Logout";
 import ResponsiveMenu from "./components/Navbar/ResponsiveMenu";
 import Vehicles from "./components/Vehicle/Vehicle"; // Import your Vehicles component
+import ChargingStationAndLocationForm from "./components/Owner/ChargingStaion/ChargingStationAndLocationForm"; // Import the new form component
 
 const App = () => {
   const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
@@ -56,12 +57,13 @@ const App = () => {
           onLogout={handleLogout}
           setShowMenu={setShowMenu}
         />
-        <ResponsiveMenu showMenu={showMenu} /> {/* Add ResponsiveMenu component */}
+        <ResponsiveMenu showMenu={showMenu} />
         <Routes>
           <Route path="/" element={<EVisionPage />} />
           <Route path="/login" element={<LoginSignup setIsAuthenticated={setIsAuthenticated} />} />
           <Route path="/logout" element={<Logout onLogout={handleLogout} />} /> 
-          <Route path="/vehicles" element={<Vehicles />} /> {/* Ensure Vehicles component is defined */}
+          <Route path="/vehicles" element={<Vehicles />} />
+          <Route path="/charging-station" element={<ChargingStationAndLocationForm />} /> {/* Add the new route */}
         </Routes>
         <Footer />
       </Router>
