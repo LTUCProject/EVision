@@ -5,9 +5,8 @@ import ResponsiveMenu from "./ResponsiveMenu";
 
 export const Navlinks = [
   { id: 1, name: "HOME", link: "/#" },
- 
-  { id: 3, name: "VEHICLES", link: "/vehicles" }, 
-  
+  { id: 2, name: "VEHICLES", link: "/vehicles" },
+  { id: 3, name: "CHARGING STATION", link: "/charging-station" }, // Add link for Charging Station
 ];
 
 const Navbar = ({ theme, setTheme, isAuthenticated, onLogout }) => {
