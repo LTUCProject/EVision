@@ -10,7 +10,7 @@ import EVisionPage from "./components/Home/EVisionPage";
 import LoginSignup from "./components/Account/LoginSignup";
 import Logout from "./components/Account/Logout";
 import ResponsiveMenu from "./components/Navbar/ResponsiveMenu";
-import Vehicles from "./components/Vehicle/Vehicle"; // Import your Vehicles component
+import Vehicles from "./components/Client/Vehicle/Vehicle"; // Import your Vehicles component
 import ChargingStationAndLocationForm from "./components/Owner/ChargingStaion/ChargingStationAndLocationForm"; // Import the new form component
 
 const App = () => {
