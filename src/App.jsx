@@ -13,6 +13,8 @@ import ResponsiveMenu from "./components/Navbar/ResponsiveMenu";
 import Vehicles from "./components/Client/Vehicle/Vehicle"; // Import your Vehicles component
 import ChargingStationAndLocationForm from "./components/Owner/ChargingStaion/ChargingStationAndLocationForm"; // Import the new form component
 import Location from "./components/Client/Locations/Location";
+import ServiceInfo from "./components/Servicer/ServiceInfo/ServiceInfo";
+
 const App = () => {
   const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
   const [isAuthenticated, setIsAuthenticated] = useState(!!localStorage.getItem("token")); // Check if user is authenticated
@@ -65,6 +67,8 @@ const App = () => {
           <Route path="/vehicles" element={<Vehicles />} />
           <Route path="/charging-station" element={<ChargingStationAndLocationForm />} /> {/* Add the new route */}
           <Route path="/location" element={<Location />} /> {/* Add the new route */}
+          <Route path="/serviceinfo" element={<ServiceInfo />} /> {/* Add the new route */}
+
         </Routes>
         <Footer />
       </Router>

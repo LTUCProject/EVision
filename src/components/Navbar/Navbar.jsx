@@ -8,6 +8,8 @@ export const Navlinks = [
   { id: 2, name: "VEHICLES", link: "/vehicles" },
   { id: 3, name: "CHARGING STATION", link: "/charging-station" }, // Link for Charging Station (only for Owners)
   { id: 4, name: "CHARGING STATION LOCATIONS", link: "/location" }, // Link for Charging Station Locations
+  { id: 5, name: "My Services", link: "/serviceinfo" }
+
 ];
 
 const Navbar = ({ theme, setTheme, isAuthenticated, onLogout }) => {
@@ -59,6 +61,12 @@ const Navbar = ({ theme, setTheme, isAuthenticated, onLogout }) => {
                         </li>
                       );
                     } else if ((userRole === "Client" || userRole === "Admin") && name === "VEHICLES") {
+                      return (
+                        <li key={id} className="py-4">
+                          <a href={link} className="text-lg font-medium hover:text-primary py-2 hover:border-b-2 hover:border-primary transition-colors duration-500">{name}</a>
+                        </li>
+                      );
+                    }else if ((userRole === "Servicer") && name === "My Services") {
                       return (
                         <li key={id} className="py-4">
                           <a href={link} className="text-lg font-medium hover:text-primary py-2 hover:border-b-2 hover:border-primary transition-colors duration-500">{name}</a>
