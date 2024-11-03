@@ -5,7 +5,7 @@ import 'leaflet/dist/leaflet.css';
 import './ChargingStationAndLocationForm.css';
 import Button from 'react-bootstrap/Button';
 import { toast } from 'react-toastify';
-
+import MaintenanceLog from '../MaintenanceLog/MaintenanceLog';
 
 const jordanBounds = [
     [29.1852, 34.9596],
@@ -49,7 +49,6 @@ const ChargingStationAndLocationForm = () => {
     const [chargingStations, setChargingStations] = useState([]);
     const [selectedStationId, setSelectedStationId] = useState(null);
 
-
     useEffect(() => {
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(
@@ -73,18 +72,33 @@ const ChargingStationAndLocationForm = () => {
         loadChargingStations();
     }, []);
 
+    const apiRequest = async (method, url, data = null) => {
+        const options = {
+            method,
+            url,
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem("token")}`,
+                "Content-Type": "application/json"
+            },
+            data,
+        };
+
+        try {
+            const response = await axios(options);
+            return response.data; // Return data for further use if necessary
+        } catch (error) {
+            console.error('Error with API request:', error);
+            toast.error(error.response?.data?.message || "Server error");
+            throw error; // Rethrow the error for further handling if needed
+        }
+    };
+
     const loadChargingStations = async () => {
         try {
-            const response = await axios.get('https://localhost:7080/api/Owner/chargingstations', {
-                headers: {
-                    Authorization: `Bearer ${localStorage.getItem("token")}`,
-                    "Content-Type": "application/json"
-                }
-            });
-            setChargingStations(response.data);
+            const data = await apiRequest('GET', 'https://localhost:7080/api/Owner/chargingstations');
+            setChargingStations(data.$values);
         } catch (error) {
             console.error('Error fetching charging stations:', error);
-            toast.error("Failed to load charging stations.");
         }
     };
 
@@ -140,19 +154,12 @@ const ChargingStationAndLocationForm = () => {
                 Longitude: parseFloat(chargerData.longitude),
             };
 
-            await axios.post('https://localhost:7080/api/Owner/chargingstations', stationRequest, {
-                headers: {
-                    Authorization: `Bearer ${localStorage.getItem("token")}`,
-                    "Content-Type": "application/json"
-                }
-            });
-
+            await apiRequest('POST', 'https://localhost:7080/api/Owner/chargingstations', stationRequest);
             toast.success("Charging Station created successfully");
             resetForm();
             loadChargingStations();
         } catch (error) {
-            console.error('Error creating charging station:', error);
-            toast.error("Failed to create Charging Station: " + (error.response?.data?.message || "Server error"));
+            // Error handling is done in apiRequest
         }
     };
 
@@ -166,18 +173,11 @@ const ChargingStationAndLocationForm = () => {
                 ChargingStationId: selectedStationId
             };
 
-            await axios.post('https://localhost:7080/api/Owner/chargers', chargerRequest, {
-                headers: {
-                    Authorization: `Bearer ${localStorage.getItem("token")}`,
-                    "Content-Type": "application/json"
-                }
-            });
-
+            await apiRequest('POST', 'https://localhost:7080/api/Owner/chargers', chargerRequest);
             toast.success("Charger created successfully");
             resetForm();
         } catch (error) {
-            console.error('Error creating charger:', error);
-            toast.error("Failed to create Charger: " + (error.response?.data?.message || "Server error"));
+            // Error handling is done in apiRequest
         }
     };
 
@@ -195,60 +195,45 @@ const ChargingStationAndLocationForm = () => {
                 Longitude: parseFloat(chargerData.longitude),
             };
 
-            await axios.put(`https://localhost:7080/api/Owner/chargingstations/${selectedStationId}`, stationRequest, {
-                headers: {
-                    Authorization: `Bearer ${localStorage.getItem("token")}`,
-                    "Content-Type": "application/json"
-                }
-            });
-
+            await apiRequest('PUT', `https://localhost:7080/api/Owner/chargingstations/${selectedStationId}`, stationRequest);
             toast.success("Charging Station updated successfully");
             resetForm();
             loadChargingStations();
         } catch (error) {
-            console.error('Error updating charging station:', error);
-            toast.error("Failed to update Charging Station: " + (error.response?.data?.message || "Server error"));
+            // Error handling is done in apiRequest
         }
     };
 
     const handleDelete = async (id) => {
         try {
-            await axios.delete(`https://localhost:7080/api/Owner/chargingstations/${id}`, {
-                headers: {
-                    Authorization: `Bearer ${localStorage.getItem("token")}`,
-                    "Content-Type": "application/json"
-                }
-            });
-
+            await apiRequest('DELETE', `https://localhost:7080/api/Owner/chargingstations/${id}`);
             toast.success("Charging Station deleted successfully");
             loadChargingStations();
         } catch (error) {
-            console.error('Error deleting charging station:', error);
-            toast.error("Failed to delete Charging Station: " + (error.response?.data?.message || "Server error"));
+            // Error handling is done in apiRequest
         }
     };
 
     const handleDeleteCharger = async (chargerId) => {
         try {
-            await axios.delete(`https://localhost:7080/api/Owner/chargers/${chargerId}`, {
-                headers: {
-                    Authorization: `Bearer ${localStorage.getItem("token")}`,
-                    "Content-Type": "application/json"
-                }
-            });
+            await apiRequest('DELETE', `https://localhost:7080/api/Owner/chargers/${chargerId}`);
             toast.success("Charger deleted successfully");
             loadChargingStations();
         } catch (error) {
-            console.error('Error deleting charger:', error);
-            toast.error("Failed to delete Charger: " + (error.response?.data?.message || "Server error"));
+            // Error handling is done in apiRequest
         }
     };
 
+    const handleStationSelect = (id) => {
+        setSelectedStationId(id);
+    };
 
     return (
         <div className="charging-station-form-container">
+
+            {/* Main Form for Creating/Updating Charging Station */}
             <form className="charging-station-form" onSubmit={selectedStationId ? handleUpdate : handleSubmit}>
-                <h2 className="form-title">{selectedStationId ? 'Update Charging Station' : 'Create Charging Station'}</h2>
+                <h2 className="form-title">{selectedStationId ? 'Charging Station Management' : 'Charging Station Management'}</h2>
                 <label className="form-label">
                     Station Location:
                     <input
@@ -410,6 +395,15 @@ const ChargingStationAndLocationForm = () => {
                 </form>
             )}
 
+            <MapContainer center={mapCenter} zoom={8} style={{ height: '400px', width: '100%' }} bounds={jordanBounds}>
+                <TileLayer
+                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                    attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                />
+                <LocationClicker onLocationSelect={handleLocationSelect} />
+            </MapContainer>
+
+
             <div className="charging-station-form-container">
                 <div className="charging-stations-list">
                     <h3 className="list-title">Charging Stations</h3>
@@ -427,12 +421,11 @@ const ChargingStationAndLocationForm = () => {
                                 <div className="charger-details">
                                     <h5 className="charger-title">Chargers:</h5>
                                     <ul className="charger-list">
-                                        {station.chargers.map((charger) => (
+                                        {station.chargers.$values.map((charger) => (
                                             <li key={charger.chargerId} className="charger-item">
                                                 <p className="charger-info">Type: {charger.type}</p>
                                                 <p className="charger-info">Power: {charger.power} kW</p>
                                                 <p className="charger-info">Speed: {charger.speed} kW/h</p>
-                                                {/* Charger actions with specific ID */}
                                                 <div className="charger-actions">
                                                     <Button
                                                         variant="danger"
@@ -445,7 +438,6 @@ const ChargingStationAndLocationForm = () => {
                                         ))}
                                     </ul>
                                 </div>
-                                {/* Station actions */}
                                 <div className="station-actions">
                                     <Button
                                         variant="warning"
@@ -476,15 +468,30 @@ const ChargingStationAndLocationForm = () => {
                 </div>
             </div>
 
-            <MapContainer center={mapCenter} zoom={8} style={{ height: '400px', width: '100%' }} bounds={jordanBounds}>
-                <TileLayer
-                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                    attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                />
-                <LocationClicker onLocationSelect={handleLocationSelect} />
-            </MapContainer>
+            {/* Select Station Dropdown */}
+            <label className="form-label">
+                Station's MaintenanceLog:
+                <select
+                    onChange={(e) => handleStationSelect(e.target.value)}
+                    value={selectedStationId}
+                    className="form-input"
+                    required
+                >
+                    <option value="">Select a Charging Station</option>
+                    {chargingStations.map(station => (
+                        <option key={station.chargingStationId} value={station.chargingStationId}>
+                            {station.name} - {station.stationLocation}
+                        </option>
+                    ))}
+                </select>
+            </label>
+
+            {/* Show MaintenanceLog if a station is selected */}
+            {selectedStationId && <MaintenanceLog stationId={selectedStationId} />}
+
         </div>
     );
+
 
 };
 

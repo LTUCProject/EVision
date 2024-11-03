@@ -1,0 +1,89 @@
+/* MaintenanceLog.css */
+.maintenance-log-container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.maintenance-log-title {
+    text-align: center;
+    color: #333;
+}
+
+.maintenance-log-form {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.maintenance-log-input,
+.maintenance-log-textarea {
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.maintenance-log-textarea {
+    resize: vertical;
+}
+
+.maintenance-log-button {
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: #4CAF50; /* Green */
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.maintenance-log-button:hover {
+    background-color: #45a049; /* Darker green */
+}
+
+.maintenance-log-subtitle {
+    margin-top: 30px;
+    color: #333;
+}
+
+.maintenance-log-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.maintenance-log-item {
+    padding: 10px;
+    border: 1px solid #eaeaea;
+    border-radius: 4px;
+    margin: 5px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.maintenance-log-item strong {
+    color: #666;
+}
+
+
+
+.maintenance-log-delete-button {
+    background-color: #e74c3c; /* Red */
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.maintenance-log-delete-button:hover {
+    background-color: #c0392b; /* Darker red */
+}

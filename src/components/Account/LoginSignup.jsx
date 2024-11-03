@@ -37,7 +37,9 @@ const Login = ({ setIsAuthenticated }) => {
       );
       localStorage.setItem("token", response.data.token);
       localStorage.setItem("username", loginUsername); // Save username
-      localStorage.setItem("roles", response.data.roles); // Save role if returned from API
+      const rolesArray = response.data.roles.$values; // Access the array of roles
+      const roleString = rolesArray[0]; // Get the first role as a string
+      localStorage.setItem("roles", roleString); // Store the string directly
       setIsAuthenticated(true); // Update authentication state
       toast.success("Login successful");
       
