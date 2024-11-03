@@ -1,0 +1,137 @@
+/* ServiceInfo.css */
+
+/* Container for the entire component */
+.service-info-container {
+    background-color: #f4f4f4; /* Soft light background */
+    font-family: 'Arial', sans-serif;
+    padding: 20px;
+    border-radius: 8px; /* Slight rounding of corners */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+/* Title styles */
+.service-info-title {
+    color: #333;
+    margin-bottom: 15px;
+}
+
+/* Button styles */
+.service-info-button {
+    background-color: #007bff; /* Blue for primary actions */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s; /* Added transform for feedback */
+    margin-right: 10px; /* Space between buttons */
+}
+
+.service-info-button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    transform: translateY(-2px); /* Slight lift on hover */
+}
+
+/* List styles */
+.service-info-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.service-info-list-item {
+    background: #fff; /* White background for list items */
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin: 10px 0;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Edit and Delete button styles */
+.edit-button {
+    background-color: #28a745; /* Green for edit */
+}
+
+.edit-button:hover {
+    background-color: #218838; /* Darker green on hover */
+}
+
+.delete-button {
+    background-color: #dc3545; /* Red for delete */
+}
+
+.delete-button:hover {
+    background-color: #c82333; /* Darker red on hover */
+}
+
+/* Modal styles */
+.service-info-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7); /* Dark overlay with more opacity */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Ensure modal is on top */
+}
+
+/* Modal content styling */
+.service-info-modal-content {
+    background: #ffffff; /* White background for modal */
+    border-radius: 10px; /* More rounded corners */
+    padding: 30px; /* More padding for content */
+    width: 500px; /* Set a width for the modal */
+    max-width: 90%; /* Responsive max width */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Shadow for depth */
+    animation: fade-in 0.3s ease-out; /* Fade-in effect */
+}
+
+/* Close button styling */
+.service-info-close {
+    cursor: pointer;
+    font-size: 25px; /* Bigger close button */
+    color: #888;
+    float: right; /* Align close button to the right */
+}
+
+.service-info-close:hover {
+    color: #000; /* Darker color on hover */
+}
+
+/* Form element styling */
+label {
+    display: block; /* Make labels block elements */
+    margin: 10px 0 5px; /* Spacing around labels */
+    font-weight: bold; /* Bold labels */
+}
+
+input[type="text"], textarea {
+    width: 100%; /* Full width for inputs */
+    padding: 10px; /* Padding for inputs */
+    border: 1px solid #ccc; /* Light border */
+    border-radius: 5px; /* Rounded corners for inputs */
+    margin-bottom: 15px; /* Space below inputs */
+    box-sizing: border-box; /* Include padding and border in width */
+}
+
+/* Style for textarea specifically */
+textarea {
+    resize: vertical; /* Allow vertical resizing only */
+}
+
+/* Animation for modal */
+@keyframes fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(-20px); /* Slide in from above */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
