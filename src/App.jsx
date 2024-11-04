@@ -25,7 +25,9 @@ const App = () => {
     localStorage.removeItem("token"); // Clear token on logout
     localStorage.removeItem("username");
     localStorage.removeItem("roles");
-    window.location.reload();
+   // window.location.reload();
+    navigate('/'); // Redirect to home page
+
   };
 
   useEffect(() => {
@@ -61,15 +63,19 @@ const App = () => {
         />
         <ResponsiveMenu showMenu={showMenu} />
         <Routes>
-          <Route path="/" element={<EVisionPage />} />
-          <Route path="/login" element={<LoginSignup setIsAuthenticated={setIsAuthenticated} />} />
-          <Route path="/logout" element={<Logout onLogout={handleLogout} />} /> 
-          <Route path="/vehicles" element={<Vehicles />} />
-          <Route path="/charging-station" element={<ChargingStationAndLocationForm />} /> {/* Add the new route */}
-          <Route path="/location" element={<Location />} /> {/* Add the new route */}
-          <Route path="/serviceinfo" element={<ServiceInfo />} /> {/* Add the new route */}
+  <Route path="/" element={<EVisionPage />} />
+  <Route path="/login" element={<LoginSignup setIsAuthenticated={setIsAuthenticated} />} />
+  <Route path="/logout" element={<Logout onLogout={handleLogout} />} />
 
-        </Routes>
+  {isAuthenticated && (
+    <>
+      <Route path="/vehicles" element={<Vehicles />} />
+      <Route path="/charging-station" element={<ChargingStationAndLocationForm />} />
+      <Route path="/location" element={<Location />} />
+      <Route path="/serviceinfo" element={<ServiceInfo />} />
+    </>
+  )}
+</Routes>
         <Footer />
       </Router>
     </div>
