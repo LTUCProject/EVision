@@ -41,15 +41,13 @@ const Navbar = ({ theme, setTheme, isAuthenticated, onLogout }) => {
           </div>
           <nav className="hidden md:flex">
             <ul className="flex items-center gap-8">
-              {!isAuthenticated ? (
-                <>
-                  <li className="py-4">
+            <li className="py-4">
                     <a href="/#" className="text-lg font-medium hover:text-primary py-2 hover:border-b-2 hover:border-primary transition-colors duration-500">HOME</a>
                   </li>
+              {!isAuthenticated ? (
                   <li className="py-4">
                     <a href="/login" className="text-lg font-medium hover:text-primary py-2 hover:border-b-2 hover:border-primary transition-colors duration-500">LOGIN</a>
                   </li>
-                </>
               ) : (
                 <>
                   {Navlinks.map(({ id, name, link }) => {
