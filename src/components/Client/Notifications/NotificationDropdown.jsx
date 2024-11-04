@@ -1,53 +1,60 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+import React, { useEffect, useState } from 'react';
 
-const NotificationDropdown = ({ clientId }) => {
+const Notifications = ({ clientId }) => {
   const [notifications, setNotifications] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const loadClientNotifications = async () => {
-    try {
-      const response = await axios.get(`https://localhost:7080/api/Clients/notifications/${clientId}`, {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem("token")}`, // Assuming you store the token in localStorage
-          "Content-Type": "application/json",
-        },
-      });
-      setNotifications(response.data.$values || []); // Adjust according to your API response structure
-    } catch (error) {
-      console.error('Error fetching notifications:', error);
-      setError('Failed to load notifications.');
-    } finally {
-      setLoading(false);
-    }
-  };
-
   useEffect(() => {
-    loadClientNotifications();
+    const fetchNotifications = async () => {
+      try {
+        const response = await fetch(`https://localhost:7080/api/Clients/notifications/${clientId}`, {
+          method: 'GET',
+          headers: {
+            'Accept': 'text/plain',
+            'Authorization': 'Bearer YOUR_ACCESS_TOKEN' // Replace with your actual token
+          }
+        });
+
+        if (!response.ok) {
+          throw new Error('Failed to fetch notifications');
+        }
+
+        const data = await response.json();
+        setNotifications(data.$values);
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchNotifications();
   }, [clientId]);
 
-  if (loading) return <div>Loading...</div>;
-  if (error) return <div>Error: {error}</div>;
+  if (loading) {
+    return <div>Loading...</div>;
+  }
 
+  if (error) {
+    return <div>Error: {error}</div>;
+  }
+
+  
   return (
-    <div className="absolute right-0 mt-2 w-64 bg-white shadow-lg rounded-lg z-20">
-      <div className="p-4">
-        <h3 className="font-bold">Notifications</h3>
-        {notifications.length === 0 ? (
-          <p>No notifications available.</p>
-        ) : (
-          notifications.map((notification) => (
-            <div key={notification.notificationId} className="p-2 border-b">
-              <h4 className="font-semibold">{notification.title}</h4>
-              <p>{notification.message}</p>
-              <small>{new Date(notification.date).toLocaleString()}</small>
-            </div>
-          ))
-        )}
-      </div>
+    <div>
+      <h2>Notifications</h2>
+      <ul>
+        {notifications.map(notification => (
+          <li key={notification.notificationId}>
+            <h3>{notification.title}</h3>
+            <p>{notification.message}</p>
+            <p><strong>Date:</strong> {new Date(notification.date).toLocaleString()}</p>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };
 
-export default NotificationDropdown;
+export default Notifications;

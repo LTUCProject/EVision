@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes, useNavigate } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
@@ -10,35 +10,29 @@ import EVisionPage from "./components/Home/EVisionPage";
 import LoginSignup from "./components/Account/LoginSignup";
 import Logout from "./components/Account/Logout";
 import ResponsiveMenu from "./components/Navbar/ResponsiveMenu";
-import Vehicles from "./components/Client/Vehicle/Vehicle"; // Import your Vehicles component
-import ChargingStationAndLocationForm from "./components/Owner/ChargingStaion/ChargingStationAndLocationForm"; // Import the new form component
+import Vehicles from "./components/Client/Vehicle/Vehicle";
+import ChargingStationAndLocationForm from "./components/Owner/ChargingStaion/ChargingStationAndLocationForm";
 import Location from "./components/Client/Locations/Location";
 import ServiceInfo from "./components/Servicer/ServiceInfo/ServiceInfo";
 
 const App = () => {
   const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
-  const [isAuthenticated, setIsAuthenticated] = useState(!!localStorage.getItem("token")); // Check if user is authenticated
-  const [showMenu, setShowMenu] = useState(false); // Track menu visibility
+  const [isAuthenticated, setIsAuthenticated] = useState(!!localStorage.getItem("token"));
+  const [showMenu, setShowMenu] = useState(false);
 
   const handleLogout = () => {
-    setIsAuthenticated(false); // Update authentication state
-    localStorage.removeItem("token"); // Clear token on logout
+    setIsAuthenticated(false);
+    localStorage.removeItem("token");
     localStorage.removeItem("username");
     localStorage.removeItem("roles");
-   // window.location.reload();
-    navigate('/'); // Redirect to home page
 
+    window.location.href = '/';
   };
 
   useEffect(() => {
     const element = document.documentElement;
-    if (theme === "dark") {
-      element.classList.add("dark");
-      localStorage.setItem("theme", "dark");
-    } else {
-      element.classList.remove("dark");
-      localStorage.setItem("theme", "light");
-    }
+    element.classList.toggle("dark", theme === "dark");
+    localStorage.setItem("theme", theme);
   }, [theme]);
 
   useEffect(() => {
@@ -63,20 +57,19 @@ const App = () => {
         />
         <ResponsiveMenu showMenu={showMenu} />
         <Routes>
-  <Route path="/" element={<EVisionPage />} />
-  <Route path="/login" element={<LoginSignup setIsAuthenticated={setIsAuthenticated} />} />
- 
+          <Route path="/" element={<EVisionPage />} />
+          <Route path="/login" element={<LoginSignup setIsAuthenticated={setIsAuthenticated} />} />
+          <Route path="/logout" element={<Logout onLogout={handleLogout} />} />
 
-  {isAuthenticated && (
-    <>
-      <Route path="/vehicles" element={<Vehicles />} />
-      <Route path="/charging-station" element={<ChargingStationAndLocationForm />} />
-      <Route path="/location" element={<Location />} />
-      <Route path="/serviceinfo" element={<ServiceInfo />} />
-      <Route path="/logout" element={<Logout onLogout={handleLogout} />} />
-    </>
-  )}
-</Routes>
+          {isAuthenticated && (
+            <>
+              <Route path="/vehicles" element={<Vehicles />} />
+              <Route path="/charging-station" element={<ChargingStationAndLocationForm />} />
+              <Route path="/location" element={<Location />} />
+              <Route path="/serviceinfo" element={<ServiceInfo />} />
+            </>
+          )}
+        </Routes>
         <Footer />
       </Router>
     </div>

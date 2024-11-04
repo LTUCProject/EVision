@@ -20,10 +20,12 @@ const Logout = ({ onLogout }) => {
         // Clear session data
         localStorage.clear();
 
-        onLogout(); // Update authentication state
+        onLogout(); // Call the logout handler from App.js
         console.log('Logging out and navigating to home...');
-        navigate('/'); // Redirect to home page
-   
+        
+        // Navigate to the home page (using the desired URL)
+        window.location.href = '/'; // Redirect to home page
+
       } catch (error) {
         alert('Logout failed: ' + (error.response?.data?.message || 'Server error'));
       }
@@ -32,7 +34,7 @@ const Logout = ({ onLogout }) => {
     handleLogout();
   }, [navigate, onLogout]);
 
-  return null;
+  return null; // No UI to display, just perform logout
 };
 
 export default Logout;
