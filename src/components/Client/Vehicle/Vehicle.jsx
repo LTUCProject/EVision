@@ -3,6 +3,7 @@ import axios from 'axios';
 import './Vehicle.css'; // Importing CSS file
 
 const Vehicle = () => {
+    const [username, setUsername] = useState("");
     const [licensePlate, setLicensePlate] = useState('');
     const [model, setModel] = useState('');
     const [year, setYear] = useState(2024);
@@ -28,6 +29,7 @@ const Vehicle = () => {
 
     useEffect(() => {
         loadClientVehicles();
+        setUsername(localStorage.getItem("username") || "Guest");
     }, []);
 
     const handleSubmit = async (event) => {
@@ -67,7 +69,21 @@ const Vehicle = () => {
             setMessage(`Error adding vehicle: ${error.response ? error.response.data : error.message}`);
         }
     };
-    
+
+    const handleDelete = async (vehicleId) => {
+        try {
+            await axios.delete(`https://localhost:7080/api/Clients/vehicles/${vehicleId}`, {
+                headers: {
+                    Authorization: `Bearer ${localStorage.getItem("token")}`,
+                    "Content-Type": "application/json"
+                }
+            });
+            setMessage(`Vehicle with ID ${vehicleId} deleted successfully.`);
+            loadClientVehicles(); // Refresh the list of vehicles after deletion
+        } catch (error) {
+            setMessage(`Error deleting vehicle: ${error.response ? error.response.data : error.message}`);
+        }
+    };
 
     return (
         <div className="vehicle-container">
@@ -122,7 +138,7 @@ const Vehicle = () => {
             </form>
             {message && <p className="message">{message}</p>}
 
-            <h2 className="title">Client Vehicles</h2>
+            <h2 className="title">{username}'s Vehicles</h2>
             <table className="vehicle-table">
                 <thead>
                     <tr>
@@ -132,6 +148,7 @@ const Vehicle = () => {
                         <th>Year</th>
                         <th>Battery Capacity (kWh)</th>
                         <th>Electric Type</th>
+                        <th>Actions</th> {/* New Actions Column */}
                     </tr>
                 </thead>
                 <tbody>
@@ -143,6 +160,14 @@ const Vehicle = () => {
                             <td>{vehicle.year}</td>
                             <td>{vehicle.batteryCapacity}</td>
                             <td>{vehicle.electricType}</td>
+                            <td>
+                                <button 
+                                    className="delete-button" 
+                                    onClick={() => handleDelete(vehicle.vehicleId)}
+                                >
+                                    Delete
+                                </button>
+                            </td>
                         </tr>
                     ))}
                 </tbody>

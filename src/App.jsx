@@ -65,7 +65,7 @@ const App = () => {
         <Routes>
   <Route path="/" element={<EVisionPage />} />
   <Route path="/login" element={<LoginSignup setIsAuthenticated={setIsAuthenticated} />} />
-  <Route path="/logout" element={<Logout onLogout={handleLogout} />} />
+ 
 
   {isAuthenticated && (
     <>
@@ -73,6 +73,7 @@ const App = () => {
       <Route path="/charging-station" element={<ChargingStationAndLocationForm />} />
       <Route path="/location" element={<Location />} />
       <Route path="/serviceinfo" element={<ServiceInfo />} />
+      <Route path="/logout" element={<Logout onLogout={handleLogout} />} />
     </>
   )}
 </Routes>
