@@ -8,33 +8,31 @@ const Logout = ({ onLogout }) => {
   useEffect(() => {
     const handleLogout = async () => {
       try {
-        const username = localStorage.getItem('username'); // Ensure you save the username during login
-        await axios.post('https://localhost:7080/api/Account/Logout', { username }, {
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        });
+        const username = localStorage.getItem('username');
+        await axios.post(
+          'https://localhost:7080/api/Account/Logout',
+          { username },
+          {
+            headers: { 'Content-Type': 'application/json' },
+          }
+        );
 
-        // Clear all stored user information from localStorage
-        localStorage.removeItem('token');
-        localStorage.removeItem('username');
-        localStorage.removeItem('roles'); // Ensure roles are removed
+        // Clear session data
+        localStorage.clear();
 
-        localStorage.clear(); 
-
-        onLogout(); // Call the logout function passed as a prop
-        navigate('/'); // Redirect to home or any other page
-        window.location.reload(); // Refresh the page
+        onLogout(); // Update authentication state
+        console.log('Logging out and navigating to home...');
+        navigate('/'); // Redirect to home page
+   
       } catch (error) {
         alert('Logout failed: ' + (error.response?.data?.message || 'Server error'));
       }
     };
 
-    
     handleLogout();
   }, [navigate, onLogout]);
 
-  return null; // No UI needed, just redirecting
+  return null;
 };
 
 export default Logout;

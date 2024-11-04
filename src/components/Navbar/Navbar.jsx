@@ -16,6 +16,7 @@ const Navbar = ({ theme, setTheme, isAuthenticated, onLogout }) => {
   const [showMenu, setShowMenu] = useState(false);
   const [userRole, setUserRole] = useState(null);
 
+  
   useEffect(() => {
     // Get user role from local storage
     const role = localStorage.getItem("roles"); // Adjusted to match your localStorage key
@@ -26,6 +27,7 @@ const Navbar = ({ theme, setTheme, isAuthenticated, onLogout }) => {
     setShowMenu(!showMenu);
   };
 
+  
   return (
     <div className="relative z-10 shadow-md w-full dark:bg-black dark:text-white duration-300">
       <div className="container py-2">
