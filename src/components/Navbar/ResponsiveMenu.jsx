@@ -58,7 +58,7 @@ const ResponsiveMenu = ({ showMenu, onLogout }) => {
             <h1 className="text-sm text-slate-500">{role}</h1>
           </div>
         </div>
-        <nav className="mt-12">
+        {/* <nav className="mt-12">
           <ul className="space-y-4 text-xl">
             {Navlinks.map((data, index) => (
               <li key={index}>
@@ -68,7 +68,7 @@ const ResponsiveMenu = ({ showMenu, onLogout }) => {
               </li>
             ))}
           </ul>
-        </nav>
+        </nav> */}
       </div>
       <div className="footer">
         <button onClick={handleDeleteAccount} className="btn-delete-account text-red-500">

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { BiSolidSun, BiSolidMoon } from "react-icons/bi";
 import { HiMenuAlt3, HiMenuAlt1 } from "react-icons/hi";
 import ResponsiveMenu from "./ResponsiveMenu";
+import NotificationDropdown from "../Client/Notifications/NotificationDropdown";
 
 export const Navlinks = [
   { id: 1, name: "HOME", link: "/#" },
@@ -9,14 +10,14 @@ export const Navlinks = [
   { id: 3, name: "CHARGING STATION", link: "/charging-station" }, // Link for Charging Station (only for Owners)
   { id: 4, name: "CHARGING STATION LOCATIONS", link: "/location" }, // Link for Charging Station Locations
   { id: 5, name: "My Services", link: "/serviceinfo" }
-
 ];
 
 const Navbar = ({ theme, setTheme, isAuthenticated, onLogout }) => {
   const [showMenu, setShowMenu] = useState(false);
+  const [showNotifications, setShowNotifications] = useState(false);
   const [userRole, setUserRole] = useState(null);
+  const clientId = 1; // Replace with actual clientId logic, possibly from context or props
 
-  
   useEffect(() => {
     // Get user role from local storage
     const role = localStorage.getItem("roles"); // Adjusted to match your localStorage key
@@ -27,7 +28,10 @@ const Navbar = ({ theme, setTheme, isAuthenticated, onLogout }) => {
     setShowMenu(!showMenu);
   };
 
-  
+  const toggleNotifications = () => {
+    setShowNotifications(!showNotifications);
+  };
+
   return (
     <div className="relative z-10 shadow-md w-full dark:bg-black dark:text-white duration-300">
       <div className="container py-2">
@@ -49,7 +53,6 @@ const Navbar = ({ theme, setTheme, isAuthenticated, onLogout }) => {
               ) : (
                 <>
                   {Navlinks.map(({ id, name, link }) => {
-                    // Condition to display links based on user role
                     if (userRole === "Owner" && name === "CHARGING STATION") {
                       return (
                         <li key={id} className="py-4">
@@ -68,7 +71,7 @@ const Navbar = ({ theme, setTheme, isAuthenticated, onLogout }) => {
                           <a href={link} className="text-lg font-medium hover:text-primary py-2 hover:border-b-2 hover:border-primary transition-colors duration-500">{name}</a>
                         </li>
                       );
-                    }else if ((userRole === "Servicer") && name === "My Services") {
+                    } else if ((userRole === "Servicer") && name === "My Services") {
                       return (
                         <li key={id} className="py-4">
                           <a href={link} className="text-lg font-medium hover:text-primary py-2 hover:border-b-2 hover:border-primary transition-colors duration-500">{name}</a>
@@ -92,6 +95,16 @@ const Navbar = ({ theme, setTheme, isAuthenticated, onLogout }) => {
             ) : (
               <BiSolidMoon onClick={() => setTheme('dark')} className="text-2xl cursor-pointer" />
             )}
+            
+            {userRole === "Client" && ( // Show notifications only for Clients
+              <button onClick={toggleNotifications} className="relative">
+                <span className="text-2xl">🔔</span>
+                {showNotifications && (
+                  <NotificationDropdown clientId={clientId} /> // Pass clientId to NotificationDropdown
+                )}
+              </button>
+            )}
+            
             {showMenu ? (
               <HiMenuAlt1 onClick={toggleMenu} className="cursor-pointer transition-all" size={30} />
             ) : (
