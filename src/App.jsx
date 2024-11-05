@@ -15,6 +15,8 @@ import ChargingStationAndLocationForm from "./components/Owner/ChargingStaion/Ch
 import Location from "./components/Client/Locations/Location";
 import ServiceInfo from "./components/Servicer/ServiceInfo/ServiceInfo";
 import PostsAndComments from "./components/PostsAndComments/PostsAndComments";
+import SendNotifications from "./components/Servicer/SendNotifications/SendServicerNotifications";
+import SendOwnerNotifications from "./components/Owner/SendNotifications/SendOwnerNotifications";
 
 const App = () => {
   const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
@@ -69,6 +71,11 @@ const App = () => {
               <Route path="/charging-station" element={<ChargingStationAndLocationForm />} />
               <Route path="/location" element={<Location />} />
               <Route path="/serviceinfo" element={<ServiceInfo />} />
+              <Route path="/SendNotifications" element={<SendNotifications />} />
+              <Route path="/SendOwnerNotifications" element={<SendOwnerNotifications />} />
+
+
+              
             </>
           )}
         </Routes>

@@ -10,7 +10,9 @@ export const Navlinks = [
   { id: 3, name: "CHARGING STATION", link: "/charging-station" }, // Link for Charging Station (only for Owners)
   { id: 4, name: "CHARGING STATION LOCATIONS", link: "/location" }, // Link for Charging Station Locations
   { id: 5, name: "My Services", link: "/serviceinfo" },
-  { id: 6, name: "POSTS", link: "/postsandcomments" }
+  { id: 6, name: "POSTS", link: "/postsandcomments" },
+  { id: 7, name: "Send Notifications", link: "/SendNotifications" } ,// Adjusted link name for clarity
+  { id: 8, name: "SendOwnerNotifications", link: "/SendOwnerNotifications" }, // New link for Owner
 
 ];
 
@@ -43,49 +45,76 @@ const Navbar = ({ theme, setTheme, isAuthenticated, onLogout }) => {
           </div>
           <nav className="hidden md:flex">
             <ul className="flex items-center gap-8">
-            <li className="py-4">
-                    <a href="/#" className="text-lg font-medium hover:text-primary py-2 hover:border-b-2 hover:border-primary transition-colors duration-500">HOME</a>
-                  </li>
+              <li className="py-4">
+                <a href="/#" className="text-lg font-medium hover:text-primary py-2 hover:border-b-2 hover:border-primary transition-colors duration-500">HOME</a>
+              </li>
               {!isAuthenticated ? (
-                  <li className="py-4">
-                    <a href="/login" className="text-lg font-medium hover:text-primary py-2 hover:border-b-2 hover:border-primary transition-colors duration-500">LOGIN</a>
-                  </li>
+                <li className="py-4">
+                  <a href="/login" className="text-lg font-medium hover:text-primary py-2 hover:border-b-2 hover:border-primary transition-colors duration-500">LOGIN</a>
+                </li>
               ) : (
                 <>
                   {Navlinks.map(({ id, name, link }) => {
-                    if (userRole === "Owner" && name === "CHARGING STATION") {
-                      return (
-                        <li key={id} className="py-4">
-                          <a href={link} className="text-lg font-medium hover:text-primary py-2 hover:border-b-2 hover:border-primary transition-colors duration-500">{name}</a>
-                        </li>
-                      );
-                    } else if ((userRole === "Client" || userRole === "Admin") && name === "CHARGING STATION LOCATIONS") {
-                      return (
-                        <li key={id} className="py-4">
-                          <a href={link} className="text-lg font-medium hover:text-primary py-2 hover:border-b-2 hover:border-primary transition-colors duration-500">{name}</a>
-                        </li>
-                      );
-                    } else if ((userRole === "Client" || userRole === "Admin") && name === "POSTS") {
-                      return (
-                        <li key={id} className="py-4">
-                          <a href={link} className="text-lg font-medium hover:text-primary py-2 hover:border-b-2 hover:border-primary transition-colors duration-500">{name}</a>
-                        </li>
-                      );
-                    } else if ((userRole === "Client" || userRole === "Admin") && name === "VEHICLES") {
-                      return (
-                        <li key={id} className="py-4">
-                          <a href={link} className="text-lg font-medium hover:text-primary py-2 hover:border-b-2 hover:border-primary transition-colors duration-500">{name}</a>
-                        </li>
-                      );
-                    } else if ((userRole === "Servicer") && name === "My Services") {
-                      return (
-                        <li key={id} className="py-4">
-                          <a href={link} className="text-lg font-medium hover:text-primary py-2 hover:border-b-2 hover:border-primary transition-colors duration-500">{name}</a>
-                        </li>
-                      );
-                    }
-                    return null; // Return null for links not displayed based on role
-                  })}
+  if (userRole === "Owner" && name === "CHARGING STATION") {
+    return (
+      <li key={id} className="py-4">
+        <a href={link} className="text-lg font-medium hover:text-primary py-2 hover:border-b-2 hover:border-primary transition-colors duration-500">
+          {name}
+        </a>
+      </li>
+    );
+  } else if (userRole === "Owner" && name === "Send Notifications") {
+    return (
+      <li key={id} className="py-4">
+        <a href={link} className="text-lg font-medium hover:text-primary py-2 hover:border-b-2 hover:border-primary transition-colors duration-500">
+          {name}
+        </a>
+      </li>
+    );
+  } else if ((userRole === "Client" || userRole === "Admin") && name === "CHARGING STATION LOCATIONS") {
+    return (
+      <li key={id} className="py-4">
+        <a href={link} className="text-lg font-medium hover:text-primary py-2 hover:border-b-2 hover:border-primary transition-colors duration-500">
+          {name}
+        </a>
+      </li>
+    );
+  } else if ((userRole === "Client" || userRole === "Admin") && name === "POSTS") {
+    return (
+      <li key={id} className="py-4">
+        <a href={link} className="text-lg font-medium hover:text-primary py-2 hover:border-b-2 hover:border-primary transition-colors duration-500">
+          {name}
+        </a>
+      </li>
+    );
+  } else if ((userRole === "Client" || userRole === "Admin") && name === "VEHICLES") {
+    return (
+      <li key={id} className="py-4">
+        <a href={link} className="text-lg font-medium hover:text-primary py-2 hover:border-b-2 hover:border-primary transition-colors duration-500">
+          {name}
+        </a>
+      </li>
+    );
+  } else if (userRole === "Servicer" && name === "My Services") {
+    return (
+      <li key={id} className="py-4">
+        <a href={link} className="text-lg font-medium hover:text-primary py-2 hover:border-b-2 hover:border-primary transition-colors duration-500">
+          {name}
+        </a>
+      </li>
+    );
+  } else if (userRole === "Servicer" && name === "Send Notifications") {
+    return (
+      <li key={id} className="py-4">
+        <a href={link} className="text-lg font-medium hover:text-primary py-2 hover:border-b-2 hover:border-primary transition-colors duration-500">
+          {name}
+        </a>
+      </li>
+    );
+  }
+  return null; // Return null for links not displayed based on role
+})}
+
                   {isAuthenticated && (
                     <li className="py-4">
                       <button onClick={onLogout} className="text-lg font-medium hover:text-primary py-2">LOGOUT</button>
@@ -102,11 +131,11 @@ const Navbar = ({ theme, setTheme, isAuthenticated, onLogout }) => {
               <BiSolidMoon onClick={() => setTheme('dark')} className="text-2xl cursor-pointer" />
             )}
             
-            {userRole === "Client" && ( // Show notifications only for Clients
+            {userRole === "Client" && (
               <button onClick={toggleNotifications} className="relative">
                 <span className="text-2xl">🔔</span>
                 {showNotifications && (
-                  <NotificationDropdown clientId={clientId} /> // Pass clientId to NotificationDropdown
+                  <NotificationDropdown clientId={clientId} />
                 )}
               </button>
             )}

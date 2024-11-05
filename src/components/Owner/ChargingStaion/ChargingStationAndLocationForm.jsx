@@ -339,6 +339,7 @@ const ChargingStationAndLocationForm = () => {
                 </Button>
             </form>
 
+
             {/* Charger Form - This will only show if there are charging stations */}
             {chargingStations.length > 0 && (
                 <form className="charger-form" onSubmit={handleChargerSubmit}>
