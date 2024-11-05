@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
-import { useNavigate } from "react-router-dom"; // Import useNavigate
+import { useNavigate } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
+import carImage from '../../assets/car1.png';
 import "./Login.css";
 
-const Login = ({ setIsAuthenticated }) => {
+
+const LoginSignup = ({ setIsAuthenticated }) => {
   const [isLoginActive, setIsLoginActive] = useState(true);
   const [loginUsername, setLoginUsername] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
@@ -14,7 +16,14 @@ const Login = ({ setIsAuthenticated }) => {
   const [signupPassword, setSignupPassword] = useState("");
   const [signupRole, setSignupRole] = useState("Client");
 
-  const navigate = useNavigate(); // Initialize useNavigate
+  const [isForgotPassword, setIsForgotPassword] = useState(false);
+  const [forgetPasswordEmail, setForgetPasswordEmail] = useState("");
+  const [isVerifyCode, setIsVerifyCode] = useState(false);
+  const [verificationCode, setVerificationCode] = useState("");
+  const [isResetPassword, setIsResetPassword] = useState(false);
+  const [newPassword, setNewPassword] = useState("");
+
+  const navigate = useNavigate();
 
   const handleSwitch = () => {
     setIsLoginActive(!isLoginActive);
@@ -36,17 +45,16 @@ const Login = ({ setIsAuthenticated }) => {
         }
       );
       localStorage.setItem("token", response.data.token);
-      localStorage.setItem("username", loginUsername); // Save username
-      const rolesArray = response.data.roles.$values; // Access the array of roles
-      const roleString = rolesArray[0]; // Get the first role as a string
-      localStorage.setItem("roles", roleString); // Store the string directly
-      setIsAuthenticated(true); // Update authentication state
+      localStorage.setItem("username", loginUsername);
+      localStorage.setItem("roles", response.data.roles.$values);
+      setIsAuthenticated(true);
       toast.success("Login successful");
+
       
       setTimeout(() => {
-        navigate("/"); // Redirect to home page after successful login
+        navigate("/");
         window.location.reload();
-      }, 1500); // Optional delay to show the toast before redirecting
+      }, 1500);
     } catch (error) {
       toast.error("Login failed: " + (error.response?.data?.message || "Server error"));
     }
@@ -70,98 +78,87 @@ const Login = ({ setIsAuthenticated }) => {
         }
       );
       toast.success("Signup successful");
+      handleSwitch(); // Switch to login after signup
     } catch (error) {
       toast.error("Signup failed: " + (error.response?.data?.message || "Server error"));
     }
   };
 
-  return (
-    <section className="forms-section">
-      <ToastContainer position="top-center" autoClose={3000} hideProgressBar={false} />
-      <h1 className="section-title">Login & Signup Forms</h1>
-      <div className="forms">
-        {/* Login Form */}
-        <div className={`form-wrapper ${isLoginActive ? "is-active" : ""}`}>
-          <button type="button" className="switcher switcher-login" onClick={handleSwitch}>
-            Login
-            <span className="underline"></span>
-          </button>
-          <form className="form form-login" onSubmit={handleLoginSubmit}>
-            <fieldset>
-              <legend>Please, enter your username and password for login.</legend>
-              <div className="input-block">
-                <label htmlFor="login-username">Username</label>
-                <input
-                  id="login-username"
-                  type="text"
-                  required
-                  value={loginUsername}
-                  onChange={(e) => setLoginUsername(e.target.value)}
-                />
-              </div>
-              <div className="input-block">
-                <label htmlFor="login-password">Password</label>
-                <input
-                  id="login-password"
-                  type="password"
-                  required
-                  value={loginPassword}
-                  onChange={(e) => setLoginPassword(e.target.value)}
-                />
-              </div>
-            </fieldset>
-            <button type="submit" className="btn-login">
-              Login
-            </button>
-          </form>
-        </div>
+  const handleForgetPassword = async () => {
+    try {
+      await axios.post(`https://localhost:7080/api/Account/ResetPassword?email=${forgetPasswordEmail}`);
+      setForgetPasswordEmail("");
+      setIsForgotPassword(false);
+      setIsVerifyCode(true);
+    } catch (error) {
+      toast.error("Forget Password error: " + (error.response?.data?.message || error.message));
+    }
+  };
 
-        {/* Signup Form */}
-        <div className={`form-wrapper ${isLoginActive ? "" : "is-active"}`}>
-          <button type="button" className="switcher switcher-signup" onClick={handleSwitch}>
-            Sign Up
-            <span className="underline"></span>
-          </button>
-          <form className="form form-signup" onSubmit={handleSignupSubmit}>
-            <fieldset>
-              <legend>Please, enter your email, password, and username for sign up.</legend>
-              <div className="input-block">
-                <label htmlFor="signup-username">Username</label>
-                <input
-                  id="signup-username"
-                  type="text"
-                  required
-                  value={signupUsername}
-                  onChange={(e) => setSignupUsername(e.target.value)}
-                />
+  const handleVerifyCode = async () => {
+    try {
+      const response = await axios.post(`https://localhost:7080/api/Account/ValidateCode?code=${verificationCode}`);
+      if (response.data) {
+        setIsVerifyCode(false);
+        setIsResetPassword(true);
+      } else {
+        toast.error("Invalid verification code. Please try again.");
+      }
+    } catch (error) {
+      toast.error("Verification error: " + (error.response?.data?.message || error.message));
+    }
+  };
+
+  const handleNewPassword = async () => {
+    try {
+      await axios.post(`https://localhost:7080/api/Account/NewPassword?newPassword=${newPassword}&code=${verificationCode}`);
+      toast.success("Password reset successfully!");
+      setIsResetPassword(false);
+      navigate('/Login', { replace: true });
+    } catch (error) {
+      toast.error("Reset password error: " + (error.response?.data?.message || error.message));
+    }
+  };
+
+  const showForgetPassword = () => {
+    setIsForgotPassword(true);
+  };
+
+  return (
+    <div id="auth-container" className={`auth-container ${isLoginActive ? 'auth-sign-in' : 'auth-sign-up'}`} style={{ width: '1650px' }}>
+            <img src={carImage} alt="Moving Car" className="car-background" />
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+    
+      <div className="auth-row">
+        {/* SIGN UP FORM */}
+        <div className="auth-col auth-align-items-center auth-flex-col auth-sign-up">
+          <div className="auth-form-wrapper auth-align-items-center">
+            <div className="auth-form auth-sign-up">
+              <div className="auth-input-group">
+                <i className='bx bxs-user'></i>
+                <input type="text" placeholder="Username" value={signupUsername} onChange={(e) => setSignupUsername(e.target.value)} />
               </div>
-              <div className="input-block">
-                <label htmlFor="signup-email">E-mail</label>
-                <input
-                  id="signup-email"
-                  type="email"
-                  required
-                  value={signupEmail}
-                  onChange={(e) => setSignupEmail(e.target.value)}
-                />
+              <div className="auth-input-group">
+                <i className='bx bx-mail-send'></i>
+                <input type="email" placeholder="Email" value={signupEmail} onChange={(e) => setSignupEmail(e.target.value)} />
               </div>
-              <div className="input-block">
-                <label htmlFor="signup-password">Password</label>
-                <input
-                  id="signup-password"
-                  type="password"
-                  required
-                  value={signupPassword}
-                  onChange={(e) => setSignupPassword(e.target.value)}
-                />
+              <div className="auth-input-group">
+                <i className='bx bxs-lock-alt'></i>
+                <input type="password" placeholder="Password" value={signupPassword} onChange={(e) => setSignupPassword(e.target.value)} />
               </div>
-              <div className="input-block">
-                <label htmlFor="signup-role">Role</label>
+              <div className="auth-input-group">
+                <i className='bx bx-mail-send'></i>
                 <select
-                  id="signup-role"
                   value={signupRole}
                   onChange={(e) => setSignupRole(e.target.value)}
-                  required
                 >
                   <option value="Admin">Admin</option>
                   <option value="Client">Client</option>
@@ -169,15 +166,90 @@ const Login = ({ setIsAuthenticated }) => {
                   <option value="Servicer">Servicer</option>
                 </select>
               </div>
-            </fieldset>
-            <button type="submit" className="btn-signup">
-              Sign Up
-            </button>
-          </form>
+              <button onClick={handleSignupSubmit}>Sign up</button>
+              <p>
+                <span>Already have an account?</span>
+                <b onClick={handleSwitch} className="auth-pointer">Sign in here</b>
+              </p>
+            </div>
+          </div>
         </div>
+
+        {/* SIGN IN FORM */}
+        {!isForgotPassword && !isVerifyCode && !isResetPassword && (
+          <div className="auth-col auth-align-items-center auth-flex-col auth-sign-in">
+            <div className="auth-form-wrapper auth-align-items-center">
+              <div className="auth-form auth-sign-in">
+                <div className="auth-input-group">
+                  <i className='bx bxs-user'></i>
+                  <input type="text" placeholder="Username" value={loginUsername} onChange={(e) => setLoginUsername(e.target.value)} />
+                </div>
+                <div className="auth-input-group">
+                  <i className='bx bxs-lock-alt'></i>
+                  <input type="password" placeholder="Password" value={loginPassword} onChange={(e) => setLoginPassword(e.target.value)} />
+                </div>
+                <button onClick={handleLoginSubmit}>Sign in</button>
+                <p><b onClick={showForgetPassword} className="auth-pointer">Forgot password?</b></p>
+                <p>
+                  <span>Don't have an account?</span>
+                  <b onClick={handleSwitch} className="auth-pointer">Sign up here</b>
+                </p>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Forget Password Email */}
+        {isForgotPassword && (
+          <div className="auth-col auth-align-items-center auth-flex-col auth-sign-in">
+            <div className="auth-form-wrapper auth-align-items-center">
+              <div className="auth-form auth-sign-in">
+                <div className="auth-input-group">
+                  <i className='bx bx-mail-send'></i>
+                  <input type="email" placeholder="Email" value={forgetPasswordEmail} onChange={(e) => setForgetPasswordEmail(e.target.value)} />
+                </div>
+                <button onClick={handleForgetPassword}>Verify</button>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Verification Code Form */}
+        {isVerifyCode && (
+          <div className="auth-col auth-align-items-center auth-flex-col auth-sign-in">
+            <div className="auth-form-wrapper auth-align-items-center">
+              <div className="auth-form auth-sign-in">
+                <div className="auth-input-group">
+                  <i className='bx bxs-lock-alt'></i>
+                  <input type="text" placeholder="Enter Verification Code" value={verificationCode} onChange={(e) => setVerificationCode(e.target.value)} />
+                </div>
+                <button onClick={handleVerifyCode}>Submit</button>
+                <p><b onClick={handleSwitch} className="auth-pointer">Back to Sign In</b></p>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* New Password Form */}
+        {isResetPassword && (
+          <div className="auth-col auth-align-items-center auth-flex-col auth-sign-in">
+            <div className="auth-form-wrapper auth-align-items-center">
+              <div className="auth-form auth-sign-in">
+                <div className="auth-input-group">
+                  <i className='bx bxs-lock-alt'></i>
+                  <input type="password" placeholder="New Password" value={newPassword} onChange={(e) => setNewPassword(e.target.value)} />
+                </div>
+                <button onClick={handleNewPassword}>Reset Password</button>
+                <p><b onClick={handleSwitch} className="auth-pointer">Back to Sign In</b></p>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
-    </section>
+
+      <ToastContainer position="top-right" autoClose={5000} hideProgressBar={false} closeOnClick pauseOnFocusLoss draggable pauseOnHover />
+    </div>
   );
 };
 
-export default Login;
+export default LoginSignup;
