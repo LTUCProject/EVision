@@ -50,7 +50,7 @@ const LoginSignup = ({ setIsAuthenticated }) => {
       setIsAuthenticated(true);
       toast.success("Login successful");
 
-      
+
       setTimeout(() => {
         navigate("/");
         window.location.reload();
@@ -126,7 +126,7 @@ const LoginSignup = ({ setIsAuthenticated }) => {
 
   return (
     <div id="auth-container" className={`auth-container ${isLoginActive ? 'auth-sign-in' : 'auth-sign-up'}`} style={{ width: '1650px' }}>
-            <img src={carImage} alt="Moving Car" className="car-background" />
+            {/* <img src={carImage} alt="Moving Car" className="car-background" /> */}
             <div class="bubble"></div>
             <div class="bubble"></div>
             <div class="bubble"></div>
