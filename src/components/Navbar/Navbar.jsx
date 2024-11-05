@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { BiSolidSun, BiSolidMoon } from "react-icons/bi";
 import { HiMenuAlt3, HiMenuAlt1 } from "react-icons/hi";
 import ResponsiveMenu from "./ResponsiveMenu";
-import NotificationDropdown from "../Client/Notifications/NotificationDropdown";
+import NotificationDropdown from "../Client/Notifications/Notification";
 
 export const Navlinks = [
   { id: 1, name: "HOME", link: "/#" },

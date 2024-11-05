@@ -6,6 +6,7 @@ import './ChargingStationAndLocationForm.css';
 import Button from 'react-bootstrap/Button';
 import { toast } from 'react-toastify';
 import MaintenanceLog from '../MaintenanceLog/MaintenanceLog';
+import Booking from '../Booking/Booking';
 
 const jordanBounds = [
     [29.1852, 34.9596],
@@ -48,6 +49,8 @@ const ChargingStationAndLocationForm = () => {
     const [mapCenter, setMapCenter] = useState([31.5, 36.0]);
     const [chargingStations, setChargingStations] = useState([]);
     const [selectedStationId, setSelectedStationId] = useState(null);
+    const [selectedMaintenanceStationId, setSelectedMaintenanceStationId] = useState(null);
+    const [selectedBookingStationId, setSelectedBookingStationId] = useState(null);
 
     useEffect(() => {
         if (navigator.geolocation) {
@@ -227,6 +230,7 @@ const ChargingStationAndLocationForm = () => {
     const handleStationSelect = (id) => {
         setSelectedStationId(id);
     };
+    
 
     return (
         <div className="charging-station-form-container">
@@ -468,12 +472,13 @@ const ChargingStationAndLocationForm = () => {
                 </div>
             </div>
 
-            {/* Select Station Dropdown */}
+            <div>
+            {/* Select Station Dropdown for Maintenance Log */}
             <label className="form-label">
-                Station's MaintenanceLog:
+                Station's Maintenance Log:
                 <select
-                    onChange={(e) => handleStationSelect(e.target.value)}
-                    value={selectedStationId}
+                    onChange={(e) => setSelectedMaintenanceStationId(e.target.value)}
+                    value={selectedMaintenanceStationId}
                     className="form-input"
                     required
                 >
@@ -487,7 +492,29 @@ const ChargingStationAndLocationForm = () => {
             </label>
 
             {/* Show MaintenanceLog if a station is selected */}
-            {selectedStationId && <MaintenanceLog stationId={selectedStationId} />}
+            {selectedMaintenanceStationId && <MaintenanceLog stationId={selectedMaintenanceStationId} />}
+
+            {/* Select Station Dropdown for Bookings */}
+            <label className="form-label">
+                Station's Bookings:
+                <select
+                    onChange={(e) => setSelectedBookingStationId(e.target.value)}
+                    value={selectedBookingStationId}
+                    className="form-input"
+                    required
+                >
+                    <option value="">Select a Charging Station</option>
+                    {chargingStations.map(station => (
+                        <option key={station.chargingStationId} value={station.chargingStationId}>
+                            {station.name} - {station.stationLocation}
+                        </option>
+                    ))}
+                </select>
+            </label>
+
+            {/* Booking component rendering */}
+            {selectedBookingStationId && <Booking stationId={selectedBookingStationId} />}
+        </div>
 
         </div>
     );
