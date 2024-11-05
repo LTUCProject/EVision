@@ -1,0 +1,82 @@
+.posts-and-comments-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.posts-header, .create-post-header, .posts-list-header, .add-comment-header {
+    color: #333;
+}
+
+.post-form, .comment-form {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.post-title-input, .post-content-textarea, .comment-post-id-input, .comment-content-textarea {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.submit-post-button, .submit-comment-button {
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.submit-post-button:hover, .submit-comment-button:hover {
+    background-color: #0056b3;
+}
+
+.posts-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.post-item {
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+}
+
+.post-title {
+    font-size: 1.5em;
+    margin: 0;
+}
+
+.post-content {
+    margin: 10px 0;
+}
+
+.post-author-date {
+    font-size: 0.9em;
+    color: #666;
+}
+
+.comments-header {
+    margin-top: 15px;
+}
+
+.comments-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.comment-item {
+    border-top: 1px solid #ccc;
+    padding: 10px 0;
+}
+
+.comment-content {
+    font-size: 0.9em;
+    color: #333;
+}
