@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const SendOwnerNotifications = () => {
-  const [clientId, setClientId] = useState('');
+const SendNotifications = ({ clientId, closeModal }) => {
   const [title, setTitle] = useState('');
   const [message, setMessage] = useState('');
   const [date, setDate] = useState(new Date().toISOString());
@@ -19,11 +18,9 @@ const SendOwnerNotifications = () => {
     };
 
     try {
-      // Retrieve the token from localStorage
       const token = localStorage.getItem("token");
-
       const response = await axios.post(
-        'https://localhost:7080/api/Owner/OwnerNotifications',
+        'https://localhost:7080/api/Servicer/ServicerNotifications',
         notificationData,
         {
           headers: {
@@ -31,8 +28,8 @@ const SendOwnerNotifications = () => {
           },
         }
       );
-
       setResponseMessage(`Notification sent: ${response.data}`);
+      closeModal(); // Close the modal after sending notification
     } catch (error) {
       console.error('Error sending notification:', error);
       setResponseMessage('Failed to send notification.');
@@ -43,15 +40,6 @@ const SendOwnerNotifications = () => {
     <div>
       <h2>Send Notification</h2>
       <form onSubmit={handleSubmit}>
-        <div>
-          <label>Client ID:</label>
-          <input
-            type="number"
-            value={clientId}
-            onChange={(e) => setClientId(e.target.value)}
-            required
-          />
-        </div>
         <div>
           <label>Title:</label>
           <input
@@ -80,9 +68,9 @@ const SendOwnerNotifications = () => {
         </div>
         <button type="submit">Send Notification</button>
       </form>
-      {responseMessage && <p>Sent suceesfully</p>}
+      {responseMessage && <p>{responseMessage}</p>}
     </div>
   );
 };
 
-export default SendOwnerNotifications;
+export default SendNotifications;

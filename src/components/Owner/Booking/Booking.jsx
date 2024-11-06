@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import './Booking.css';
+import SendOwnerNotifications from '../SendNotifications/SendOwnerNotifications'; 
 
 const Booking = ({ stationId }) => {
     const [bookings, setBookings] = useState([]);
@@ -10,6 +11,7 @@ const Booking = ({ stationId }) => {
     const [newStatus, setNewStatus] = useState('');
     const [newCost, setNewCost] = useState(0);
     const [isFetchingPending, setIsFetchingPending] = useState(false);
+    const [notificationModalOpen, setNotificationModalOpen] = useState(false);
 
     useEffect(() => {
         if (stationId) {
@@ -35,7 +37,6 @@ const Booking = ({ stationId }) => {
         }
     };
 
-    // New function to fetch pending bookings
     const fetchPendingBookings = async () => {
         setIsFetchingPending(true);
         try {
@@ -53,7 +54,6 @@ const Booking = ({ stationId }) => {
             toast.error("Failed to load pending bookings.");
         }
     };
-    
 
     const handleUpdate = async (bookingId) => {
         try {
@@ -69,8 +69,8 @@ const Booking = ({ stationId }) => {
 
             if (response.status === 204) {
                 toast.success("Booking updated successfully!");
-                fetchBookings(); // Refresh bookings after update
-                closeModal(); // Close modal after update
+                fetchBookings();
+                closeModal();
             }
         } catch (error) {
             console.error('Error updating booking:', error);
@@ -80,8 +80,8 @@ const Booking = ({ stationId }) => {
 
     const openModal = (booking) => {
         setSelectedBooking(booking);
-        setNewStatus(booking.status); // Pre-fill current status
-        setNewCost(booking.cost); // Pre-fill current cost
+        setNewStatus(booking.status);
+        setNewCost(booking.cost);
         setModalOpen(true);
     };
 
@@ -90,6 +90,16 @@ const Booking = ({ stationId }) => {
         setSelectedBooking(null);
         setNewStatus('');
         setNewCost(0);
+    };
+
+    const openNotificationModal = (booking) => {
+        setSelectedBooking(booking);
+        setNotificationModalOpen(true);
+    };
+
+    const closeNotificationModal = () => {
+        setNotificationModalOpen(false);
+        setSelectedBooking(null);
     };
 
     return (
@@ -113,6 +123,7 @@ const Booking = ({ stationId }) => {
                             <strong> Status:</strong> {booking.status} | 
                             <strong> Cost:</strong> ${booking.cost}
                             <button onClick={() => openModal(booking)}>Update Booking</button>
+                            <button onClick={() => openNotificationModal(booking)}>Send Notification</button>
                         </li>
                     ))}
                 </ul>
@@ -120,16 +131,25 @@ const Booking = ({ stationId }) => {
                 <p>No bookings available for this station.</p>
             )}
 
-            {modalOpen && (
+{modalOpen && (
                 <div className="modal-overlay">
                     <div className="modal-content">
                         <h2>Update Booking</h2>
-                        <input 
-                            type="text" 
-                            placeholder="New Status" 
-                            value={newStatus}
-                            onChange={(e) => setNewStatus(e.target.value)} 
-                        />
+                        
+                        {/* Booking Status Dropdown */}
+                        <label className="form-label">
+                            Status:
+                            <select
+                                value={newStatus}
+                                onChange={(e) => setNewStatus(e.target.value)}
+                                className="form-input"
+                            >
+                                <option value="Pending">Pending</option>
+                                <option value="Completed">Completed</option>
+                                <option value="Cancelled">Cancelled</option>
+                            </select>
+                        </label>
+    
                         <input 
                             type="number" 
                             placeholder="New Cost" 
@@ -138,6 +158,18 @@ const Booking = ({ stationId }) => {
                         />
                         <button onClick={() => handleUpdate(selectedBooking.bookingId)}>Save Changes</button>
                         <button onClick={closeModal}>Cancel</button>
+                    </div>
+                </div>
+            )}
+
+            {notificationModalOpen && selectedBooking && (
+                <div className="modal-overlay">
+                    <div className="modal-content">
+                        <SendOwnerNotifications
+                            clientId={selectedBooking.clientId} // Pass the client ID directly
+                            closeNotificationModal={closeNotificationModal} // Function to close modal
+                        />
+                        <button onClick={closeNotificationModal}>Close</button>
                     </div>
                 </div>
             )}
