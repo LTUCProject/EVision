@@ -1,89 +1,243 @@
-/* MaintenanceLog.css */
+/* Main container styling */
 .maintenance-log-container {
-    max-width: 600px;
-    margin: 20px auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    background-color: #f9f9f9;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9; /* Light background for a soft look */
+    border-radius: 8px; /* Smooth rounded corners */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); /* Deeper shadow for more depth */
+    padding: 30px; /* More padding for spaciousness */
+    margin: 20px 0 0 170px; /* Margin around the container */
+    max-width: 800px; /* Limit width for better readability */
+    transition: transform 0.3s ease; /* Animation for hover effect */
 }
 
+/* Hover effect for the container */
+.maintenance-log-container:hover {
+    transform: translateY(-5px); /* Subtle lift on hover */
+}
+.samar {
+    font-size: 16px; /* Adjust the font size */
+    color: #888; /* Light grey color */
+    text-align: center; /* Center-align the text */
+    padding: 10px; /* Add padding */
+    background-color: #f9f9f9; /* Light background color */
+    border-radius: 5px; /* Rounded corners */
+    border: 1px solid #ddd; /* Light border */
+    margin: 20px 0; /* Space around the item */
+    font-style: italic; /* Italicize the text for emphasis */
+}
+
+/* Title styling */
 .maintenance-log-title {
-    text-align: center;
-    color: #333;
+    font-size: 2.2rem; /* Larger title for emphasis */
+    color: #2c3e50; /* Darker color for professional appeal */
+    margin-bottom: 20px; /* Space below the title */
+    text-align: center; /* Center alignment */
+    font-weight: 700; /* Bold font weight for prominence */
 }
 
+/* Form styling */
 .maintenance-log-form {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 20px;
+    display: flex; /* Flexbox for responsive layout */
+    flex-direction: column; /* Vertical stacking of form elements */
 }
 
+/* Input and textarea styling */
 .maintenance-log-input,
 .maintenance-log-textarea {
-    padding: 10px;
-    margin: 5px 0;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 14px;
+    border: 1px solid #bdc3c7; /* Soft gray border */
+    border-radius: 6px; /* Rounded corners */
+    padding: 12px; /* Increased padding for comfort */
+    margin-bottom: 20px; /* Space below each input */
+    font-size: 1rem; /* Standard font size */
+    transition: border-color 0.3s ease; /* Smooth transition for border color */
 }
 
+/* Focus effect for inputs */
+.maintenance-log-input:focus,
+.maintenance-log-textarea:focus {
+    border-color: #3498db; /* Highlighted border color */
+    outline: none; /* Remove default outline */
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.5); /* Soft shadow on focus */
+}
+
+/* Textarea specific styles */
 .maintenance-log-textarea {
-    resize: vertical;
+    resize: vertical; /* Allow vertical resizing */
+    height: 120px; /* Increased height for better visibility */
 }
 
+/* Button styling */
 .maintenance-log-button {
-    padding: 10px;
-    border: none;
-    border-radius: 4px;
-    background-color: #4CAF50; /* Green */
-    color: white;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s;
+    display: inline-block; /* Center the button */
+    padding: 12px 25px; /* Increased padding for a more substantial feel */
+    border: none; /* No border */
+    border-radius: 50px; /* Rounded edges for a modern look */
+    background-color: #007bff; /* Bootstrap-like primary color */
+    color: #e1e1e1; /* Light gray text color for contrast */
+    font-size: 16px; /* Font size */
+    font-weight: 600; /* Slightly bolder font for emphasis */
+    text-align: center; /* Center the text */
+    text-transform: uppercase; /* Uppercase for emphasis */
+    letter-spacing: 1px; /* Slight spacing for clarity */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: all 0.4s ease; /* Smooth transition for all properties */
+    box-shadow: 0 4px 20px rgba(0, 123, 255, 0.3); /* Subtle shadow */
+    position: relative; /* Position for pseudo-elements */
+    overflow: hidden; /* Hide overflow for pseudo-elements */
+}
+
+/* Ripple effect using a pseudo-element */
+.maintenance-log-button::after {
+    content: ""; /* Empty content for pseudo-element */
+    position: absolute; /* Absolute positioning */
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    width: 300%; /* Increase size for ripple effect */
+    height: 300%; /* Increase size for ripple effect */
+    background: rgba(255, 255, 255, 0.2); /* Light overlay color */
+    border-radius: 50%; /* Circular shape */
+    transform: translate(-50%, -50%) scale(0); /* Initially hidden */
+    transition: transform 0.5s ease; /* Smooth transition */
+}
+
+/* Expand ripple effect on hover */
+.maintenance-log-button:hover::after {
+    transform: translate(-50%, -50%) scale(1); /* Expand on hover */
 }
 
 .maintenance-log-button:hover {
-    background-color: #45a049; /* Darker green */
+    background-color: #0056b3; /* Darker shade on hover */
+    box-shadow: 0 6px 30px rgba(0, 123, 255, 0.5); /* Enhanced shadow on hover */
 }
 
+.maintenance-log-button:active {
+    background-color: #004085; /* Even darker shade on active */
+    box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3); /* Reset shadow on active */
+}
+
+.maintenance-log-button:focus {
+    outline: none; /* Remove default outline */
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5); /* Custom focus outline */
+}
+
+/* Subtitle styling */
 .maintenance-log-subtitle {
-    margin-top: 30px;
-    color: #333;
+    font-size: 1.8rem; /* Slightly larger subtitle */
+    color: #34495e; /* Darker color for subtitle */
+    margin: 25px 0; /* Space above and below the subtitle */
+    text-align: center; /* Center the subtitle */
+    font-weight: 500; /* Medium font weight for distinction */
 }
 
+/* List styling */
 .maintenance-log-list {
-    list-style-type: none;
-    padding: 0;
+    list-style: none; /* Remove default list styling */
+    padding: 0; /* Remove default padding */
+    margin: 20px auto; /* Center the list with vertical spacing */
+    max-width: 650px; /* Limit the width for better readability */
+    background-color: #ffffff; /* White background */
+    border-radius: 12px; /* Rounded corners for a softer look */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    overflow: hidden; /* Prevents overflow on rounded corners */
 }
 
 .maintenance-log-item {
-    padding: 10px;
-    border: 1px solid #eaeaea;
-    border-radius: 4px;
-    margin: 5px 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    padding: 15px 20px; /* Comfortable padding */
+    border-bottom: 1px solid #eaeaea; /* Divider between items */
+    display: flex; /* Use flexbox for layout */
+    flex-direction: column; /* Stack items vertically */
+    position: relative; /* For pseudo-elements */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transition */
 }
 
-.maintenance-log-item strong {
-    color: #666;
+.maintenance-log-item:last-child {
+    border-bottom: none; /* Remove border from last item */
 }
 
+.maintenance-log-item:hover {
+    background-color: #f0f8ff; /* Light blue background on hover */
+    transform: translateY(-2px); /* Slight lift effect */
+    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover */
+}
 
+.maintenance-log-info {
+    margin-bottom: 10px; /* Spacing between log items */
+}
+
+.maintenance-log-label {
+    font-weight: bold; /* Bold for labels */
+    color: #333; /* Darker color for contrast */
+    font-size: 14px; /* Consistent font size */
+}
+
+.maintenance-log-value {
+    color: #555; /* Slightly lighter color for values */
+    font-size: 14px; /* Standard font size for values */
+}
 
 .maintenance-log-delete-button {
-    background-color: #e74c3c; /* Red */
-    padding: 5px 10px;
-    border: none;
-    border-radius: 4px;
-    color: white;
-    cursor: pointer;
-    font-size: 12px;
+    background-color: #ff4757; /* Red for danger */
+    color: #fff; /* White text */
+    border: none; /* No border */
+    border-radius: 50px; /* Rounded edges */
+    padding: 8px 15px; /* Padding for the button */
+    font-size: 14px; /* Font size */
+    font-weight: 600; /* Font weight */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transition */
 }
 
 .maintenance-log-delete-button:hover {
-    background-color: #c0392b; /* Darker red */
+    background-color: #e84118; /* Darker red on hover */
+    transform: translateY(-1px); /* Lift effect on hover */
+}
+
+/* Optional responsive design for smaller screens */
+@media (max-width: 600px) {
+    .maintenance-log-list {
+        max-width: 100%; /* Full width on smaller screens */
+        margin: 10px; /* Reduced margin */
+    }
+
+    .maintenance-log-item {
+        padding: 15px; /* Adjust padding */
+    }
+}
+
+
+/* Delete button styling */
+.maintenance-log-delete-button {
+    display: inline-block; /* Center the button */
+    padding: 8px 15px; /* Reduced padding for a smaller button */
+    border: none; /* No border */
+    border-radius: 30px; /* More subtle rounded edges */
+    background-color: #e74c3c; /* A vibrant red color for delete action */
+    color: #ffffff; /* White text for contrast */
+    font-size: 14px; /* Smaller font size */
+    font-weight: 600; /* Slightly bolder font for emphasis */
+    text-align: center; /* Center the text */
+    text-transform: uppercase; /* Uppercase for emphasis */
+    letter-spacing: 0.5px; /* Slight spacing for clarity */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: all 0.3s ease; /* Smooth transition for all properties */
+    box-shadow: 0 3px 10px rgba(231, 76, 60, 0.3); /* Subtle shadow */
+    position: relative; /* Position for pseudo-elements */
+    overflow: hidden; /* Hide overflow for pseudo-elements */
+}
+
+/* Add hover effect */
+.maintenance-log-delete-button:hover {
+    background-color: #c0392b; /* Darker red on hover */
+    box-shadow: 0 5px 15px rgba(231, 76, 60, 0.5); /* Enhanced shadow on hover */
+}
+
+/* Add active effect */
+.maintenance-log-delete-button:active {
+    background-color: #a93226; /* Even darker red on active */
+    box-shadow: 0 3px 8px rgba(231, 76, 60, 0.3); /* Reset shadow on active */
+}
+
+/* Focus outline for accessibility */
+.maintenance-log-delete-button:focus {
+    outline: none; /* Remove default outline */
+    box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.5); /* Custom focus outline */
 }
