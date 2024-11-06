@@ -1,170 +1,631 @@
-/* General Styles */
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f4f4f4;
+/* General Reset */
+* {
     margin: 0;
     padding: 0;
-    color: #333;
+    box-sizing: border-box;
 }
 
+body {
+    font-family: 'Arial', sans-serif; 
+    background-color: #f4f7fa; 
+}
+.Collers{
+    padding: 20px 0; /* Vertical padding */
+    background: linear-gradient(to right, #4a90e2, #dcdcdc, #003366);
+    /* Uncomment these lines to enable animation */
+     background-size: 200% 200%; 
+     animation: gradientAnimation 7s ease infinite; 
+    position: relative;
+}
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
 /* Form Container */
-.charging-station-form-container {
-    max-width: 900px;
-    margin: 20px auto;
-    padding: 30px;
-    background-color: #ffffff;
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-}
 
-/* Flexbox Layout for Forms */
-.form-wrapper {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-}
-
-/* Form Styles */
-.charging-station-form, .charger-form {
-    flex: 1 1 45%; /* Allow forms to take 45% of the container width */
-    margin: 10px;
-}
-
-.form-title {
-    text-align: center;
-    color: #2980b9;
-    margin-bottom: 25px;
-    font-size: 1.5em; /* Increased font size for title */
-}
-
-/* Label Styles */
-.form-label {
-    margin-bottom: 20px;
-}
-
-.form-label input, .form-label select {
-    width: 100%;
-    padding: 12px;
-    margin-top: 8px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    font-size: 16px; /* Increased font size */
-    transition: border-color 0.3s ease;
-}
-
-.form-label input:focus, .form-label select:focus {
-    border-color: #3498db;
-    outline: none;
-}
-
-/* Checkbox Styles */
-.parking-checkbox {
-    display: flex;
+.Abed {
+    width: 1000px;
+    margin: 2rem auto;
+    padding: 2rem;
     align-items: center;
-    margin-bottom: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e0e0e0; /* Optional */
+    transition: box-shadow 0.3s ease; /* Optional */
+}
+
+.Abed:hover {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Optional */
+}
+.aya{
+    width: 1000px; /* Same width as the Abed container */
+    margin: 0 auto; 
+}
+/* Form Title */
+.form-title {
+    width: 100%; /* Make the title width 100% of its parent container */
+    font-size: 2.4rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: #ffffff;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    background: linear-gradient(90deg, #6a11cb, #2575fc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
+    display: inline-block;
+    position: relative;
+    animation: neonGlow 1.5s infinite alternate;
+    cursor: pointer;
+    padding-bottom: 0.3rem;
+    border-bottom: 3px solid transparent;
+    transition: all 0.4s ease;
+}
+
+/* Underline effect */
+.form-title::before {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 50%;
+    width: 95%; /* Adjust to be nearly full width */
+    height: 3px;
+    background: linear-gradient(90deg, #6a11cb, #2575fc);
+    transform: translateX(-50%);
+    border-radius: 2px;
+    animation: underlinePulse 2s infinite alternate;
+    opacity: 0.8;
+}
+
+
+/* Hover effect */
+.form-title:hover {
+    color: #333333; /* Darker color on hover */
+}
+
+.form-title:hover::before {
+    opacity: 1; /* Full opacity on hover */
+}
+
+/* Keyframes for pulsing underline animation */
+@keyframes underlinePulse {
+    0% {
+        transform: translateX(-50%) scaleX(1); /* Initial scale */
+    }
+    100% {
+        transform: translateX(-50%) scaleX(1.1); /* Slightly larger scale on pulse */
+    }
+}
+
+
+/* Input styles */
+.form-input {
+    width: 100%; /* Full width inputs */
+    padding: 0.75rem; /* Padding inside inputs */
+    margin-bottom: 1rem; /* Spacing below inputs */
+    border: 1px solid #cccccc; /* Light gray border */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 1rem; /* Font size */
+    color: #333333; /* Dark text color */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for focus effect */
+}
+
+/* Input focus effect */
+.form-input:focus {
+    border-color: #007bff; /* Change border color on focus */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Soft shadow effect */
+    outline: none; /* Remove default outline */
+}
+
+/* Checkbox style */
+.parking-checkbox {
+    display: flex; /* Flexbox for alignment */
+    align-items: center; /* Center align items vertically */
+    margin-bottom: 1.5rem; /* Spacing below checkbox */
 }
 
 .parking-checkbox input {
-    margin-right: 12px;
+    margin-right: 0.5rem; /* Space between checkbox and label text */
 }
 
-/* Button Styles */
-.form-submit-button, .form-button {
-    padding: 12px 20px;
-    background-color: #3498db;
-    color: #ffffff;
-    border: none;
-    border-radius: 6px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+/* Submit button styles */
+.form-submit-button {
+    width: 100%; /* Full width button */
+    padding: 0.75rem; /* Padding inside button */
+    border: none; /* Remove default border */
+    border-radius: 5px; /* Rounded corners */
+    background-color: #007bff; /* Primary button color */
+    color: #ffffff; /* White text color */
+    font-size: 1rem; /* Font size */
+    font-weight: 600; /* Bold text for button */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transition for hover effect */
 }
 
-.form-submit-button:hover, .form-button:hover {
-    background-color: #2980b9;
+/* Button hover effect */
+.form-submit-button:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+    transform: translateY(-2px); /* Slight lift effect on hover */
 }
 
-/* Charging Stations List */
-.charging-stations-list {
-    margin-top: 40px;
-    background-color: #f9f9f9;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+/* Responsive Design */
+@media (max-width: 600px) {
+    .charging-station-form-container {
+        padding: 1.5rem; /* Reduce padding on smaller screens */
+    }
+
+    .form-title {
+        font-size: 1.5rem; /* Smaller title size on mobile */
+    }
+
+    .form-label, .form-input, .form-submit-button {
+        font-size: 0.95rem; /* Adjust font sizes on mobile */
+    }
+}
+/* Charger Form Styles */
+.charger-form {
+    max-width: 600px; /* Set a max width for the form */
+    margin: 2rem auto; /* Center the form */
+    padding: 2rem 2.5rem; /* Padding inside the form */
+    border-radius: 10px; /* Rounded corners */
+    background-color: #ffffff; /* White background for the form */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    border: 1px solid #e0e0e0; /* Light gray border for definition */
 }
 
+/* Form Title */
+.charger-form h2 {
+    font-size: 2rem; /* Font size for the title */
+    font-weight: 600; /* Semi-bold weight */
+    margin-bottom: 1.5rem; /* Spacing below the title */
+    color: #333333; /* Dark text color for visibility */
+    text-align: center; /* Center the title */
+}
+
+/* Label styles */
+.form-label {
+    display: block; /* Block display for labels */
+    margin-bottom: 0.5rem; /* Spacing below each label */
+    font-size: 1rem; /* Font size */
+    color: #555555; /* Darker gray for labels */
+}
+
+/* Input styles */
+.form-input {
+    width: 100%; /* Full width inputs */
+    padding: 0.75rem; /* Padding inside inputs */
+    margin-bottom: 1rem; /* Spacing below inputs */
+    border: 1px solid #cccccc; /* Light gray border */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 1rem; /* Font size */
+    color: #333333; /* Dark text color */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for focus effect */
+}
+
+/* Input focus effect */
+.form-input:focus {
+    border-color: #007bff; /* Change border color on focus */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Soft shadow effect */
+    outline: none; /* Remove default outline */
+}
+.bt-for{
+    width: 100%; /* Full width button */
+    padding: 0.75rem; /* Padding inside button */
+    border: none; /* Remove default border */
+    border-radius: 5px; /* Rounded corners */
+    background-color: #ffffff; /* Primary button color */
+    color: #ffffff; /* White text color */
+    font-size: 1rem; /* Font size */
+    font-weight: 600; /* Bold text for button */
+    cursor: pointer; /* Pointer cursor on hover */
+
+}
+/* Submit button styles */
+.form-button {
+    width: 100%; /* Full width button */
+    padding: 0.75rem; /* Padding inside button */
+    border: none; /* Remove default border */
+    border-radius: 5px; /* Rounded corners */
+    background-color: #ff0000; /* Primary button color */
+    color: #ffffff; /* White text color */
+    font-size: 1rem; /* Font size */
+    font-weight: 600; /* Bold text for button */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transition for hover effect */
+}
+
+/* Button hover effect */
+.form-button:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+    transform: translateY(-2px); /* Slight lift effect on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .charger-form {
+        padding: 1.5rem; /* Reduce padding on smaller screens */
+    }
+
+    .charger-form h2 {
+        font-size: 1.5rem; /* Smaller title size on mobile */
+    }
+
+    .form-label, .form-input, .form-button {
+        font-size: 0.95rem; /* Adjust font sizes on mobile */
+    }
+}
+.charging-station-form-container {
+    max-width: 800px; /* Max width for the form container */
+    margin: 3rem auto; /* Center the form */
+    padding: 2rem; /* Padding around the container */
+    background-color: #ffffff; /* White background */
+    border-radius: 12px; /* Rounded corners */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+/* Title for Charging Stations */
 .list-title {
-    text-align: center;
-    color: #2980b9;
-    margin-bottom: 20px;
-    font-size: 1.5em; /* Increased font size for title */
+    font-size: 2rem; /* Larger font for title */
+    text-align: center; /* Center align title */
+    color: #2c3e50; /* Dark color for the title */
+    margin-bottom: 1.5rem; /* Space below title */
 }
 
+/* List Styles */
 .station-list {
-    list-style-type: none;
-    padding: 0;
+    list-style-type: none; /* Remove default list styling */
+    padding: 0; /* Remove padding */
 }
 
+/* Individual Station Item */
 .station-item {
-    padding: 15px;
-    border-bottom: 1px solid #ddd;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
+    background-color: #fefefe; /* Light background for each station */
+    border: 1px solid #dcdcdc; /* Light gray border */
+    border-radius: 10px; /* Rounded corners */
+    margin-bottom: 1.5rem; /* Space between items */
+    padding: 1.5rem; /* Padding inside each item */
+    transition: transform 0.3s, box-shadow 0.3s; /* Smooth transition */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Initial shadow */
 }
 
-.station-item:last-child {
-    border-bottom: none;
+/* Station Item Hover Effect */
+.station-item:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Darker shadow on hover */
 }
 
-.station-details, .charger-details {
-    flex-grow: 1;
+/* Station Details */
+.station-details {
+    margin-bottom: 1rem; /* Space below details */
 }
 
+/* Station Name */
 .station-name {
-    color: #2980b9;
-    font-weight: bold; /* Added bold for station name */
-    margin: 0;
+    font-size: 1.6rem; /* Font size for station name */
+    font-weight: bold; /* Bold text */
+    color: #2980b9; /* Blue for emphasis */
+    margin-bottom: 0.5rem; /* Space below name */
 }
 
+/* Station Info */
 .station-info {
-    margin: 5px 0;
-    font-size: 14px;
+    font-size: 1rem; /* Standard font size for info */
+    color: #34495e; /* Dark gray for info text */
+    margin: 0.3rem 0; /* Small margin between info lines */
 }
 
 /* Charger Details */
+.charger-details {
+    margin-top: 1rem; /* Space above charger details */
+}
+
+/* Charger Title */
 .charger-title {
-    margin-top: 15px;
-    font-weight: bold;
+    font-size: 1.25rem; /* Font size for charger title */
+    font-weight: bold; /* Bold text */
+    color: #333333; /* Dark text color */
+    margin-bottom: 0.5rem; /* Space below charger title */
 }
 
 /* Charger List */
 .charger-list {
-    list-style-type: none;
-    padding-left: 0;
+    list-style-type: none; /* Remove default list styling */
+    padding: 0; /* Remove padding */
 }
 
-/* Actions Styles */
+/* Individual Charger Item */
+.charger-item {
+    padding: 1rem; /* Padding inside charger item */
+    border: 1px solid #e0e0e0; /* Light gray border */
+    border-radius: 5px; /* Rounded corners */
+    margin-bottom: 0.5rem; /* Space between charger items */
+    background-color: #fafafa; /* Light background for chargers */
+}
+
+/* Charger Info */
+.charger-info {
+    font-size: 0.95rem; /* Slightly smaller font size for charger info */
+    color: #666666; /* Medium gray for charger info text */
+    margin: 0.25rem 0; /* Small margin between info lines */
+}
+
+/* Charger Actions */
+.charger-actions {
+    margin-top: 0.5rem; /* Space above actions */
+}
+
+/* Station Actions */
 .station-actions {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
+    display: flex; /* Align buttons horizontally */
+    justify-content: space-between; /* Space between buttons */
+    margin-top: 1rem; /* Space above buttons */
 }
 
 .station-actions .btn {
-    margin-top: 10px;
-    width: 100%;
-}
-
-/* Map Container */
-.map-container {
-    margin-top: 30px;
-    border-radius: 10px;
-    overflow: hidden;
-}
-
-.map-container iframe {
-    width: 100%;
-    height: 300px; /* Adjusted height for smaller size */
+    padding: 0.5rem 1rem; /* Comfortable padding */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 1rem; /* Standard font size */
+    font-weight: 500; /* Slightly bolder text for visibility */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transitions for hover and focus */
     border: none; /* Remove default border */
+    cursor: pointer; /* Change cursor to pointer on hover */
+}
+
+/* Styles for Edit Button */
+.station-actions .btn-warning {
+    background-color: #ffc107; /* Bootstrap warning color */
+    color: #fff; /* White text for contrast */
+}
+
+.station-actions .btn-warning:hover {
+    background-color: #e0a800; /* Darken on hover */
+    transform: translateY(-2px); /* Slight lift effect on hover */
+}
+
+/* Styles for Delete Button */
+.station-actions .btn-danger {
+    background-color: #dc3545; /* Bootstrap danger color */
+    color: #fff; /* White text for contrast */
+}
+
+.station-actions .btn-danger:hover {
+    background-color: #c82333; /* Darken on hover */
+    transform: translateY(-2px); /* Slight lift effect on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .station-actions {
+        flex-direction: column; /* Stack buttons on smaller screens */
+        align-items: stretch; /* Stretch buttons to full width */
+    }
+
+    .station-actions .btn {
+        margin-bottom: 0.5rem; /* Space between stacked buttons */
+        width: 100%; /* Full width for buttons */
+    }
+}
+
+
+/* Button Styles */
+button {
+    padding: 0.5rem 1rem; /* Padding inside buttons */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    border: none; /* Remove default border */
+    transition: background-color 0.3s, transform 0.3s; /* Smooth transition */
+}
+
+/* Danger Button */
+button.variant-danger {
+    background-color: #dc3545; /* Bootstrap danger color */
+    color: white; /* White text */
+}
+
+/* Warning Button */
+button.variant-warning {
+    background-color: #ffc107; /* Bootstrap warning color */
+    color: white; /* White text */
+}
+
+/* Button Hover Effect */
+button:hover {
+    opacity: 0.9; /* Slight fade on hover */
+    transform: translateY(-2px); /* Lift effect on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .charging-station-form-container {
+        padding: 1rem; /* Adjust padding on smaller screens */
+    }
+
+    .station-name {
+        font-size: 1.4rem; /* Adjust font size on smaller screens */
+    }
+
+    .station-info,
+.charger-info {
+    font-size: 0.95rem; /* Slightly larger font size for better readability */
+    line-height: 1.5; /* Improved line height for better readability */
+    color: #555; /* Softer gray for a less harsh contrast */
+    margin-bottom: 0.5rem; /* Space between items for clarity */
+    padding: 0.2rem; /* Padding for touch targets */
+    border-left: 3px solid transparent; /* Adding a left border for visual separation */
+    transition: border-left-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+/* Hover effect for better interactivity */
+.station-info:hover,
+.charger-info:hover {
+    border-left-color: #007bff; /* Primary blue on hover */
+    background-color: rgba(0, 123, 255, 0.1); /* Light blue background on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .station-info,
+    .charger-info {
+        font-size: 0.85rem; /* Slightly smaller font on mobile for better fit */
+    }
+}
+
+}
+/* Container Styles */
+.charging-station-form-container {
+    max-width: 800px; /* Limit max width for better readability */
+    margin: 2rem auto; /* Center the container with some margin */
+    padding: 2rem; /* Inner spacing for the container */
+    background-color: #ffffff; /* White background for the form */
+    border-radius: 10px; /* Rounded corners for a modern look */
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+}
+
+/* Form Labels */
+.form-label {
+    display: block; /* Ensures labels take full width */
+    margin-bottom: 0.5rem; /* Reduced spacing between labels and inputs for a more compact look */
+    font-size: 1.1rem; /* Slightly larger font size for clarity */
+    font-weight: 600; /* Bold labels for better visibility */
+    color: #4a4a4a; /* Darker gray for better contrast and readability */
+    transition: color 0.3s ease; /* Smooth color transition on focus */
+}
+
+/* Focus Styles for Accessibility */
+.form-label:focus-within {
+    color: #007bff; /* Highlight color when input is focused */
+}
+
+/* Optional: Add styles for visually impaired users */
+.form-label span {
+    display: inline-block; /* Better positioning for a potential description */
+    font-size: 0.9rem; /* Smaller font size for supplementary text */
+    color: #7a7a7a; /* Lighter gray for less emphasis */
+    margin-top: 0.25rem; /* Space above supplementary text */
+}
+
+
+/* Input Fields */
+.form-input {
+    width: 100%; /* Full width for inputs */
+    padding: 0.8rem 1rem; /* Padding for comfort */
+    border: 1px solid #ccc; /* Light gray border */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 1rem; /* Standard font size */
+    color: #333; /* Text color */
+    background-color: #fafafa; /* Very light gray background */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
+    box-sizing: border-box; /* Include padding and border in element's total width and height */
+}
+
+/* Input Focus Styles */
+.form-input:focus {
+    border-color: #007bff; /* Primary blue on focus */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Blue shadow effect */
+    outline: none; /* Remove default outline */
+}
+
+/* Placeholder Styling */
+.form-input::placeholder {
+    color: #999; /* Placeholder text color for better contrast */
+    opacity: 1; /* Ensure full opacity for visibility */
+}
+
+/* Disabled State */
+.form-input:disabled {
+    background-color: #e9ecef; /* Light gray background for disabled state */
+    color: #6c757d; /* Gray text color for disabled state */
+    border-color: #ced4da; /* Lighter border for disabled state */
+    cursor: not-allowed; /* Change cursor to indicate disabled state */
+}
+
+/* Hover Effect */
+.form-input:hover {
+    border-color: #888; /* Darker border color on hover */
+}
+
+/* Dropdown Specific Styles */
+.select-container {
+    position: relative; /* Relative positioning for dropdown container */
+    margin: 1rem 0; /* Space around dropdown */
+}
+
+/* Styling the select dropdown */
+.select-dropdown {
+    cursor: pointer; /* Change cursor on hover */
+    padding: 0.8rem 1rem; /* Padding for comfort */
+    border: 1px solid #ccc; /* Light gray border */
+    border-radius: 5px; /* Rounded corners */
+    background-color: #fafafa; /* Very light gray background */
+    color: #333; /* Dark gray text color */
+    font-size: 1rem; /* Standard font size */
+    transition: border-color 0.3s ease, background-color 0.3s ease; /* Smooth transitions */
+    appearance: none; /* Remove default styling for a consistent look */
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="%23333"><path d="M5.23 7.21a1 1 0 011.415 0L10 10.293l3.364-3.085a1 1 0 111.415 1.415l-4 4a1 1 0 01-1.415 0l-4-4a1 1 0 010-1.415z"/></svg>'); /* Custom arrow icon */
+    background-repeat: no-repeat; /* Prevent background image from repeating */
+    background-position: right 1rem center; /* Position the arrow to the right */
+    background-size: 1rem; /* Size of the arrow */
+}
+
+/* Dropdown Focus Styles */
+.select-dropdown:focus {
+    border-color: #007bff; /* Highlight border color on focus */
+    background-color: #ffffff; /* White background on focus */
+    outline: none; /* Remove default outline */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Blue shadow effect */
+}
+
+/* Dropdown Hover Effect */
+.select-dropdown:hover {
+    border-color: #007bff; /* Change border color on hover */
+    background-color: #f1f1f1; /* Slightly darker background on hover */
+}
+
+/* General styling for option elements - Limited cross-browser support */
+.select-dropdown option {
+    padding: 0.8rem; /* Add padding to options */
+    background-color: #fff; /* White background for options */
+    color: #333; /* Dark gray text color */
+}
+
+/* Styling for the default option */
+.select-dropdown option:first-child {
+    color: #999; /* Gray color for default text */
+}
+
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .form-label {
+        font-size: 1rem; /* Adjust font size for mobile */
+    }
+    .form-input {
+        font-size: 0.9rem; /* Slightly smaller font for inputs */
+    }
+    
+}
+.form-map-container {
+    display: flex;
+    gap: 100px; /* Adjust spacing between form and map */
+}
+
+.charging-station-form {
+    flex: 2; /* Allow form to take up remaining space */
+    
+}
+
+.MapContainer {
+    flex: 2; /* Allow map to take up remaining space */
+    min-width: 300px; /* Optional: set a minimum width for better responsiveness */
+    
 }

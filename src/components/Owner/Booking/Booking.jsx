@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import './Booking.css';
-import SendOwnerNotifications from '../SendNotifications/SendOwnerNotifications'; 
+import SendOwnerNotifications from '../SendNotifications/SendOwnerNotifications';
 
 const Booking = ({ stationId }) => {
     const [bookings, setBookings] = useState([]);
@@ -28,7 +28,7 @@ const Booking = ({ stationId }) => {
                     "Content-Type": "application/json"
                 }
             });
-            
+
             const fetchedBookings = response.data.$values || [];
             setBookings(fetchedBookings);
         } catch (error) {
@@ -46,7 +46,7 @@ const Booking = ({ stationId }) => {
                     "Content-Type": "application/json"
                 }
             });
-    
+
             const fetchedPendingBookings = response.data.$values || [];
             setBookings(fetchedPendingBookings);
         } catch (error) {
@@ -105,22 +105,22 @@ const Booking = ({ stationId }) => {
     return (
         <div className="booking-container">
             <h2 className="booking-title">Bookings for Station {stationId}</h2>
-            <button onClick={isFetchingPending ? fetchBookings : fetchPendingBookings}>
+            <button className="button-toggle" onClick={isFetchingPending ? fetchBookings : fetchPendingBookings}>
                 {isFetchingPending ? " All Bookings" : " Pending Bookings"}
             </button>
             {bookings.length > 0 ? (
                 <ul className="booking-list">
                     {bookings.map(booking => (
                         <li key={booking.bookingId} className="booking-item">
-                            <strong>Booking ID:</strong> {booking.bookingId} | 
-                            <strong> Client ID:</strong> {booking.clientId} | 
-                            <strong> Client Name:</strong> {booking.clientName} | 
-                            <strong> Client Email:</strong> {booking.clientEmail} | 
-                            <strong> Vehicle ID:</strong> {booking.vehicleId} | 
-                            <strong> Vehicle Model:</strong> {booking.vehicleModel} | 
-                            <strong> Start Time:</strong> {new Date(booking.startTime).toLocaleString()} | 
-                            <strong> End Time:</strong> {new Date(booking.endTime).toLocaleString()} | 
-                            <strong> Status:</strong> {booking.status} | 
+                            <strong>Booking ID:</strong> {booking.bookingId} |
+                            <strong> Client ID:</strong> {booking.clientId} |
+                            <strong> Client Name:</strong> {booking.clientName} |
+                            <strong> Client Email:</strong> {booking.clientEmail} |
+                            <strong> Vehicle ID:</strong> {booking.vehicleId} |
+                            <strong> Vehicle Model:</strong> {booking.vehicleModel} |
+                            <strong> Start Time:</strong> {new Date(booking.startTime).toLocaleString()} |
+                            <strong> End Time:</strong> {new Date(booking.endTime).toLocaleString()} |
+                            <strong> Status:</strong> {booking.status} |
                             <strong> Cost:</strong> ${booking.cost}
                             <button onClick={() => openModal(booking)}>Update Booking</button>
                             <button onClick={() => openNotificationModal(booking)}>Send Notification</button>
@@ -128,14 +128,14 @@ const Booking = ({ stationId }) => {
                     ))}
                 </ul>
             ) : (
-                <p>No bookings available for this station.</p>
+                <p className="no-bookings-message">No bookings available for this station.</p>
             )}
 
-{modalOpen && (
+            {modalOpen && (
                 <div className="modal-overlay">
                     <div className="modal-content">
                         <h2>Update Booking</h2>
-                        
+
                         {/* Booking Status Dropdown */}
                         <label className="form-label">
                             Status:
@@ -149,12 +149,12 @@ const Booking = ({ stationId }) => {
                                 <option value="Cancelled">Cancelled</option>
                             </select>
                         </label>
-    
-                        <input 
-                            type="number" 
-                            placeholder="New Cost" 
+
+                        <input
+                            type="number"
+                            placeholder="New Cost"
                             value={newCost}
-                            onChange={(e) => setNewCost(e.target.value)} 
+                            onChange={(e) => setNewCost(e.target.value)}
                         />
                         <button onClick={() => handleUpdate(selectedBooking.bookingId)}>Save Changes</button>
                         <button onClick={closeModal}>Cancel</button>

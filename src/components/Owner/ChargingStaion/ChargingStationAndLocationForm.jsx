@@ -233,13 +233,17 @@ const ChargingStationAndLocationForm = () => {
 
 
     return (
-        <div className="charging-station-form-container">
+        <div className="Collers">
+    <div className="Abed" style={{  width: '80%' }}> 
+    <div className='aya' >
+                <h2 className="form-title">{selectedStationId ? 'Charging Station Management' : 'Charging Station Management'}</h2>
+                </div>
+        {/* Flex container for form and map */}
+        <div className="form-map-container">
+            {/* Main Form for Creating/Updating Charging Station */}
             <form className="charging-station-form" onSubmit={selectedStationId ? handleUpdate : handleSubmit}>
-                <h2 className="form-title">
-                    {selectedStationId ? 'Charging Station Management' : 'Charging Station Management'}
-                </h2>
-
-                <label className="form-label">
+                
+            <label className="form-label">
                     Station Location:
                     <input
                         type="text"
@@ -292,8 +296,8 @@ const ChargingStationAndLocationForm = () => {
                     >
                         <option value="" disabled>Select Payment Method</option>
                         <option value="Credit Card">Credit Card</option>
-                        <option value="Cash">Cash</option>
-                        <option value="Both">Both</option>
+                        <option value="Cash">Mobile Payment</option>
+                        <option value="Both">Cash</option>
                     </select>
                 </label>
 
@@ -347,16 +351,25 @@ const ChargingStationAndLocationForm = () => {
                     Has Parking
                 </label>
 
-                <Button type="submit" variant="primary" className="form-submit-button">
+                <Button type="submit" variant="primary" className="form-submit-button"  style={{ backgroundColor: '#007bff' }}>
                     {selectedStationId ? 'Update Charging Station' : 'Create Charging Station'}
                 </Button>
             </form>
+
+            {/* Map Container */}
+            <MapContainer center={mapCenter} zoom={8} style={{ height: '700px', width: '600px',marginTop: '40px' }} bounds={jordanBounds}>
+                <TileLayer
+                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                    attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                />
+                <LocationClicker onLocationSelect={handleLocationSelect} />
+            </MapContainer>
+        </div>
 
             {/* Charger Form - This will only show if there are charging stations */}
             {chargingStations.length > 0 && (
                 <form className="charger-form" onSubmit={handleChargerSubmit}>
                     <h2>Create Charger</h2>
-
                     <label className="form-label">
                         Charger Type:
                         <select
@@ -423,19 +436,11 @@ const ChargingStationAndLocationForm = () => {
                             ))}
                         </select>
                     </label>
-
-                    <Button type="submit" className="form-button">Create Charger</Button>
-                </form>
+                    <Button type="submit" className="bt-for" style={{ backgroundColor: '#007bff' }}>Create Charger</Button>
+                    </form>
             )}
 
-
-            <MapContainer center={mapCenter} zoom={8} style={{ height: '400px', width: '100%' }} bounds={jordanBounds}>
-                <TileLayer
-                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                    attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                />
-                <LocationClicker onLocationSelect={handleLocationSelect} />
-            </MapContainer>
+            
 
 
             <div className="charging-station-form-container">
@@ -474,7 +479,7 @@ const ChargingStationAndLocationForm = () => {
                                 </div>
                                 <div className="station-actions">
                                     <Button
-                                        variant="warning"
+                                        className="btn btn-warning" // Bootstrap warning class
                                         onClick={() => {
                                             setChargerData({
                                                 stationLocation: station.stationLocation,
@@ -490,19 +495,20 @@ const ChargingStationAndLocationForm = () => {
                                         Edit Station
                                     </Button>
                                     <Button
-                                        variant="danger"
+                                        className="btn btn-danger" // Bootstrap danger class
                                         onClick={() => handleDelete(station.chargingStationId)}  // Pass specific station ID for deletion
                                     >
                                         Delete Station
                                     </Button>
                                 </div>
+
                             </li>
                         ))}
                     </ul>
                 </div>
             </div>
 
-            <div>
+            <div  style={{ justifyContent: 'center', alignItems: 'center'}}>
                 {/* Select Station Dropdown for Maintenance Log */}
                 <label className="form-label">
                     Station's Maintenance Log:
@@ -546,6 +552,7 @@ const ChargingStationAndLocationForm = () => {
                 {selectedBookingStationId && <Booking stationId={selectedBookingStationId} />}
             </div>
 
+        </div>
         </div>
     );
 

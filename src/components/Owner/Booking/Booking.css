@@ -1,103 +1,232 @@
-/* Booking.css */
-
-body {
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f7f9fc; /* Light background */
-    color: #333; /* Dark text color for contrast */
-}
-
-/* Container for the booking component */
 .booking-container {
-    max-width: 800px; /* Limit the width of the container */
-    margin: 20px auto; /* Center the container */
-    padding: 20px; /* Add padding for spacing */
-    background-color: white; /* White background for the container */
-    border-radius: 8px; /* Rounded corners */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    padding: 30px;
+    margin: 20px 170px 0 170px;
+    background-color: #f3f4f6; /* Lighter background for a softer look */
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative; /* Allow for absolute positioning of pseudo-element */
 }
 
-/* Title styling */
+.booking-container:hover {
+    transform: translateY(-5px); /* Elevate on hover */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
 .booking-title {
-    font-size: 24px; /* Larger font size for title */
-    margin-bottom: 20px; /* Space below title */
-    color: #2c3e50; /* Darker color for title */
+    font-size: 2rem; /* Larger font size for emphasis */
+    font-weight: 700; /* Bold text for importance */
+    color: #333; /* Darker color for better readability */
+    text-align: center; /* Center align the text */
+    margin: 20px 0; /* Spacing above and below the title */
+    text-transform: capitalize; /* Capitalize each word for a polished look */
+    position: relative; /* Position for pseudo-elements */
 }
 
-/* Button styles */
+.booking-title::after {
+    content: ""; /* Empty content for pseudo-element */
+    display: block; /* Block element to create a line */
+    width: 50%; /* Width of the line */
+    height: 4px; /* Height of the line */
+    background: #3498db; /* Primary accent color */
+    margin: 10px auto; /* Center align the line */
+    border-radius: 2px; /* Slightly rounded edges */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+}
+
+.no-bookings-message {
+    font-size: 1.2rem; /* Smaller font size for a more compact look */
+    color: #7d7d7d; /* Soft gray color for a neutral appearance */
+    text-align: center; /* Center the text */
+    margin: 15px 0; /* Reduced spacing above and below the message */
+    padding: 10px; /* Less padding for a more compact feel */
+    border-left: 4px solid #3498db; /* Slightly thinner left border for emphasis */
+    background-color: #f4f4f4; /* Light background for contrast */
+    border-radius: 5px; /* Slightly rounded corners */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.no-bookings-message:hover {
+    background-color: #e9ecef; /* Change background on hover for interactivity */
+}
+
+
+
 button {
-    padding: 10px 15px; /* Button padding */
-    margin: 5px; /* Space around buttons */
-    border: none; /* Remove default border */
-    border-radius: 5px; /* Rounded button corners */
-    cursor: pointer; /* Pointer cursor on hover */
-    font-size: 16px; /* Button font size */
-    transition: background-color 0.3s ease; /* Smooth background change on hover */
+    padding: 12px 25px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #3498db; /* Bright blue */
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Specific button styles */
 button:hover {
-    background-color: #3498db; /* Light blue background on hover */
-    color: white; /* White text on hover */
+    background-color: #2980b9; /* Darker blue on hover */
+    transform: translateY(-2px); /* Lift effect on hover */
 }
 
 .booking-list {
-    list-style-type: none; /* Remove default list styling */
-    padding: 0; /* Remove padding */
+    list-style-type: none;
+    padding: 0;
+    max-height: 400px; /* Limit height for scrolling */
+    overflow-y: auto; /* Scrollable list */
 }
 
 .booking-item {
-    padding: 15px; /* Padding for each booking item */
-    margin: 10px 0; /* Space between items */
-    background-color: #ecf0f1; /* Light gray background for items */
-    border-radius: 5px; /* Rounded corners for items */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Slight shadow for depth */
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 15px;
+    position: relative;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.booking-item:hover {
+    transform: translateY(-3px); /* Lift effect on hover */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover */
 }
 
 .booking-item strong {
-    color: #2980b9; /* Blue color for labels */
+    color: #34495e; /* Improved readability */
 }
 
-/* Modal overlay styling */
+.booking-item button {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    background-color: #2ecc71; /* Green for update button */
+    padding: 8px 12px;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.booking-item button:hover {
+    background-color: #27ae60; /* Darker green on hover */
+}
+
 .modal-overlay {
-    position: fixed; /* Fixed position */
-    top: 0; /* Align to top */
-    left: 0; /* Align to left */
-    right: 0; /* Align to right */
-    bottom: 0; /* Align to bottom */
-    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
-    display: flex; /* Use flexbox to center the modal */
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically */
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.8); /* Darker overlay for better contrast */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-/* Modal content styling */
 .modal-content {
-    background-color: white; /* White background for modal */
-    padding: 20px; /* Padding for modal */
-    border-radius: 8px; /* Rounded corners for modal */
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Shadow for depth */
-    width: 300px; /* Fixed width for modal */
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    width: 400px;
+    position: relative;
+    animation: fadeIn 0.5s; /* Fade-in animation for modal */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .modal-content h2 {
-    margin-bottom: 15px; /* Space below modal title */
+    margin-bottom: 20px;
+    color: #2980b9; /* Blue for modal title */
+    text-align: center;
+    font-size: 24px;
 }
 
-/* Input field styling */
-input[type="text"],
-input[type="number"] {
-    width: 100%; /* Full width */
-    padding: 10px; /* Padding inside input */
-    margin: 5px 0; /* Space around inputs */
-    border: 1px solid #ccc; /* Light gray border */
-    border-radius: 5px; /* Rounded corners */
-    font-size: 16px; /* Font size for inputs */
+.modal-content input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: border-color 0.3s ease;
 }
 
-/* Input focus styling */
-input:focus {
-    border-color: #3498db; /* Change border color on focus */
+.modal-content input:focus {
+    border-color: #3498db; /* Focused border color */
     outline: none; /* Remove default outline */
+}
+
+.modal-content button {
+    width: 48%;
+    margin-right: 4%;
+    background-color: #3498db; /* Primary color for save button */
+}
+
+.modal-content button:last-child {
+    margin-right: 0;
+    background-color: #e74c3c; /* Red for cancel button */
+}
+
+.modal-content button:last-child:hover {
+    background-color: #c0392b; /* Darker red on hover */
+}
+.button-toggle {
+    display: inline-block; /* Center the button */
+    padding: 12px 25px; /* Increased padding for a more substantial feel */
+    border: none; /* No border */
+    border-radius: 50px; /* Rounded edges for a modern look */
+    background-color: #007bff; /* Bootstrap-like primary color */
+    color: white; /* Text color */
+    font-size: 16px; /* Font size */
+    font-weight: 600; /* Slightly lighter weight for better readability */
+    text-align: center; /* Center the text */
+    text-transform: uppercase; /* Uppercase for emphasis */
+    letter-spacing: 1px; /* Slight spacing for clarity */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: all 0.4s ease; /* Smooth transition for all properties */
+    box-shadow: 0 4px 20px rgba(0, 123, 255, 0.3); /* Subtle shadow */
+    position: relative; /* Position for pseudo-elements */
+    overflow: hidden; /* Hide overflow for pseudo-elements */
+}
+
+.button-toggle::after {
+    content: ""; /* Empty content for pseudo-element */
+    position: absolute; /* Absolute positioning */
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    width: 300%; /* Increase size for ripple effect */
+    height: 300%; /* Increase size for ripple effect */
+    background: rgba(255, 255, 255, 0.2); /* Light overlay color */
+    border-radius: 50%; /* Circular shape */
+    transform: translate(-50%, -50%) scale(0); /* Initially hidden */
+    transition: transform 0.5s ease; /* Smooth transition */
+}
+
+.button-toggle:hover::after {
+    transform: translate(-50%, -50%) scale(1); /* Expand on hover */
+}
+
+.button-toggle:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+    box-shadow: 0 6px 30px rgba(0, 123, 255, 0.5); /* Enhanced shadow on hover */
+}
+
+.button-toggle:active {
+    background-color: #004085; /* Even darker shade on active */
+    box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3); /* Reset shadow on active */
+}
+
+.button-toggle:focus {
+    outline: none; /* Remove default outline */
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5); /* Custom focus outline */
 }
