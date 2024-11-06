@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import './ServiceInfo.css';
+import SendNotifications from '../SendNotifications/SendNotifications'
 
 const ServiceInfo = () => {
     const [serviceData, setServiceData] = useState({
@@ -17,6 +18,9 @@ const ServiceInfo = () => {
     const [serviceRequestDetails, setServiceRequestDetails] = useState(null); // For viewing specific requests
     const [isRequestModalOpen, setIsRequestModalOpen] = useState(false); // For modal visibility
     const [status, setStatus] = useState(''); // To update request status
+    const [selectedClientId, setSelectedClientId] = useState(null); 
+    const [isNotificationModalOpen, setIsNotificationModalOpen] = useState(false); 
+    
 
     const apiRequest = async (method, url, data = null) => {
         const options = {
@@ -43,14 +47,14 @@ const ServiceInfo = () => {
         try {
             const services = await apiRequest('GET', 'https://localhost:7080/api/Servicer/serviceinfo');
             setServiceList(services.$values || []);
-        } catch (error) {}
+        } catch (error) { }
     };
 
     const fetchServiceRequestById = async (serviceInfoId) => {
         try {
             const response = await apiRequest('GET', `https://localhost:7080/api/Servicer/servicerequests/serviceinfo/${serviceInfoId}`);
             const serviceRequests = response.$values || [];
-    
+
             if (serviceRequests.length > 0) {
                 setServiceRequestDetails(serviceRequests); // Store all service requests
                 setIsRequestModalOpen(true); // Open modal with request details
@@ -61,36 +65,36 @@ const ServiceInfo = () => {
             console.error('Error fetching service requests:', error);
         }
     };
-    
-  
+
+
     const updateServiceRequestStatus = async (requestId, status) => {
         try {
-          const response = await axios.put(`https://localhost:7080/api/Servicer/servicerequest/${requestId}/status`, status, {
-            headers: {
-                Authorization: `Bearer ${localStorage.getItem("token")}`,
-              'Content-Type': 'application/json'
-            }
-          });
-          console.log('Service request status updated successfully:', response.data);
+            const response = await axios.put(`https://localhost:7080/api/Servicer/servicerequest/${requestId}/status`, status, {
+                headers: {
+                    Authorization: `Bearer ${localStorage.getItem("token")}`,
+                    'Content-Type': 'application/json'
+                }
+            });
+            console.log('Service request status updated successfully:', response.data);
         } catch (error) {
-          if (error.response) {
-            console.error('Error response data:', error.response.data);
-            console.error('Status code:', error.response.status);
-          } else {
-            console.error('Error with API request:', error.message);
-          }
+            if (error.response) {
+                console.error('Error response data:', error.response.data);
+                console.error('Status code:', error.response.status);
+            } else {
+                console.error('Error with API request:', error.message);
+            }
         }
-      };
-    
-    
-    
+    };
+
+
+
 
     const deleteServiceRequest = async (id) => {
         try {
             await apiRequest('DELETE', `https://localhost:7080/api/Servicer/servicerequest/${id}`);
             toast.success("Service request deleted successfully");
             fetchServiceInfos(); // Refresh list
-        } catch (error) {}
+        } catch (error) { }
     };
 
     const handleChange = (e) => {
@@ -128,7 +132,7 @@ const ServiceInfo = () => {
             resetForm();
             fetchServiceInfos();
             setIsModalOpen(false);
-        } catch (error) {}
+        } catch (error) { }
     };
 
     const handleEdit = (service) => {
@@ -146,9 +150,15 @@ const ServiceInfo = () => {
         await deleteServiceRequest(id);
     };
 
+    const handleNotificationClick = (clientId) => {
+        setSelectedClientId(clientId); // Set the client ID for notification
+        setIsNotificationModalOpen(true); // Open the notification modal
+    };
+
     useEffect(() => {
         fetchServiceInfos();
     }, []);
+
 
     return (
         <div className="service-info-container">
@@ -171,7 +181,21 @@ const ServiceInfo = () => {
                     </li>
                 ))}
             </ul>
-    
+
+            {/* Modal for sending notifications */}
+            {isNotificationModalOpen && selectedClientId && (
+                <div className="notification-modal-overlay">
+                    <div className="notification-modal">
+                        <button className="notification-modal-close" onClick={() => setIsNotificationModalOpen(false)}>&times;</button>
+                        <SendNotifications
+                            clientId={selectedClientId}
+                            closeModal={() => setIsNotificationModalOpen(false)}
+                        />
+                    </div>
+                </div>
+            )}
+
+
             {isModalOpen && (
                 <div className="service-info-modal">
                     <div className="service-info-modal-content">
@@ -187,7 +211,7 @@ const ServiceInfo = () => {
                     </div>
                 </div>
             )}
-    
+
             {isRequestModalOpen && serviceRequestDetails.length > 0 && (
                 <div className="service-info-modal">
                     <div className="service-info-modal-content">
@@ -207,6 +231,12 @@ const ServiceInfo = () => {
                                     <button onClick={() => updateServiceRequestStatus(request.serviceRequestId, status)}>Update</button>
                                 </div>
                                 <hr /> {/* Optional: Add a separator between requests */}
+                                {/* Add Send Notification button here */}
+                                <button
+                                    className="service-info-button notification-button"
+                                    onClick={() => handleNotificationClick(request.client?.clientId)}>
+                                    Send Notification
+                                </button>
                             </div>
                         ))}
                     </div>

@@ -35,10 +35,10 @@ const MaintenanceLog = ({ stationId }) => {
                 }
             });
             console.log('Logs fetched:', response.data); // Debugging log
-            
+
             // Ensure logs is always an array
             const fetchedLogs = Array.isArray(response.data.$values) ? response.data.$values : [];
-            
+
             // Format the logs to match the expected structure
             const formattedLogs = fetchedLogs.map(log => ({
                 maintenanceLogId: log.maintenanceLogId,
@@ -47,7 +47,7 @@ const MaintenanceLog = ({ stationId }) => {
                 details: log.details,
                 cost: log.cost
             }));
-            
+
             setLogs(formattedLogs); // Update state with formatted logs
         } catch (error) {
             console.error('Error fetching maintenance logs:', error);
@@ -108,54 +108,76 @@ const MaintenanceLog = ({ stationId }) => {
         <div className="maintenance-log-container">
             <h2 className="maintenance-log-title">Maintenance Logs for Station {stationId}</h2>
             <form className="maintenance-log-form" onSubmit={handleAddLog}>
-                <input
-                    type="date"
-                    name="maintenanceDate"
-                    className="maintenance-log-input"
-                    value={newLog.maintenanceDate}
-                    onChange={handleInputChange}
-                    required
-                />
-                <input
-                    type="text"
-                    name="performedBy"
-                    placeholder="Performed By"
-                    className="maintenance-log-input"
-                    value={newLog.performedBy}
-                    onChange={handleInputChange}
-                    required
-                />
-                <textarea
-                    name="details"
-                    placeholder="Details"
-                    className="maintenance-log-textarea"
-                    value={newLog.details}
-                    onChange={handleInputChange}
-                    required
-                />
-                <input
-                    type="number"
-                    name="cost"
-                    placeholder="Cost"
-                    className="maintenance-log-input"
-                    value={newLog.cost}
-                    onChange={handleInputChange}
-                    required
-                />
+
+                <label className="form-label">
+                    Maintenance Date:
+                    <input
+                        type="date"
+                        name="maintenanceDate"
+                        className="maintenance-log-input"
+                        value={newLog.maintenanceDate}
+                        onChange={handleInputChange}
+                        required
+                    />
+                </label>
+
+                <label className="form-label">
+                    Performed By:
+                    <select
+                        name="performedBy"
+                        className="maintenance-log-input"
+                        value={newLog.performedBy}
+                        onChange={handleInputChange}
+                        required
+                    >
+                        <option value="" disabled>Select Technician</option>
+                        <option value="Technician A">Technician A</option>
+                        <option value="Technician B">Technician B</option>
+                        <option value="External Contractor">External Contractor</option>
+                    </select>
+                </label>
+
+                <label className="form-label">
+                    Details:
+                    <textarea
+                        name="details"
+                        placeholder="Details"
+                        className="maintenance-log-textarea"
+                        value={newLog.details}
+                        onChange={handleInputChange}
+                        required
+                    />
+                </label>
+
+                <label className="form-label">
+                    Cost:
+                    <input
+                        type="number"
+                        name="cost"
+                        placeholder="Cost"
+                        className="maintenance-log-input"
+                        value={newLog.cost}
+                        onChange={handleInputChange}
+                        required
+                    />
+                </label>
+
                 <button type="submit" className="maintenance-log-button">Add Maintenance Log</button>
             </form>
-    
+
+
+
             <h3 className="maintenance-log-subtitle">Existing Maintenance Logs</h3>
             <ul className="maintenance-log-list">
                 {logs.length > 0 ? (
                     logs.map(log => (
                         <li key={log.maintenanceLogId} className="maintenance-log-item">
-                            <strong>Date:</strong> {new Date(log.maintenanceDate).toLocaleDateString()} | 
-                            <strong> Performed By:</strong> {log.performedBy} | 
-                            <strong> Details:</strong> {log.details} | 
-                            <strong> Cost:</strong> ${log.cost} 
-                            <button 
-                                className="maintenance-log-delete-button" 
+                            <strong>Date:</strong> {new Date(log.maintenanceDate).toLocaleDateString()} |
+                            <strong> Performed By:</strong> {log.performedBy} |
+                            <strong> Details:</strong> {log.details} |
+                            <strong> Cost:</strong> ${log.cost}
+                            <button
+                                className="maintenance-log-delete-button"
                                 onClick={() => handleDeleteLog(log.maintenanceLogId)}
                             >
                                 Delete
@@ -168,7 +190,7 @@ const MaintenanceLog = ({ stationId }) => {
             </ul>
         </div>
     );
-    
+
 };
 
 export default MaintenanceLog;

@@ -15,7 +15,7 @@ import ChargingStationAndLocationForm from "./components/Owner/ChargingStaion/Ch
 import Location from "./components/Client/Locations/Location";
 import ServiceInfo from "./components/Servicer/ServiceInfo/ServiceInfo";
 import PostsAndComments from "./components/PostsAndComments/PostsAndComments";
-import SendNotifications from "./components/Servicer/SendNotifications/SendServicerNotifications";
+import SendNotifications from "./components/Servicer/SendNotifications/SendNotifications";
 import SendOwnerNotifications from "./components/Owner/SendNotifications/SendOwnerNotifications";
 
 const App = () => {
@@ -67,7 +67,7 @@ const App = () => {
           {isAuthenticated && (
             <>
               <Route path="/vehicles" element={<Vehicles />} />
-              <Route path="/postsandcomments" element={<PostsAndComments />} />
+              <Route path="/community" element={<PostsAndComments />} />
               <Route path="/charging-station" element={<ChargingStationAndLocationForm />} />
               <Route path="/location" element={<Location />} />
               <Route path="/serviceinfo" element={<ServiceInfo />} />

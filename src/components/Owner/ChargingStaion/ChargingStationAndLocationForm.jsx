@@ -230,14 +230,15 @@ const ChargingStationAndLocationForm = () => {
     const handleStationSelect = (id) => {
         setSelectedStationId(id);
     };
-    
+
 
     return (
         <div className="charging-station-form-container">
-
-            {/* Main Form for Creating/Updating Charging Station */}
             <form className="charging-station-form" onSubmit={selectedStationId ? handleUpdate : handleSubmit}>
-                <h2 className="form-title">{selectedStationId ? 'Charging Station Management' : 'Charging Station Management'}</h2>
+                <h2 className="form-title">
+                    {selectedStationId ? 'Charging Station Management' : 'Charging Station Management'}
+                </h2>
+
                 <label className="form-label">
                     Station Location:
                     <input
@@ -250,6 +251,7 @@ const ChargingStationAndLocationForm = () => {
                         required
                     />
                 </label>
+
                 <label className="form-label">
                     Charging Station Name:
                     <input
@@ -262,30 +264,39 @@ const ChargingStationAndLocationForm = () => {
                         required
                     />
                 </label>
+
                 <label className="form-label">
                     Station Status:
-                    <input
-                        type="text"
+                    <select
                         name="status"
                         className="form-input"
-                        placeholder="Station Status"
                         value={chargerData.status}
                         onChange={handleChargerChange}
                         required
-                    />
+                    >
+                        <option value="" disabled>Select Status</option>
+                        <option value="Active">Active</option>
+                        <option value="Inactive">Inactive</option>
+                        <option value="Under Maintenance">Under Maintenance</option>
+                    </select>
                 </label>
+
                 <label className="form-label">
                     Payment Method:
-                    <input
-                        type="text"
+                    <select
                         name="paymentMethod"
                         className="form-input"
-                        placeholder="Payment Method"
                         value={chargerData.paymentMethod}
                         onChange={handleChargerChange}
                         required
-                    />
+                    >
+                        <option value="" disabled>Select Payment Method</option>
+                        <option value="Credit Card">Credit Card</option>
+                        <option value="Cash">Cash</option>
+                        <option value="Both">Both</option>
+                    </select>
                 </label>
+
                 <label className="form-label">
                     Address:
                     <input
@@ -298,6 +309,7 @@ const ChargingStationAndLocationForm = () => {
                         required
                     />
                 </label>
+
                 <label className="form-label">
                     Latitude:
                     <input
@@ -311,6 +323,7 @@ const ChargingStationAndLocationForm = () => {
                         readOnly
                     />
                 </label>
+
                 <label className="form-label">
                     Longitude:
                     <input
@@ -339,47 +352,61 @@ const ChargingStationAndLocationForm = () => {
                 </Button>
             </form>
 
-
             {/* Charger Form - This will only show if there are charging stations */}
             {chargingStations.length > 0 && (
                 <form className="charger-form" onSubmit={handleChargerSubmit}>
                     <h2>Create Charger</h2>
+
                     <label className="form-label">
                         Charger Type:
-                        <input
-                            type="text"
+                        <select
                             name="type"
                             className="form-input"
-                            placeholder="Charger Type"
                             value={chargerInfo.type}
                             onChange={handleChargerInfoChange}
                             required
-                        />
+                        >
+                            <option value="" disabled>Select Charger Type</option>
+                            <option value="Type 1">Type 1</option>
+                            <option value="Type 2">Type 2</option>
+                            <option value="CCS">CCS</option>
+                            <option value="CHAdeMO">CHAdeMO</option>
+                        </select>
                     </label>
+
                     <label className="form-label">
                         Power:
-                        <input
-                            type="text"
+                        <select
                             name="power"
                             className="form-input"
-                            placeholder="Power (kW)"
                             value={chargerInfo.power}
                             onChange={handleChargerInfoChange}
                             required
-                        />
+                        >
+                            <option value="" disabled>Select Power Output (kW)</option>
+                            <option value="7">7 kW</option>
+                            <option value="22">22 kW</option>
+                            <option value="50">50 kW</option>
+                            <option value="150">150 kW</option>
+                        </select>
                     </label>
+
                     <label className="form-label">
                         Speed:
-                        <input
-                            type="text"
+                        <select
                             name="speed"
                             className="form-input"
-                            placeholder="Charging Speed"
                             value={chargerInfo.speed}
                             onChange={handleChargerInfoChange}
                             required
-                        />
+                        >
+                            <option value="" disabled>Select Charging Speed</option>
+                            <option value="Standard">Standard</option>
+                            <option value="Fast">Fast</option>
+                            <option value="Ultra-fast">Ultra-fast</option>
+                        </select>
                     </label>
+
                     <label className="form-label">
                         Charging Station:
                         <select
@@ -396,9 +423,11 @@ const ChargingStationAndLocationForm = () => {
                             ))}
                         </select>
                     </label>
+
                     <Button type="submit" className="form-button">Create Charger</Button>
                 </form>
             )}
+
 
             <MapContainer center={mapCenter} zoom={8} style={{ height: '400px', width: '100%' }} bounds={jordanBounds}>
                 <TileLayer
@@ -474,48 +503,48 @@ const ChargingStationAndLocationForm = () => {
             </div>
 
             <div>
-            {/* Select Station Dropdown for Maintenance Log */}
-            <label className="form-label">
-                Station's Maintenance Log:
-                <select
-                    onChange={(e) => setSelectedMaintenanceStationId(e.target.value)}
-                    value={selectedMaintenanceStationId}
-                    className="form-input"
-                    required
-                >
-                    <option value="">Select a Charging Station</option>
-                    {chargingStations.map(station => (
-                        <option key={station.chargingStationId} value={station.chargingStationId}>
-                            {station.name} - {station.stationLocation}
-                        </option>
-                    ))}
-                </select>
-            </label>
+                {/* Select Station Dropdown for Maintenance Log */}
+                <label className="form-label">
+                    Station's Maintenance Log:
+                    <select
+                        onChange={(e) => setSelectedMaintenanceStationId(e.target.value)}
+                        value={selectedMaintenanceStationId}
+                        className="form-input"
+                        required
+                    >
+                        <option value="">Select a Charging Station</option>
+                        {chargingStations.map(station => (
+                            <option key={station.chargingStationId} value={station.chargingStationId}>
+                                {station.name} - {station.stationLocation}
+                            </option>
+                        ))}
+                    </select>
+                </label>
 
-            {/* Show MaintenanceLog if a station is selected */}
-            {selectedMaintenanceStationId && <MaintenanceLog stationId={selectedMaintenanceStationId} />}
+                {/* Show MaintenanceLog if a station is selected */}
+                {selectedMaintenanceStationId && <MaintenanceLog stationId={selectedMaintenanceStationId} />}
 
-            {/* Select Station Dropdown for Bookings */}
-            <label className="form-label">
-                Station's Bookings:
-                <select
-                    onChange={(e) => setSelectedBookingStationId(e.target.value)}
-                    value={selectedBookingStationId}
-                    className="form-input"
-                    required
-                >
-                    <option value="">Select a Charging Station</option>
-                    {chargingStations.map(station => (
-                        <option key={station.chargingStationId} value={station.chargingStationId}>
-                            {station.name} - {station.stationLocation}
-                        </option>
-                    ))}
-                </select>
-            </label>
+                {/* Select Station Dropdown for Bookings */}
+                <label className="form-label">
+                    Station's Bookings:
+                    <select
+                        onChange={(e) => setSelectedBookingStationId(e.target.value)}
+                        value={selectedBookingStationId}
+                        className="form-input"
+                        required
+                    >
+                        <option value="">Select a Charging Station</option>
+                        {chargingStations.map(station => (
+                            <option key={station.chargingStationId} value={station.chargingStationId}>
+                                {station.name} - {station.stationLocation}
+                            </option>
+                        ))}
+                    </select>
+                </label>
 
-            {/* Booking component rendering */}
-            {selectedBookingStationId && <Booking stationId={selectedBookingStationId} />}
-        </div>
+                {/* Booking component rendering */}
+                {selectedBookingStationId && <Booking stationId={selectedBookingStationId} />}
+            </div>
 
         </div>
     );

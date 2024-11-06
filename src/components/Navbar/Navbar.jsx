@@ -10,7 +10,7 @@ export const Navlinks = [
   { id: 3, name: "CHARGING STATION", link: "/charging-station" }, // Link for Charging Station (only for Owners)
   { id: 4, name: "CHARGING STATION LOCATIONS", link: "/location" }, // Link for Charging Station Locations
   { id: 5, name: "My Services", link: "/serviceinfo" },
-  { id: 6, name: "POSTS", link: "/postsandcomments" },
+  { id: 6, name: "COMMUNITY", link: "/community" },
   { id: 7, name: "Send Notifications", link: "/SendNotifications" } ,// Adjusted link name for clarity
   { id: 8, name: "SendOwnerNotifications", link: "/SendOwnerNotifications" }, // New link for Owner
 
@@ -79,7 +79,7 @@ const Navbar = ({ theme, setTheme, isAuthenticated, onLogout }) => {
         </a>
       </li>
     );
-  } else if ((userRole === "Client" || userRole === "Admin") && name === "POSTS") {
+  } else if ((userRole === "Client" || userRole === "Admin") && name === "COMMUNITY") {
     return (
       <li key={id} className="py-4">
         <a href={link} className="text-lg font-medium hover:text-primary py-2 hover:border-b-2 hover:border-primary transition-colors duration-500">

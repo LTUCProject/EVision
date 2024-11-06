@@ -1,82 +1,108 @@
+/* Container for Posts and Comments */
 .posts-and-comments-container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    font-family: Arial, sans-serif;
+    width: 100%; 
+    max-width: 1200px; 
+    margin: 0 auto; 
+    padding: 20px; 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Modern font */
+    background-size: cover;
+    background-position: center;
+    border-radius: 12px; /* Slightly rounded corners */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Enhanced shadow for depth */
 }
 
-.posts-header, .create-post-header, .posts-list-header, .add-comment-header {
-    color: #333;
+/* Posts Header */
+.posts-header {
+    color: #1877F2; /* Facebook blue color for the header */
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 2em;
+    font-weight: 600; /* Bold header */
 }
 
-.post-form, .comment-form {
+/* Box for creating posts */
+.create-post-box {
     display: flex;
     flex-direction: column;
     margin-bottom: 20px;
-}
-
-.post-title-input, .post-content-textarea, .comment-post-id-input, .comment-content-textarea {
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 16px;
-}
-
-.submit-post-button, .submit-comment-button {
-    padding: 10px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-.submit-post-button:hover, .submit-comment-button:hover {
-    background-color: #0056b3;
-}
-
-.posts-list {
-    list-style-type: none;
-    padding: 0;
-}
-
-.post-item {
-    border: 1px solid #ddd;
     padding: 15px;
-    margin-bottom: 15px;
-    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.95); /* Light background for creating posts */
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow */
 }
 
+/* Each Post Style */
+.post-item {
+    border: 1px solid rgba(0, 0, 0, 0.1); /* Soft border for posts */
+    padding: 18px;
+    margin-bottom: 35px; /* Increased margin to create larger space for comments */
+    border-radius: 8px;
+    background-color: #F5F8FA; /* Light grey-blue background for posts */
+    color: #333; /* Dark text for contrast */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Light shadow for posts */
+}
+
+/* Post Title */
 .post-title {
     font-size: 1.5em;
     margin: 0;
+    color: #1877F2; /* Consistent with Facebook blue */
+    font-weight: 600; /* Bold title */
 }
 
+/* Post Content */
 .post-content {
-    margin: 10px 0;
+    margin: 12px 0;
+    color: #555; /* Medium grey for better readability */
 }
 
-.post-author-date {
-    font-size: 0.9em;
-    color: #666;
-}
-
+/* Comments Section Header */
 .comments-header {
-    margin-top: 15px;
+    margin-top: 20px;
+    color: #3A3B3C; /* Subtle grey color for the comments header */
+    font-size: 1.3em;
+    font-weight: 500;
 }
 
+/* List of Comments */
 .comments-list {
     list-style-type: none;
     padding: 0;
 }
 
+/* Individual Comment Item */
 .comment-item {
-    border-top: 1px solid #ccc;
-    padding: 10px 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.05); /* Very subtle border */
+    padding: 12px 0;
+    background-color: #F9F9F9; /* Very light grey background for comments */
+    color: #444; /* Slightly darker text for comments */
+    margin-top: 20px; /* Increased margin to clearly separate from the post */
+    padding-left: 40px; /* Added padding to move the comments slightly to the right */
 }
 
+/* Comment Content */
 .comment-content {
-    font-size: 0.9em;
-    color: #333;
+    font-size: 1em;
+    color: #555; /* Medium grey for comment text */
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .posts-and-comments-container {
+        padding: 15px;
+    }
+
+    .create-post-box {
+        margin-bottom: 15px;
+    }
+
+    .post-item {
+        margin-bottom: 10px;
+    }
+
+    .comment-item {
+        padding: 10px 0;
+        margin-top: 150px; /* Adjusted margin for smaller screens */
+        padding-left: 15px; /* Slightly smaller padding on smaller screens */
+    }
 }
