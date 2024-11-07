@@ -8,9 +8,9 @@ import MoreVertIcon from '@mui/icons-material/MoreVert';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 
-import './PostsAndComments.css';
+import './CommunityStyle.css';
 
-const PostsAndComments = () => {
+const ClientCommunity = () => {
     const [posts, setPosts] = useState([]);
     const [newPost, setNewPost] = useState({ title: '', content: '' });
     const [newComment, setNewComment] = useState({ content: '' });
@@ -335,4 +335,4 @@ const PostsAndComments = () => {
     );
 };
 
-export default PostsAndComments;
+export default ClientCommunity;

@@ -14,7 +14,9 @@ import Vehicles from "./components/Client/Vehicle/Vehicle";
 import ChargingStationAndLocationForm from "./components/Owner/ChargingStaion/ChargingStationAndLocationForm";
 import Location from "./components/Client/Locations/Location";
 import ServiceInfo from "./components/Servicer/ServiceInfo/ServiceInfo";
-import PostsAndComments from "./components/PostsAndComments/PostsAndComments";
+import ClientCommunity from "./components/Community/ClientCommunity";
+import ServicerCommunity from "./components/Community/ServicerCommunity";
+import OwnerCommunity from "./components/Community/OwnerCommunity";
 import SendNotifications from "./components/Servicer/SendNotifications/SendNotifications";
 import SendOwnerNotifications from "./components/Owner/SendNotifications/SendOwnerNotifications";
 
@@ -67,7 +69,9 @@ const App = () => {
           {isAuthenticated && (
             <>
               <Route path="/vehicles" element={<Vehicles />} />
-              <Route path="/community" element={<PostsAndComments />} />
+              <Route path="/ClientCommunity" element={<ClientCommunity />} />
+              <Route path="/ServicerCommunity" element={<ServicerCommunity />} />
+              <Route path="/OwnerCommunity" element={<OwnerCommunity />} />
               <Route path="/charging-station" element={<ChargingStationAndLocationForm />} />
               <Route path="/location" element={<Location />} />
               <Route path="/serviceinfo" element={<ServiceInfo />} />
