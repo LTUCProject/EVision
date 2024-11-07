@@ -37,9 +37,9 @@ const ClientCommunity = () => {
                 }
             });
             const fetchedPosts = Array.isArray(response.data.$values) ? response.data.$values : [];
-            
+
             const sortedPosts = fetchedPosts.sort((a, b) => new Date(b.date) - new Date(a.date));
-            
+
             setPosts(sortedPosts);
         } catch (error) {
             console.error('Error fetching posts:', error);
@@ -202,7 +202,7 @@ const ClientCommunity = () => {
         const date = new Date(isoDate);
         const utcOffset = 3 * 60;
         const localDate = new Date(date.getTime() + utcOffset * 60 * 1000);
-    
+
         return localDate.toLocaleString('en-GB', {
             year: 'numeric',
             month: '2-digit',
@@ -219,120 +219,219 @@ const ClientCommunity = () => {
     }, []);
 
     return (
-        <Box className="posts-and-comments-container">
-            <Typography variant="h4" component="h1" className="posts-header">Electric Car Enthusiasts</Typography>
+        <div className='backgroundCO'>
+            <Box className="posts-and-comments-container">
+                <Typography variant="h4" component="h1" className="posts-header">Electric Car Enthusiasts</Typography>
     
-            {/* Create Post Section */}
-            <Box className="create-post-box">
-                <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
-                    <Avatar src={faker.image.avatar()} />
-                    <TextField
-                        label="What's on your mind?"
-                        variant="outlined"
-                        fullWidth
-                        value={newPost.content}
-                        onChange={(e) => setNewPost({ ...newPost, content: e.target.value })}
-                    />
-                </Box>
-                <Button variant="contained" onClick={handlePostSubmit}>Post</Button>
-            </Box>
-    
-            {/* Posts List */}
-            {posts.map(post => (
-                <Box key={post.postId} className="post-item">
-                    <Box sx={{ display: 'flex', alignItems: 'center', mb: 1 }}>
+                {/* Create Post Section */}
+                <Box className="create-post-box">
+                    <Box className="create-post-avatar-textfield">
                         <Avatar src={faker.image.avatar()} />
-                        <Typography variant="h6">{post.userName}</Typography>
-                        {getAccountIdFromToken() === post.accountId && (
-                            <IconButton onClick={() => handleEditClick(post)}>
-                                                <EditIcon />
-                                                </IconButton>
-                        )}
+                        <TextField
+                            label="What's on your mind?"
+                            variant="outlined"
+                            fullWidth
+                            value={newPost.content}
+                            onChange={(e) => setNewPost({ ...newPost, content: e.target.value })}
+                        />
                     </Box>
-                    {editingPostId === post.postId ? (
-                        <>
-                            <TextField
-                                label="Content"
-                                fullWidth
-                                multiline
-                                rows={4}
-                                value={post.content}
-                                onChange={(e) => setPosts(posts.map(p => p.postId === post.postId ? { ...p, content: e.target.value } : p))}
-                            />
-                            <Button variant="contained" onClick={() => handleUpdatePost(post.postId)}>Save</Button>
-                        </>
-                    ) : (
-                        <>
-                            <Typography variant="caption" color="textSecondary">{formatDate(post.date)}</Typography>
-                            <Typography variant="body1" sx={{ mt: 2, mb: 1 }}>{post.content}</Typography>
-                        </>
-                    )}
-                    
-                    <Box sx={{ display: 'flex', justifyContent: 'space-between', mt: 2 }}>
-                        <Button startIcon={<FavoriteIcon />} color="error">Like</Button>
-                        <Button startIcon={<CommentIcon />} onClick={() => setCommentingPostId(post.postId)}>Comment</Button>
-                        {getAccountIdFromToken() === post.accountId && (
-                            <Button color="secondary" onClick={() => handleDeleteClick(post.postId, post.accountId)}>Delete</Button>
-                        )}
-                    </Box>
+                    <Button
+                        variant="contained"
+                        style={{
+                            backgroundColor: '#007bff',
+                            color: '#ffffff',
+                            boxShadow: '0 6px 18px rgba(0, 123, 255, 0.15)',
+                            transition: 'all 0.3s ease',
+                        }}
+                        onClick={handlePostSubmit}
+                    >
+                        Post
+                    </Button>
+                </Box>
     
-                    {/* Comments Section */}
-                    <Box className="comments-container">
-                        {post.comments.$values.map(comment => (
-                            <Box key={comment.commentId} className="comment-item">
-                                <Box sx={{ display: 'flex', alignItems: 'center', mb: 1 }}>
-                                    <Avatar src={faker.image.avatar()} />
-                                    <Typography variant="body2">{comment.userName}</Typography>
-                                    {getAccountIdFromToken() === comment.accountId && (
+                {/* Posts List */}
+                {posts.map(post => (
+                    <Box key={post.postId} className="post-item">
+                        <Box className="post-header">
+                            <Avatar src={faker.image.avatar()} />
+                            <Typography variant="h6" className='h6'>{post.userName}</Typography>
+                            {getAccountIdFromToken() === post.accountId && (
+                                <IconButton onClick={() => handleEditClick(post)}>
+                                    <EditIcon />
+                                </IconButton>
+                            )}
+                        </Box>
+                        {editingPostId === post.postId ? (
+                            <>
+                                <TextField
+                                    label="Content"
+                                    fullWidth
+                                    multiline
+                                    rows={4}
+                                    value={post.content}
+                                    onChange={(e) => setPosts(posts.map(p => p.postId === post.postId ? { ...p, content: e.target.value } : p))}
+                                />
+                                <Button
+                                    variant="contained"
+                                    style={{
+                                        backgroundColor: '#28a745',
+                                        color: '#ffffff',
+                                        padding: '8px 16px',
+                                        borderRadius: '8px',
+                                        boxShadow: '0 4px 10px rgba(40, 167, 69, 0.2)',
+                                        transition: 'all 0.3s ease',
+                                    }}
+                                    onClick={() => handleUpdatePost(post.postId)}
+                                >
+                                    Save
+                                </Button>
+                            </>
+                        ) : (
+                            <>
+                                <Typography variant="caption" color="textSecondary">{formatDate(post.date)}</Typography>
+                                <Typography variant="body1" className="post-content">{post.content}</Typography>
+                            </>
+                        )}
+    
+                        <Box className="post-actions">
+                            <Button
+                                startIcon={<FavoriteIcon />}
+                                style={{
+                                    backgroundColor: '#ffc107',
+                                    color: '#212529',
+                                    boxShadow: '0 4px 12px rgba(255, 193, 7, 0.2)',
+                                    transition: 'all 0.3s ease',
+                                }}
+                                className='btL'
+                            >
+                                Like
+                            </Button>
+                            <Button
+                                startIcon={<CommentIcon />}
+                                style={{
+                                    backgroundColor: '#17a2b8',
+                                    color: '#ffffff',
+                                    boxShadow: '0 4px 12px rgba(23, 162, 184, 0.2)',
+                                    transition: 'all 0.3s ease',
+                                }}
+                                className='btC'
+                                onClick={() => setCommentingPostId(post.postId)}
+                            >
+                                Comment
+                            </Button>
+                            {getAccountIdFromToken() === post.accountId && (
+                                <Button
+                                    className="delete-button"
+                                    style={{
+                                        backgroundColor: '#dc3545',
+                                        color: '#ffffff',
+                                        boxShadow: '0 4px 12px rgba(220, 53, 69, 0.2)',
+                                        transition: 'all 0.3s ease',
+                                    }}
+                                    onClick={() => handleDeleteClick(post.postId, post.accountId)}
+                                >
+                                    Delete
+                                </Button>
+                            )}
+                        </Box>
+    
+                        {/* Comments Section */}
+                        <Box className="comments-container">
+                            {post.comments.$values.map(comment => (
+                                <Box key={comment.commentId} className="comment-item">
+                                    <Box className="comment-header">
+                                        <Avatar src={faker.image.avatar()} />
+                                        <Typography variant="body2">{comment.userName}</Typography>
+                                        {getAccountIdFromToken() === comment.accountId && (
+                                            <>
+                                                <IconButton onClick={() => handleEditCommentClick(comment)}>
+                                                    <EditIcon />
+                                                </IconButton>
+                                                <IconButton onClick={() => handleDeleteComment(comment.commentId)}>
+                                                    <DeleteIcon />
+                                                </IconButton>
+                                            </>
+                                        )}
+                                    </Box>
+                                    {editingCommentId === comment.commentId ? (
+                                        <Box className="edit-comment-box">
+                                            <TextField
+                                                label="Edit Comment"
+                                                value={editedCommentContent}
+                                                onChange={(e) => setEditedCommentContent(e.target.value)}
+                                                fullWidth
+                                            />
+                                            <Button
+                                                variant="contained"
+                                                style={{
+                                                    backgroundColor: '#28a745',
+                                                    color: '#ffffff',
+                                                    padding: '8px 16px',
+                                                    borderRadius: '8px',
+                                                    boxShadow: '0 4px 10px rgba(40, 167, 69, 0.2)',
+                                                    transition: 'all 0.3s ease',
+                                                }}
+                                                className='btU'
+                                                onClick={() => handleUpdateComment(comment.commentId)}
+                                            >
+                                                Update
+                                            </Button>
+                                        </Box>
+                                    ) : (
                                         <>
-                                            <IconButton onClick={() => handleEditCommentClick(comment)}>
-                                                <EditIcon />
-                                            </IconButton>
-                                            <IconButton onClick={() => handleDeleteComment(comment.commentId)}>
-                                                <DeleteIcon />
-                                            </IconButton>
+                                            <Typography variant="caption" color="textSecondary" className="comment-date">{formatDate(comment.date)}</Typography>
+                                            <Typography variant="body2" className="comment-content">{comment.content}</Typography>
                                         </>
                                     )}
                                 </Box>
-                                {editingCommentId === comment.commentId ? (
-                                    <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
-                                        <TextField
-                                            label="Edit Comment"
-                                            value={editedCommentContent}
-                                            onChange={(e) => setEditedCommentContent(e.target.value)}
-                                            fullWidth
-                                        />
-                                        <Button variant="contained" onClick={() => handleUpdateComment(comment.commentId)}>Update</Button>
-                                    </Box>
-                                ) : (
-                                    <>
-                                        <Typography variant="caption" color="textSecondary" sx={{ ml: 5 }}>{formatDate(comment.date)}</Typography>
-                                        <Typography variant="body2">{comment.content}</Typography>
-                                    </>
-                                )}
-                            </Box>
-                        ))}
-                    </Box>
-                    {/* Add Comment Section */}
-                    {commentingPostId === post.postId ? (
-                        <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
-                            <Avatar src={faker.image.avatar()} />
-                            <TextField
-                                label="Add a comment"
-                                fullWidth
-                                multiline
-                                value={newComment.content}
-                                onChange={(e) => setNewComment({ content: e.target.value })}
-                            />
-                            <Button variant="contained" onClick={handleCommentSubmit}>Post Comment</Button>
+                            ))}
                         </Box>
-                    ) : (
-                        <Button onClick={() => setCommentingPostId(post.postId)}>Add Comment</Button>
-                    )}
-                </Box>
-            ))}
-        </Box>
+    
+                        {/* Add Comment Section */}
+                        {commentingPostId === post.postId ? (
+                            <Box className="add-comment-box">
+                                <Avatar src={faker.image.avatar()} />
+                                <TextField
+                                    label="Add a comment"
+                                    fullWidth
+                                    multiline
+                                    value={newComment.content}
+                                    onChange={(e) => setNewComment({ content: e.target.value })}
+                                />
+                                <Button
+                                    variant="contained"
+                                    style={{
+                                        backgroundColor: '#007bff',
+                                        color: '#ffffff',
+                                        boxShadow: '0 6px 18px rgba(0, 123, 255, 0.15)',
+                                        transition: 'all 0.3s ease',
+                                    }}
+                                    className='btP'
+                                    onClick={handleCommentSubmit}
+                                >
+                                    Post Comment
+                                </Button>
+                            </Box>
+                        ) : (
+                            <Button
+                                onClick={() => setCommentingPostId(post.postId)}
+                                style={{
+                                    backgroundColor: '#6c757d',
+                                    color: '#ffffff',
+                                    boxShadow: '0 4px 12px rgba(108, 117, 125, 0.2)',
+                                    transition: 'all 0.3s ease',
+                                }}
+                                className='btA'
+                            >
+                                Add Comment
+                            </Button>
+                        )}
+                    </Box>
+                ))}
+            </Box>
+        </div>
     );
+    
 };
 
 export default ClientCommunity;

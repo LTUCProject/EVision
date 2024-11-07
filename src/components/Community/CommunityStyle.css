@@ -1,92 +1,324 @@
-/* Container for Posts and Comments */
+/* الحاوية العامة للمنشورات والتعليقات */
 .posts-and-comments-container {
-    width: 100%; 
-    max-width: 1200px; 
-    margin: 0 auto; 
-    padding: 20px; 
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Modern font */
-    background-size: cover;
-    background-position: center;
-    border-radius: 12px; /* Slightly rounded corners */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Enhanced shadow for depth */
+    width: 100%;
+    max-width: 1200px;
+    margin: 40px auto; /* المسافة من الأعلى والأسفل */
+    padding: 50px 20px; /* مسافة داخلية من جميع الجهات، زيادة المسافة من الأعلى والأسفل */
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background: linear-gradient(135deg, #f8f9fa, #e0e4e9); /* تدرج هادئ بين البيج والرمادي الفاتح */
+    border-radius: 20px;
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.05); /* تأثير الظل الخفيف */
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 
-/* Posts Header */
+
+/* تأثير hover على الحاوية */
+.posts-and-comments-container:hover {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transform: translateY(-5px);
+    background: linear-gradient(135deg, #e0e4e9, #f1f4f7); /* تغيير التدرج عند المرور */
+}
+
+/* إعدادات الطباعة */
+.posts-and-comments-container h1, 
+.posts-and-comments-container h2, 
+.posts-and-comments-container p {
+    color: #495057; /* لون داكن ولكنه خفيف للقراءة */
+    margin-bottom: 1.2rem;
+    line-height: 1.5;
+}
+
+.posts-and-comments-container h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.posts-and-comments-container h2 {
+    font-size: 1.7rem;
+    font-weight: 600;
+    color: #6c757d; /* لون رمادي داكن للعناوين الثانوية */
+}
+
+.posts-and-comments-container p {
+    font-size: 1rem;
+    color: #6c757d; /* رمادي فاتح للنصوص */
+}
+
+/* رأس المنشورات */
 .posts-header {
-    color: #1877F2; /* Facebook blue color for the header */
+    color: #6c757d; /* لون رمادي دافئ */
     text-align: center;
-    margin-bottom: 25px;
-    font-size: 2em;
-    font-weight: 600; /* Bold header */
+    margin-bottom: 30px;
+    font-size: 2.5rem;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: 1px;
+    transition: color 0.3s ease, transform 0.3s ease;
 }
 
-/* Box for creating posts */
+.posts-header:hover {
+    color: #0080ff; /* تدرج اللون عند المرور */
+    transform: scale(1.05);
+}
+
+/* صندوق إنشاء المنشور */
 .create-post-box {
     display: flex;
     flex-direction: column;
-    margin-bottom: 20px;
-    padding: 15px;
-    background-color: rgba(255, 255, 255, 0.95); /* Light background for creating posts */
-    border-radius: 8px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    gap: 16px;
+    margin-bottom: 35px;
+    padding: 24px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05); /* تأثير الظل البسيط */
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 
-/* Each Post Style */
+/* تأثير hover على صندوق المنشور */
+.create-post-box:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    transform: translateY(-3px);
+}
+
+/* تنسيق المدخلات */
+.create-post-box .input-container {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.create-post-box .MuiAvatar-root {
+    width: 50px;
+    height: 50px;
+    border: 2px solid #e0e4e9; /* حدود رقيقة للأفتار */
+    border-radius: 50%;
+    transition: border-color 0.3s ease;
+}
+
+.create-post-box .MuiAvatar-root:hover {
+    border-color: #495057; /* تغيير اللون عند المرور */
+}
+
+/* تنسيق حقل النص */
+.create-post-box .MuiTextField-root {
+    flex-grow: 1;
+    background-color: #f5f5f5; /* خلفية خفيفة لحقل النص */
+    border-radius: 8px;
+    padding: 10px;
+    border: 1px solid #e0e0e0;
+    transition: border-color 0.3s ease;
+}
+
+/* تأثير تركيز حقل النص */
+.create-post-box .MuiTextField-root .MuiOutlinedInput-root.Mui-focused {
+    border-color: #6c757d; /* حدود رمادية عند التركيز */
+    box-shadow: 0 0 0 2px rgba(108, 117, 125, 0.2);
+}
+
+/* تنسيق زر المنشور */
+.create-post-box .MuiButton-root {
+    background-color: #6c757d; /* زر بلون رمادي دافئ */
+    color: #fff;
+    font-weight: 600;
+    padding: 10px 18px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 3px 10px rgba(108, 117, 125, 0.3);
+    align-self: flex-end;
+}
+
+/* تأثير hover على زر المنشور */
+.create-post-box .MuiButton-root:hover {
+    background-color: #495057; /* تغيير اللون عند المرور */
+    transform: scale(1.05);
+}
+
+/* تنسيق المنشورات */
 .post-item {
-    border: 1px solid rgba(0, 0, 0, 0.1); /* Soft border for posts */
-    padding: 18px;
-    margin-bottom: 35px; /* Increased margin to create larger space for comments */
-    border-radius: 8px;
-    background-color: #F5F8FA; /* Light grey-blue background for posts */
-    color: #333; /* Dark text for contrast */
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Light shadow for posts */
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    padding: 20px;
+    margin-bottom: 40px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #f1f5f9, #e0e4e9); /* تدرج هادئ للمنشورات */
+    color: #495057;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    transition: box-shadow 0.3s ease, transform 0.2s ease, background 0.3s ease;
 }
 
-/* Post Title */
-.post-title {
-    font-size: 1.5em;
+.post-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(135deg, #e0e4e9, #f1f5f9); /* تدرج أغمق قليلاً عند المرور */
+}
+
+
+/* Background Container with "Box" effect */
+/* Background Container with "Box" effect */
+.backgroundCO {
+    align-items: center;
+    justify-content: center; /* Centers the content horizontally */
+    background: #ffffff; /* Regular background */
+    position: relative; /* Allows positioning of text and shadows */
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: inset 10px 0 15px rgba(0, 122, 255, 0.7), 
+                inset -10px 0 15px rgba(0, 122, 255, 0.7), /* Shadows for right and left (inside) */
+                inset 0 10px 15px rgba(0, 122, 255, 0.7), 
+                inset 0 -10px 15px rgba(0, 122, 255, 0.7), /* Shadows for top and bottom (inside) */
+                inset 0 0 30px rgba(70, 130, 180, 0.7), 
+                inset 0 0 45px rgba(0, 191, 255, 0.7); /* Glowing effect inside */
+    animation: glowAnimation 3s ease-in-out infinite; /* Shortened duration for a faster effect */
+}
+
+/* Keyframes for the glowing box effect */
+@keyframes glowAnimation {
+    0% {
+        box-shadow: inset 10px 0 15px rgba(0, 122, 255, 0.7), 
+                    inset -10px 0 15px rgba(0, 122, 255, 0.7),
+                    inset 0 10px 15px rgba(0, 122, 255, 0.7), 
+                    inset 0 -10px 15px rgba(0, 122, 255, 0.7), 
+                    inset 0 0 30px rgba(70, 130, 180, 0.7), 
+                    inset 0 0 45px rgba(0, 191, 255, 0.7);
+    }
+    50% {
+        box-shadow: inset 20px 0 25px rgba(0, 122, 255, 1), 
+                    inset -20px 0 25px rgba(0, 122, 255, 1), 
+                    inset 0 20px 25px rgba(0, 122, 255, 1), 
+                    inset 0 -20px 25px rgba(0, 122, 255, 1),
+                    inset 0 0 50px rgba(70, 130, 180, 1), 
+                    inset 0 0 75px rgba(0, 191, 255, 1);
+    }
+    100% {
+        box-shadow: inset 10px 0 15px rgba(0, 122, 255, 0.7), 
+                    inset -10px 0 15px rgba(0, 122, 255, 0.7), 
+                    inset 0 10px 15px rgba(0, 122, 255, 0.7), 
+                    inset 0 -10px 15px rgba(0, 122, 255, 0.7), 
+                    inset 0 0 30px rgba(70, 130, 180, 0.7), 
+                    inset 0 0 45px rgba(0, 191, 255, 0.7);
+    }
+}
+
+/* Content Styling */
+.backgroundCO > * {
+    z-index: 1; /* Ensures the content is above the background */
+    color: #333; /* Dark text color for readability */
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+/* Example for a Heading inside background */
+.backgroundCO h1 {
+    font-size: 3rem;
+    font-weight: 700;
     margin: 0;
-    color: #1877F2; /* Consistent with Facebook blue */
-    font-weight: 600; /* Bold title */
+    transition: color 0.5s ease;
 }
 
-/* Post Content */
-.post-content {
-    margin: 12px 0;
-    color: #555; /* Medium grey for better readability */
-}
-
-/* Comments Section Header */
-.comments-header {
+/* Example for a Paragraph inside background */
+.backgroundCO p {
+    font-size: 1.2rem;
+    color: #6c757d; /* Lighter text for the paragraph */
+    line-height: 1.6;
     margin-top: 20px;
-    color: #3A3B3C; /* Subtle grey color for the comments header */
-    font-size: 1.3em;
-    font-weight: 500;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-/* List of Comments */
-.comments-list {
-    list-style-type: none;
-    padding: 0;
+/* Media Query for responsiveness */
+@media (max-width: 768px) {
+    .backgroundCO h1 {
+        font-size: 2.5rem;
+    }
+
+    .backgroundCO p {
+        font-size: 1rem;
+        padding: 0 10px;
+    }
 }
 
-/* Individual Comment Item */
+
+
+/* زر التفاعل */
+.bton {
+    background-color: #007bff; /* زر بلون أزرق مريح */
+    color: #ffffff;
+    font-weight: 600;
+    padding: 12px 24px; /* إضافة مساحة إضافية للراحة */
+    border-radius: 10px; /* حواف مدورة بشكل أنعم */
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px; /* إضافة مسافة بين الحروف لجعل النص أكثر وضوحًا */
+    border: none; /* إزالة الحدود الافتراضية */
+    cursor: pointer; /* يوضح أن العنصر قابل للنقر */
+    box-shadow: 0 6px 18px rgba(0, 123, 255, 0.15); /* إضافة تأثير الظلال بشكل أكثر نعومة */
+    transition: all 0.3s ease; /* تحسين جميع التأثيرات لتكون أكثر سلاسة */
+}
+
+/* حالة التحويم */
+.bton:hover {
+    background-color: #0056b3; /* تغيير اللون عند المرور ليصبح أغمق */
+    transform: translateY(-4px); /* رفع الزر بشكل طفيف لإعطاء تأثير ثلاثي الأبعاد */
+    box-shadow: 0 8px 24px rgba(0, 123, 255, 0.25); /* تأثير ظلال أقوى لإبراز الزر */
+}
+
+/* حالة التحويم مع التركيز */
+.bton:focus {
+    outline: none; /* إزالة الخط المحيط عند التركيز */
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.5); /* إضافة تأثير تركيز قوي حول الزر */
+}
+
+/* حالة الزر المعطل */
+.bton.Mui-disabled {
+    background-color: #b0d5f3; /* تغيير اللون إلى الأزرق الفاتح عند التعطيل */
+    color: #c0c0c0; /* تغيير اللون إلى الرمادي الفاتح للنص */
+    box-shadow: none; /* إزالة الظلال عند التعطيل */
+    cursor: not-allowed; /* تغيير المؤشر ليظهر كغير قابل للنقر */
+}
+
+/* حالة الزر عند الضغط */
+.bton:active {
+    transform: translateY(2px); /* الزر يضغط إلى الأسفل قليلاً لإعطاء تأثير الضغط */
+    box-shadow: 0 4px 12px rgba(0, 123, 255, 0.2); /* تعديل الظلال أثناء الضغط */
+}
+
+
+/* تنسيق التعليقات */
+.comments-container {
+    margin-top: 20px;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    padding-top: 15px;
+}
+
+/* تنسيق التعليق */
 .comment-item {
-    border-top: 1px solid rgba(0, 0, 0, 0.05); /* Very subtle border */
-    padding: 12px 0;
-    background-color: #F9F9F9; /* Very light grey background for comments */
-    color: #444; /* Slightly darker text for comments */
-    margin-top: 20px; /* Increased margin to clearly separate from the post */
-    padding-left: 40px; /* Added padding to move the comments slightly to the right */
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    padding: 15px 0;
+    background: linear-gradient(135deg, #f9f9f9, #f1f5f9); /* تدرج هادئ للتعليقات */
+    color: #495057;
+    margin-top: 10px;
+    padding-left: 40px;
+    border-radius: 6px;
 }
 
-/* Comment Content */
-.comment-content {
-    font-size: 1em;
-    color: #555; /* Medium grey for comment text */
+/* تنسيق الأفتار */
+.MuiAvatar-root {
+    margin-right: 10px;
 }
 
-/* Responsive Design */
+.MuiIconButton-root {
+    color: #666;
+    transition: color 0.2s ease;
+}
+
+.MuiIconButton-root:hover {
+    color: #6c757d; /* تغيير اللون عند المرور */
+}
+
+/* التنسيق المتجاوب مع الهواتف */
 @media (max-width: 600px) {
     .posts-and-comments-container {
         padding: 15px;
@@ -96,13 +328,11 @@
         margin-bottom: 15px;
     }
 
-    .post-item {
-        margin-bottom: 10px;
+    .posts-header {
+        font-size: 2rem;
     }
 
-    .comment-item {
-        padding: 10px 0;
-        margin-top: 150px; /* Adjusted margin for smaller screens */
-        padding-left: 15px; /* Slightly smaller padding on smaller screens */
+    .post-item {
+        padding: 15px;
     }
 }
