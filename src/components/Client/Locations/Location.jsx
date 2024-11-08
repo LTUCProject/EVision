@@ -65,7 +65,7 @@ const Location = () => {
   useEffect(() => {
     const fetchChargingStations = async () => {
       try {
-        const data = await apiRequest('GET', 'https://localhost:7080/api/Admins/ChargingStations');
+        const data = await apiRequest('GET', 'https://localhost:7080/api/Clients/ChargingStations');
         const stations = data.$values; // Extracting the charging stations from the API response
         setChargingStations(stations);
       } catch (error) {
