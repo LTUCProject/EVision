@@ -2,11 +2,14 @@ import React, { useEffect, useState } from 'react';
 import { MapContainer, TileLayer, Marker, Popup, useMapEvents } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
+import { CIcon } from '@coreui/icons-react';
+import { cilShieldAlt } from '@coreui/icons';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import markerIcon from 'leaflet/dist/images/marker-icon.png';
 import markerIconRetina from 'leaflet/dist/images/marker-icon-2x.png';
 import markerShadow from 'leaflet/dist/images/marker-shadow.png';
+
 
 // Default icon setup for Leaflet
 delete L.Icon.Default.prototype._getIconUrl;
@@ -16,14 +19,22 @@ L.Icon.Default.mergeOptions({
   shadowUrl: markerShadow,
 });
 
-// API request utility
+// Custom user location icon using a circle
+const userLocationIcon = L.divIcon({
+  className: 'user-location-marker', // Custom class for styling
+  html: `<div style="background-color: #ff0000; border-radius: 50%; width: 20px; height: 20px; border: 2px solid #fff;"></div>`, // Circle shape with white border
+  iconSize: [20, 20], // Icon size
+  iconAnchor: [10, 10], // Anchor point in the center of the circle
+  popupAnchor: [0, -20], // Popup position above the circle
+});
+
 const apiRequest = async (method, url, data = null) => {
   const options = {
     method,
     url,
     headers: {
       Authorization: `Bearer ${localStorage.getItem("token")}`,
-      "Content-Type": "application/json"
+      "Content-Type": "application/json",
     },
     data,
   };
@@ -41,7 +52,7 @@ const apiRequest = async (method, url, data = null) => {
 // Define bounds for Jordan
 const jordanBounds = [
   [29.1852, 34.9596],
-  [33.3742, 39.3012]
+  [33.3742, 39.3012],
 ];
 
 const LocationClicker = ({ onLocationSelect }) => {
@@ -60,9 +71,33 @@ const LocationClicker = ({ onLocationSelect }) => {
 
 const Location = () => {
   const [chargingStations, setChargingStations] = useState([]);
-  const [mapCenter, setMapCenter] = useState([31.5, 36.0]);
+  const [mapCenter, setMapCenter] = useState([31.5, 36.0]); // Initial map center (Jordan)
+  const [userLocation, setUserLocation] = useState(null); // State to store user location
+  const [selectedStation, setSelectedStation] = useState(null); // State to store selected station for "Get Location" click
 
   useEffect(() => {
+    // Get the user's location with high accuracy
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const { latitude, longitude } = position.coords;
+          setUserLocation({ lat: latitude, lng: longitude }); // Store user location in state
+          setMapCenter([latitude, longitude]); // Center the map on the user's location
+        },
+        (error) => {
+          toast.error("Failed to get user location");
+          console.error(error);
+        },
+        {
+          enableHighAccuracy: true, // Request higher accuracy
+          timeout: 5000, // Set a timeout limit for the location request (5 seconds)
+          maximumAge: 0, // Ensure the location is fresh (no cached data)
+        }
+      );
+    } else {
+      toast.error("Geolocation is not supported by this browser.");
+    }
+  
     const fetchChargingStations = async () => {
       try {
         const data = await apiRequest('GET', 'https://localhost:7080/api/Clients/ChargingStations');
@@ -72,18 +107,28 @@ const Location = () => {
         console.error('Failed to fetch charging stations:', error);
       }
     };
-
+  
     fetchChargingStations();
   }, []);
+  
 
   const handleLocationSelect = (lat, lng) => {
     console.log("Selected location:", lat, lng);
+    // Set the selected station for "Get Location" button
+    setSelectedStation({ lat, lng });
+  };
+
+  const handleGetLocationClick = () => {
+    if (selectedStation) {
+      const googleMapsUrl = `https://www.google.com/maps?q=${selectedStation.lat},${selectedStation.lng}`;
+      window.open(googleMapsUrl, "_blank");
+    }
   };
 
   return (
-    <MapContainer 
-      center={mapCenter} 
-      zoom={8} 
+    <MapContainer
+      center={mapCenter}
+      zoom={8}
       style={{ height: '500px', width: '100%' }}
       bounds={jordanBounds}
     >
@@ -91,23 +136,44 @@ const Location = () => {
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
       />
+
+      {/* Render charging station markers */}
       {chargingStations.map((station) => (
-        <Marker 
-          key={station.chargingStationId} 
+        <Marker
+          key={station.chargingStationId}
           position={[station.latitude, station.longitude]}
+          eventHandlers={{
+            click: () => handleLocationSelect(station.latitude, station.longitude), // On click, set the selected station
+          }}
         >
           <Popup>
             <strong>{station.name}</strong><br />
             {station.address}<br />
             Status: {station.status}<br />
             Payment Method: {station.paymentMethod}<br />
-            Provider: {station.provider.name} ({station.provider.email})
+            Provider: {station.provider.name} ({station.provider.email})<br />
+            {/* Button to trigger Google Maps URL */}
+            <button onClick={handleGetLocationClick}>Get Location</button>
           </Popup>
         </Marker>
       ))}
+
+      {/* Render user's unique location marker with custom circle icon */}
+      {userLocation && (
+        <Marker position={[userLocation.lat, userLocation.lng]} icon={userLocationIcon}>
+          <Popup>
+            <div>
+              <CIcon icon={cilShieldAlt} style={{ fontSize: '2rem', color: '#007bff' }} />
+              <p>Your current location</p>
+            </div>
+          </Popup>
+        </Marker>
+      )}
       <LocationClicker onLocationSelect={handleLocationSelect} />
     </MapContainer>
   );
 };
+
+
 
 export default Location;
