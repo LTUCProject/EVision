@@ -1,0 +1,84 @@
+.booking-form {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 20px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form-title {
+    text-align: center;
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #333;
+}
+
+.select-input, .datetime-input {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.time-selection {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.time-selection .form-label {
+    width: 100%;
+}
+
+.map-section {
+    flex-basis: 45%; /* Map takes up 45% of the width */
+    min-width: 350px; /* Ensure it doesn't get too small */
+    height: 500px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+.selected-station-text {
+    margin-top: 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #4CAF50;
+}
+
+.submit-btn {
+    padding: 12px 20px;
+    font-size: 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: #45a049;
+}
+
+@media (max-width: 768px) {
+    .booking-form {
+        flex-direction: column; /* Stack the form and map vertically on smaller screens */
+        align-items: center;
+    }
+
+    .map-section {
+        width: 100%; /* Map takes full width on small screens */
+        height: 300px;
+    }
+}

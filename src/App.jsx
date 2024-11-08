@@ -19,6 +19,7 @@ import ServicerCommunity from "./components/Community/ServicerCommunity";
 import OwnerCommunity from "./components/Community/OwnerCommunity";
 import SendNotifications from "./components/Servicer/SendNotifications/SendNotifications";
 import SendOwnerNotifications from "./components/Owner/SendNotifications/SendOwnerNotifications";
+import Booking from "./components/Client/Booking/Booking";
 
 const App = () => {
   const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
@@ -77,6 +78,8 @@ const App = () => {
               <Route path="/serviceinfo" element={<ServiceInfo />} />
               <Route path="/SendNotifications" element={<SendNotifications />} />
               <Route path="/SendOwnerNotifications" element={<SendOwnerNotifications />} />
+              <Route path="/booking" element={<Booking />} />
+
 
 
               

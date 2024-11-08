@@ -53,12 +53,13 @@
 
 
 
+
+
+/* General button styling */
 button {
     padding: 12px 25px;
-    margin-bottom: 20px;
     border: none;
     border-radius: 5px;
-    background-color: #3498db; /* Bright blue */
     color: white;
     font-weight: bold;
     font-size: 16px;
@@ -67,10 +68,30 @@ button {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-button:hover {
-    background-color: #2980b9; /* Darker blue on hover */
-    transform: translateY(-2px); /* Lift effect on hover */
+/* Top-right positioning for Notification button */
+.notification-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #e74c3c; /* Red color */
 }
+
+.notification-button:hover {
+    background-color: #c0392b;
+}
+
+/* Bottom-right positioning for Update Booking button */
+.update-button {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: #2ecc71; /* Green color */
+}
+
+.update-button:hover {
+    background-color: #27ae60;
+}
+
 
 .booking-list {
     list-style-type: none;
@@ -101,7 +122,6 @@ button:hover {
 .booking-item button {
     position: absolute;
     right: 10px;
-    top: 10px;
     background-color: #2ecc71; /* Green for update button */
     padding: 8px 12px;
     font-size: 14px;
@@ -230,3 +250,4 @@ button:hover {
     outline: none; /* Remove default outline */
     box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5); /* Custom focus outline */
 }
+

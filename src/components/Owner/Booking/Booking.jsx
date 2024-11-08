@@ -122,8 +122,11 @@ const Booking = ({ stationId }) => {
                             <strong> End Time:</strong> {new Date(booking.endTime).toLocaleString()} |
                             <strong> Status:</strong> {booking.status} |
                             <strong> Cost:</strong> ${booking.cost}
-                            <button onClick={() => openModal(booking)}>Update Booking</button>
-                            <button onClick={() => openNotificationModal(booking)}>Send Notification</button>
+                            <div className="button-container">
+                                <button className="update-button" onClick={() => openModal(booking)}>Update Booking</button>
+                                <button className="notification-button" onClick={() => openNotificationModal(booking)}>Send Notification</button>
+                            </div>
+
                         </li>
                     ))}
                 </ul>
