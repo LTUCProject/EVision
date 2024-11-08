@@ -1,25 +1,41 @@
 .vehicle-container {
-    max-width: 600px; /* Reduced max width */
+    max-width: 1200px;
     margin: 0 auto;
-    padding: 20px; /* Slightly decreased padding */
-    background-color: #ffffff; 
-    border-radius: 8px; /* Consistent with rounded corners */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); 
-    font-family: 'Arial', sans-serif; 
+    padding: 20px;
+    font-family: 'Arial', sans-serif;
 }
 
-.title {
+.header-title {
     text-align: center;
+    font-size: 28px;
     color: #333;
-    margin-bottom: 20px; /* Reduced spacing for better compactness */
-    font-size: 22px; /* Slightly smaller font size */
-    font-weight: 600; 
+    margin-bottom: 20px;
 }
 
-.vehicle-form {
+.vehicle-content {
+    display: flex;
+    gap: 20px;
+}
+
+.form-container, .vehicle-list-container {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    flex: 1;
+}
+
+.form-container {
     display: flex;
     flex-direction: column;
-    gap: 10px; /* Decreased gap for tighter spacing */
+    gap: 15px;
+}
+
+h2 {
+    text-align: left;
+    color: #333;
+    margin-bottom: 15px;
+    font-size: 20px;
 }
 
 .form-group {
@@ -28,88 +44,84 @@
 }
 
 .form-group label {
-    font-weight: 500; 
-    margin-bottom: 4px; /* Reduced spacing */
-    color: #555; 
+    font-weight: 500;
+    color: #555;
+    margin-bottom: 6px;
 }
 
 .form-group input {
-    padding: 8px; /* Reduced padding for a tighter input field */
-    border: 1px solid #ccc;
-    border-radius: 4px; 
-    font-size: 14px; /* Smaller font size */
-    transition: border-color 0.3s; 
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    transition: border-color 0.3s;
 }
 
 .form-group input:focus {
-    border-color: #007bff; 
-    outline: none; 
+    border-color: #007bff;
+    outline: none;
 }
 
 .submit-button {
-    padding: 10px; /* Adjusted for a more compact button */
-    background-color: #007bff; 
+    padding: 12px;
+    background-color: #007bff;
     color: white;
     border: none;
-    border-radius: 4px; 
+    border-radius: 4px;
     cursor: pointer;
-    font-size: 16px; 
-    transition: background-color 0.3s; 
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s;
 }
 
 .submit-button:hover {
-    background-color: #0056b3; 
+    background-color: #0056b3;
 }
 
 .message {
-    text-align: center;
     color: green;
-    margin-top: 10px; 
     font-weight: bold;
-    padding: 10px; 
-    border: 1px solid green;
-    border-radius: 4px; 
-    background-color: #e8f9e8; 
+    padding: 10px;
+    background-color: #e8f9e8;
+    border-radius: 4px;
+    text-align: center;
 }
 
 .vehicle-table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 20px; 
 }
 
 .vehicle-table th, .vehicle-table td {
     border: 1px solid #ddd;
-    padding: 8px; 
+    padding: 10px;
     text-align: center;
-    font-size: 14px; /* Smaller font size for table */
+    font-size: 14px;
 }
 
 .vehicle-table th {
-    background-color: #007bff; 
+    background-color: #007bff;
     color: white;
-    font-weight: bold; 
 }
 
 .vehicle-table tr:nth-child(even) {
-    background-color: #f9f9f9; 
+    background-color: #f9f9f9;
 }
 
 .vehicle-table tr:hover {
-    background-color: #e0e0e0; 
+    background-color: #e0e0e0;
 }
 
-/* Delete Button Styles */
 .delete-button {
-    padding: 6px 10px; /* Smaller padding for delete button */
-    background-color: #dc3545; 
+    padding: 6px 12px;
+    background-color: #dc3545;
     color: white;
     border: none;
-    border-radius: 4px; 
+    border-radius: 4px;
     cursor: pointer;
-    transition: background-color 0.3s; 
+    transition: background-color 0.3s;
 }
 
 .delete-button:hover {
-    background-color: #c82333; 
+    background-color: #c82333;
 }

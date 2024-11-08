@@ -1,45 +1,27 @@
+// NotificationDropdown.js
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-
-const Notification = () => {
+const NotificationDropdown = ({ clientId }) => {
     const [notifications, setNotifications] = useState([]);
     const [message, setMessage] = useState('');
 
     const loadNotifications = async () => {
         try {
             const token = localStorage.getItem("token");
-            const clientId = token ? JSON.parse(atob(token.split('.')[1])).id : null; // Ensure you extract the clientId correctly
-
-            console.log('Fetching notifications for client ID:', clientId);
-
             const response = await axios.get(`https://localhost:7080/api/Clients/notifications/${clientId}`, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                     "Content-Type": "application/json"
                 }
             });
-
-            // Check the response structure
-            console.log('Notifications response:', response.data);
-            
-            // Access the array of notifications
             const notificationsArray = response.data?.$values || [];
-            console.log('Raw notifications array:', notificationsArray); // Log raw notifications
-
-            // Map through notifications and extract relevant properties
-            const filteredNotifications = notificationsArray.map(notification => {
-                console.log('Mapping notification:', notification); // Log each notification
-                return {
-                    notificationId: notification.notificationId,
-                    title: notification.title,
-                    message: notification.message,
-                    date: notification.date
-                };
-            }).filter(notification => notification.title && notification.message && notification.date); // Filter valid notifications
-
-            console.log('Filtered notifications:', filteredNotifications); // Log filtered notifications
-
+            const filteredNotifications = notificationsArray.map(notification => ({
+                notificationId: notification.notificationId,
+                title: notification.title,
+                message: notification.message,
+                date: notification.date
+            })).filter(notification => notification.title && notification.message && notification.date);
             setNotifications(filteredNotifications);
         } catch (error) {
             console.error('Error loading notifications:', error);
@@ -49,31 +31,20 @@ const Notification = () => {
 
     useEffect(() => {
         loadNotifications();
-    }, []);
+    }, [clientId]);
 
     return (
-        <div className="notification-container">
-            <h2>Notifications</h2>
-            {message && <p className="error-message">{message}</p>}
+        <div className="absolute right-0 mt-2 w-80 bg-white shadow-lg border rounded-lg z-10 max-h-64 overflow-y-auto p-4">
+            <h3 className="font-semibold text-lg mb-2">Notifications</h3>
+            {message && <p className="text-red-500">{message}</p>}
             {notifications.length > 0 ? (
-                <table className="notification-table">
-                    <thead>
-                        <tr>
-                            <th>Title</th>
-                            <th>Message</th>
-                            <th>Date</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {notifications.map(notification => (
-                            <tr key={notification.notificationId}>
-                                <td>{notification.title}</td>
-                                <td>{notification.message}</td>
-                                <td>{new Date(notification.date).toLocaleString()}</td>
-                            </tr>
-                        ))}
-                    </tbody>
-                </table>
+                notifications.map(notification => (
+                    <div key={notification.notificationId} className="p-2 border-b">
+                        <p className="font-bold">{notification.title}</p>
+                        <p>{notification.message}</p>
+                        <span className="text-gray-500 text-sm">{new Date(notification.date).toLocaleString()}</span>
+                    </div>
+                ))
             ) : (
                 <p>No notifications available.</p>
             )}
@@ -81,4 +52,4 @@ const Notification = () => {
     );
 };
 
-export default Notification;
+export default NotificationDropdown;
