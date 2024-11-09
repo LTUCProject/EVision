@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const SendNotifications = ({ clientId, closeModal }) => {
+const SendNotifications = ({ clientId, closeNotificationModal }) => {
   const [title, setTitle] = useState('');
   const [message, setMessage] = useState('');
   const [date, setDate] = useState(new Date().toISOString());
@@ -20,7 +20,7 @@ const SendNotifications = ({ clientId, closeModal }) => {
     try {
       const token = localStorage.getItem("token");
       const response = await axios.post(
-        'https://localhost:7080/api/Servicer/ServicerNotifications',
+        'https://localhost:7080/api/Owner/OwnerNotifications',
         notificationData,
         {
           headers: {
@@ -29,7 +29,7 @@ const SendNotifications = ({ clientId, closeModal }) => {
         }
       );
       setResponseMessage(`Notification sent: ${response.data}`);
-      closeModal(); // Close the modal after sending notification
+      closeNotificationModal(); // Close the modal after sending notification
     } catch (error) {
       console.error('Error sending notification:', error);
       setResponseMessage('Failed to send notification.');

@@ -15,7 +15,9 @@ export const Navlinks = [
   { id: 8, name: "SendOwnerNotifications", link: "/SendOwnerNotifications" }, // New link for Owner
   { id: 9, name: "ServicerCommunity", link: "/ServicerCommunity" },
   { id: 10, name: "OwnerCommunity", link: "/OwnerCommunity" },
-  { id: 11, name: "BOOKING", link: "/booking" }
+  { id: 11, name: "BOOKING", link: "/booking" },
+  { id: 12, name: "SESSIONS", link: "/sessions" }
+
 
 ];
 
@@ -67,6 +69,14 @@ const Navbar = ({ theme, setTheme, isAuthenticated, onLogout }) => {
       </li>
     );
   } else if (userRole === "Owner" && name === "Send Notifications") {
+    return (
+      <li key={id} className="py-4">
+        <a href={link} className="text-lg font-medium hover:text-primary py-2 hover:border-b-2 hover:border-primary transition-colors duration-500">
+          {name}
+        </a>
+      </li>
+    );
+  } else if (userRole === "Owner" && name === "SESSIONS") {
     return (
       <li key={id} className="py-4">
         <a href={link} className="text-lg font-medium hover:text-primary py-2 hover:border-b-2 hover:border-primary transition-colors duration-500">

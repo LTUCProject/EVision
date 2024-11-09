@@ -3,6 +3,7 @@ import axios from 'axios';
 import { toast } from 'react-toastify';
 import './Booking.css';
 import SendOwnerNotifications from '../SendNotifications/SendOwnerNotifications';
+import Session from '../Sessions/Session';
 
 const Booking = ({ stationId }) => {
     const [bookings, setBookings] = useState([]);
@@ -12,9 +13,13 @@ const Booking = ({ stationId }) => {
     const [newCost, setNewCost] = useState(0);
     const [isFetchingPending, setIsFetchingPending] = useState(false);
     const [notificationModalOpen, setNotificationModalOpen] = useState(false);
+    const [sessionModalOpen, setSessionModalOpen] = useState(false);
+
 
     useEffect(() => {
         if (stationId) {
+            // Save the stationId to sessionStorage
+            sessionStorage.setItem("stationId", stationId);
             fetchBookings();
         }
     }, [stationId]);
@@ -79,6 +84,8 @@ const Booking = ({ stationId }) => {
     };
 
     const openModal = (booking) => {
+        // Save the selected booking to sessionStorage
+        sessionStorage.setItem("selectedBooking", JSON.stringify(booking));
         setSelectedBooking(booking);
         setNewStatus(booking.status);
         setNewCost(booking.cost);
@@ -93,6 +100,8 @@ const Booking = ({ stationId }) => {
     };
 
     const openNotificationModal = (booking) => {
+        // Save the selected booking to sessionStorage for notifications
+        sessionStorage.setItem("selectedBooking", JSON.stringify(booking));
         setSelectedBooking(booking);
         setNotificationModalOpen(true);
     };
@@ -101,6 +110,31 @@ const Booking = ({ stationId }) => {
         setNotificationModalOpen(false);
         setSelectedBooking(null);
     };
+
+    const openSessionModal = (booking) => {
+        const { clientId, chargingStationId } = booking;
+        
+        // Store necessary data in sessionStorage
+        sessionStorage.setItem("stationId", chargingStationId);
+        sessionStorage.setItem("clientId", clientId);
+
+        if (!clientId) {
+            toast.error("Client ID not found in booking.");
+            return;
+        }
+    
+        // Open the session modal
+        setSessionModalOpen(true);
+        setSelectedBooking(booking); 
+
+    };
+    
+    const closeSessionModal = () => {
+        // Close the session modal
+        setSessionModalOpen(false);
+    };
+
+    
 
     return (
         <div className="booking-container">
@@ -125,8 +159,8 @@ const Booking = ({ stationId }) => {
                             <div className="button-container">
                                 <button className="update-button" onClick={() => openModal(booking)}>Update Booking</button>
                                 <button className="notification-button" onClick={() => openNotificationModal(booking)}>Send Notification</button>
+                                <button className="button-toggle" onClick={() => openSessionModal(booking)}> Session </button>
                             </div>
-
                         </li>
                     ))}
                 </ul>
@@ -176,6 +210,20 @@ const Booking = ({ stationId }) => {
                     </div>
                 </div>
             )}
+            {sessionModalOpen && selectedBooking && (
+                <div className="modal-overlay">
+                    <div className="modal-content">
+                        {/* Pass stationId and clientId from selectedBooking */}
+                        <Session
+                            stationId={sessionStorage.getItem("stationId")}
+                            clientId={sessionStorage.getItem("clientId")}  // Pass the clientId from sessionStorage
+                        />
+                        <button onClick={closeSessionModal}>Close</button>
+                    </div>
+                </div>
+            )}
+
+
         </div>
     );
 };
