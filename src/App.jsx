@@ -21,6 +21,7 @@ import SendNotifications from "./components/Servicer/SendNotifications/SendNotif
 import SendOwnerNotifications from "./components/Owner/SendNotifications/SendOwnerNotifications";
 import Booking from "./components/Client/Booking/Booking";
 import Session from "./components/Owner/Sessions/Session";
+import ClientFavorite from "./components/Client/ClientFavorite/ClientFavorite";
 
 const App = () => {
   const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
@@ -81,6 +82,8 @@ const App = () => {
               <Route path="/SendOwnerNotifications" element={<SendOwnerNotifications />} />
               <Route path="/booking" element={<Booking />} />
               <Route path="/sessions" element={<Session />} />
+              <Route path="/ClientFavorite" element={<ClientFavorite/>} />
+
 
 
 
