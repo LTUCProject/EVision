@@ -1,84 +1,236 @@
-.booking-form {
+.reservation-form {
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 35px 45px;
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
+    border-radius: 18px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.05);
+    font-family: 'Helvetica Neue', 'Arial', sans-serif;
+    color: #333333;
+    line-height: 1.75;
+    transition: box-shadow 0.3s ease, transform 0.3s ease, filter 0.3s ease;
+    background-image: linear-gradient(135deg, rgba(0, 54, 121, 0.1), rgba(255, 255, 255, 0.4), rgba(52, 152, 219, 0.1));
+    background-size: 200% 200%;
+    animation: backgroundShift 8s ease infinite;
+}
+
+/* Gradient Background Animation */
+@keyframes backgroundShift {
+    0% {
+        background-position: 0% 0%;
+    }
+    50% {
+        background-position: 100% 100%;
+    }
+    100% {
+        background-position: 0% 0%;
+    }
+}
+
+/* Hover and Focus Effects */
+.reservation-form:hover {
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15), 0 10px 30px rgba(0, 0, 0, 0.1);
+    transform: translateY(-8px);
+    filter: brightness(1.05);
+}
+
+/* Input Fields: Focused State */
+.reservation-form input:focus, 
+.reservation-form textarea:focus {
+    border-color: #2980b9;
+    outline: none;
+    box-shadow: 0 0 6px rgba(41, 128, 185, 0.5);
+}
+
+/* Placeholder Text Styling */
+.reservation-form input::placeholder, 
+.reservation-form textarea::placeholder {
+    color: #888888;
+    font-style: italic;
+}
+
+/* Professional Background Image Styling for .backGR */
+.backGR {
+    position: relative;
+    margin-top: 0;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    animation: slide 20s infinite; /* Adjust timing as needed */
+}
+
+@keyframes slide {
+    0% {
+        background-image: url('../../../assets/ch1.jpg');
+    }
+    25% {
+        background-image: url('../../../assets/ch2.webp');
+    }
+    50% {
+        background-image: url('../../../assets/ch3.png');
+    }
+    75% {
+        background-image: url('../../../assets/ch4.jpg');
+    }
+    100% {
+        background-image: url('../../../assets/ch5.jpg');
+    }
+}
+
+
+.label-field {
     display: flex;
-    justify-content: space-between;
-    gap: 20px;
-    padding: 20px;
-    border: 2px solid #ddd;
-    border-radius: 8px;
-    background-color: #fff;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-.form-title {
-    text-align: center;
-    font-size: 24px;
-    color: #333;
+    flex-direction: column;
+    gap: 5px;
     margin-bottom: 20px;
-}
-
-.form-label {
-    display: block;
-    margin-bottom: 10px;
-    font-size: 16px;
+    font-weight: 600;
+    font-size: 15px;
     color: #333;
+    letter-spacing: 0.5px;
+    line-height: 1.4;
+    transition: color 0.3s ease;
 }
 
-.select-input, .datetime-input {
+.label-field:hover {
+    color: #007bff; /* Accent color on hover for interactivity */
+}
+
+
+/* Enhanced Dropdown (select) styling */
+.dropdown-input {
+    width: 100%;
+    padding: 10px 12px;  /* Increased padding for a more comfortable feel */
+    border: 1px solid #d0d0d0;
+    border-radius: 6px;
+    font-size: 15px;
+    background-color: #fafafa;
+    color: #333;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    appearance: none;  /* Removes default dropdown arrow for a cleaner look */
+}
+
+/* Add custom arrow */
+.dropdown-input::after {
+    content: '▼';
+    font-size: 12px;
+    color: #999;
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+/* Focus state with a subtle shadow and accent color */
+.dropdown-input:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+    background-color: #fff;
+}
+
+
+/* Date and time picker styling */
+.date-time-picker {
     width: 100%;
     padding: 8px;
     margin-top: 5px;
     border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-.time-selection {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 20px;
-}
-
-.time-selection .form-label {
-    width: 100%;
-}
-
-.map-section {
-    flex-basis: 45%; /* Map takes up 45% of the width */
-    min-width: 350px; /* Ensure it doesn't get too small */
-    height: 500px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-}
-
-.selected-station-text {
-    margin-top: 20px;
-    font-size: 16px;
-    font-weight: bold;
-    color: #4CAF50;
-}
-
-.submit-btn {
-    padding: 12px 20px;
-    font-size: 16px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
     border-radius: 5px;
+    font-size: 14px;
+    background-color: #f9f9f9;
+    color: #333;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.date-time-picker:focus {
+    border-color: #007bff;
+}
+
+/* Enhanced Schedule Selection Container */
+.schedule-selection {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 25px;
+    align-items: center;
+    justify-content: space-between;  /* Distributes labels evenly */
+    flex-wrap: wrap;  /* Ensures responsiveness on smaller screens */
+}
+
+.schedule-selection > .label-field {
+    flex: 1;
+    min-width: 200px;  /* Prevents labels from becoming too narrow on smaller screens */
+}
+
+/* Responsive layout adjustments */
+@media (max-width: 600px) {
+    .schedule-selection {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
+
+
+/* Map view styling */
+.map-view {
+    margin: 20px 0;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 2px solid #e0e0e0;
+}
+
+.chosen-station-text {
+    font-size: 1rem; /* Scalable size for responsiveness */
+    font-weight: 500; /* Balanced weight for a refined feel */
+    color: #34495e; /* A sophisticated deep blue-grey color */
+    margin-bottom: 2rem; /* Generous spacing for breathing room */
+    line-height: 1.7; /* Slightly increased line-height for better readability */
+    letter-spacing: 0.8px; /* Slightly more space between letters for a sleek effect */
+    font-family: 'Roboto', 'Helvetica Neue', sans-serif; /* Clean, modern, and professional font stack */
+    text-transform: capitalize; /* Capitalize each word for a polished and modern look */
+    text-align: center; /* Center alignment for a more impactful display */
+    background: linear-gradient(90deg, rgba(52, 152, 219, 0.1), rgba(41, 128, 185, 0.1)); /* Subtle gradient background */
+    padding: 1rem 2rem; /* Soft padding for added whitespace around the text */
+    border-radius: 8px; /* Rounded corners for a modern and friendly aesthetic */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Soft shadow to give depth and elevation */
+    transition: transform 0.3s ease, color 0.3s ease; /* Smooth transition effects for interactivity */
+}
+
+.chosen-station-text:hover {
+    transform: translateY(-5px); /* Slight hover effect to add interactivity */
+    color: #2980b9; /* Subtle change in color on hover for user engagement */
+}
+
+
+/* Submit button styling */
+.submit-button {
+    width: 100%;
+    padding: 14px 20px; /* Increased padding for a more spacious and clickable feel */
+    font-size: 1rem; /* Consistent font size with relative units */
+    font-weight: 600; /* Slightly bolder text for emphasis */
+    color: #fff; /* White text for high contrast */
+    background-color: #2980b9; /* A more refined blue for a professional look */
+    border: none;
+    border-radius: 50px; /* Rounded edges for a modern and sleek look */
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: all 0.3s ease-in-out; /* Smooth transition for background color, scale, and shadow */
+    text-transform: uppercase; /* Uppercase for a strong and uniform look */
+    letter-spacing: 1px; /* Subtle letter spacing to improve legibility */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow to create a floating effect */
+    outline: none; /* Remove outline for better focus styling */
 }
 
-.submit-btn:hover {
-    background-color: #45a049;
+/* Hover and active state effects */
+.submit-button:hover {
+    background-color: #1abc9c; /* A fresh color for hover, providing a visual cue */
+    transform: translateY(-3px); /* Slight lift on hover for a dynamic feel */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Deepened shadow on hover for depth */
 }
 
-@media (max-width: 768px) {
-    .booking-form {
-        flex-direction: column; /* Stack the form and map vertically on smaller screens */
-        align-items: center;
-    }
-
-    .map-section {
-        width: 100%; /* Map takes full width on small screens */
-        height: 300px;
-    }
+/* Active state for clicks */
+.submit-button:active {
+    background-color: #16a085; /* Darker shade for active state */
+    transform: translateY(2px); /* Subtle compression effect on click */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow reduces on click */
 }
