@@ -1,348 +1,366 @@
 /* General Styles */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
-  }
-  
-  /* Background and Layout */
-  .backpage {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-    background-color: #f5f5f5;
-    height: 100vh;
-    position: relative; /* Add position relative to manage z-index of child elements */
-  }
-  /* Container for the map */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+/* Background and Layout */
+.backpage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: #f5f5f5;
+  height: 100vh;
+  position: relative; /* Add position relative to manage z-index of child elements */
+}
+/* Container for the map */
 .map-container {
-    position: relative;
-    height: 500px; /* Fixed height for the map */
-    width: 100%;   /* Full width to be responsive */
-    max-width: 80%; /* Limiting max width for large screens */
-    margin: 20px auto; /* Center the map horizontally with some spacing */
-    border-radius: 8px; /* Rounded corners for a smooth look */
-    overflow: hidden; /* Prevent content overflow */
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12), 0 16px 40px rgba(0, 0, 0, 0.08); /* Professional shadow with depth */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effect */
-  }
-  
-  .map-container:hover {
-    transform: scale(1.02); /* Slight zoom effect on hover */
-    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.15), 0 24px 48px rgba(0, 0, 0, 0.1); /* Enhanced shadow on hover */
-  }
-  
-  @media (max-width: 768px) {
-    .map-container {
-      height: 400px; /* Adjust height for mobile screens */
-      width: 100%;
-    }
-  }
-  
-  .mapco {
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
+  position: relative;
+  height: 500px; /* Fixed height for the map */
+  width: 100%;   /* Full width to be responsive */
+  max-width: 80%; /* Limiting max width for large screens */
+  margin: 20px auto; /* Center the map horizontally with some spacing */
+  border-radius: 8px; /* Rounded corners for a smooth look */
+  overflow: hidden; /* Prevent content overflow */
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12), 0 16px 40px rgba(0, 0, 0, 0.08); /* Professional shadow with depth */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.map-container:hover {
+  transform: scale(1.02); /* Slight zoom effect on hover */
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.15), 0 24px 48px rgba(0, 0, 0, 0.1); /* Enhanced shadow on hover */
+}
+
+@media (max-width: 768px) {
+  .map-container {
+    height: 400px; /* Adjust height for mobile screens */
     width: 100%;
-    z-index: 1; /* Ensure the map stays behind the modal */
   }
-  
-  .btL {
-    background-color: #4CAF50; /* Primary green color */
-    color: white;
-    padding: 12px 24px; /* Sufficient padding for better button size */
-    font-size: 16px;
-    font-weight: 600; /* Slightly bolder text for emphasis */
-    border: none;
-    border-radius: 8px; /* Rounded corners for a softer look */
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transition on hover */
-    margin-bottom: 20px;
-    text-align: center; /* Ensures text is centered */
-    display: inline-block;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-    outline: none; /* Removes default focus outline */
+}
+
+.mapco {
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  width: 100%;
+  z-index: 1; /* Ensure the map stays behind the modal */
+}
+
+.btL {
+  background-color: #4CAF50; /* Primary green color */
+  color: white;
+  padding: 12px 24px; /* Sufficient padding for better button size */
+  font-size: 16px;
+  font-weight: 600; /* Slightly bolder text for emphasis */
+  border: none;
+  border-radius: 8px; /* Rounded corners for a softer look */
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transition on hover */
+  margin-bottom: 20px;
+  text-align: center; /* Ensures text is centered */
+  display: inline-block;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  outline: none; /* Removes default focus outline */
 }
 
 /* Hover and active states for improved interaction */
 .btL:hover {
-    background-color: #45a049;
-    transform: translateY(-2px); /* Slight lift effect on hover */
+  background-color: #45a049;
+  transform: translateY(-2px); /* Slight lift effect on hover */
 }
 
 .btL:active {
-    background-color: #388e3c; /* Darker shade when the button is pressed */
-    transform: translateY(0); /* Remove lift effect when pressed */
+  background-color: #388e3c; /* Darker shade when the button is pressed */
+  transform: translateY(0); /* Remove lift effect when pressed */
 }
 
 /* Focus state for accessibility */
 .btL:focus {
-    outline: 3px solid #80e27e; /* Green focus outline for better accessibility */
+  outline: 3px solid #80e27e; /* Green focus outline for better accessibility */
 }
 
 /* Disabled state for the button */
 .btL:disabled {
-    background-color: #bdbdbd; /* Grey background for disabled state */
-    cursor: not-allowed; /* Change cursor to indicate it's disabled */
-    box-shadow: none; /* No shadow when disabled */
+  background-color: #bdbdbd; /* Grey background for disabled state */
+  cursor: not-allowed; /* Change cursor to indicate it's disabled */
+  box-shadow: none; /* No shadow when disabled */
 }
 
-  
-  /* Modal Styles */
-  .modell {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    max-width: 600px;
-    margin: auto;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    position: absolute; /* Ensure modal is positioned above other content */
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 10; /* Ensure modal is above other elements */
-  }
-  
-  .close {
-    background-color: #d9534f; /* Subtle red for professionalism */
-    color: white;
-    border: none;
-    padding: 12px 24px; /* Slightly more padding for better balance */
-    border-radius: 6px; /* Rounded corners for a softer, more modern look */
-    cursor: pointer;
-    font-size: 16px; /* Larger text for better readability */
-    font-weight: 600; /* Slightly bolder text for emphasis */
-    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transitions */
-    margin-top: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-    outline: none; /* Remove default focus outline */
-  }
-  
-  .close:hover {
-    background-color: #c9302c; /* Darker red on hover for better interaction feedback */
-    transform: translateY(-2px); /* Slight lift effect on hover */
-  }
-  
-  .close:active {
-    background-color: #ac2925; /* Even darker red when clicked */
-    transform: translateY(0); /* Reset the hover effect */
-  }
-  
-  .close:focus {
-    outline: 3px solid #ff5b5b; /* Focus outline for accessibility (bright red for visibility) */
-  }
-  
-  /* Disabled state for the close button */
-  .close:disabled {
-    background-color: #f2dede; /* Light red background for disabled state */
-    cursor: not-allowed; /* Change cursor to indicate the button is not clickable */
-    box-shadow: none; /* Remove shadow when disabled */
-  }
-  
-  
-  /* Marker and Popup Styles */
-  .marker2 {
-    background-color: #ff7043; /* Softer, more professional shade of orange */
-    border-radius: 50%; /* Circular shape */
-    padding: 10px; /* Slightly larger padding for better visibility */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Refined shadow for more subtle depth */
-    transition: all 0.3s ease-in-out; /* Smooth transition for hover and focus effects */
-    border: 2px solid #fff; /* White border to define the shape */
-    cursor: pointer; /* Pointer cursor for interactivity */
-  }
-  
-  /* Hover state to create a more dynamic user experience */
-  .marker2:hover {
-    background-color: #ff5722; /* Slightly darker orange for emphasis */
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover for better depth */
-    transform: scale(1.1); /* Slight scaling effect to highlight the marker */
-  }
-  
-  /* Focus state for accessibility (if this marker is clickable) */
-  .marker2:focus {
-    outline: 3px solid #ffab91; /* Soft orange outline for focus state */
-    outline-offset: 4px; /* Add space around the outline for better visibility */
-  }
-  
-  /* Active state when clicked */
-  .marker2:active {
-    background-color: #e64a19; /* Darker shade when clicked */
-    transform: scale(1); /* Reset the scale when clicked */
-  }
-  
-  
-  .prpupp1 {
-    font-size: 14px; /* Smaller font size for a more compact layout */
-    color: #333; /* Darker text for good contrast */
-    line-height: 1.4; /* Slightly tighter line height for a compact look */
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Clean, modern font */
-    padding: 15px 20px; /* Reduced padding for a smaller popup */
-    background-color: #ffffff; /* Clean white background */
-    border-radius: 8px; /* Rounded corners for a modern feel */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-    max-width: 350px; /* Smaller width for a more compact design */
-    margin: 0 auto; /* Center-align the popup */
-    text-align: left; /* Text left-aligned for better readability */
-  }
-  
-  .prpupp1 h2 {
-    font-size: 18px; /* Smaller header size for compactness */
-    font-weight: 700; /* Emphasized header */
-    color: #222; /* Slightly darker color for the header */
-    margin-bottom: 10px; /* Reduced space below header */
-  }
-  
-  .prpupp1 p {
-    font-size: 13px; /* Smaller font size for paragraph content */
-    color: #555; /* Softer gray for less important details */
-    line-height: 1.4; /* Slightly tighter line height */
-  }
-  
-  .prpupp1 button {
-    background-color: #007bff; /* Professional blue for the button */
-    color: white;
-    border: none;
-    padding: 12px 15px; /* Smaller padding for a more compact button */
-    font-size: 14px; /* Smaller font size */
-    font-weight: 600; /* Bold for emphasis */
-    border-radius: 6px; /* Slightly smaller rounded corners */
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-    display: inline-block;
-    text-align: center;
-    align-self: flex-start;
-    min-width: 120px; /* Ensures a minimum width */
-  }
-  
-  .prpupp1 button:hover {
-    background-color: #0056b3; /* Darker blue on hover */
-    transform: translateY(-2px); /* Small lift effect */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Subtle hover shadow */
-  }
-  
-  .prpupp1 button:active {
-    background-color: #004085; /* Darker blue when clicked */
-    transform: translateY(0); /* Reset transform on click */
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Reduced shadow on click */
-  }
-  
-  .prpupp1 .footer {
-    text-align: center; /* Centered footer text */
-    font-size: 11px; /* Smaller footer text */
-    color: #888; /* Lighter gray for footer */
-    margin-top: 15px; /* Space above footer */
-  }
-  
-  .prpupp1 .footer a {
-    color: #007bff; /* Consistent blue color for links */
-    text-decoration: none;
-    font-weight: 600;
-  }
-  
-  .prpupp1 .footer a:hover {
-    text-decoration: underline; /* Underline on hover */
-  }
-  
-  
-  
-  
+
+/* Modal Styles */
+.modell {
+position: fixed; /* لتكون ثابتة على الشاشة */
+top: 0; /* تعيين الموضع في الجزء العلوي */
+right: 0; /* تعيين الموضع في الجانب الأيمن */
+bottom: 0; /* تعيين الموضع في الأسفل */
+left: 0; /* تعيين الموضع في الجانب الأيسر */
+margin: auto; /* لضبط العنصر في المنتصف */
+z-index: 1000; /* لضبط الـ z-index ليكون أعلى من الـ navbar */
+overflow: hidden; /* لمنع العناصر من الخروج عن الإطار */
+display: flex; /* لاستخدام الفليكس لاجتذاب المحتوى */
+justify-content: center; /* لضبط المحتوى في المنتصف أفقياً */
+align-items: center; /* لضبط المحتوى في المنتصف رأسياً */
+}
+
+.modell .modal-content {
+background-color: #fff; /* خلفية بيضاء */
+width: 80%; /* ضبط العرض */
+max-height: 90%; /* تحديد الحد الأقصى للارتفاع */
+overflow-y: auto; /* تمكين التمرير العمودي إذا كان المحتوى أكبر من الـ modal */
+border-radius: 15px; /* زوايا دائرية */
+box-shadow: 0 8px 40px rgba(0, 0, 0, 0.2); /* ظل للتأثير */
+padding: 3rem 4rem; /* مساحة داخلية أكبر */
+}
+
+.modell .modal-content:hover {
+transform: translateY(-5px); /* تأثير عند المرور */
+box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15); /* ظل محسن عند المرور */
+}
+
+
+
+
+.close {
+  background-color: #d9534f; /* Subtle red for professionalism */
+  color: white;
+  border: none;
+  padding: 12px 24px; /* Slightly more padding for better balance */
+  border-radius: 6px; /* Rounded corners for a softer, more modern look */
+  cursor: pointer;
+  font-size: 16px; /* Larger text for better readability */
+  font-weight: 600; /* Slightly bolder text for emphasis */
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transitions */
+  margin-top: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  outline: none; /* Remove default focus outline */
+}
+
+.close:hover {
+  background-color: #c9302c; /* Darker red on hover for better interaction feedback */
+  transform: translateY(-2px); /* Slight lift effect on hover */
+}
+
+.close:active {
+  background-color: #ac2925; /* Even darker red when clicked */
+  transform: translateY(0); /* Reset the hover effect */
+}
+
+.close:focus {
+  outline: 3px solid #ff5b5b; /* Focus outline for accessibility (bright red for visibility) */
+}
+
+/* Disabled state for the close button */
+.close:disabled {
+  background-color: #f2dede; /* Light red background for disabled state */
+  cursor: not-allowed; /* Change cursor to indicate the button is not clickable */
+  box-shadow: none; /* Remove shadow when disabled */
+}
+
+
+/* Marker and Popup Styles */
+.marker2 {
+  background-color: #ff7043; /* Softer, more professional shade of orange */
+  border-radius: 50%; /* Circular shape */
+  padding: 10px; /* Slightly larger padding for better visibility */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Refined shadow for more subtle depth */
+  transition: all 0.3s ease-in-out; /* Smooth transition for hover and focus effects */
+  border: 2px solid #fff; /* White border to define the shape */
+  cursor: pointer; /* Pointer cursor for interactivity */
+}
+
+/* Hover state to create a more dynamic user experience */
+.marker2:hover {
+  background-color: #ff5722; /* Slightly darker orange for emphasis */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover for better depth */
+  transform: scale(1.1); /* Slight scaling effect to highlight the marker */
+}
+
+/* Focus state for accessibility (if this marker is clickable) */
+.marker2:focus {
+  outline: 3px solid #ffab91; /* Soft orange outline for focus state */
+  outline-offset: 4px; /* Add space around the outline for better visibility */
+}
+
+/* Active state when clicked */
+.marker2:active {
+  background-color: #e64a19; /* Darker shade when clicked */
+  transform: scale(1); /* Reset the scale when clicked */
+}
+
+
+.prpupp1 {
+  font-size: 14px; /* Smaller font size for a more compact layout */
+  color: #333; /* Darker text for good contrast */
+  line-height: 1.4; /* Slightly tighter line height for a compact look */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Clean, modern font */
+  padding: 15px 20px; /* Reduced padding for a smaller popup */
+  background-color: #ffffff; /* Clean white background */
+  border-radius: 8px; /* Rounded corners for a modern feel */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  max-width: 350px; /* Smaller width for a more compact design */
+  margin: 0 auto; /* Center-align the popup */
+  text-align: left; /* Text left-aligned for better readability */
+}
+
+.prpupp1 h2 {
+  font-size: 18px; /* Smaller header size for compactness */
+  font-weight: 700; /* Emphasized header */
+  color: #222; /* Slightly darker color for the header */
+  margin-bottom: 10px; /* Reduced space below header */
+}
+
+.prpupp1 p {
+  font-size: 13px; /* Smaller font size for paragraph content */
+  color: #555; /* Softer gray for less important details */
+  line-height: 1.4; /* Slightly tighter line height */
+}
+
+.prpupp1 button {
+  background-color: #007bff; /* Professional blue for the button */
+  color: white;
+  border: none;
+  padding: 12px 15px; /* Smaller padding for a more compact button */
+  font-size: 14px; /* Smaller font size */
+  font-weight: 600; /* Bold for emphasis */
+  border-radius: 6px; /* Slightly smaller rounded corners */
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  display: inline-block;
+  text-align: center;
+  align-self: flex-start;
+  min-width: 120px; /* Ensures a minimum width */
+}
+
+.prpupp1 button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+  transform: translateY(-2px); /* Small lift effect */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Subtle hover shadow */
+}
+
+.prpupp1 button:active {
+  background-color: #004085; /* Darker blue when clicked */
+  transform: translateY(0); /* Reset transform on click */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Reduced shadow on click */
+}
+
+.prpupp1 .footer {
+  text-align: center; /* Centered footer text */
+  font-size: 11px; /* Smaller footer text */
+  color: #888; /* Lighter gray for footer */
+  margin-top: 15px; /* Space above footer */
+}
+
+.prpupp1 .footer a {
+  color: #007bff; /* Consistent blue color for links */
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.prpupp1 .footer a:hover {
+  text-decoration: underline; /* Underline on hover */
+}
+
+
+
+
 /* Marker */
 .marker {
-    background-color: #007bff; /* Clean blue for a professional look */
-    border-radius: 50%; /* Perfect circle for the marker */
-    padding: 12px; /* Slightly larger padding for more visibility */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Softer and more subtle shadow */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effects */
+  background-color: #007bff; /* Clean blue for a professional look */
+  border-radius: 50%; /* Perfect circle for the marker */
+  padding: 12px; /* Slightly larger padding for more visibility */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Softer and more subtle shadow */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effects */
+}
+
+.marker:hover {
+  transform: scale(1.1); /* Slight scaling effect on hover */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25); /* Slightly larger shadow on hover */
+}
+
+/* Popup Styling */
+.prpupp2 {
+  font-size: 14px; /* Smaller font for a more compact appearance */
+  color: #333; /* Dark text for better readability */
+  text-align: center; /* Centered text for uniform appearance */
+  background-color: #ffffff; /* White background for clarity */
+  border-radius: 8px; /* Smooth rounded corners */
+  padding: 20px; /* Padding for internal space */
+  max-width: 400px; /* Limiting width for a more controlled design */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  margin: 20px auto; /* Centering the popup with auto margins */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Modern and professional font */
+}
+
+.prpupp2 h2 {
+  font-size: 16px; /* Slightly larger header for emphasis */
+  color: #222; /* Darker color for header text */
+  font-weight: 600; /* Stronger font weight for the header */
+  margin-bottom: 15px; /* Space between header and body */
+}
+
+.prpupp2 p {
+  font-size: 14px; /* Standard size for the paragraph */
+  color: #555; /* Slightly lighter gray for the paragraph text */
+  line-height: 1.5; /* Improved line spacing for readability */
+  margin-bottom: 15px; /* Margin to separate paragraphs */
+}
+
+.prpupp2 .button {
+  background-color: #007bff; /* Consistent blue for call-to-action buttons */
+  color: white;
+  border: none;
+  padding: 10px 20px; /* Sufficient padding for the button */
+  font-size: 14px;
+  font-weight: 600; /* Strong font weight for emphasis */
+  border-radius: 6px; /* Rounded corners for the button */
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.prpupp2 .button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+  transform: translateY(-2px); /* Subtle lift effect */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Slightly larger shadow on hover */
+}
+
+.prpupp2 .button:active {
+  background-color: #004085; /* Darker shade when button is clicked */
+  transform: translateY(0); /* Reset scale effect on click */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Reduced shadow on click */
+}
+
+.prpupp2 .footer {
+  font-size: 12px; /* Smaller text size for footer */
+  color: #888; /* Lighter color for footer text */
+  margin-top: 20px; /* Space above the footer */
+}
+
+.prpupp2 .footer a {
+  color: #007bff; /* Blue color for links */
+  text-decoration: none;
+  font-weight: 600; /* Emphasis on footer links */
+}
+
+.prpupp2 .footer a:hover {
+  text-decoration: underline; /* Underline effect on hover */
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .mapco {
+    height: 300px;
   }
-  
-  .marker:hover {
-    transform: scale(1.1); /* Slight scaling effect on hover */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25); /* Slightly larger shadow on hover */
+
+  .btL {
+    width: 100%;
+    padding: 14px 0;
   }
-  
-  /* Popup Styling */
-  .prpupp2 {
-    font-size: 14px; /* Smaller font for a more compact appearance */
-    color: #333; /* Dark text for better readability */
-    text-align: center; /* Centered text for uniform appearance */
-    background-color: #ffffff; /* White background for clarity */
-    border-radius: 8px; /* Smooth rounded corners */
-    padding: 20px; /* Padding for internal space */
-    max-width: 400px; /* Limiting width for a more controlled design */
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-    margin: 20px auto; /* Centering the popup with auto margins */
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Modern and professional font */
+
+  .modell {
+    padding: 15px;
   }
-  
-  .prpupp2 h2 {
-    font-size: 16px; /* Slightly larger header for emphasis */
-    color: #222; /* Darker color for header text */
-    font-weight: 600; /* Stronger font weight for the header */
-    margin-bottom: 15px; /* Space between header and body */
-  }
-  
-  .prpupp2 p {
-    font-size: 14px; /* Standard size for the paragraph */
-    color: #555; /* Slightly lighter gray for the paragraph text */
-    line-height: 1.5; /* Improved line spacing for readability */
-    margin-bottom: 15px; /* Margin to separate paragraphs */
-  }
-  
-  .prpupp2 .button {
-    background-color: #007bff; /* Consistent blue for call-to-action buttons */
-    color: white;
-    border: none;
-    padding: 10px 20px; /* Sufficient padding for the button */
-    font-size: 14px;
-    font-weight: 600; /* Strong font weight for emphasis */
-    border-radius: 6px; /* Rounded corners for the button */
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-  }
-  
-  .prpupp2 .button:hover {
-    background-color: #0056b3; /* Darker blue on hover */
-    transform: translateY(-2px); /* Subtle lift effect */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Slightly larger shadow on hover */
-  }
-  
-  .prpupp2 .button:active {
-    background-color: #004085; /* Darker shade when button is clicked */
-    transform: translateY(0); /* Reset scale effect on click */
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Reduced shadow on click */
-  }
-  
-  .prpupp2 .footer {
-    font-size: 12px; /* Smaller text size for footer */
-    color: #888; /* Lighter color for footer text */
-    margin-top: 20px; /* Space above the footer */
-  }
-  
-  .prpupp2 .footer a {
-    color: #007bff; /* Blue color for links */
-    text-decoration: none;
-    font-weight: 600; /* Emphasis on footer links */
-  }
-  
-  .prpupp2 .footer a:hover {
-    text-decoration: underline; /* Underline effect on hover */
-  }
-  
-  
-  /* Responsive Design */
-  @media (max-width: 768px) {
-    .mapco {
-      height: 300px;
-    }
-  
-    .btL {
-      width: 100%;
-      padding: 14px 0;
-    }
-  
-    .modell {
-      padding: 15px;
-    }
-  }
+}
