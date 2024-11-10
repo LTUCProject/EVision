@@ -17,11 +17,12 @@ import ServiceInfo from "./components/Servicer/ServiceInfo/ServiceInfo";
 import ClientCommunity from "./components/Community/ClientCommunity";
 import ServicerCommunity from "./components/Community/ServicerCommunity";
 import OwnerCommunity from "./components/Community/OwnerCommunity";
-import SendNotifications from "./components/Servicer/SendNotifications/SendNotifications";
-import SendOwnerNotifications from "./components/Owner/SendNotifications/SendOwnerNotifications";
+// import SendNotifications from "./components/Servicer/SendNotifications/SendNotifications";
+// import SendOwnerNotifications from "./components/Owner/SendNotifications/SendOwnerNotifications";
 import Booking from "./components/Client/Booking/Booking";
-import Session from "./components/Owner/Sessions/Session";
-import ClientFavorite from "./components/Client/ClientFavorite/ClientFavorite";
+// import Session from "./components/Owner/Sessions/Session";
+// import ClientFavorite from "./components/Client/ClientFavorite/ClientFavorite";
+import ServiceReq from "./components/Client/ServiceReq/ServiceReq"
 
 const App = () => {
   const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
@@ -78,17 +79,14 @@ const App = () => {
               <Route path="/charging-station" element={<ChargingStationAndLocationForm />} />
               <Route path="/location" element={<Location />} />
               <Route path="/serviceinfo" element={<ServiceInfo />} />
-              <Route path="/SendNotifications" element={<SendNotifications />} />
-              <Route path="/SendOwnerNotifications" element={<SendOwnerNotifications />} />
               <Route path="/booking" element={<Booking />} />
+              <Route path="/servicereq" element={<ServiceReq />} />
+
+
+              {/* <Route path="/SendNotifications" element={<SendNotifications />} />
+              <Route path="/SendOwnerNotifications" element={<SendOwnerNotifications />} />
               <Route path="/sessions" element={<Session />} />
-              <Route path="/ClientFavorite" element={<ClientFavorite/>} />
-
-
-
-
-
-              
+              <Route path="/ClientFavorite" element={<ClientFavorite/>} /> */}
             </>
           )}
         </Routes>

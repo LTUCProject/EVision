@@ -7,19 +7,18 @@ import NotificationDropdown from "../Client/Notifications/Notification";
 export const Navlinks = [
   { id: 1, name: "HOME", link: "/#" },
   { id: 2, name: "VEHICLES", link: "/vehicles" },
-  { id: 3, name: "CHARGING STATION", link: "/charging-station" }, // Link for Charging Station (only for Owners)
-  { id: 4, name: "CHARGING STATION LOCATIONS", link: "/location" }, // Link for Charging Station Locations
+  { id: 3, name: "CHARGING STATION", link: "/charging-station" }, 
+  { id: 4, name: "STATIONS", link: "/location" }, 
   { id: 5, name: "My Services", link: "/serviceinfo" },
   { id: 6, name: "ClientCommunity", link: "/ClientCommunity" },
-  { id: 7, name: "Send Notifications", link: "/SendNotifications" } ,// Adjusted link name for clarity
-  { id: 8, name: "SendOwnerNotifications", link: "/SendOwnerNotifications" }, // New link for Owner
+  // { id: 7, name: "Send Notifications", link: "/SendNotifications" } ,// Adjusted link name for clarity
+  // { id: 8, name: "SendOwnerNotifications", link: "/SendOwnerNotifications" }, // New link for Owner
   { id: 9, name: "ServicerCommunity", link: "/ServicerCommunity" },
   { id: 10, name: "OwnerCommunity", link: "/OwnerCommunity" },
-  { id: 11, name: "BOOKING", link: "/booking" },
-  { id: 12, name: "SESSIONS", link: "/sessions" },
-  { id: 13, name: "clientfavorite", link: "/ClientFavorite" }
-
-
+  // { id: 11, name: "BOOKING", link: "/booking" },
+  // { id: 12, name: "SESSIONS", link: "/sessions" },
+  // { id: 13, name: "clientfavorite", link: "/ClientFavorite" }
+  { id: 14, name: "SERVICES", link: "/servicereq" },
 
 ];
 
@@ -70,7 +69,25 @@ const Navbar = ({ theme, setTheme, isAuthenticated, onLogout }) => {
         </a>
       </li>
     );
-  } else if (userRole === "Owner" && name === "Send Notifications") {
+  } 
+  // else if (userRole === "Owner" && name === "Send Notifications") {
+  //   return (
+  //     <li key={id} className="py-4">
+  //       <a href={link} className="text-lg font-medium hover:text-primary py-2 hover:border-b-2 hover:border-primary transition-colors duration-500">
+  //         {name}
+  //       </a>
+  //     </li>
+  //   );
+  // } else if (userRole === "Owner" && name === "SESSIONS") {
+  //   return (
+  //     <li key={id} className="py-4">
+  //       <a href={link} className="text-lg font-medium hover:text-primary py-2 hover:border-b-2 hover:border-primary transition-colors duration-500">
+  //         {name}
+  //       </a>
+  //     </li>
+  //   );
+  // } 
+  else if (userRole === "Owner" && name === "OwnerCommunity") {
     return (
       <li key={id} className="py-4">
         <a href={link} className="text-lg font-medium hover:text-primary py-2 hover:border-b-2 hover:border-primary transition-colors duration-500">
@@ -78,47 +95,7 @@ const Navbar = ({ theme, setTheme, isAuthenticated, onLogout }) => {
         </a>
       </li>
     );
-  } else if (userRole === "Owner" && name === "SESSIONS") {
-    return (
-      <li key={id} className="py-4">
-        <a href={link} className="text-lg font-medium hover:text-primary py-2 hover:border-b-2 hover:border-primary transition-colors duration-500">
-          {name}
-        </a>
-      </li>
-    );
-  } else if (userRole === "Owner" && name === "OwnerCommunity") {
-    return (
-      <li key={id} className="py-4">
-        <a href={link} className="text-lg font-medium hover:text-primary py-2 hover:border-b-2 hover:border-primary transition-colors duration-500">
-          {name}
-        </a>
-      </li>
-    );
-  } else if ((userRole === "Client" || userRole === "Admin") && name === "CHARGING STATION LOCATIONS") {
-    return (
-      <li key={id} className="py-4">
-        <a href={link} className="text-lg font-medium hover:text-primary py-2 hover:border-b-2 hover:border-primary transition-colors duration-500">
-          {name}
-        </a>
-      </li>
-    );
-  } else if ((userRole === "Client" || userRole === "Admin") && name === "ClientCommunity") {
-    return (
-      <li key={id} className="py-4">
-        <a href={link} className="text-lg font-medium hover:text-primary py-2 hover:border-b-2 hover:border-primary transition-colors duration-500">
-          {name}
-        </a>
-      </li>
-    );
-  } else if ((userRole === "Client" || userRole === "Admin") && name === "VEHICLES") {
-    return (
-      <li key={id} className="py-4">
-        <a href={link} className="text-lg font-medium hover:text-primary py-2 hover:border-b-2 hover:border-primary transition-colors duration-500">
-          {name}
-        </a>
-      </li>
-    );
-  }else if ((userRole === "Client" || userRole === "Admin") && name === "BOOKING") {
+  } else if (userRole === "Client" && name === "STATIONS") {
     return (
       <li key={id} className="py-4">
         <a href={link} className="text-lg font-medium hover:text-primary py-2 hover:border-b-2 hover:border-primary transition-colors duration-500">
@@ -127,7 +104,33 @@ const Navbar = ({ theme, setTheme, isAuthenticated, onLogout }) => {
       </li>
     );
   }
-  else if ((userRole === "Client" || userRole === "Admin") && name === "clientfavorite") {
+   else if (userRole === "Client"  && name === "ClientCommunity") {
+    return (
+      <li key={id} className="py-4">
+        <a href={link} className="text-lg font-medium hover:text-primary py-2 hover:border-b-2 hover:border-primary transition-colors duration-500">
+          {name}
+        </a>
+      </li>
+    );
+  } 
+  else if (userRole === "Client"  && name === "VEHICLES") {
+    return (
+      <li key={id} className="py-4">
+        <a href={link} className="text-lg font-medium hover:text-primary py-2 hover:border-b-2 hover:border-primary transition-colors duration-500">
+          {name}
+        </a>
+      </li>
+    );
+  }else if (userRole === "Client"  && name === "BOOKING") {
+    return (
+      <li key={id} className="py-4">
+        <a href={link} className="text-lg font-medium hover:text-primary py-2 hover:border-b-2 hover:border-primary transition-colors duration-500">
+          {name}
+        </a>
+      </li>
+    );
+  }
+  else if (userRole === "Client"  && name === "SERVICES") {
     return (
       <li key={id} className="py-4">
         <a href={link} className="text-lg font-medium hover:text-primary py-2 hover:border-b-2 hover:border-primary transition-colors duration-500">
@@ -144,15 +147,17 @@ const Navbar = ({ theme, setTheme, isAuthenticated, onLogout }) => {
         </a>
       </li>
     );
-  } else if (userRole === "Servicer" && name === "Send Notifications") {
-    return (
-      <li key={id} className="py-4">
-        <a href={link} className="text-lg font-medium hover:text-primary py-2 hover:border-b-2 hover:border-primary transition-colors duration-500">
-          {name}
-        </a>
-      </li>
-    );
-  } else if (userRole === "Servicer" && name === "ServicerCommunity") {
+  } 
+  // else if (userRole === "Servicer" && name === "Send Notifications") {
+  //   return (
+  //     <li key={id} className="py-4">
+  //       <a href={link} className="text-lg font-medium hover:text-primary py-2 hover:border-b-2 hover:border-primary transition-colors duration-500">
+  //         {name}
+  //       </a>
+  //     </li>
+  //   );
+  // } 
+  else if (userRole === "Servicer" && name === "ServicerCommunity") {
     return (
       <li key={id} className="py-4">
         <a href={link} className="text-lg font-medium hover:text-primary py-2 hover:border-b-2 hover:border-primary transition-colors duration-500">
