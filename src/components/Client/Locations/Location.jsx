@@ -7,7 +7,7 @@ import { toast } from 'react-toastify';
 import markerIcon from 'leaflet/dist/images/marker-icon.png';
 import markerIconRetina from 'leaflet/dist/images/marker-icon-2x.png';
 import markerShadow from 'leaflet/dist/images/marker-shadow.png';
-import Modal from 'react-modal'; // Ensure to install react-modal or use your preferred modal library
+import Modal from 'react-modal'; 
 import ClientFavorite from '../ClientFavorite/ClientFavorite';
 
 // Default icon setup for Leaflet
