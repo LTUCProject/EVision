@@ -1,4 +1,3 @@
-// NotificationDropdown.js
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
@@ -29,6 +28,26 @@ const NotificationDropdown = ({ clientId }) => {
         }
     };
 
+    const deleteNotification = async (notificationId) => {
+        try {
+            const token = localStorage.getItem("token");
+            await axios.delete(`https://localhost:7080/api/Clients/notification/${notificationId}`, {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                    "Content-Type": "application/json"
+                }
+            });
+            // Update the notifications state after successful deletion
+            setNotifications(prevNotifications => 
+                prevNotifications.filter(notification => notification.notificationId !== notificationId)
+            );
+            setMessage('Notification deleted successfully!');
+        } catch (error) {
+            console.error('Error deleting notification:', error);
+            setMessage('Failed to delete notification.');
+        }
+    };
+
     useEffect(() => {
         loadNotifications();
     }, [clientId]);
@@ -43,6 +62,12 @@ const NotificationDropdown = ({ clientId }) => {
                         <p className="font-bold">{notification.title}</p>
                         <p>{notification.message}</p>
                         <span className="text-gray-500 text-sm">{new Date(notification.date).toLocaleString()}</span>
+                        <button 
+                            className="text-red-500 mt-2"
+                            onClick={() => deleteNotification(notification.notificationId)}
+                        >
+                            Delete
+                        </button>
                     </div>
                 ))
             ) : (

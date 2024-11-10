@@ -155,7 +155,7 @@ const ServiceReq = () => {
                                 <div className="provider-info">
                                     <h3 className="provider-title">Provider:</h3>
                                     <p>Name: {service.provider.name}</p>
-                                    <p>Email: {service.provider.email}</p>
+                                    {/* <p>Email: {service.provider.email}</p> */}
                                 </div>
                             </div>
                         ))
@@ -205,9 +205,9 @@ const ServiceReq = () => {
                             </div>
 
                             <div className="input-group">
-                                <label className="input-label">Status:</label>
+                                {/* <label className="input-label">Status:</label> */}
                                 <input
-                                    type="text"
+                                    type="hidden"
                                     value="Pending"  // Always set to "Pending"
                                     readOnly           // Prevent user from editing
                                     className="status-field"

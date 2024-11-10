@@ -7,8 +7,9 @@ import { toast } from 'react-toastify';
 import markerIcon from 'leaflet/dist/images/marker-icon.png';
 import markerIconRetina from 'leaflet/dist/images/marker-icon-2x.png';
 import markerShadow from 'leaflet/dist/images/marker-shadow.png';
-import Modal from 'react-modal'; 
+import Modal from 'react-modal'; // Ensure to install react-modal or use your preferred modal library
 import ClientFavorite from '../ClientFavorite/ClientFavorite';
+import './Location.css';
 
 // Default icon setup for Leaflet
 delete L.Icon.Default.prototype._getIconUrl;
@@ -127,68 +128,75 @@ const Location = () => {
       console.error('Error adding favorite:', error);
     }
   };
+  const [isMapVisible, setIsMapVisible] = useState(true);
 
+  const handleViewFavoriteStations = () => {
+    setIsMapVisible(false);
+    setModalIsOpen(true); 
+  };
+  const handleCloseModal = () => {
+    setIsMapVisible(true);
+    setModalIsOpen(false); 
+  };
   return (
-    <>
-      <MapContainer
-        center={mapCenter}
-        zoom={8}
-        style={{ height: '500px', width: '100%' }}
-        bounds={jordanBounds}
-      >
-        <TileLayer
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        />
+    <div className="backpage">
+      {isMapVisible && (
+        <MapContainer
+         className="map-container"
+          center={mapCenter}
+          zoom={8}
+          bounds={jordanBounds}
+        >
+          <TileLayer className="tilelyer"
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+          />
+          {/* Render charging station markers */}
+          {chargingStations.map((station) => (
+            <Marker className="marker2"
+              key={station.chargingStationId}
+              position={[station.latitude, station.longitude]}
+              eventHandlers={{
+                click: () => handleLocationSelect(station.latitude, station.longitude),
+              }}
+            >
+              <Popup className="prpupp1">
+                <strong>{station.name}</strong><br />
+                {station.address}<br />
+                Status: {station.status}<br />
+                Payment Method: {station.paymentMethod}<br />
+                Provider: {station.provider.name} ({station.provider.email})<br />
+                <button onClick={handleGetLocationClick}>Get Location</button>
+                <button onClick={() => handleFavoriteClick2(station.chargingStationId)}>Add to Favorite</button>
+              </Popup>
+            </Marker>
+          ))}
+          {/* Render user's unique location marker */}
+          {userLocation && (
+            <Marker position={[userLocation.lat, userLocation.lng]} icon={userLocationIcon} className="marker">
+              <Popup className="prpupp2">
+                <div>
+                  <p>Your current location</p>
+                </div>
+              </Popup>
+            </Marker>
+          )}
+        </MapContainer>
+      )}
 
-        {/* Render charging station markers */}
-        {chargingStations.map((station) => (
-          <Marker
-            key={station.chargingStationId}
-            position={[station.latitude, station.longitude]}
-            eventHandlers={{
-              click: () => handleLocationSelect(station.latitude, station.longitude),
-            }}
-          >
-            <Popup>
-              <strong>{station.name}</strong><br />
-              {station.address}<br />
-              Status: {station.status}<br />
-              Payment Method: {station.paymentMethod}<br />
-              Provider: {station.provider.name} ({station.provider.email})<br />
-              <button onClick={handleGetLocationClick}>Get Location</button>
-              <button onClick={() => handleFavoriteClick2(station.chargingStationId)}>Add to Favorite</button>
-            </Popup>
-          </Marker>
-        ))}
-
-        {/* Render user's unique location marker */}
-        {userLocation && (
-          <Marker position={[userLocation.lat, userLocation.lng]} icon={userLocationIcon}>
-            <Popup>
-              <div>
-                <p>Your current location</p>
-              </div>
-            </Popup>
-          </Marker>
-        )}
-      </MapContainer>
-
-
-      {/* Button to show favorites */}
       <br />
-      <button onClick={() => setModalIsOpen(true)}>View Favorite Stations</button>
+      <button onClick={handleViewFavoriteStations} className="btL">View Favorite Stations</button>
 
       {/* Modal for Favorite component */}
-      <Modal
+      <Modal className="modell"
         isOpen={modalIsOpen}
-        onRequestClose={() => setModalIsOpen(false)}
+        onRequestClose={handleCloseModal}
         contentLabel="Favorite Modal"
       >
-        <ClientFavorite stationId={favoriteStationId} onClose={() => setModalIsOpen(false)} />
-        <button onClick={() => setModalIsOpen(false)}>Close</button>
+        <ClientFavorite stationId={favoriteStationId} onClose={handleCloseModal} />
+        <button onClick={handleCloseModal} className="close">Close</button>
       </Modal>
-    </>
+    </div>
   );
 };
 

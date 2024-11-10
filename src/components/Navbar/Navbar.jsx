@@ -15,7 +15,7 @@ export const Navlinks = [
   // { id: 8, name: "SendOwnerNotifications", link: "/SendOwnerNotifications" }, // New link for Owner
   { id: 9, name: "ServicerCommunity", link: "/ServicerCommunity" },
   { id: 10, name: "OwnerCommunity", link: "/OwnerCommunity" },
-  // { id: 11, name: "BOOKING", link: "/booking" },
+ { id: 11, name: "BOOKING", link: "/booking" },
   // { id: 12, name: "SESSIONS", link: "/sessions" },
   // { id: 13, name: "clientfavorite", link: "/ClientFavorite" }
   { id: 14, name: "SERVICES", link: "/servicereq" },
