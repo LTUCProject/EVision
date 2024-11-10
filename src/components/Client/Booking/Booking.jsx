@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { MapContainer, TileLayer, Marker, Popup, useMapEvents } from 'react-leaflet';
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import axios from 'axios';
-import { toast } from 'react-toastify';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import './Booking.css';
 
 // Utility for authenticated API requests
 const apiRequest = async (method, url, data = null) => {
@@ -54,7 +56,7 @@ const Booking = () => {
                 setVehicles(response.data.$values || []);
             } catch (error) {
                 console.error('Error fetching vehicles:', error);
-                setMessage('Failed to load vehicles.');
+                toast.error('Failed to load vehicles.');
             }
         };
 
@@ -91,91 +93,109 @@ const Booking = () => {
         try {
             await apiRequest('POST', 'https://localhost:7080/api/Clients/bookings', bookingData);
             toast.success("Booking created successfully.");
+
+            // Clear fields after successful booking
+            setSelectedVehicle(null);
+            setSelectedStation(null);
+            setStartTime('');
+            setEndTime('');
         } catch (error) {
             console.error('Failed to create booking:', error);
         }
     };
 
     return (
-        <div className="booking-form">
-            <h2 className="form-title">Book a Charging Station</h2>
-    
-            {/* Vehicle Selection */}
-            <label className="form-label">
-                Select Vehicle:
-                <select value={selectedVehicle} onChange={(e) => setSelectedVehicle(e.target.value)} className="select-input">
-                    <option value="">Select a vehicle</option>
-                    {vehicles.map((vehicle) => (
-                        <option key={vehicle.vehicleId} value={vehicle.vehicleId}>
-                            {vehicle.make} {vehicle.model}
-                        </option>
+        <div className="backGR">
+            <div className="reservation-form">
+                <h2 className="form-title">Book a Charging Station</h2>
+                
+                {/* Vehicle Selection */}
+                <label className="label-field">
+                    Select Vehicle:
+                    <select value={selectedVehicle} onChange={(e) => setSelectedVehicle(e.target.value)} className="dropdown-input">
+                        <option value="">Select a vehicle</option>
+                        {vehicles.map((vehicle) => (
+                            <option key={vehicle.vehicleId} value={vehicle.vehicleId}>
+                                {vehicle.make} {vehicle.model}
+                            </option>
+                        ))}
+                    </select>
+                </label>
+
+                {/* Date and Time Selection */}
+                <div className="schedule-selection">
+                    <label className="label-field">
+                        Start Time:
+                        <input
+                            type="datetime-local"
+                            value={startTime}
+                            onChange={(e) => setStartTime(e.target.value)}
+                            className="date-time-picker"
+                        />
+                    </label>
+
+                    <label className="label-field">
+                        End Time:
+                        <input
+                            type="datetime-local"
+                            value={endTime}
+                            onChange={(e) => setEndTime(e.target.value)}
+                            className="date-time-picker"
+                        />
+                    </label>
+                </div>
+
+                {/* Map for Charging Station Selection */}
+                <MapContainer
+                    center={[31.5, 36.0]}
+                    zoom={8}
+                    style={{ height: '500px', width: '100%' }}
+                    bounds={jordanBounds}
+                    className="map-view"
+                >
+                    <TileLayer
+                        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+                    />
+                    {chargingStations.map((station) => (
+                        <Marker
+                            key={station.chargingStationId}
+                            position={[station.latitude, station.longitude]}
+                            eventHandlers={{
+                                click: () => setSelectedStation(station)
+                            }}
+                        >
+                            <Popup>
+                                <strong>{station.name}</strong><br />
+                                {station.address}<br />
+                                Status: {station.status}<br />
+                                Payment Method: {station.paymentMethod}<br />
+                                Provider: {station.provider.name} ({station.provider.email})
+                            </Popup>
+                        </Marker>
                     ))}
-                </select>
-            </label>
-    
-            {/* Date and Time Selection */}
-            <div className="time-selection">
-                <label className="form-label">
-                    Start Time:
-                    <input
-                        type="datetime-local"
-                        value={startTime}
-                        onChange={(e) => setStartTime(e.target.value)}
-                        className="datetime-input"
-                    />
-                </label>
-    
-                <label className="form-label">
-                    End Time:
-                    <input
-                        type="datetime-local"
-                        value={endTime}
-                        onChange={(e) => setEndTime(e.target.value)}
-                        className="datetime-input"
-                    />
-                </label>
+                </MapContainer>
+
+                {selectedStation && (
+                    <p className="chosen-station-text">Selected Charging Station: {selectedStation.name}</p>
+                )}
+
+                {/* Submit Button */}
+                <button onClick={handleSubmit} className="submit-button">Create Booking</button>
             </div>
-    
-            {/* Map for Charging Station Selection */}
-            <MapContainer
-                center={[31.5, 36.0]}
-                zoom={8}
-                style={{ height: '500px', width: '100%' }}
-                bounds={jordanBounds}
-                className="map-section"
-            >
-                <TileLayer
-                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                    attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-                />
-                {chargingStations.map((station) => (
-                    <Marker
-                        key={station.chargingStationId}
-                        position={[station.latitude, station.longitude]}
-                        eventHandlers={{
-                            click: () => setSelectedStation(station)
-                        }}
-                    >
-                        <Popup>
-                            <strong>{station.name}</strong><br />
-                            {station.address}<br />
-                            Status: {station.status}<br />
-                            Payment Method: {station.paymentMethod}<br />
-                            Provider: {station.provider.name} ({station.provider.email})
-                        </Popup>
-                    </Marker>
-                ))}
-            </MapContainer>
-    
-            {selectedStation && (
-                <p className="selected-station-text">Selected Charging Station: {selectedStation.name}</p>
-            )}
-    
-            {/* Submit Button */}
-            <button onClick={handleSubmit} className="submit-btn">Create Booking</button>
+
+            {/* Toast Container */}
+            <ToastContainer 
+                position="top-center" 
+                autoClose={3000} 
+                hideProgressBar={false} 
+                closeOnClick 
+                draggable 
+                pauseOnHover 
+                style={{ fontSize: '20px', maxWidth: '500px' }} // Centered and larger font
+            />
         </div>
     );
-    
 };
 
 export default Booking;
