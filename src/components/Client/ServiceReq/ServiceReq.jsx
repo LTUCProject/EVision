@@ -154,7 +154,7 @@ const ServiceReq = () => {
                                 <p className="service-contact">Contact: {service.contact}</p>
                                 <div className="provider-info">
                                     <h3 className="provider-title">Provider:</h3>
-                                    <p>Name: {service.provider.name}</p>
+                                    <p className='pN'>Name: <span>{service.provider.name}</span></p>
                                     {/* <p>Email: {service.provider.email}</p> */}
                                 </div>
                             </div>
