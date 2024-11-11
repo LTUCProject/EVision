@@ -23,6 +23,8 @@ import Booking from "./components/Client/Booking/Booking";
 // import Session from "./components/Owner/Sessions/Session";
 // import ClientFavorite from "./components/Client/ClientFavorite/ClientFavorite";
 import ServiceReq from "./components/Client/ServiceReq/ServiceReq"
+import ElectricCars from "./components/ElectricCars/ElectricCars"
+
 
 const App = () => {
   const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
@@ -67,6 +69,7 @@ const App = () => {
         <ResponsiveMenu showMenu={showMenu} />
         <Routes>
           <Route path="/" element={<EVisionPage />} />
+          <Route path="/electriccars" element={<ElectricCars />} />
           <Route path="/login" element={<LoginSignup setIsAuthenticated={setIsAuthenticated} />} />
           <Route path="/logout" element={<Logout onLogout={handleLogout} />} />
 

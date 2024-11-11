@@ -19,6 +19,8 @@ export const Navlinks = [
   // { id: 12, name: "SESSIONS", link: "/sessions" },
   // { id: 13, name: "clientfavorite", link: "/ClientFavorite" }
   { id: 14, name: "SERVICES", link: "/servicereq" },
+  { id: 14, name: "ElectricCars", link: "/electriccars" },
+
 
 ];
 
@@ -53,6 +55,9 @@ const Navbar = ({ theme, setTheme, isAuthenticated, onLogout }) => {
             <ul className="flex items-center gap-8">
               <li className="py-4">
                 <a href="/#" className="text-lg font-medium hover:text-primary py-2 hover:border-b-2 hover:border-primary transition-colors duration-500">HOME</a>
+              </li>
+              <li className="py-4">
+                <a href="/electriccars" className="text-lg font-medium hover:text-primary py-2 hover:border-b-2 hover:border-primary transition-colors duration-500">ElectricCars</a>
               </li>
               {!isAuthenticated ? (
                 <li className="py-4">
