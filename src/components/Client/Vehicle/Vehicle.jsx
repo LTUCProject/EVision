@@ -81,103 +81,116 @@ const Vehicle = () => {
     };
 
     return (
-        <div className="vehicle-container">
-            <h1 className="header-title">Manage Your Vehicles</h1>
-            <div className="vehicle-content">
-                <div className="form-container">
-                    <h2>Add a New Vehicle</h2>
-                    <form onSubmit={handleSubmit}>
-                        <div className="form-group">
-                            <label>License Plate:</label>
-                            <input
-                                type="text"
-                                value={licensePlate}
-                                onChange={(e) => setLicensePlate(e.target.value)}
-                                required
-                            />
-                        </div>
-                        <div className="form-group">
-                            <label>Model:</label>
-                            <input
-                                type="text"
-                                value={model}
-                                onChange={(e) => setModel(e.target.value)}
-                                required
-                            />
-                        </div>
-                        <div className="form-group">
-                            <label>Year:</label>
-                            <input
-                                type="number"
-                                value={year}
-                                onChange={(e) => setYear(Number(e.target.value))}
-                                required
-                            />
-                        </div>
-                        <div className="form-group">
-                            <label>Battery Capacity:</label>
-                            <input
-                                type="number"
-                                value={batteryCapacity}
-                                onChange={(e) => setBatteryCapacity(Number(e.target.value))}
-                                required
-                            />
-                        </div>
-                        <div className="form-group">
-                            <label>Electric Type:</label>
-                            <input
-                                type="text"
-                                value={electricType}
-                                onChange={(e) => setElectricType(e.target.value)}
-                                required
-                            />
-                        </div>
-                        <button type="submit" className="submit-button">
-                            Add Vehicle
-                        </button>
-                    </form>
-                    {message && <p className="message">{message}</p>}
-                </div>
+        <div className="Collers">
+            <div className="vehicle-management">
+                <h1 className="form-title">Vehicle Management</h1>
+                <div className="content-wrapper">
+                    <div className="add-vehicle-form">
+                        <h2 className='VH2'>Add a New Vehicle</h2>
+                        <form onSubmit={handleSubmit}>
+                            <div className="input-group">
+                                <label className='LAb'>License Plate:</label>
+                                <input
+                                    type="text"
+                                    value={licensePlate}
+                                    onChange={(e) => setLicensePlate(e.target.value)}
+                                    required
+                                />
+                            </div>
+                            <div className="input-group">
+                                <label className='LAb'>Model:</label>
+                                <input
+                                    type="text"
+                                    value={model}
+                                    onChange={(e) => setModel(e.target.value)}
+                                    required
+                                />
+                            </div>
+                            <div className="input-group">
+                                <label className='LAb'>Year:</label>
+                                <input
+                                    type="number"
+                                    value={year}
+                                    onChange={(e) => setYear(Number(e.target.value))}
+                                    required
+                                />
+                            </div>
+                            <div className="input-group">
+                                <label className='LAb'>Battery Capacity:</label>
+                                <input
+                                    type="number"
+                                    value={batteryCapacity}
+                                    onChange={(e) => setBatteryCapacity(Number(e.target.value))}
+                                    required
+                                />
+                            </div>
+                            <div className="input-group">
+                                <label className='LAb'>Electric Type:</label>
+                                <input
+                                    type="text"
+                                    value={electricType}
+                                    onChange={(e) => setElectricType(e.target.value)}
+                                    required
+                                />
+                            </div>
+                            <button
+                                type="submit"
+                                style={{
+                                    padding: '14px 24px',
+                                    fontSize: '1.1rem',
+                                    fontWeight: '500',
+                                    color: '#fff',
+                                    backgroundColor: '#3498db',
 
-                {/* Conditionally render the vehicle list container */}
-                {vehicles.length > 0 && (
-                    <div className="vehicle-list-container">
-                        <h2>{username}'s Vehicles</h2>
-                        <table className="vehicle-table">
-                            <thead>
-                                <tr>
-                                    <th>Vehicle ID</th>
-                                    <th>License Plate</th>
-                                    <th>Model</th>
-                                    <th>Year</th>
-                                    <th>Battery (kWh)</th>
-                                    <th>Electric Type</th>
-                                    <th>Actions</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {vehicles.map((vehicle) => (
-                                    <tr key={vehicle.vehicleId}>
-                                        <td>{vehicle.vehicleId}</td>
-                                        <td>{vehicle.licensePlate}</td>
-                                        <td>{vehicle.model}</td>
-                                        <td>{vehicle.year}</td>
-                                        <td>{vehicle.batteryCapacity}</td>
-                                        <td>{vehicle.electricType}</td>
-                                        <td>
-                                            <button
-                                                className="delete-button"
-                                                onClick={() => handleDelete(vehicle.vehicleId)}
-                                            >
-                                                Delete
-                                            </button>
-                                        </td>
-                                    </tr>
-                                ))}
-                            </tbody>
-                        </table>
+                                }}
+                            >
+                                Add Vehicle
+                            </button>
+
+                        </form>
+                        {message && <p className="status-message">{message}</p>}
                     </div>
-                )}
+
+                    {/* Conditionally render the vehicle list section */}
+                    {vehicles.length > 0 && (
+                        <div className="vehicle-collection">
+                            <h2 className='VH2'>{username}'s Vehicles</h2>
+                            <table className="vehicle-info-table">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>License Plate</th>
+                                        <th>Model</th>
+                                        <th>Year</th>
+                                        <th>Battery (kWh)</th>
+                                        <th>Type</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {vehicles.map((vehicle) => (
+                                        <tr key={vehicle.vehicleId}>
+                                            <td>{vehicle.vehicleId}</td>
+                                            <td>{vehicle.licensePlate}</td>
+                                            <td>{vehicle.model}</td>
+                                            <td>{vehicle.year}</td>
+                                            <td>{vehicle.batteryCapacity}</td>
+                                            <td>{vehicle.electricType}</td>
+                                            <td>
+                                                <button
+                                                    className="remove-button"
+                                                    onClick={() => handleDelete(vehicle.vehicleId)}
+                                                >
+                                                    Delete
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    ))}
+                                </tbody>
+                            </table>
+                        </div>
+                    )}
+                </div>
             </div>
         </div>
     );
