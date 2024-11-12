@@ -7,6 +7,8 @@ import Button from 'react-bootstrap/Button';
 import { toast } from 'react-toastify';
 import MaintenanceLog from '../MaintenanceLog/MaintenanceLog';
 import Booking from '../Booking/Booking';
+import { Modal } from 'react-bootstrap';
+
 
 const jordanBounds = [
     [29.1852, 34.9596],
@@ -230,7 +232,10 @@ const ChargingStationAndLocationForm = () => {
     const handleStationSelect = (id) => {
         setSelectedStationId(id);
     };
-
+    const [selectedStation, setSelectedStation] = useState(null); // الحالة للتحكم في عرض تفاصيل المحطة
+ const handleStationClick = (station) => {
+    setSelectedStation(station); // تعيين المحطة المحددة لعرض تفاصيلها
+  };
 
     return (
         <div className="Collers">
@@ -440,73 +445,90 @@ const ChargingStationAndLocationForm = () => {
                     </form>
             )}
 
-            
+<div className="charging-station-form-container">
+  <div className="charging-stations-list">
+    <h3 className="list-title">Charging Stations</h3>
+    <ul className="station-list">
+      {chargingStations.map((station) => (
+        <li key={station.chargingStationId} className="station-item">
+          <div className="station-details">
+            <h4
+              className="station-name"
+              onClick={() => handleStationClick(station)} // عند النقر على اسم المحطة
+            >
+              {station.name}
+            </h4>
+          </div>
+        </li>
+      ))}
+    </ul>
+  </div>
 
+  {/* النافذة المنبثقة لعرض تفاصيل المحطة المحددة */}
+  {selectedStation && (
+    <div className="modal-overlay" onClick={() => setSelectedStation(null)}>
+      <div className="modal-container" onClick={(e) => e.stopPropagation()}>
+        <div className="modal-header">
+          <span className="modal-close" onClick={() => setSelectedStation(null)}>&times;</span>
+          <h2> {selectedStation.name}</h2>
+        </div>
+        <div className="modal-body">
+          <p className="station-info">Location: {selectedStation.stationLocation}</p>
+          <p className="station-info">Status: {selectedStation.status}</p>
+          <p className="station-info">Parking Available: {selectedStation.hasParking ? 'Yes' : 'No'}</p>
+          <p className="station-info">Payment Method: {selectedStation.paymentMethod}</p>
+          <p className="station-info">Address: {selectedStation.address}</p>
 
-            <div className="charging-station-form-container">
-                <div className="charging-stations-list">
-                    <h3 className="list-title">Charging Stations</h3>
-                    <ul className="station-list">
-                        {chargingStations.map((station) => (
-                            <li key={station.chargingStationId} className="station-item">
-                                <div className="station-details">
-                                    <h4 className="station-name">{station.name}</h4>
-                                    <p className="station-info">Location: {station.stationLocation}</p>
-                                    <p className="station-info">Status: {station.status}</p>
-                                    <p className="station-info">Parking Available: {station.hasParking ? 'Yes' : 'No'}</p>
-                                    <p className="station-info">Payment Method: {station.paymentMethod}</p>
-                                    <p className="station-info">Address: {station.address}</p>
-                                </div>
-                                <div className="charger-details">
-                                    <h5 className="charger-title">Chargers:</h5>
-                                    <ul className="charger-list">
-                                        {station.chargers.$values.map((charger) => (
-                                            <li key={charger.chargerId} className="charger-item">
-                                                <p className="charger-info">Type: {charger.type}</p>
-                                                <p className="charger-info">Power: {charger.power} kW</p>
-                                                <p className="charger-info">Speed: {charger.speed} kW/h</p>
-                                                <div className="charger-actions">
-                                                    <Button
-                                                        variant="danger"
-                                                        onClick={() => handleDeleteCharger(charger.chargerId)}  // Pass specific charger ID for deletion
-                                                    >
-                                                        Delete Charger
-                                                    </Button>
-                                                </div>
-                                            </li>
-                                        ))}
-                                    </ul>
-                                </div>
-                                <div className="station-actions">
-                                    <Button
-                                        className="btn btn-warning" // Bootstrap warning class
-                                        onClick={() => {
-                                            setChargerData({
-                                                stationLocation: station.stationLocation,
-                                                name: station.name,
-                                                hasParking: station.hasParking,
-                                                status: station.status,
-                                                paymentMethod: station.paymentMethod,
-                                                address: station.address
-                                            });
-                                            setSelectedStationId(station.chargingStationId);  // Store the ID of the station being edited
-                                        }}
-                                    >
-                                        Edit Station
-                                    </Button>
-                                    <Button
-                                        className="btn btn-danger" // Bootstrap danger class
-                                        onClick={() => handleDelete(station.chargingStationId)}  // Pass specific station ID for deletion
-                                    >
-                                        Delete Station
-                                    </Button>
-                                </div>
+          <div className="charger-details">
+            <h5 className="charger-title">Chargers:</h5>
+            <ul className="charger-list">
+              {selectedStation.chargers.$values.map((charger) => (
+                <li key={charger.chargerId} className="charger-item">
+                  <p className="charger-info">Type: {charger.type}</p>
+                  <p className="charger-info">Power: {charger.power} kW</p>
+                  <p className="charger-info">Speed: {charger.speed} kW/h</p>
+                  <div className="charger-actions">
+                    <button
+                      className="delete-charger-btn"
+                      onClick={() => handleDeleteCharger(charger.chargerId)} // Pass specific charger ID for deletion
+                    >
+                      Delete Charger
+                    </button>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+        <div className="modal-footer">
+          <button
+            className="edit-station-btn"
+            onClick={() => {
+              setChargerData({
+                stationLocation: selectedStation.stationLocation,
+                name: selectedStation.name,
+                hasParking: selectedStation.hasParking,
+                status: selectedStation.status,
+                paymentMethod: selectedStation.paymentMethod,
+                address: selectedStation.address
+              });
+              setSelectedStationId(selectedStation.chargingStationId); // Store the ID of the station being edited
+            }}
+          >
+            Edit Station
+          </button>
+          <button
+            className="delete-station-btn"
+            onClick={() => handleDelete(selectedStation.chargingStationId)} // Pass specific station ID for deletion
+          >
+            Delete Station
+          </button>
+        </div>
+      </div>
+    </div>
+  )}
+</div>
 
-                            </li>
-                        ))}
-                    </ul>
-                </div>
-            </div>
 
             <div  style={{ justifyContent: 'center', alignItems: 'center'}}>
                 {/* Select Station Dropdown for Maintenance Log */}
