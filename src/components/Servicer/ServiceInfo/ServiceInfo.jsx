@@ -161,88 +161,107 @@ const ServiceInfo = () => {
 
 
     return (
-        <div className="service-info-container">
-            <h2 className="service-info-title">Service Info Management</h2>
-            <button className="service-info-button" onClick={() => { resetForm(); setIsModalOpen(true); }}>
-                Create Service Info
-            </button>
-            <h3 className="service-info-title">Service List</h3>
-            <ul className="service-info-list">
-                {serviceList.map(service => (
-                    <li className="service-info-list-item" key={service.serviceInfoId}>
-                        <div>
-                            <strong>{service.name}</strong> - {service.description}
-                        </div>
-                        <div>
-                            <button className="service-info-button edit-button" onClick={() => handleEdit(service)}>Edit</button>
-                            <button className="service-info-button delete-button" onClick={() => handleDelete(service.serviceInfoId)}>Delete</button>
-                            <button className="service-info-button details-button" onClick={() => fetchServiceRequestById(service.serviceInfoId)}>View Request</button>
-                        </div>
-                    </li>
-                ))}
-            </ul>
+        <div className="Collers">
+        <div className="service-info-containerrrrr">
+    <h2 className="form-title">Service Info Management</h2>
+    <button className="service-info-action-button" onClick={() => { resetForm(); setIsModalOpen(true); }}>
+        Create Service Info
+    </button>
+    <br>
+    </br>
+    <h3 className="serviceHED">Service List</h3>
+    <ul className="service-info-list">
+  {serviceList.map((service) => (
+    <li className="service-info-list-itemmmm" key={service.serviceInfoId}>
+      <div className="service-info">
+        <strong className="service-name">{service.name}</strong>
+        <p className="service-description">{service.description}</p>
+      </div>
+      <div className="button-group">
+        <button
+          className="button edit-button"
+          onClick={() => handleEdit(service)}
+        >
+          Edit
+        </button>
+        <button
+          className="button delete-button"
+          onClick={() => handleDelete(service.serviceInfoId)}
+        >
+          Delete
+        </button>
+        <button
+          className="button details-button"
+          onClick={() => fetchServiceRequestById(service.serviceInfoId)}
+        >
+          View Request
+        </button>
+      </div>
+    </li>
+  ))}
+</ul>
 
-            {/* Modal for sending notifications */}
-            {isNotificationModalOpen && selectedClientId && (
-                <div className="notification-modal-overlay">
-                    <div className="notification-modal">
-                        <button className="notification-modal-close" onClick={() => setIsNotificationModalOpen(false)}>&times;</button>
-                        <SendNotifications
-                            clientId={selectedClientId}
-                            closeModal={() => setIsNotificationModalOpen(false)}
-                        />
-                    </div>
-                </div>
-            )}
 
-
-            {isModalOpen && (
-                <div className="service-info-modal">
-                    <div className="service-info-modal-content">
-                        <span className="service-info-close" onClick={() => setIsModalOpen(false)}>&times;</span>
-                        <h2>{serviceData.id ? 'Update' : 'Create'} Service Info</h2>
-                        <form onSubmit={handleSubmit}>
-                            <div><label>Name:</label><input type="text" name="name" value={serviceData.name} onChange={handleChange} required /></div>
-                            <div><label>Description:</label><textarea name="description" value={serviceData.description} onChange={handleChange} required /></div>
-                            <div><label>Contact:</label><input type="text" name="contact" value={serviceData.contact} onChange={handleChange} required /></div>
-                            <div><label>Type:</label><input type="text" name="type" value={serviceData.type} onChange={handleChange} required /></div>
-                            <button className="service-info-button" type="submit">{serviceData.id ? 'Update' : 'Create'} Service Info</button>
-                        </form>
-                    </div>
-                </div>
-            )}
-
-            {isRequestModalOpen && serviceRequestDetails.length > 0 && (
-                <div className="service-info-modal">
-                    <div className="service-info-modal-content">
-                        <span className="service-info-close" onClick={() => setIsRequestModalOpen(false)}>&times;</span>
-                        <h2>Service Request Details</h2>
-                        {serviceRequestDetails.map((request) => (
-                            <div key={request.serviceRequestId}>
-                                <div><strong>ID:</strong> {request.serviceRequestId}</div>
-                                <div><strong>Status:</strong> {request.status}</div>
-                                <div><strong>Client Name:</strong> {request.client?.name}</div>
-                                <div><strong>Client Email:</strong> {request.client?.email}</div>
-                                <div><strong>Provider Name:</strong> {request.provider?.name}</div>
-                                <div><strong>Vehicle License Plate:</strong> {request.vehicle?.licensePlate}</div>
-                                <div><strong>Vehicle Model:</strong> {request.vehicle?.model}</div>
-                                <div><label>Update Status:</label>
-                                    <input type="text" value={status} onChange={(e) => setStatus(e.target.value)} />
-                                    <button onClick={() => updateServiceRequestStatus(request.serviceRequestId, status)}>Update</button>
-                                </div>
-                                <hr /> {/* Optional: Add a separator between requests */}
-                                {/* Add Send Notification button here */}
-                                <button
-                                    className="service-info-button notification-button"
-                                    onClick={() => handleNotificationClick(request.client?.clientId)}>
-                                    Send Notification
-                                </button>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            )}
+    {/* Modal for sending notifications */}
+    {isNotificationModalOpen && selectedClientId && (
+        <div className="modal-overlay">
+            <div className="notification-modal">
+                <button className="modal-close-button" onClick={() => setIsNotificationModalOpen(false)}>&times;</button>
+                <SendNotifications
+                    clientId={selectedClientId}
+                    closeModal={() => setIsNotificationModalOpen(false)}
+                />
+            </div>
         </div>
+    )}
+
+    {isModalOpen && (
+        <div className="service-info-modal">
+            <div className="service-info-modal-content">
+                <span className="modal-close-button" onClick={() => setIsModalOpen(false)}>&times;</span>
+                <h2 className='CSI'>{serviceData.id ? 'Update' : 'Create'} Service Info</h2>
+                <form onSubmit={handleSubmit}>
+                    <div><label>Name:</label><input type="text" name="name" value={serviceData.name} onChange={handleChange} required /></div>
+                    <div><label>Description:</label><textarea name="description" value={serviceData.description} onChange={handleChange} required /></div>
+                    <div><label>Contact:</label><input type="text" name="contact" value={serviceData.contact} onChange={handleChange} required /></div>
+                    <div><label>Type:</label><input type="text" name="type" value={serviceData.type} onChange={handleChange} required /></div>
+                    <button className="service-info-action-button" type="submit">{serviceData.id ? 'Update' : 'Create'} Service Info</button>
+                </form>
+            </div>
+        </div>
+    )}
+
+    {isRequestModalOpen && serviceRequestDetails.length > 0 && (
+        <div className="service-info-modal">
+            <div className="service-info-modal-content">
+                <span className="modal-close-button" onClick={() => setIsRequestModalOpen(false)}>&times;</span>
+                <h2>Service Request Details</h2>
+                {serviceRequestDetails.map((request) => (
+                    <div key={request.serviceRequestId}>
+                        <div><strong>ID:</strong> {request.serviceRequestId}</div>
+                        <div><strong>Status:</strong> {request.status}</div>
+                        <div><strong>Client Name:</strong> {request.client?.name}</div>
+                        <div><strong>Client Email:</strong> {request.client?.email}</div>
+                        <div><strong>Provider Name:</strong> {request.provider?.name}</div>
+                        <div><strong>Vehicle License Plate:</strong> {request.vehicle?.licensePlate}</div>
+                        <div><strong>Vehicle Model:</strong> {request.vehicle?.model}</div>
+                        <div><label>Update Status:</label>
+                            <input type="text" value={status} onChange={(e) => setStatus(e.target.value)} />
+                            <button onClick={() => updateServiceRequestStatus(request.serviceRequestId, status)}>Update</button>
+                        </div>
+                        <hr />
+                        <button
+                            className="service-info-action-button service-info-notification-button"
+                            onClick={() => handleNotificationClick(request.client?.clientId)}>
+                            Send Notification
+                        </button>
+                    </div>
+                ))}
+            </div>
+        </div>
+    )}
+</div>
+</div>
     );
 };
 
