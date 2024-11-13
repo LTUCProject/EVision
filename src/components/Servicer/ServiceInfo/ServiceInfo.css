@@ -1,229 +1,603 @@
-/* ServiceInfo.css */
-
-/* Container for the entire component */
-.service-info-container {
-    background-color: #f4f4f4; /* Soft light background */
-    font-family: 'Arial', sans-serif;
-    padding: 20px;
-    border-radius: 8px; /* Slight rounding of corners */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+/* Container for the entire service info section */
+.service-info-containerrrrr {
+    font-family: 'Arial', sans-serif;  /* Consistent font for clarity */
+    margin: 20px;       
+    text-align: center;               /* Adds space around the container */
+    padding: 20px;                     /* Adds internal space for content */
+    background-color: #f9f9f9;         /* Soft background color for readability */
+    border-radius: 8px;                /* Rounded corners for a modern look */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    transition: box-shadow 0.3s ease;   /* Smooth transition for shadow effects */
 }
 
-/* Title styles */
-.service-info-title {
-    color: #333;
-    margin-bottom: 15px;
+/* Optional: Add hover effect to enhance interactivity */
+.service-info-containerrrrr:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Slightly larger shadow on hover */
 }
 
-/* Button styles */
-.service-info-button {
-    background-color: #007bff; /* Blue for primary actions */
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 15px;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s; /* Added transform for feedback */
-    margin-right: 10px; /* Space between buttons */
+
+/* Action button styling */
+.service-info-action-button {
+    background-color: #007BFF;          /* Primary green background */
+    color: white;                       /* White text for contrast */
+    border: none;                       /* Remove default border */
+    padding: 10px 20px;                 /* Adequate padding for clickable area */
+    font-size: 14px;                    /* Legible font size */
+    font-weight: 600;                   /* Slightly bolder text for emphasis */
+    cursor: pointer;                   /* Pointer cursor on hover for interactivity */
+    border-radius: 5px;                 /* Rounded corners for a modern look */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transitions */
+    display: inline-block;              /* Ensures button behaves like an inline element */
 }
 
-.service-info-button:hover {
-    background-color: #0056b3; /* Darker blue on hover */
-    transform: translateY(-2px); /* Slight lift on hover */
+/* Hover state */
+.service-info-action-button:hover {
+    background-color: #007BFF;          /* Darker green when hovered */
+    transform: translateY(-2px);        /* Subtle lift effect on hover */
 }
 
-/* List styles */
+/* Focus state for accessibility */
+.service-info-action-button:focus {
+    outline: none;                      /* Removes default outline */
+    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.5); /* Custom focus ring */
+}
+
+
+/* Styling for the heading */
+.service-info-heading {
+    font-size: 24px;                /* Standard readable font size for headings */
+    font-weight: 700;               /* Bold weight for emphasis */
+    margin-top: 20px;               /* Space above the heading */
+    margin-bottom: 15px;            /* Adequate space below the heading */
+    color: #333;                    /* Dark gray color for a soft, professional look */
+    line-height: 1.4;               /* Improved line height for readability */
+    text-transform: capitalize;     /* Ensures the first letter of each word is capitalized */
+    letter-spacing: 0.5px;          /* Slight letter spacing for a modern feel */
+    font-family: 'Arial', sans-serif; /* Clean, modern font */
+}
+
+/* Service list styling */
 .service-info-list {
-    list-style-type: none;
+    list-style-type: none;            /* Remove default list styling */
+    padding: 0;                       /* Remove padding for a clean layout */
+    margin: 0;                        /* Remove margin for consistent spacing */
+}
+
+/* إعداد القوائم: حذف النقاط الخاصة بالقائمة */
+.service-info-list {
+    list-style: none;
     padding: 0;
-}
-
-.service-info-list-item {
-    background: #fff; /* White background for list items */
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    margin: 10px 0;
-    padding: 15px;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+  }
+  
+  /* تنسيق العناصر الفردية (الخدمات) */
+  .service-info-list-itemmmm {
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 20px;
+    max-width: 400px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  /* التأثير عند التمرير (hover) */
+  .service-info-list-itemmmm:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* تنسيق محتوى الخدمة */
+  .service-info {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-/* Edit and Delete button styles */
-.edit-button {
-    background-color: #28a745; /* Green for edit */
-}
-
-.edit-button:hover {
-    background-color: #218838; /* Darker green on hover */
-}
-
-.delete-button {
-    background-color: #dc3545; /* Red for delete */
-}
-
-.delete-button:hover {
-    background-color: #c82333; /* Darker red on hover */
-}
-
-/* Modal styles */
-.service-info-modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.7); /* Dark overlay with more opacity */
+    flex-direction: column;
+    margin-bottom: 15px;
+  }
+  
+  .service-name {
+    font-size: 20px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  .service-description {
+    font-size: 14px;
+    color: #777;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    text-align: justify;
+  }
+  
+  /* تنسيق مجموعة الأزرار */
+  .button-group {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000; /* Ensure modal is on top */
-}
-
-/* Modal content styling */
-.service-info-modal-content {
-    background: #ffffff; /* White background for modal */
-    border-radius: 10px; /* More rounded corners */
-    padding: 30px; /* More padding for content */
-    width: 500px; /* Set a width for the modal */
-    max-width: 90%; /* Responsive max width */
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Shadow for depth */
-    animation: fade-in 0.3s ease-out; /* Fade-in effect */
-}
-
-/* Close button styling */
-.service-info-close {
+    gap: 12px;
+    justify-content: flex-start;
+  }
+  
+  /* تنسيق الأزرار بشكل عام */
+  .button {
+    padding: 12px 20px;
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 25px;
     cursor: pointer;
-    font-size: 25px; /* Bigger close button */
-    color: #888;
-    float: right; /* Align close button to the right */
-}
+    outline: none;
+    transition: all 0.3s ease;
+    position: relative;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* تأثير الـ hover على الأزرار */
+  .button:hover {
+    transform: scale(1.05);
+  }
+  
+  /* زر التعديل */
+  .edit-button {
+    background: linear-gradient(145deg, #6aeb6f, #4caf50);
+    color: white;
+  }
+  
+  .edit-button:hover {
+    background: linear-gradient(145deg, #5cbe5b, #45a049);
+  }
+  
+  /* زر الحذف */
+  .delete-button {
+    background: linear-gradient(145deg, #f16f6f, #f44336);
+    color: white;
+  }
+  
+  .delete-button:hover {
+    background: linear-gradient(145deg, #e54d4d, #e53935);
+  }
+  
+  /* زر التفاصيل */
+  .details-button {
+    background: linear-gradient(145deg, #56c8f7, #2196f3);
+    color: white;
+  }
+  
+  .details-button:hover {
+    background: linear-gradient(145deg, #4fa4e0, #1976d2);
+  }
+  
+  /* إضافة تأثير ضوء خفيف عند التركيز (focus) */
+  .button:focus-visible {
+    box-shadow: 0 0 10px rgba(0, 132, 255, 0.8);
+  }
+  
+  /* تأثير الأيقونات الطافية داخل الأزرار */
+  .button:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .button:hover:before {
+    opacity: 1;
+  }
+  
+  /* تصميم مرن لمجموعة الأزرار */
+  .button-group {
+    display: flex;
+    gap: 15px;
+    justify-content: flex-start;
+  }
+  
 
-.service-info-close:hover {
-    color: #000; /* Darker color on hover */
-}
 
-/* Form element styling */
-label {
-    display: block; /* Make labels block elements */
-    margin: 10px 0 5px; /* Spacing around labels */
-    font-weight: bold; /* Bold labels */
-}
-
-input[type="text"], textarea {
-    width: 100%; /* Full width for inputs */
-    padding: 10px; /* Padding for inputs */
-    border: 1px solid #ccc; /* Light border */
-    border-radius: 5px; /* Rounded corners for inputs */
-    margin-bottom: 15px; /* Space below inputs */
-    box-sizing: border-box; /* Include padding and border in width */
-}
-
-/* Style for textarea specifically */
-textarea {
-    resize: vertical; /* Allow vertical resizing only */
-}
-
-/* Animation for modal */
-@keyframes fade-in {
-    from {
-        opacity: 0;
-        transform: translateY(-20px); /* Slide in from above */
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-/* Modal Overlay for Notification */
-.notification-modal-overlay {
+.service-info-modal,
+.notification-modal {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.5);
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 1050;
+    z-index: 9999;
+    overflow: hidden;
 }
 
-/* Notification Modal Container */
+.service-info-modal-content,
 .notification-modal {
     background-color: #fff;
     padding: 20px;
-    border-radius: 8px;
-    width: 500px;
-    max-width: 100%;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    position: relative;
-    z-index: 1060;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 600px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    overflow-y: auto;
+    transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-/* Close Button for Notification */
-.notification-modal-close {
-    position: absolute;
-    top: 10px;
-    right: 10px;
+.service-info-modal-content {
+    border-radius: 12px;
+}
+
+.service-info-modal-content.show,
+.notification-modal.show {
+    transform: scale(1);
+    opacity: 1;
+}
+
+.service-info-modal-content.hide,
+.notification-modal.hide {
+    transform: scale(0.9);
+    opacity: 0;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.904);
+    }
+    50% {
+        box-shadow: 0 0 10px 10px rgba(255, 0, 0, 0);
+    }
+}
+
+.modal-close-button {
     background: none;
     border: none;
-    font-size: 24px;
-    color: #333;
+    font-size: 42px;
+    color: #ff0000;
+    position: absolute;
+    top: 20px;
+    right: 20px;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    padding: 5px;
+    transition: color 0.3s ease, transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s ease;
+    animation: pulse 2s infinite; /* Add pulsing animation */
 }
 
-/* Service Request Modal Styling */
-.service-info-modal {
+.modal-close-button:hover {
+    color: #ff3333;
+    transform: scale(1.25) rotate(15deg); /* Emphasize scale and slight rotation */
+    box-shadow: 0px 10px 20px rgba(255, 51, 51, 0.4); /* More intense shadow */
+}
+
+.modal-close-button:focus {
+    outline: none;
+    box-shadow: 0 0 0 8px rgba(255, 51, 51, 0.4); /* Stronger focus ring */
+    color: #ff6666; /* Slightly lighter color on focus */
+}
+
+.modal-close-button:active {
+    transform: scale(1.15) rotate(0deg); /* Small bounce-back effect */
+    opacity: 0.85;
+    transition: transform 0.1s ease, opacity 0.1s ease;
+}
+
+
+
+.service-info-modal-content form div {
+    margin-bottom: 20px;
+}
+
+.service-info-modal-content form label {
+    font-size: 15px;
+    font-weight: 500;
+    color: #333;
+    display: block;
+    margin-bottom: 6px;
+    transition: all 0.3s ease;
+}
+
+.service-info-modal-content form input,
+.service-info-modal-content form textarea {
+    width: 100%;
+    padding: 10px 14px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    color: #555;
+    background-color: #f9f9f9;
+    outline: none;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.service-info-modal-content form input:focus,
+.service-info-modal-content form textarea:focus {
+    border-color: #007BFF;
+    background-color: #fff;
+    box-shadow: 0 2px 8px rgba(0, 172, 93, 0.2);
+}
+
+.service-info-modal-content form input::placeholder,
+.service-info-modal-content form textarea::placeholder {
+    color: #aaa;
+    font-style: italic;
+}
+
+.service-info-modal-content form textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.service-info-modal-content form input:disabled,
+.service-info-modal-content form textarea:disabled {
+    background-color: #eaeaea;
+    border-color: #ddd;
+    cursor: not-allowed;
+}
+
+
+.service-info-modal-content form textarea {
+    resize: vertical;
+    height: 100px;
+}
+
+/* Update and Create buttons inside modal */
+.service-info-modal-content button {
+    background-color: #007BFF;
+    color: #fff;
+    padding: 12px 24px;
+    border-radius: 6px;
+    border: none;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 2px 6px rgba(0, 172, 93, 0.2);
+}
+
+.service-info-modal-content button:hover {
+    background-color: #007BFF;
+    transform: translateY(-2px);
+}
+
+.service-info-modal-content button:active {
+    background-color: #007BFF;
+    transform: translateY(0);
+}
+
+.service-info-modal-content button:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 172, 93, 0.3);
+}
+.CSI {
+    font-size: 22px;
+    font-weight: 600;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+    padding: 10px 15px;
+    background-color: #f4f4f4;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.CSI:hover {
+    color: #007BFF;  /* Professional blue */
+    transform: translateY(-2px);
+}
+
+.CSI:focus {
+    outline: none;
+    border: 1px solid #007BFF;  /* Professional blue */
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.3);  /* Slightly lighter blue for focus */
+}
+
+
+/* تصميم التفاصيل داخل نافذة الطلب */
+.service-info-request-details {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-info-request-details:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* تنسيق العناوين داخل قسم التفاصيل */
+.service-info-request-details strong {
+    font-weight: 700;
+    color: #222;
+    margin-right: 10px;
+    font-size: 16px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+/* تصميم حقول الإدخال */
+.service-info-request-details input {
+    width: 100%;
+    max-width: 300px;
+    padding: 10px 12px;
+    margin-top: 8px;
+    margin-right: 10px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    font-size: 15px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    background-color: #fafafa;
+    color: #333;
+}
+
+/* تأثير التركيز لحقل الإدخال */
+.service-info-request-details input:focus {
+    border-color: #007BFF;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.2);
+    background-color: #fff;
+}
+
+/* تنسيق تكميلي لحقل الإدخال مع مؤثرات بصرية */
+.service-info-request-details input::placeholder {
+    color: #999;
+    font-style: italic;
+}
+
+/* تحسين التفاعلية مع التأثير البصري عند التركيز */
+.service-info-request-details input:focus-visible {
+    outline: none;
+}
+
+/* تأثير الانتقال السلس عند التحويل بين الحقول */
+.service-info-request-details input {
+    transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+}
+
+/* التنسيق في الشاشات الصغيرة */
+@media (max-width: 768px) {
+    .service-info-request-details {
+        padding: 15px;
+    }
+    
+    .service-info-request-details input {
+        max-width: 100%;
+    }
+}
+
+
+/* زر الإشعارات داخل نافذة الطلب */
+.service-info-notification-button {
+    background-color: #ffca28;  /* لون ذهبي أكثر حيوية */
+    color: #fff;
+    padding: 12px 24px;  /* حجم padding مريح أكثر */
+    margin-top: 15px;
+    border: none;
+    border-radius: 8px;  /* زوايا دائرية أنعم */
+    cursor: pointer;
+    font-size: 15px;  /* تكبير الخط قليلاً لتحسين القراءة */
+    font-weight: 700;  /* النص بحجم خط أكثر سماكة */
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);  /* ظل أعمق لزيادة التأثير */
+    display: inline-block;
+}
+
+/* تأثير التمرير (hover) */
+.service-info-notification-button:hover {
+    background-color: #e0b108;  /* لون أغمق قليلاً عند التمرير */
+    transform: translateY(-3px);  /* حركة ارتفاع طفيف */
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);  /* ظل أكثر كثافة */
+}
+
+/* تأثير التركيز (focus) */
+.service-info-notification-button:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(255, 202, 40, 0.4);  /* حدود تركيز صفراء فاتحة */
+}
+
+/* تأثير الضغط (active) */
+.service-info-notification-button:active {
+    background-color: #c69500;  /* لون أغمق عند الضغط */
+    transform: translateY(1px);  /* تأثير انخفاض طفيف للضغط */
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);  /* تقليل الظل لإظهار التفاعل */
+}
+
+/* تصميم إضافي للشاشات الصغيرة */
+@media (max-width: 600px) {
+    .service-info-notification-button {
+        padding: 10px 18px;  /* تقليل الحجم لتناسب الشاشات الصغيرة */
+        font-size: 14px;
+    }
+}
+
+/* Overlay للمودال */
+.modal-overlay {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000; /* Service modal stays behind the notification */
+    background-color: rgba(0, 0, 0, 0.4);  /* لون الخلفية داكن قليلاً لتحسين التباين */
+    backdrop-filter: blur(4px);  /* تأثير التمويه لإضفاء عمق */
+    z-index: 9998;
+    opacity: 0;
+    animation: fadeInOverlay 0.3s ease forwards;  /* تأثير دخول سلس للشفافية */
+    transition: background-color 0.3s ease;
 }
 
-/* Service Request Modal Content */
-.service-info-modal-content {
-    background-color: white;
-    padding: 20px;
-    width: 70%;
-    max-width: 700px;
-    border-radius: 8px;
-    position: relative;
-    z-index: 1001; /* Service modal content stays above its overlay */
+/* تأثير الانتقال التدريجي */
+@keyframes fadeInOverlay {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
-/* Close Button for Service Request Modal */
-.service-info-close {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background: none;
-    border: none;
-    font-size: 24px;
+/* إغلاق المودال عند النقر على overlay */
+.modal-overlay.closeable:hover {
+    background-color: rgba(0, 0, 0, 0.5);  /* تأثير على لون الخلفية عند التمرير عند قابلية الإغلاق */
+}
+
+/* عنوان القائمة (Service List) */
+.serviceHED {
+    font-size: 28px;  /* حجم خط بارز */
+    font-weight: 800;
     color: #333;
-    cursor: pointer;
-    z-index: 1010; /* Ensure it's above the service modal content */
-}
-.notification-status {
-    padding: 10px;
-    margin-top: 20px;
+    text-transform: uppercase;
     text-align: center;
-    border-radius: 5px;
-    font-weight: bold;
+    letter-spacing: 1.5px;
+    display: inline-block;
+    margin: 0 auto 30px;  /* محاذاة في المنتصف */
+    padding: 10px 20px;
+    background: linear-gradient(to right, #007bff, #00aaff);  /* تدرج لوني حديث */
+    color: transparent;  /* نص شفاف */
+    background-clip: text;
+    -webkit-background-clip: text;
+    position: relative;
+    transition: transform 0.3s ease, letter-spacing 0.3s ease, opacity 0.3s ease;
 }
 
-.notification-status.success {
-    background-color: #28a745;
-    color: white;
+/* خط سفلي متدرج يظهر أسفل النص */
+.serviceHED::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 4px;
+    background: linear-gradient(to right, #007bff, #00aaff);
+    border-radius: 2px;
+    opacity: 0;
+    transition: opacity 0.3s ease, width 0.3s ease;
 }
 
-.notification-status.error {
-    background-color: #dc3545;
-    color: white;
+/* تأثير عند التمرير */
+.serviceHED:hover {
+    transform: scale(1.08);  /* تكبير بسيط عند التمرير */
+    letter-spacing: 2px;  /* توسيع المسافة بين الحروف */
+}
+
+.serviceHED:hover::after {
+    opacity: 1;  /* ظهور الخط السفلي */
+    width: 100%;  /* توسيع الخط السفلي */
 }
