@@ -1,0 +1,151 @@
+/* Modal backdrop inside booking container */
+.modalBackdropNot {
+    position: absolute; /* Changed from fixed */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10; /* Stays above other content in the container */
+}
+
+/* Modal content container */
+.modalContainerNot {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px; /* زوايا أكثر انسيابية */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* إضافة تأثير الظل بشكل أكثر نعومة */
+    position: absolute;
+    max-height: 80vh; /* تقييد الارتفاع إلى 80% من ارتفاع الشاشة */
+    overflow-y: auto; /* تمكين التمرير العمودي عند تجاوز المحتوى */
+    width: 100%;
+    max-width: 600px; /* زيادة الحد الأقصى للعرض لتناسب المحتوى */
+    margin: 0 auto; /* محاذاة العنصر في وسط الصفحة */
+    transition: all 0.3s ease; /* تأثير انتقال لجميع التعديلات */
+}
+
+/* Scrollbar styling */
+.modalContainerNot::-webkit-scrollbar {
+    width: 10px; /* عرض شريط التمرير */
+}
+
+/* Scrollbar track */
+.modalContainerNot::-webkit-scrollbar-track {
+    background-color: #e5e5e5; /* لون خلفية المسار */
+    border-radius: 5px; /* زوايا مستديرة للمسار */
+}
+
+/* Scrollbar thumb */
+.modalContainerNot::-webkit-scrollbar-thumb {
+    background-color: #3498db; /* لون الزر الخاص بشريط التمرير */
+    border-radius: 5px; /* زوايا مستديرة للزر */
+    transition: background-color 0.3s ease; /* تأثير ناعم لتغيير اللون عند التمرير */
+}
+
+/* Hover effect on scrollbar thumb */
+.modalContainerNot::-webkit-scrollbar-thumb:hover {
+    background-color: #2980b9; /* تغيير اللون عند التمرير */
+}
+
+/* Title Styling */
+.TiTeL {
+    font-size: 26px;                 /* Slightly larger font size for better readability */
+    font-weight: 700;                /* Bold font weight for a stronger title */
+    color: #333;                     /* Dark gray color for better contrast */
+    margin-bottom: 30px;             /* Increased margin for more spacing below */
+    text-align: center;              /* Center align the title */
+    letter-spacing: 1px;             /* Slight letter spacing for a more polished look */
+    text-transform: uppercase;       /* Uppercase for a more impactful appearance */
+    transition: all 0.3s ease;       /* Smooth transition for hover effects */
+}
+
+/* Hover Effect for Title */
+.TiTeL:hover {
+    color: #2ecc71;                  /* Change color to a bright green on hover */
+    text-decoration: underline;      /* Underline text on hover */
+    transform: scale(1.05);          /* Slightly scale the title on hover */
+}
+
+
+/* Label styling */
+.LabEle {
+    font-size: 14px;
+    font-weight: 500;
+    color: #666;
+    margin-bottom: 8px;
+    display: block;
+}
+
+/* Input field and textarea styling */
+input[type="text"],
+textarea,
+input[type="datetime-local"] {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    box-sizing: border-box;  /* Ensures padding doesn’t affect width */
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus,
+textarea:focus,
+input[type="datetime-local"]:focus {
+    border-color: #2ecc71;  /* Green border on focus */
+    outline: none;           /* Remove default outline */
+}
+
+/* Button styling */
+button[type="submitttt"] {
+    background-color: #2ecc71;     /* Green background */
+    color: #ffffff;
+    padding: 12px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    width: 100%;
+}
+
+button[type="submitttt"]:hover {
+    background-color: #27ae60;     /* Darker green on hover */
+    transform: translateY(-2px);   /* Slight lift effect */
+}
+
+/* Response message styling */
+p {
+    font-size: 16px;
+    color: #e74c3c;      /* Red color for errors */
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Cancel Button (styled differently) */
+button:nth-child(2) {
+    background-color: #e74c3c; /* Red color for Cancel */
+    color: white;              /* White text */
+    font-size: 16px;           /* Font size */
+    padding: 12px 24px;        /* Padding for a larger button */
+    border: none;              /* Remove default border */
+    border-radius: 8px;        /* Rounded corners */
+    cursor: pointer;          /* Pointer cursor */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transitions */
+}
+
+button:nth-child(2):hover {
+    background-color: #c0392b; /* Darker red on hover */
+}
+
+button:nth-child(2):active {
+    transform: translateY(2px); /* Slightly move button down on active (click) */
+}
+
+button:nth-child(2):focus {
+    outline: none; /* Remove outline when focused */
+}

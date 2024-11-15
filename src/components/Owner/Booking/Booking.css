@@ -1,5 +1,6 @@
 .booking-container {
     padding: 30px;
+    position: relative;
     margin: 20px 170px 0 170px;
     background-color: #f3f4f6; /* Lighter background for a softer look */
     border-radius: 10px;
@@ -49,6 +50,43 @@
 
 .no-bookings-message:hover {
     background-color: #e9ecef; /* Change background on hover for interactivity */
+}
+
+.button-container {
+    display: flex;           /* يجعل الأزرار بجانب بعضها */
+    gap: 10px;               /* مسافة بين الأزرار */
+    justify-content: center; /* محاذاة الأزرار في الوسط */
+    align-items: center;     /* محاذاة عمودية للأزرار */
+    width: 100%;             /* عرض الحاوية بالكامل */
+}
+
+.update-buttonnn,
+.notification-buttonnn,
+.button-toggleee {
+    flex: 1;                  /* يجعل الأزرار تتوزع بالتساوي */
+    padding: 10px 0;          /* مسافة داخلية عمودية */
+    font-size: 16px;          /* حجم النص */
+    border: none;             /* إزالة الحدود الافتراضية */
+    border-radius: 5px;       /* زوايا دائرية */
+    cursor: pointer;          /* تحويل المؤشر إلى يد */
+    transition: background-color 0.3s ease; /* تأثير الانتقال */
+    text-align: center;       /* محاذاة النص في الوسط */
+}
+
+/* إضافة ألوان مخصصة عند مرور المؤشر */
+.update-buttonnn:hover {
+    background-color: #4CAF50; /* لون التحديث */
+    color: white;
+}
+
+.notification-buttonnn:hover {
+    background-color: #2196F3; /* لون الإشعارات */
+    color: white;
+}
+
+.button-toggleee:hover {
+    background-color: #FF9800; /* لون الجلسة */
+    color: white;
 }
 
 
@@ -104,6 +142,7 @@ button {
     background-color: #ffffff;
     border: 1px solid #ddd;
     border-radius: 5px;
+    height: 170px;
     padding: 15px;
     margin-bottom: 15px;
     position: relative;
@@ -119,51 +158,171 @@ button {
     color: #34495e; /* Improved readability */
 }
 
+.button-container {
+    display: flex;           /* يجعل الأزرار بجانب بعضها البعض */
+    gap: 10px;               /* مسافة بين الأزرار */
+    justify-content: flex-end; /* وضع الأزرار على اليمين */
+    align-items: center;     /* محاذاة عمودية للأزرار */
+    width: 100%;             /* عرض الحاوية بالكامل */
+}
+
 .booking-item button {
+    flex: 1;                 /* يجعل الأزرار تتوزع بالتساوي */
+    background-color: #2ecc71; /* لون خلفية افتراضي */
+    padding: 10px 0;         /* مسافة داخلية عمودية */
+    font-size: 14px;         /* حجم النص */
+    border: none;            /* إزالة الحدود الافتراضية */
+    border-radius: 5px;      /* زوايا دائرية */
+    cursor: pointer;         /* تحويل المؤشر إلى يد */
+    transition: background-color 0.3s ease; /* تأثير الانتقال */
+    text-align: center;      /* محاذاة النص في الوسط */
+}
+
+/* ألوان مخصصة لكل زر */
+.update-buttonnn {
+    background-color: #2ecc71; /* لون التحديث */
+}
+
+.notification-buttonnn {
+    background-color: #3498db; /* لون الإشعارات */
+}
+
+.button-toggleee {
+    background-color: #e67e22; /* لون الجلسة */
+}
+
+/* تأثيرات عند مرور المؤشر */
+.update-buttonnn:hover {
+    background-color: #27ae60;
+    color: white;
+}
+
+.notification-buttonnn:hover {
+    background-color: #2980b9;
+    color: white;
+}
+
+.button-toggleee:hover {
+    background-color: #d35400;
+    color: white;
+}
+
+/* Modal Overlay */
+.modal-overlay-tB {
     position: absolute;
-    right: 10px;
-    background-color: #2ecc71; /* Green for update button */
-    padding: 8px 12px;
-    font-size: 14px;
-    transition: background-color 0.3s ease;
-}
-
-.booking-item button:hover {
-    background-color: #27ae60; /* Darker green on hover */
-}
-
-.modal-overlay {
-    position: fixed;
     top: 0;
     left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.8); /* Darker overlay for better contrast */
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Dark background with transparency */
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
 }
 
-.modal-content {
-    background-color: white;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    width: 400px;
-    position: relative;
-    animation: fadeIn 0.5s; /* Fade-in animation for modal */
+/* Modal Content */
+.modal-content-tt {
+    background-color: #faf3e0;
+    color: #4a4a4a;
+    border-color: #e67e22;
+        padding: 20px;
+    border-radius: 8px;
+    max-width: 500px;
+    width: 100%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+/* Modal Header */
+.modal-content-tt h2 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 20px;
 }
+
+/* Form Label */
+.form-label-t {
+    display: block;
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 8px;
+    text-align: left;
+}
+
+/* Select Dropdown */
+.form-input-t {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.form-input-t:focus {
+    border-color: #2ecc71; /* Green border on focus */
+    outline: none;
+}
+
+/* Input Field */
+input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+input[type="number"]:focus {
+    border-color: #2ecc71;
+    outline: none;
+}
+
+/* Buttons */
+button {
+    background-color: #2ecc71;
+    color: white;
+    padding: 10px 20px;
+    margin: 10px 5px;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+    background-color: #27ae60; /* Darker green on hover */
+    transform: translateY(-2px); /* Subtle hover effect */
+}
+
+button:active {
+    transform: translateY(1px); /* Pressed effect */
+}
+
+
+
+/* Modal visibility when open */
+.modal-overlay-tB.open {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.modal-content-tt.open {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 
 .modal-content h2 {
     margin-bottom: 20px;
@@ -251,3 +410,77 @@ button {
     box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5); /* Custom focus outline */
 }
 
+/* Button container style */
+.button-container {
+    display: flex;
+    justify-content: flex-end; /* Align buttons to the right */
+    gap: 12px;                 /* Space between buttons */
+}
+
+/* Base button styling for consistency */
+.button-container button {
+    padding: 10px 20px;        /* Padding for larger click area */
+    font-size: 16px;           /* Standard font size */
+    font-weight: 600;          /* Bold font for readability */
+    border: none;              /* Remove default border */
+    border-radius: 6px;        /* Rounded corners */
+    cursor: pointer;           /* Pointer on hover */
+    transition: all 0.3s ease; /* Smooth transition for hover effects */
+    text-align: center;        /* Center the text */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+/* Save button styling */
+.SaveC {
+    background-color: #28a745;             /* Refined green color */
+    color: #ffffff;                        /* White text */
+    padding: 10px 18px;
+    font-size: 16px;
+    font-weight: 600;
+    border: 2px solid #1e7e34;             /* Border to complement green */
+    border-radius: 6px;                    /* Smooth rounded edges */
+    transition: all 0.3s ease;             /* Smooth transition */
+    cursor: pointer;
+}
+
+.SaveC:hover {
+    background-color: #218838;             /* Darker green on hover */
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2); /* Slightly deeper shadow */
+    transform: translateY(-2px);           /* Subtle lift on hover */
+}
+
+/* Cancel button styling */
+.CanceC {
+    background-color: #dc3545;             /* Refined red color */
+    color: #ffffff;
+    padding: 10px 18px;
+    font-size: 16px;
+    font-weight: 600;
+    border: 2px solid #c82333;             /* Border to complement red */
+    border-radius: 6px;                    /* Smooth rounded edges */
+    transition: all 0.3s ease;             /* Smooth transition */
+    cursor: pointer;
+}
+
+.CanceC:hover {
+    background-color: #c82333;             /* Darker red on hover */
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2); /* Slightly deeper shadow */
+    transform: translateY(-2px);           /* Subtle lift on hover */
+}
+/* Update Title Styling */
+.UpdatTitle {
+    font-size: 28px;                 /* Slightly larger for better emphasis */
+    font-weight: 700;                /* Bold font to make the title stand out */
+    color: #333;                     /* Dark gray for a professional look */
+    margin-bottom: 25px;             /* Spacing below the title */
+    text-align: center;              /* Center aligned for balance */
+    letter-spacing: 1px;             /* Slight letter spacing for a clean, polished look */
+    text-transform: capitalize;      /* Capitalize the first letter of each word */
+    transition: all 0.3s ease;       /* Smooth transition for hover effect */
+}
+
+/* Hover Effect for Update Title */
+.UpdatTitle:hover {
+    color: #3498db;                  /* Change color to a professional blue on hover */
+    text-decoration: underline;      /* Underline on hover to indicate interactivity */
+    transform: scale(1.05);          /* Slightly enlarge the title for emphasis */
+}

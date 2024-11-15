@@ -73,7 +73,7 @@ const EVisionPage = ({ theme }) => {
           </div>
           <div className="space-y-5 order-2 sm:order-1 sm:pr-32">
             <p data-aos="fade-up" className="text-primary text-2xl font-serif">Effortless EVision</p>
-            <p data-aos="fade-up" data-aos-delay="1000">
+            <p data-aos="fade-up" data-aos-delay="1000"   style={{ color: 'black'}}>
               Simplify your electric vehicle experience with our comprehensive services. From booking charging stations
               to scheduling maintenance, we’re here to support you every step of the way.
             </p>
@@ -92,7 +92,7 @@ const EVisionPage = ({ theme }) => {
           </div>
           <div className="space-y-5 sm:p-16">
             <h1 data-aos="fade-up" className="text-3xl font-bold font-serif">About Us</h1>
-            <p data-aos="fade-up">
+            <p data-aos="fade-up"  style={{ color: 'black'}}>
               Welcome to our EV Charging Station and Service Management platform! Our app lets users manage their
               electric vehicles, book charging stations, and schedule maintenance.
             </p>
@@ -115,7 +115,7 @@ const EVisionPage = ({ theme }) => {
               >
                 <div className="grid place-items-center">{skill.icon}</div>
                 <h1 className="text-2xl font-bold">{skill.name}</h1>
-                <p>{skill.description}</p>
+                <p >{skill.description}</p>
               </div>
             ))}
           </div>
@@ -125,8 +125,8 @@ const EVisionPage = ({ theme }) => {
       {/* Car List Section */}
       <section className="pb-24">
         <div className="container">
-          <h1 data-aos="fade-up" className="text-3xl font-serif font-semibold mb-3">Electric Vehicles We Support</h1>
-          <p data-aos="fade-up" className="text-sm pb-10">Explore a selection of popular EV models for which we provide reliable charging and maintenance services.</p>
+          <h1 data-aos="fade-up" className="text-3xl font-serif font-semibold mb-3"  style={{ color: 'black'}}>Electric Vehicles We Support</h1>
+          <p data-aos="fade-up" className="text-sm pb-10"  style={{ color: 'black'}}>Explore a selection of popular EV models for which we provide reliable charging and maintenance services.</p>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-16">
             {carList.map((data) => (
               <div key={data.name} data-aos="fade-up" data-aos-delay={data.aosDelay} className="border-2 p-3 rounded-xl group">
@@ -145,14 +145,14 @@ const EVisionPage = ({ theme }) => {
       {/* Testimonials Section */}
       <section className="dark:bg-black py-14 sm:pb-24">
         <div className="container text-center">
-          <p data-aos="fade-up" className="text-3xl font-serif font-semibold">What Our Clients Say About Us</p> <br/>
+          <p data-aos="fade-up" className="text-3xl font-serif font-semibold"  style={{ color: 'black'}}>What Our Clients Say About Us</p> <br/>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 text-black dark:text-white">
             {testimonialData.map((testimonial) => (
               <div key={testimonial.name} data-aos="fade-up" data-aos-delay={testimonial.aosDelay} className="card group p-4 bg-gray-100 dark:bg-white/20 rounded-lg">
                 <img src="https://picsum.photos/200" alt="" className="rounded-full w-20 h-20" />
                 <div className="text-2xl">⭐⭐⭐⭐⭐</div>
-                <p>{testimonial.description}</p>
-                <p className="font-semibold">{testimonial.name}</p>
+                <p  style={{ color: 'black'}}>{testimonial.description}</p>
+                <p className="font-semibold"  style={{ color: 'black'}}>{testimonial.name}</p>
               </div>
             ))}
           </div>
@@ -163,7 +163,7 @@ const EVisionPage = ({ theme }) => {
       <section className="container" style={bannerImg}>
         <div className="py-10 text-center sm:min-h-[400px] rounded-xl">
           <h1 data-aos="fade-up" className="text-2xl sm:text-4xl font-serif font-semibold">Get Started with our App</h1> <br/><br/><br/>
-          <p data-aos="fade-up">Easily manage your electric vehicle, book charging stations, and schedule maintenance.</p><br/><br/>
+          <p data-aos="fade-up"  style={{ color: 'black'}}>Easily manage your electric vehicle, book charging stations, and schedule maintenance.</p><br/><br/>
           <div data-aos="fade-up" className="flex justify-center gap-4 mt-4">
             <img src={AppStoreImg} alt="App Store" className="w-40 rounded-md" />
             <img src={PlayStoreImg} alt="Play Store" className="w-40 rounded-md" />

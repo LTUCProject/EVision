@@ -113,7 +113,7 @@ const Booking = ({ stationId }) => {
 
     const openSessionModal = (booking) => {
         const { clientId, chargingStationId } = booking;
-        
+
         // Store necessary data in sessionStorage
         sessionStorage.setItem("stationId", chargingStationId);
         sessionStorage.setItem("clientId", clientId);
@@ -122,19 +122,19 @@ const Booking = ({ stationId }) => {
             toast.error("Client ID not found in booking.");
             return;
         }
-    
+
         // Open the session modal
         setSessionModalOpen(true);
-        setSelectedBooking(booking); 
+        setSelectedBooking(booking);
 
     };
-    
+
     const closeSessionModal = () => {
         // Close the session modal
         setSessionModalOpen(false);
     };
 
-    
+
 
     return (
         <div className="booking-container">
@@ -157,9 +157,9 @@ const Booking = ({ stationId }) => {
                             <strong> Status:</strong> {booking.status} |
                             <strong> Cost:</strong> ${booking.cost}
                             <div className="button-container">
-                                <button className="update-button" onClick={() => openModal(booking)}>Update Booking</button>
-                                <button className="notification-button" onClick={() => openNotificationModal(booking)}>Send Notification</button>
-                                <button className="button-toggle" onClick={() => openSessionModal(booking)}> Session </button>
+                                <button className="update-buttonnn" onClick={() => openModal(booking)}>Update Booking</button>
+                                <button className="notification-buttonnn" onClick={() => openNotificationModal(booking)}>Send Notification</button>
+                                <button className="button-toggleee" onClick={() => openSessionModal(booking)}> Session </button>
                             </div>
                         </li>
                     ))}
@@ -168,40 +168,41 @@ const Booking = ({ stationId }) => {
                 <p className="no-bookings-message">No bookings available for this station.</p>
             )}
 
-            {modalOpen && (
-                <div className="modal-overlay">
-                    <div className="modal-content">
-                        <h2>Update Booking</h2>
+{modalOpen && (
+    <div className={`modal-overlay-tB ${modalOpen ? 'open' : ''}`}>
+        <div className={`modal-content-tt ${modalOpen ? 'open' : ''}`}>
+            <h2 className='UpdatTitle'>Update Booking</h2>
 
-                        {/* Booking Status Dropdown */}
-                        <label className="form-label">
-                            Status:
-                            <select
-                                value={newStatus}
-                                onChange={(e) => setNewStatus(e.target.value)}
-                                className="form-input"
-                            >
-                                <option value="Pending">Pending</option>
-                                <option value="Completed">Completed</option>
-                                <option value="Cancelled">Cancelled</option>
-                            </select>
-                        </label>
+            {/* Booking Status Dropdown */}
+            <label className="form-label-t">
+                Status:
+                <select
+                    value={newStatus}
+                    onChange={(e) => setNewStatus(e.target.value)}
+                    className="form-input-t"
+                >
+                    <option value="Pending">Pending</option>
+                    <option value="Completed">Completed</option>
+                    <option value="Cancelled">Cancelled</option>
+                </select>
+            </label>
 
-                        <input
-                            type="number"
-                            placeholder="New Cost"
-                            value={newCost}
-                            onChange={(e) => setNewCost(e.target.value)}
-                        />
-                        <button onClick={() => handleUpdate(selectedBooking.bookingId)}>Save Changes</button>
-                        <button onClick={closeModal}>Cancel</button>
-                    </div>
-                </div>
-            )}
+            <input
+                type="number"
+                placeholder="New Cost"
+                value={newCost}
+                onChange={(e) => setNewCost(e.target.value)}
+            />
+            <button onClick={() => handleUpdate(selectedBooking.bookingId)} className='SaveC'>Save Changes</button>
+            <button onClick={closeModal} className='CanceC'>Cancel</button>
+        </div>
+    </div>
+)}
+
 
             {notificationModalOpen && selectedBooking && (
-                <div className="modal-overlay">
-                    <div className="modal-content">
+                <div className="modalBackdropNot">
+                    <div className="modalContainerNot">
                         <SendOwnerNotifications
                             clientId={selectedBooking.clientId} // Pass the client ID directly
                             closeNotificationModal={closeNotificationModal} // Function to close modal
@@ -211,17 +212,20 @@ const Booking = ({ stationId }) => {
                 </div>
             )}
             {sessionModalOpen && selectedBooking && (
-                <div className="modal-overlay">
-                    <div className="modal-content">
-                        {/* Pass stationId and clientId from selectedBooking */}
+                <div className="modalBackdrop">
+                    <div className="modalContainer">
+                        {/* Render the Session component inside the modal */}
                         <Session
                             stationId={sessionStorage.getItem("stationId")}
-                            clientId={sessionStorage.getItem("clientId")}  // Pass the clientId from sessionStorage
+                            clientId={sessionStorage.getItem("clientId")} // Pass the clientId from sessionStorage
                         />
-                        <button onClick={closeSessionModal}>Close</button>
+                        <button className="modalButtonClose" onClick={closeSessionModal}>
+                            Close
+                        </button>
                     </div>
                 </div>
             )}
+
 
 
         </div>

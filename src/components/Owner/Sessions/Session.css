@@ -1,156 +1,363 @@
 /* Session container styles */
 .session-container {
-    font-family: 'Arial', sans-serif;
-    padding: 20px;
-    background-color: #f4f4f9;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    max-width: 800px;
-    margin: 20px auto;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 24px;
+    background-color: #fafafa;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+    max-width: 750px;
+    margin: 24px auto;
+    line-height: 1.6;
+    color: #333;
 }
+
 
 /* Session title */
 .session-title {
-    font-size: 24px;
-    font-weight: bold;
-    color: #333;
-    margin-bottom: 20px;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 16px;
+    text-align: center;
+    letter-spacing: 0.5px;
+    transition: color 0.3s ease, transform 0.3s ease;
 }
+
+.session-title:hover {
+    color: #3498db; /* Accent color, soft blue */
+    transform: translateY(-2px); /* Slight upward shift for interaction */
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Adds subtle depth */
+}
+
 
 /* Button to toggle session list */
 .button-toggle {
-    background-color: #4CAF50;
-    color: white;
+    background-color: #3b82f6; /* Softer, modern blue */
+    color: #ffffff;
     border: none;
-    padding: 10px 20px;
-    font-size: 16px;
+    padding: 12px 24px; /* Enhanced padding for balance */
+    font-size: 1rem;
+    font-weight: 500; /* Slightly bold for clarity */
     cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
+    border-radius: 6px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
 }
 
 .button-toggle:hover {
-    background-color: #45a049;
+    background-color: #2563eb; /* Darker shade for hover */
+    transform: translateY(-1px); /* Slight upward shift for interaction */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover */
 }
+
+.button-toggle:focus {
+    outline: none; /* Removes default outline */
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5); /* Accessible focus ring */
+}
+
 
 /* List of sessions */
 .session-list {
     list-style: none;
     padding: 0;
+    margin: 0; /* Reset margin for consistent layout */
 }
 
 /* Each session item in the list */
 .session-item {
     background-color: #ffffff;
-    padding: 15px;
-    margin: 10px 0;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 12px 0;
+    border-radius: 10px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.08); /* Soft shadow for subtle depth */
+    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Smooth transition for interactivity */
+}
+
+.session-item:hover {
+    transform: translateY(-2px); /* Adds interactivity */
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.12); /* Slightly stronger shadow on hover */
 }
 
 .session-item strong {
-    color: #555;
+    color: #34495e; /* Dark blue-gray for a modern, refined look */
+    font-weight: 600; /* Adds emphasis to the text */
 }
+
 
 /* Button container for each session item */
 .button-container {
-    margin-top: 10px;
+    margin-top: 12px; /* Slightly increased for better visual spacing */
+    text-align: right; /* Align buttons to the right for a clean, organized layout */
 }
 
 /* Update session button */
 .update-button {
-    background-color: #f39c12;
+    background-color: #f39c12; /* Warm amber color */
     color: white;
-    padding: 8px 15px;
-    font-size: 14px;
+    position: relative;
+    padding: 10px 18px; /* Slightly larger padding for balance */
+    font-size: 15px; /* Adjusted for better readability */
     border: none;
-    border-radius: 5px;
+    border-radius: 6px; /* More rounded corners for a modern look */
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease; /* Only transition background color */
+    font-weight: 500; /* Slightly bold for clarity */
+    display: inline-block;
 }
 
 .update-button:hover {
-    background-color: #e67e22;
+    background-color: #e67e22; /* Darker amber for hover effect */
+    /* Removed transform to keep button in place */
 }
+
+.update-button:focus {
+    outline: none; /* Removes default outline */
+    box-shadow: 0 0 0 3px rgba(243, 156, 18, 0.4); /* Soft amber outline for focus state */
+}
+
 
 /* Start new session button */
 .start-session-button {
-    background-color: #3498db;
+    background-color: #3498db; /* Professional blue color */
     color: white;
-    padding: 12px 20px;
-    font-size: 16px;
+    padding: 14px 24px; /* Slightly increased padding for better balance */
+    font-size: 16px; /* Clear, legible font size */
+    font-weight: 600; /* Slightly bolder font for emphasis */
     border: none;
-    border-radius: 5px;
+    border-radius: 6px; /* Slightly more rounded for a modern feel */
     cursor: pointer;
     margin-top: 20px;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transition for background and transform */
+    display: inline-block;
+    text-align: center; /* Ensures the text is centered */
 }
 
 .start-session-button:hover {
-    background-color: #2980b9;
+    background-color: #2980b9; /* Darker blue for hover effect */
+    transform: translateY(-2px); /* Adds subtle lift effect on hover */
 }
 
-/* Modal overlay */
+.start-session-button:focus {
+    outline: none; /* Removes the default outline */
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.4); /* Soft blue outline for accessibility */
+}
+
+
 .modal-overlay {
-    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
+    background: linear-gradient(
+        135deg,
+        rgba(0, 0, 50, 0.7),     /* Navy Blue */
+        rgba(0, 0, 100, 0.7),    /* Dark Blue */
+        rgba(0, 51, 102, 0.7),   /* Blue */
+        rgba(0, 102, 204, 0.7),  /* Sky Blue */
+        rgba(51, 153, 255, 0.7), /* Light Blue */
+        rgba(102, 204, 255, 0.7),/* Pale Blue */
+        rgba(204, 204, 255, 0.7),/* Lavender Blue */
+        rgba(0, 255, 255, 0.7)   /* Cyan */
+    );
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 1000;
+    transition: opacity 0.3s ease;
 }
 
-/* Modal content */
 .modal-content {
-    background-color: #fff;
-    padding: 30px;
+    background-color: white;
+    padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    max-width: 400px;
-    width: 100%;
-    text-align: center;
+    width: 400px;
+    max-height: 80%;
+    overflow-y: auto;
+    z-index: 1001;
 }
+
+
+/* Active modal content */
+.modal-overlay.active .modal-content {
+    opacity: 1; /* Fade in the modal */
+    transform: translateY(0); /* Smoothly slide into place */
+}
+
+/* Modal header */
+.modal-header {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+/* Modal footer */
+.modal-footer {
+    margin-top: 20px;
+}
+
+/* Close button */
+.modal-close-button {
+    background-color: #e74c3c; /* Red color for the close button */
+    color: white;
+    padding: 8px 16px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.modal-close-button:hover {
+    background-color: #c0392b; /* Darker red on hover */
+}
+
 
 /* No sessions message */
 .no-sessions-message {
-    color: #888;
-    font-size: 16px;
+    color: #666; /* استخدام لون داكن أكثر للقراءة الواضحة */
+    font-size: 18px; /* زيادة الحجم قليلاً ليكون أكثر وضوحًا */
+    font-weight: 500; /* جعل النص أكثر وضوحًا باستخدام خط عريض جزئي */
     text-align: center;
-    margin-top: 20px;
+    margin-top: 30px; /* زيادة المسافة العلوية لزيادة الفصل بين المحتويات */
+    line-height: 1.5; /* تحسين التباعد بين الأسطر لسهولة القراءة */
 }
 
 /* Input fields for session data */
 input[type="number"] {
     width: 100%;
-    padding: 8px;
-    margin: 10px 0;
-    border-radius: 5px;
+    padding: 12px 15px; /* إضافة padding أكبر لتحسين الراحة عند الكتابة */
+    margin: 12px 0; /* زيادة المسافة بين الحقول */
+    border-radius: 8px; /* زوايا أكثر انسيابية */
     border: 1px solid #ccc;
+    font-size: 16px; /* تحسين حجم الخط */
+    background-color: #f9f9f9; /* خلفية ناعمة لجعل الحقل أكثر أناقة */
+    transition: all 0.3s ease; /* تأثير انتقالات ناعم عند التركيز */
 }
+
+/* Focus state for input fields */
+input[type="number"]:focus {
+    outline: none; /* إزالة الحدود الافتراضية عند التركيز */
+    border-color: #3498db; /* تغيير لون الحدود إلى الأزرق لجذب الانتباه */
+    background-color: #ffffff; /* تغيير الخلفية عند التركيز */
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.5); /* إضافة تأثير الظل لإبراز الحقل */
+}
+
+/* Placeholder styling for input fields */
+input[type="number"]::placeholder {
+    color: #999; /* لون أخف للنص داخل الحقل */
+    font-style: italic; /* جعل النص الداخلي مائلًا لإظهار أنه نص افتراضي */
+}
+
 
 /* Cancel button inside modal */
 .modal-content button {
-    background-color: #e74c3c;
+    background-color: #e74c3c; /* الأحمر الزاهي لإبراز الزر */
     color: white;
-    padding: 10px 15px;
+    padding: 12px 20px; /* زيادة الـ padding لتوفير مساحة أكبر للضغط */
     border: none;
-    border-radius: 5px;
+    border-radius: 8px; /* زوايا أكثر انسيابية */
     cursor: pointer;
     margin-top: 20px;
     font-size: 16px;
-    transition: background-color 0.3s ease;
+    font-weight: 500; /* إضافة وزن للخط لجعل النص أكثر وضوحًا */
+    text-transform: uppercase; /* تحويل النص إلى أحرف كبيرة لزيادة الوضوح */
+    transition: all 0.3s ease; /* تأثيرات سلاسة لتغيير الألوان والحواف */
 }
 
+/* Hover effect for cancel button */
 .modal-content button:hover {
-    background-color: #c0392b;
+    background-color: #c0392b; /* تغيير اللون إلى الأحمر الداكن عند التحويم */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* إضافة تأثير الظل لإبراز الزر */
+}
+
+/* Focus effect for cancel button */
+.modal-content button:focus {
+    outline: none; /* إزالة الخط الافتراضي حول الزر عند التركيز */
+    box-shadow: 0 0 8px rgba(231, 76, 60, 0.6); /* إضافة تأثير ظلال مرئي عند التركيز */
 }
 
 /* Input disabled state */
 input[disabled] {
-    background-color: #f0f0f0;
-    cursor: not-allowed;
+    background-color: #e9ecef; /* خلفية فاتحة لإظهار أن الحقل معطل */
+    color: #6c757d; /* تغيير لون النص إلى لون أغمق لإظهار حالة العطل */
+    cursor: not-allowed; /* تغيير المؤشر إلى رمز غير مسموح به */
+    border: 1px solid #ddd; /* استخدام حدود خفيفة للحقل المعطل */
+}
+
+/* Input focus for disabled state */
+input[disabled]:focus {
+    box-shadow: none; /* إزالة الظل عند التركيز على الحقل المعطل */
+    border-color: #ddd; /* الحفاظ على اللون الافتراضي للحدود */
+}
+
+
+/* Modal backdrop inside booking container */
+.modalBackdrop {
+    position: absolute; /* Changed from fixed */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10; /* Stays above other content in the container */
+}
+
+/* Modal content container */
+.modalContainer {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px; /* زوايا أكثر انسيابية */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* إضافة تأثير الظل بشكل أكثر نعومة */
+    position: absolute;
+    max-height: 80vh; /* تقييد الارتفاع إلى 80% من ارتفاع الشاشة */
+    overflow-y: auto; /* تمكين التمرير العمودي عند تجاوز المحتوى */
+    width: 100%;
+    max-width: 600px; /* زيادة الحد الأقصى للعرض لتناسب المحتوى */
+    margin: 0 auto; /* محاذاة العنصر في وسط الصفحة */
+    transition: all 0.3s ease; /* تأثير انتقال لجميع التعديلات */
+}
+
+/* Scrollbar styling */
+.modalContainer::-webkit-scrollbar {
+    width: 10px; /* عرض شريط التمرير */
+}
+
+/* Scrollbar track */
+.modalContainer::-webkit-scrollbar-track {
+    background-color: #e5e5e5; /* لون خلفية المسار */
+    border-radius: 5px; /* زوايا مستديرة للمسار */
+}
+
+/* Scrollbar thumb */
+.modalContainer::-webkit-scrollbar-thumb {
+    background-color: #3498db; /* لون الزر الخاص بشريط التمرير */
+    border-radius: 5px; /* زوايا مستديرة للزر */
+    transition: background-color 0.3s ease; /* تأثير ناعم لتغيير اللون عند التمرير */
+}
+
+/* Hover effect on scrollbar thumb */
+.modalContainer::-webkit-scrollbar-thumb:hover {
+    background-color: #2980b9; /* تغيير اللون عند التمرير */
+}
+
+
+/* Button styling inside modal */
+.modalButton {
+    padding: 10px;
+    font-size: 15px;
+    width: 100%;
+    margin-top: 10px;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+    background-color: #007bff; /* Blue color for the button */
+    color: white;
 }
