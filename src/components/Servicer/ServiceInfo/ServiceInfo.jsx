@@ -204,7 +204,7 @@ const ServiceInfo = () => {
 
     {/* Modal for sending notifications */}
     {isNotificationModalOpen && selectedClientId && (
-        <div className="modal-overlay">
+        <div className="modal-overlayyyy">
             <div className="notification-modal">
                 <button className="modal-close-button" onClick={() => setIsNotificationModalOpen(false)}>&times;</button>
                 <SendNotifications

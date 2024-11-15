@@ -528,7 +528,7 @@
 }
 
 /* Overlay للمودال */
-.modal-overlay {
+.modal-overlayyyy {
     position: fixed;
     top: 0;
     left: 0;
@@ -553,7 +553,7 @@
 }
 
 /* إغلاق المودال عند النقر على overlay */
-.modal-overlay.closeable:hover {
+.modal-overlayyyy.closeable:hover {
     background-color: rgba(0, 0, 0, 0.5);  /* تأثير على لون الخلفية عند التمرير عند قابلية الإغلاق */
 }
 

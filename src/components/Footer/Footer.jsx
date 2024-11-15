@@ -35,17 +35,17 @@ const Footer = () => {
             <h1 className="sm:text-3xl text-xl font-bold sm:text-left text-justify mb-3 flex items-center gap-3 font-serif">
               EVISION
             </h1>
-            <p className="text-sm">
+            <p className="text-sm"  style={{ color: 'black'}}>
             We offer comprehensive support for your electric vehicle, from charging station bookings to maintenance scheduling. Our team is dedicated to keeping your EV in top condition.{" "}
             </p>
             <br />
             <div className="flex items-center gap-3">
               <FaLocationArrow />
-              <p>Amman, Jordan</p>
+              <p  style={{ color: 'black'}}>Amman, Jordan</p>
             </div>
             <div className="flex items-center gap-3 mt-3">
               <FaMobileAlt />
-              <p>+962788114394</p>
+              <p  style={{ color: 'black'}}>+962788114394</p>
             </div>
             {/* Social Handle */}
             <div className="flex items-center gap-3 mt-6">

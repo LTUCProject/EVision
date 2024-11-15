@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import './SendNotifications.css';
 
 const SendNotifications = ({ clientId, closeNotificationModal }) => {
   const [title, setTitle] = useState('');
@@ -38,10 +39,10 @@ const SendNotifications = ({ clientId, closeNotificationModal }) => {
 
   return (
     <div>
-      <h2>Send Notification</h2>
+      <h2 className='TiTeL'>Send Notification</h2>
       <form onSubmit={handleSubmit}>
         <div>
-          <label>Title:</label>
+          <label className='LabEle'>Title:</label>
           <input
             type="text"
             value={title}
@@ -50,7 +51,7 @@ const SendNotifications = ({ clientId, closeNotificationModal }) => {
           />
         </div>
         <div>
-          <label>Message:</label>
+          <label className='LabEle'>Message:</label>
           <textarea
             value={message}
             onChange={(e) => setMessage(e.target.value)}
@@ -58,7 +59,7 @@ const SendNotifications = ({ clientId, closeNotificationModal }) => {
           />
         </div>
         <div>
-          <label>Date:</label>
+          <label className='LabEle'>Date:</label>
           <input
             type="datetime-local"
             value={new Date(date).toISOString().slice(0, 16)}
@@ -66,7 +67,7 @@ const SendNotifications = ({ clientId, closeNotificationModal }) => {
             required
           />
         </div>
-        <button type="submit">Send Notification</button>
+        <button type="submitttt">Send Notification</button>
       </form>
       {responseMessage && <p>{responseMessage}</p>}
     </div>

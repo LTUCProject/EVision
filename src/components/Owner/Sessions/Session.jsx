@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import './Session.css';
@@ -10,6 +10,13 @@ const Session = ({ stationId, clientId }) => {
     const [newEnergyConsumed, setNewEnergyConsumed] = useState(0);
     const [newCost, setNewCost] = useState(0);
     const [isFetchingSessions, setIsFetchingSessions] = useState(false);
+    const [startSessionModalOpen, setStartSessionModalOpen] = useState(false);
+    const [endSessionModalOpen, setEndSessionModalOpen] = useState(false);
+
+    // مرجع لنموذج "Start New Session"
+    const startSessionModalRef = useRef(null);
+    // مرجع لنموذج "End Session"
+    const endSessionModalRef = useRef(null);
 
     useEffect(() => {
         if (stationId) {
@@ -25,7 +32,6 @@ const Session = ({ stationId, clientId }) => {
                     "Content-Type": "application/json"
                 }
             });
-
             setSessions(response.data.$values);
         } catch (error) {
             console.error('Error fetching sessions:', error);
@@ -36,17 +42,17 @@ const Session = ({ stationId, clientId }) => {
     const handleStartSession = async () => {
         try {
             const requestData = {
-                clientId: clientId, // Make sure the field names match the Swagger request
+                clientId: clientId,
                 chargingStationId: stationId,
-                startTime: new Date().toISOString(), // Ensure this format matches the expected one
-                endTime: new Date().toISOString(), // Adjust accordingly
-                energyConsumed: 1, // Set to a positive value for testing
-                cost: 1 // Set to a positive value for testing
+                startTime: new Date().toISOString(),
+                endTime: new Date().toISOString(),
+                energyConsumed: 1,
+                cost: 1
             };
 
             const response = await axios.post('https://localhost:7080/api/Owner/start', requestData, {
                 headers: {
-                    Authorization: `Bearer ${localStorage.getItem("token")}`, // Ensure token is included
+                    Authorization: `Bearer ${localStorage.getItem("token")}`,
                     "Content-Type": "application/json",
                 }
             });
@@ -56,74 +62,64 @@ const Session = ({ stationId, clientId }) => {
             setModalOpen(false);
         } catch (error) {
             console.error('Error starting session:', error);
-            if (error.response) {
-                console.error('Error response data:', error.response.data); // Log detailed error
-                toast.error("Failed to start session.");
-            }
+            toast.error("Failed to start session.");
         }
     };
-
-
 
     const handleEndSession = async () => {
         if (selectedSession) {
             const endTime = new Date().toISOString();
-            const updatedCost = calculateCost(newEnergyConsumed); // This now returns an integer
-    
+            const updatedCost = calculateCost(newEnergyConsumed);
+
             try {
-                // Log the request URL to verify query parameters
                 const requestUrl = `https://localhost:7080/api/Owner/end/${selectedSession.sessionId}?energyConsumed=${newEnergyConsumed}&cost=${updatedCost}`;
                 console.log('Request URL:', requestUrl);
-    
-                // Sending query parameters without request body
+
                 await axios.post(requestUrl, null, {
                     headers: {
                         Authorization: `Bearer ${localStorage.getItem("token")}`,
                         "Content-Type": "application/json",
                     }
                 });
-    
+
                 toast.success("Session ended successfully!");
                 fetchSessions();
-                setModalOpen(false);
+                setEndSessionModalOpen(false); // Close the modal after successful end
             } catch (error) {
                 console.error('Error ending session:', error);
                 toast.error("Failed to end session.");
             }
         }
     };
-    
-
-    const openStartSessionModal = () => {
-        setModalOpen(true);
-        setSelectedSession(null); // Ensure no session is selected when starting a new one
-    };
-
-    const openEndSessionModal = (session) => {
-        setSelectedSession(session);
-        setNewEnergyConsumed(session.energyConsumed || 0);
-        setNewCost(session.cost || 0);
-        setModalOpen(true);
-    };
 
     const closeModal = () => {
-        setModalOpen(false);
+        setEndSessionModalOpen(false);
         setSelectedSession(null);
         setNewEnergyConsumed(0);
         setNewCost(0);
     };
 
     const calculateCost = (energyConsumed) => {
-        const costPerkWh = 0.25; 
+        const costPerkWh = 0.25;
         const cost = energyConsumed * costPerkWh;
-    
-       
         return Math.round(cost);
     };
-    
 
+    const openEndSessionModal = (session) => {
+        setSelectedSession(session);
+        setNewEnergyConsumed(session.energyConsumed || 0);
+        setNewCost(session.cost || 0);
+        setEndSessionModalOpen(true); // Manually open the modal for the selected session
+        // التمرير التلقائي إلى النموذج
+        endSessionModalRef.current?.scrollIntoView({ behavior: 'smooth' });
+    };
 
-
+    const openStartSessionModal = () => {
+        setEndSessionModalOpen(false);
+        setStartSessionModalOpen(true);
+        // التمرير التلقائي إلى النموذج
+        startSessionModalRef.current?.scrollIntoView({ behavior: 'smooth' });
+    };
 
     return (
         <div className="session-container">
@@ -155,41 +151,56 @@ const Session = ({ stationId, clientId }) => {
                 Start New Session
             </button>
 
-            {modalOpen && (
-                <div className="modal-overlay">
+            {startSessionModalOpen && (
+                <div className="modal-overlay" ref={startSessionModalRef}>
                     <div className="modal-content">
-                        {selectedSession ? (
-                            <div>
-                                <h2>End Session</h2>
-                                <label>
-                                    Energy Consumed (kWh):
-                                    <input
-                                        type="number"
-                                        value={newEnergyConsumed}
-                                        onChange={(e) => {
-                                            setNewEnergyConsumed(e.target.value);
-                                            setNewCost(calculateCost(e.target.value)); // Recalculate cost when energy changes
-                                        }}
-                                    />
-                                </label>
-                                <label>
-                                    Cost ($):
-                                    <input
-                                        type="number"
-                                        value={newCost}
-                                        onChange={(e) => setNewCost(e.target.value)}
-                                        disabled
-                                    />
-                                </label>
-                                <button onClick={handleEndSession}>End Session</button>
-                            </div>
-                        ) : (
-                            <div>
-                                <h2>Start New Session</h2>
-                                <button onClick={handleStartSession}>Start Session</button>
-                            </div>
-                        )}
-                        <button onClick={closeModal}>Cancel</button>
+                        <h2>Start New Session</h2>
+                        <button onClick={handleStartSession}>Start Session</button>
+                        <button onClick={() => setStartSessionModalOpen(false)}>Cancel</button>
+                    </div>
+                </div>
+            )}
+
+            {endSessionModalOpen && selectedSession && (
+                <div className="modal-overlay" ref={endSessionModalRef}>
+                    <div className="modal-content">
+                        <h2>End Session</h2>
+                        <label>
+                            Energy Consumed (kWh):
+                            <input
+                                type="number"
+                                value={newEnergyConsumed}
+                                onChange={(e) => {
+                                    setNewEnergyConsumed(e.target.value);
+                                    setNewCost(calculateCost(e.target.value));
+                                }}
+                            />
+                        </label>
+                        <label>
+                            Cost ($):
+                            <input
+                                type="number"
+                                value={newCost}
+                                onChange={(e) => setNewCost(e.target.value)}
+                                disabled
+                            />
+                        </label>
+                        <button
+                            onClick={handleEndSession}
+                            style={{
+                                backgroundColor: "#007bff", color: "white", padding: "12px 24px", cursor: "pointer", borderRadius: "8px"
+                            }}
+                        >
+                            End Session
+                        </button>
+                        <button
+                            onClick={closeModal}
+                            style={{
+                                backgroundColor: "#f8d7da", color: "#721c24", padding: "12px 24px", cursor: "pointer", borderRadius: "8px"
+                            }}
+                        >
+                            Cancel
+                        </button>
                     </div>
                 </div>
             )}
@@ -198,3 +209,4 @@ const Session = ({ stationId, clientId }) => {
 };
 
 export default Session;
+   
