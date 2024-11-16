@@ -12,6 +12,10 @@ const ServiceReq = () => {
     const [providerId, setProviderId] = useState('');
     const [status, setStatus] = useState('');
     const [message, setMessage] = useState('');
+    const [feedbacks, setFeedbacks] = useState({}); // State to store feedbacks for each serviceInfoId
+    const [rating, setRating] = useState(0); // Default rating is 0
+    const [comment, setComment] = useState(''); // Default comment is empty
+
 
     // Fetch client vehicles
     const loadClientVehicles = async () => {
@@ -58,12 +62,80 @@ const ServiceReq = () => {
         }
     };
 
+    // Fetch feedbacks for a specific serviceInfoId
+const loadFeedbacksForService = async (serviceInfoId) => {
+    try {
+        const response = await axios.get(`https://localhost:7080/api/Clients/feedbacks/service/${serviceInfoId}`, {
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem('token')}`,
+                'Content-Type': 'application/json'
+            }
+        });
+
+        const feedbackList = response.data.$values || []; // Extract the $values array
+
+        setFeedbacks((prevFeedbacks) => ({
+            ...prevFeedbacks,
+            [serviceInfoId]: feedbackList // Update feedbacks for this serviceInfoId
+        }));
+    } catch (error) {
+        console.error(`Failed to load feedbacks for ServiceInfoId ${serviceInfoId}:`, error);
+    }
+};
+
+// Function to submit feedback to the API
+const handleFeedbackSubmit = async (serviceInfoId) => {
+    const feedbackData = {
+        clientId: GetClientIdFromToken(), // Retrieve clientId from token
+        serviceInfoId: serviceInfoId, // Use serviceInfoId automatically
+        rating: rating, // Use rating from state
+        comments: comment, // Use comment from state
+        date: new Date().toISOString()
+    };
+
+    try {
+        const response = await axios.post('https://localhost:7080/api/Clients/feedbacks', feedbackData, {
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem("token")}`,
+                "Content-Type": "application/json"
+            }
+        });
+        alert("Feedback added successfully");
+        console.log(response.data);
+    } catch (error) {
+        console.error('Error submitting feedback:', error);
+        alert('An error occurred while submitting feedback.');
+    }
+};
+
+// Function to extract clientId from the token
+const GetClientIdFromToken = () => {
+    const token = localStorage.getItem('token');
+    if (!token) return null;
+
+    const decodedToken = JSON.parse(atob(token.split('.')[1])); // Decode the token
+    return decodedToken.clientId; // Ensure clientId is present in the token
+};
+
+
+
+
     useEffect(() => {
         loadClientServiceRequests();
         loadServiceInfos();
         loadClientVehicles(); // Load vehicles when component mounts
         setUsername(localStorage.getItem("username") || "Guest");
     }, []);
+
+    // Fetch feedbacks for all services after service infos are loaded
+    useEffect(() => {
+        if (serviceInfos.length > 0) {
+            serviceInfos.forEach((service) => {
+                loadFeedbacksForService(service.serviceInfoId);
+            });
+        }
+    }, [serviceInfos]);
+    
 
     const handleServiceInfoChange = (e) => {
         const selectedServiceInfoId = e.target.value;
@@ -144,23 +216,71 @@ const ServiceReq = () => {
                 {message && <p className="error-message">{message}</p>}
 
                 <div className="service-info-list">
-                    {serviceInfos.length === 0 ? (
-                        <p>No service information available.</p>
-                    ) : (
-                        serviceInfos.map((service) => (
-                            <div key={service.serviceInfoId} className="service-info-card">
-                                <h2 className="service-name">{service.name}</h2>
-                                <p className="service-description">{service.description}</p>
-                                <p className="service-contact">Contact: {service.contact}</p>
-                                <div className="provider-info">
-                                    <h3 className="provider-title">Provider:</h3>
-                                    <p className='pN'>Name: <span>{service.provider.name}</span></p>
-                                    {/* <p>Email: {service.provider.email}</p> */}
-                                </div>
-                            </div>
-                        ))
-                    )}
+    {serviceInfos.length === 0 ? (
+        <p>No service information available.</p>
+    ) : (
+        serviceInfos.map((service) => (
+            <div key={service.serviceInfoId} className="service-info-card">
+                <h2 className="service-name">{service.name}</h2>
+                <p className="service-description">{service.description}</p>
+                <p className="service-contact">Contact: {service.contact}</p>
+                <div className="provider-info">
+                    <h3 className="provider-title">Provider:</h3>
+                    <p className='pN'>Name: <span>{service.provider.name}</span></p>
                 </div>
+                <div className="feedback-section">
+    <h4>Provide your Feedback:</h4>
+    <div>
+        <label>Rating (1 to 5):</label>
+        <input 
+            type="number" 
+            min="1" 
+            max="5" 
+            value={rating} 
+            onChange={(e) => setRating(Number(e.target.value))} 
+            className="rating-input"
+        />
+    </div>
+    <div>
+        <label>Comment:</label>
+        <textarea 
+            value={comment} 
+            onChange={(e) => setComment(e.target.value)} 
+            className="comment-input"
+        />
+    </div>
+    <button
+        onClick={() => handleFeedbackSubmit(service.serviceInfoId)} // Pass correct serviceInfoId
+        className="feedback-btn"
+    >
+        Submit Feedback
+    </button>
+
+{/* Display feedbacks */}
+<div className="feedback-list">
+    <h4>Feedbacks:</h4>
+    {feedbacks[service.serviceInfoId] && feedbacks[service.serviceInfoId].length > 0 ? (
+        <ul>
+            {feedbacks[service.serviceInfoId].map((feedback) => (
+                <li key={feedback.feedbackId}>
+                    {feedback.comments} 
+                    (Rating: {feedback.rating})
+                </li>
+            ))}
+        </ul>
+    ) : (
+        <p>No feedback available.</p>
+    )}
+</div>
+
+</div>
+            </div>
+        ))
+    )}
+</div>
+
+                
+
             </div>
 
             <div className="service-req-dashboard-content">
