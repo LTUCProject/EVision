@@ -1,84 +1,122 @@
 .electric-cars-container {
-    padding: 30px;
-    background-color: #f5f5f5;
-    border-radius: 10px;
-    max-width: 100%;
-    margin: 0 auto;
-    font-family: 'Roboto', sans-serif;
+  padding: 30px;
+  background-color: #f5f5f5;
+  border-radius: 10px;
+  max-width: 1200px; /* Container size ensures three cards fit in one row */
+  margin: 0 auto;
+  font-family: 'Roboto', sans-serif;
+}
+
+.electric-cars-title {
+  color: #333;
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.electric-car-category {
+  margin-bottom: 40px;
+}
+
+.electric-car-category-title {
+  color: #444;
+  font-size: 1.8rem;
+  font-weight: 600;
+  border-bottom: 2px solid #ccc;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+.electric-car-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Ensures three cards per row */
+  gap: 20px; /* Space between cards */
+  justify-content: center;
+}
+
+.electric-car-card {
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.electric-car-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+.electric-car-name {
+  color: #222;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 20px;
+  text-align: center;
+}
+
+.electric-car-image {
+  width: 100%;
+  height: 300px; /* Makes the image a square */
+  object-fit: cover;
+  border-bottom: 2px solid #eee;
+}
+
+.electric-car-details {
+  padding: 20px;
+}
+
+.electric-car-details p {
+  color: #555;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+.electric-car-details ul {
+  list-style: disc inside;
+  color: #555;
+  font-size: 1rem;
+  margin-left: 20px;
+}
+
+.electric-car-details strong {
+  color: #333;
+}
+
+@media (max-width: 768px) {
+  .electric-car-list {
+    grid-template-columns: repeat(2, 1fr); /* Two cards per row for medium screens */
   }
-  
-  .electric-cars-container h2 {
-    color: #333;
-    text-align: center;
-    margin-bottom: 30px;
+
+  .electric-cars-container {
+    padding: 20px;
+  }
+
+  .electric-cars-title {
     font-size: 2rem;
-    font-weight: 600;
   }
-  
-  .electric-cars-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 20px;
-    padding: 0;
-    list-style: none;
+
+  .electric-car-category-title {
+    font-size: 1.5rem;
   }
-  
-  .electric-car-item {
-    background-color: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    transition: transform 0.3s ease-in-out;
+
+  .electric-car-card {
+    padding: 10px;
   }
-  
-  .electric-car-item:hover {
-    transform: translateY(-5px);
-  }
-  
-  .electric-car-item h3 {
-    color: #333;
+
+  .electric-car-name {
     font-size: 1.3rem;
-    font-weight: 500;
-    margin-top: 20px;
-    text-align: center;
   }
-  
-  .car-image {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-bottom: 2px solid #f1f1f1;
-  }
-  
-  .electric-car-item p {
-    color: #555;
-    margin: 5px 15px;
-    font-size: 1rem;
-    line-height: 1.5;
-  }
-  
-  .electric-car-item .car-details {
-    background-color: #f7f7f7;
-    padding: 15px;
-    border-top: 1px solid #f1f1f1;
-  }
-  
-  .electric-car-item .car-details p {
+
+  .electric-car-details p {
     font-size: 0.9rem;
-    color: #777;
   }
-  
-  @media (max-width: 768px) {
-    .electric-car-item {
-      padding: 15px;
-    }
-  
-    .electric-cars-container {
-      padding: 15px;
-    }
-  
-    .electric-car-item h3 {
-      font-size: 1.2rem;
-    }
+}
+
+@media (max-width: 480px) {
+  .electric-car-list {
+    grid-template-columns: 1fr; /* One card per row for small screens */
   }
-  
+}

@@ -1,81 +1,50 @@
-import React, { useEffect, useState } from 'react';
-import './ElectricCars.css';
+import React from "react";
+import ElectricCarsData from "./ElectricCarsData.json";
+import "./ElectricCars.css";
 
 const ElectricCars = () => {
-  const [electricCars, setElectricCars] = useState([]);
-  const [loadingCars, setLoadingCars] = useState(true);
-  const [carImages, setCarImages] = useState({});
-
-  const getCarImageUrl = async (make, model) => {
-    try {
-      const response = await fetch(`https://api.pexels.com/v1/search?query=${make} ${model} car&per_page=1`, {
-        method: 'GET',
-        headers: {
-          'Authorization': 'WJlGfPF5qI4oBuOpGCp9eCQjsoqYJ8ehH8PJetEtOUWJBabRnBXHuMz0'
-        }
-      });
-      const data = await response.json();
-      return data?.photos?.[0]?.src?.small || '';
-    } catch (error) {
-      console.error('Error fetching car image:', error);
-      return '';
-    }
-  };
-
-  useEffect(() => {
-    const fetchCars = async () => {
-      try {
-        const response = await fetch('https://api.api-ninjas.com/v1/cars?limit=100&fuel_type=electricity', {
-          method: 'GET',
-          headers: {
-            'X-Api-Key': 'O5y2mZJ/JDRU2BE7BP9I2A==fYMnsfbOPWSYx1gm'
-          }
-        });
-        const data = await response.json();
-        const cars = Array.isArray(data) ? data : [];
-        setElectricCars(cars);
-        
-        const images = {};
-        for (const car of cars) {
-          const imageUrl = await getCarImageUrl(car.make, car.model);
-          images[`${car.make}-${car.model}`] = imageUrl;
-        }
-        setCarImages(images);
-
-        setLoadingCars(false);
-      } catch (error) {
-        console.error('Error fetching electric cars:', error);
-        setLoadingCars(false);
-      }
-    };
-
-    fetchCars();
-  }, []);
-
   return (
     <div className="electric-cars-container">
-      <h2>Electric Cars</h2>
-      {loadingCars ? (
-        <p>Loading electric cars...</p>
-      ) : (
-        <ul className="electric-cars-list">
-          {electricCars.map((car, index) => (
-            <li key={index} className="electric-car-item">
-              <h3>{car.make} {car.model} ({car.year})</h3>
-              <img 
-                src={carImages[`${car.make}-${car.model}`] || 'default-image-url.jpg'} 
-                alt={`${car.make} ${car.model}`} 
-                className="car-image" 
-              />
-              <p>Class: {car.class}</p>
-              <p>MPG (City/Highway): {car.city_mpg}/{car.highway_mpg}</p>
-              <p>Transmission: {car.transmission}</p>
-              <p>Drive Type: {car.drive}</p>
-              <p>Engine Size: {car.engine_size} L</p>
-            </li>
+      <h1 className="electric-cars-title">Electric Cars</h1>
+      {ElectricCarsData.ElectricCars.map((category, index) => (
+        <div key={index} className="electric-car-category">
+          <h2 className="electric-car-category-title">
+            Category: {category.Category}
+          </h2>
+          {category.Cars.map((car, carIndex) => (
+            <div key={carIndex} className="electric-car-card">
+              <h3 className="electric-car-name">{car.Name}</h3>
+              {car.ImageURL && (
+                <img
+                  src={car.ImageURL}
+                  alt={car.Name}
+                  className="electric-car-image"
+                />
+              )}
+              <p className="electric-car-year"><strong>Year:</strong> {car.Year}</p>
+              <p className="electric-car-range"><strong>Range:</strong> {car.Range}</p>
+              <p className="electric-car-price"><strong>Price:</strong> {car.Price}</p>
+              <p className="electric-car-performance">
+                <strong>Performance:</strong>
+                <ul>
+                  <li>Top Speed: {car.Performance.TopSpeed}</li>
+                  <li>Acceleration: {car.Performance.Acceleration}</li>
+                </ul>
+              </p>
+              <p className="electric-car-charging">
+                <strong>Charging:</strong>
+                <ul>
+                  <li>Fast Charging: {car.Charging.FastCharging}</li>
+                  <li>Port Type: {car.Charging.PortType}</li>
+                </ul>
+              </p>
+              <p className="electric-car-explanation">
+                <strong>Explanation:</strong> {car.Explanation}
+              </p>
+            </div>
           ))}
-        </ul>
-      )}
+        </div>
+      ))}
     </div>
   );
 };
