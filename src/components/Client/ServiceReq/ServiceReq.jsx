@@ -63,59 +63,59 @@ const ServiceReq = () => {
     };
 
     // Fetch feedbacks for a specific serviceInfoId
-const loadFeedbacksForService = async (serviceInfoId) => {
-    try {
-        const response = await axios.get(`https://localhost:7080/api/Clients/feedbacks/service/${serviceInfoId}`, {
-            headers: {
-                Authorization: `Bearer ${localStorage.getItem('token')}`,
-                'Content-Type': 'application/json'
-            }
-        });
+    const loadFeedbacksForService = async (serviceInfoId) => {
+        try {
+            const response = await axios.get(`https://localhost:7080/api/Clients/feedbacks/service/${serviceInfoId}`, {
+                headers: {
+                    Authorization: `Bearer ${localStorage.getItem('token')}`,
+                    'Content-Type': 'application/json'
+                }
+            });
 
-        const feedbackList = response.data.$values || []; // Extract the $values array
+            const feedbackList = response.data.$values || []; // Extract the $values array
 
-        setFeedbacks((prevFeedbacks) => ({
-            ...prevFeedbacks,
-            [serviceInfoId]: feedbackList // Update feedbacks for this serviceInfoId
-        }));
-    } catch (error) {
-        console.error(`Failed to load feedbacks for ServiceInfoId ${serviceInfoId}:`, error);
-    }
-};
-
-// Function to submit feedback to the API
-const handleFeedbackSubmit = async (serviceInfoId) => {
-    const feedbackData = {
-        clientId: GetClientIdFromToken(), // Retrieve clientId from token
-        serviceInfoId: serviceInfoId, // Use serviceInfoId automatically
-        rating: rating, // Use rating from state
-        comments: comment, // Use comment from state
-        date: new Date().toISOString()
+            setFeedbacks((prevFeedbacks) => ({
+                ...prevFeedbacks,
+                [serviceInfoId]: feedbackList // Update feedbacks for this serviceInfoId
+            }));
+        } catch (error) {
+            console.error(`Failed to load feedbacks for ServiceInfoId ${serviceInfoId}:`, error);
+        }
     };
 
-    try {
-        const response = await axios.post('https://localhost:7080/api/Clients/feedbacks', feedbackData, {
-            headers: {
-                Authorization: `Bearer ${localStorage.getItem("token")}`,
-                "Content-Type": "application/json"
-            }
-        });
-        alert("Feedback added successfully");
-        console.log(response.data);
-    } catch (error) {
-        console.error('Error submitting feedback:', error);
-        alert('An error occurred while submitting feedback.');
-    }
-};
+    // Function to submit feedback to the API
+    const handleFeedbackSubmit = async (serviceInfoId) => {
+        const feedbackData = {
+            clientId: GetClientIdFromToken(), // Retrieve clientId from token
+            serviceInfoId: serviceInfoId, // Use serviceInfoId automatically
+            rating: rating, // Use rating from state
+            comments: comment, // Use comment from state
+            date: new Date().toISOString()
+        };
 
-// Function to extract clientId from the token
-const GetClientIdFromToken = () => {
-    const token = localStorage.getItem('token');
-    if (!token) return null;
+        try {
+            const response = await axios.post('https://localhost:7080/api/Clients/feedbacks', feedbackData, {
+                headers: {
+                    Authorization: `Bearer ${localStorage.getItem("token")}`,
+                    "Content-Type": "application/json"
+                }
+            });
+            alert("Feedback added successfully");
+            console.log(response.data);
+        } catch (error) {
+            console.error('Error submitting feedback:', error);
+            alert('An error occurred while submitting feedback.');
+        }
+    };
 
-    const decodedToken = JSON.parse(atob(token.split('.')[1])); // Decode the token
-    return decodedToken.clientId; // Ensure clientId is present in the token
-};
+    // Function to extract clientId from the token
+    const GetClientIdFromToken = () => {
+        const token = localStorage.getItem('token');
+        if (!token) return null;
+
+        const decodedToken = JSON.parse(atob(token.split('.')[1])); // Decode the token
+        return decodedToken.clientId; // Ensure clientId is present in the token
+    };
 
 
 
@@ -135,7 +135,7 @@ const GetClientIdFromToken = () => {
             });
         }
     }, [serviceInfos]);
-    
+
 
     const handleServiceInfoChange = (e) => {
         const selectedServiceInfoId = e.target.value;
@@ -166,7 +166,7 @@ const GetClientIdFromToken = () => {
             providerId,
             status: "Pending"  // Set the status directly in the data object
         };
-        
+
 
 
         try {
@@ -208,80 +208,124 @@ const GetClientIdFromToken = () => {
         }
     };
 
+    const [isFeedbackModalOpen, setFeedbackModalOpen] = useState(false);
+    const [isFeedbackListModalOpen, setFeedbackListModalOpen] = useState(false);
+    const [selectedService, setSelectedService] = useState(null);
+
+    const openFeedbackModal = (service) => {
+        setSelectedService(service);
+        setFeedbackModalOpen(true);
+    };
+
+    const openFeedbackListModal = (service) => {
+        setSelectedService(service);
+        setFeedbackListModalOpen(true);
+    };
+
+    const closeModals = () => {
+        setFeedbackModalOpen(false);
+        setFeedbackListModalOpen(false);
+        setSelectedService(null);
+    };
+
     return (
         <div className="service-req-dashboard">
             <div className="service-info-container">
-                <h1 className="service-info-title">Available Services </h1>
+            <h1 className="service-info-title">Available Services</h1>
 
-                {message && <p className="error-message">{message}</p>}
+            <div className="service-info-list">
+                {serviceInfos.length === 0 ? (
+                    <p>No service information available.</p>
+                ) : (
+                    serviceInfos.map((service) => (
+                        <div key={service.serviceInfoId} className="service-info-card">
+                            <h2 className="service-name">{service.name}</h2>
+                            <p className="service-description">{service.description}</p>
+                            <p className="service-contact">Contact: {service.contact}</p>
+                            <div className="provider-info">
+                                <h3 className="provider-title">Provider:</h3>
+                                <p className="pN">Name: <span>{service.provider.name}</span></p>
+                            </div>
 
-                <div className="service-info-list">
-    {serviceInfos.length === 0 ? (
-        <p>No service information available.</p>
-    ) : (
-        serviceInfos.map((service) => (
-            <div key={service.serviceInfoId} className="service-info-card">
-                <h2 className="service-name">{service.name}</h2>
-                <p className="service-description">{service.description}</p>
-                <p className="service-contact">Contact: {service.contact}</p>
-                <div className="provider-info">
-                    <h3 className="provider-title">Provider:</h3>
-                    <p className='pN'>Name: <span>{service.provider.name}</span></p>
+                            {/* Buttons to open modals */}
+                            <button onClick={() => openFeedbackModal(service)} className="modal-btnPR">
+                                Provide Feedback
+                            </button>
+                            <button onClick={() => openFeedbackListModal(service)} className="modal-btnVI">
+                                View Feedback
+                            </button>
+                        </div>
+                    ))
+                )}
+            </div>
+
+            {/* Feedback Modal */}
+            {isFeedbackModalOpen && (
+                <div className="modalFeed">
+                    <div className="modal-contentFEed">
+                        <h2 className='NProviderFeed'>Provide Feedback for {selectedService?.name}</h2>
+                        <div>
+                            <label className='LaCOmment'>Rating (1 to 5):</label>
+                            <input
+                                type="number"
+                                min="1"
+                                max="5"
+                                value={rating}
+                                onChange={(e) => setRating(Number(e.target.value))}
+                                className="ratinginputTT"
+                            />
+                        </div>
+                        <div>
+                            <label className='LaCOmment'>Comment:</label>
+                            <textarea
+                                value={comment}
+                                onChange={(e) => setComment(e.target.value)}
+                                className="commentinputTT"
+                            />
+                        </div>
+                        <button
+                            onClick={() => {
+                                handleFeedbackSubmit(selectedService.serviceInfoId);
+                                closeModals();
+                            }}
+                            className="feedback-btnFeed"
+                        >
+                            Submit Feedback
+                        </button>
+                        <button onClick={closeModals} className="modalclose-btnClOs">
+                            Close
+                        </button>
+                    </div>
                 </div>
-                <div className="feedback-section">
-    <h4>Provide your Feedback:</h4>
-    <div>
-        <label>Rating (1 to 5):</label>
-        <input 
-            type="number" 
-            min="1" 
-            max="5" 
-            value={rating} 
-            onChange={(e) => setRating(Number(e.target.value))} 
-            className="rating-input"
-        />
+            )}
+
+            {/* Feedback List Modal */}
+            {isFeedbackListModalOpen && (
+    <div className="modalFeAd">
+        <div className="modalcontentENnt">
+            <h2>Feedback for {selectedService?.name}</h2>
+            {feedbacks[selectedService.serviceInfoId] && feedbacks[selectedService.serviceInfoId].length > 0 ? (
+                <div className="feedback-list">
+                    <ul>
+                        {feedbacks[selectedService.serviceInfoId].map((feedback) => (
+                            <li key={feedback.feedbackId}>
+                                {feedback.comments} (Rating: {feedback.rating})
+                            </li>
+                        ))}
+                    </ul>
+                    <div className="scroll-indicator"></div> {/* مؤشر الصعود والنزول */}
+                </div>
+            ) : (
+                <p>No feedback available.</p>
+            )}
+            <button onClick={closeModals} className="modalclose-btnClos">
+                Close
+            </button>
+        </div>
     </div>
-    <div>
-        <label>Comment:</label>
-        <textarea 
-            value={comment} 
-            onChange={(e) => setComment(e.target.value)} 
-            className="comment-input"
-        />
-    </div>
-    <button
-        onClick={() => handleFeedbackSubmit(service.serviceInfoId)} // Pass correct serviceInfoId
-        className="feedback-btn"
-    >
-        Submit Feedback
-    </button>
+)}
 
-{/* Display feedbacks */}
-<div className="feedback-list">
-    <h4>Feedbacks:</h4>
-    {feedbacks[service.serviceInfoId] && feedbacks[service.serviceInfoId].length > 0 ? (
-        <ul>
-            {feedbacks[service.serviceInfoId].map((feedback) => (
-                <li key={feedback.feedbackId}>
-                    {feedback.comments} 
-                    (Rating: {feedback.rating})
-                </li>
-            ))}
-        </ul>
-    ) : (
-        <p>No feedback available.</p>
-    )}
-</div>
-
-</div>
-            </div>
-        ))
-    )}
-</div>
-
-                
-
-            </div>
+        </div>
 
             <div className="service-req-dashboard-content">
                 <h1 className="service-req-title">Manage Your Service Requests</h1>
