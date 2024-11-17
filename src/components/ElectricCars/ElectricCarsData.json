@@ -35,22 +35,7 @@
             "Explanation": "Lucid Air sets a benchmark for luxury EVs with its impressive range and ultra-fast charging. Its spacious interior and futuristic design redefine electric mobility for long-distance travel.",
             "ImageURL": "https://www.edmunds.com/assets/m/cs/bltbd1ebbb64f7f18a9/64d2b974def85216c9d702e6/2024_Lucid_Air-Sapphire_front_1600.jpg"
           },
-          {
-            "Name": "Tesla Model S",
-            "Year": 2024,
-            "Range": "405 miles",
-            "Price": "$89,990",
-            "Performance": {
-              "TopSpeed": "200 mph",
-              "Acceleration": "0-60 mph in 1.99 seconds"
-            },
-            "Charging": {
-              "FastCharging": "200 miles in 15 minutes",
-              "PortType": "Tesla Supercharger, CCS"
-            },
-            "Explanation": "Tesla Model S combines luxury, performance, and advanced technology. With its Plaid mode, it delivers one of the fastest accelerations in the world for electric sedans.",
-            "ImageURL": ""
-          },
+    
           {
             "Name": "Lucid Air Pure",
             "Year": 2024,
