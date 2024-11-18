@@ -12,6 +12,7 @@
     "start": "node app.js"
   },
   "dependencies": {
+    "@ant-design/icons": "^5.5.1",
     "@coreui/icons": "^3.0.1",
     "@coreui/icons-react": "^2.3.0",
     "@emotion/react": "^11.13.3",
