@@ -33,24 +33,7 @@
               "PortType": "CCS"
             },
             "Explanation": "Lucid Air sets a benchmark for luxury EVs with its impressive range and ultra-fast charging. Its spacious interior and futuristic design redefine electric mobility for long-distance travel.",
-            "ImageURL": "https://www.edmunds.com/assets/m/cs/bltbd1ebbb64f7f18a9/64d2b974def85216c9d702e6/2024_Lucid_Air-Sapphire_front_1600.jpg"
-          },
-    
-          {
-            "Name": "Lucid Air Pure",
-            "Year": 2024,
-            "Range": "406 miles",
-            "Price": "$77,400",
-            "Performance": {
-              "TopSpeed": "168 mph",
-              "Acceleration": "0-60 mph in 3.1 seconds"
-            },
-            "Charging": {
-              "FastCharging": "300 miles in 20 minutes",
-              "PortType": "CCS"
-            },
-            "Explanation": "Lucid Air Pure offers exceptional range and an elegant design, making it a top choice for luxury EV buyers. Its cabin is spacious and packed with cutting-edge features.",
-            "ImageURL": ""
+            "ImageURL": "https://www.edmunds.com/assets/m/cs/blt03d3029d01cf1e42/662eb524528fc13c4155d442/lucid-air-pure-front_1600.jpg"
           },
           {
             "Name": "Lucid Air Pure",
@@ -66,7 +49,7 @@
               "PortType": "CCS"
             },
             "Explanation": "The Lucid Air Pure sets a benchmark in luxury sedans with class-leading range, superior comfort, and sleek aesthetics.",
-            "ImageURL": ""
+            "ImageURL": "https://hips.hearstapps.com/hmg-prod/images/2024-lucid-air-pure-rwd-101-6581b07732c3e.jpg?crop=0.650xw:0.546xh;0.230xw,0.367xh&resize=640:*"
           },
           {
             "Name": "BMW i7",
@@ -82,23 +65,7 @@
               "PortType": "CCS"
             },
             "Explanation": "The BMW i7 blends opulence and performance, offering advanced self-driving features and luxurious interior materials.",
-            "ImageURL": ""
-          },
-          {
-            "Name": "Lucid Air Pure",
-            "Year": 2023,
-            "Range": "410 miles",
-            "Price": "$89,000",
-            "Performance": {
-              "TopSpeed": "155 mph",
-              "Acceleration": "0-60 mph in 4.4 seconds"
-            },
-            "Charging": {
-              "FastCharging": "200 miles in 15 minutes",
-              "PortType": "CCS"
-            },
-            "Explanation": "The Lucid Air Pure combines luxurious craftsmanship and one of the best ranges in the EV market for 2023.",
-            "ImageURL": ""
+            "ImageURL": "https://www.motortrend.com/uploads/2023/10/003-2024-BMW-i7-M70-xDrive-front-three-quarter-in-action.jpg"
           },
           {
             "Name": "Hyundai Ioniq 6",
@@ -114,7 +81,7 @@
               "PortType": "CCS"
             },
             "Explanation": "The Hyundai Ioniq 6 features a streamlined design, excellent range, and advanced driver-assist features.",
-            "ImageURL": ""
+            "ImageURL": "https://pictures.dealer.com/b/bobmayberryhyundaimonroe/1234/58213ca7edf74b03aca30e5c73142cd7.png"
           },
           {
             "Name": "Tesla Model 3 Long Range",
@@ -130,7 +97,7 @@
               "PortType": "Tesla Supercharger"
             },
             "Explanation": "The Tesla Model 3 Long Range combines class-leading range, performance, and technology for everyday use.",
-            "ImageURL": ""
+            "ImageURL": "https://ev-database.org/img/auto/Tesla_Model_3_2024/Tesla_Model_3_2024-01@2x.jpg"
           },
           {
             "Name": "Polestar 2",
@@ -146,7 +113,7 @@
               "PortType": "CCS"
             },
             "Explanation": "The Polestar 2 offers Scandinavian design with an emphasis on sustainability, comfort, and performance.",
-            "ImageURL": ""
+            "ImageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWOo7TTTcoyDiYXesoQun-xbxMcR5PRMRj-A&s"
           },
           {
             "Name": "BMW iX3",
@@ -162,7 +129,7 @@
               "PortType": "CCS"
             },
             "Explanation": "The BMW iX3 combines sporty performance with luxury and practicality, making it an ideal choice for eco-conscious drivers.",
-            "ImageURL": ""
+            "ImageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScQuwrwsXnu-TYU8sfe0EimwjFAPQV0WAQ5w&s"
           },
           {
             "Name": "Tesla Model S Plaid",
@@ -178,7 +145,39 @@
               "PortType": "Tesla Supercharger"
             },
             "Explanation": "The Model S Plaid is a high-performance electric sedan offering groundbreaking acceleration, range, and luxury.",
-            "ImageURL": ""
+            "ImageURL": "https://cdn.dealeraccelerate.com/pinnacle/1/358/21355/1920x1440/2022-tesla-model-s-plaid"
+          },
+          {
+            "Name": "BYD Seal",
+            "Year": 2024,
+            "Range": "311 miles",
+            "Price": "$39,000",
+            "Performance": {
+              "TopSpeed": "112 mph",
+              "Acceleration": "0-60 mph in 4.8 seconds"
+            },
+            "Charging": {
+              "FastCharging": "80% in 30 minutes",
+              "PortType": "CCS"
+            },
+            "Explanation": "The BYD Seal offers a spacious, feature-packed EV sedan for families and commuters.",
+            "ImageURL": "https://i0.wp.com/bestsellingcarsblog.com/wp-content/uploads/2024/08/BYD-Seal-Indonesia-July-2024.jpeg?resize=600%2C400"
+          },
+          {
+            "Name": "Changan Shenlan SL03",
+            "Year": 2024,
+            "Range": "320 miles",
+            "Price": "$35,000",
+            "Performance": {
+              "TopSpeed": "110 mph",
+              "Acceleration": "0-60 mph in 6.5 seconds"
+            },
+            "Charging": {
+              "FastCharging": "70% in 25 minutes",
+              "PortType": "CCS"
+            },
+            "Explanation": "The Shenlan SL03 is a competitive EV with advanced safety features and a sleek design.",
+            "ImageURL": "https://image.made-in-china.com/2f0j00qnVbGrslZocU/China-High-Quality-2024-Changan-Shenlan-Deepal-SL03-SL03I-EV-Cheap-Auto-Left-Steering-Comfortable-High-Speed-New-Energy-Price.webp"
           }
         ]
       },
@@ -199,7 +198,7 @@
               "PortType": "CCS"
             },
             "Explanation": "The Ford Mustang Mach-E combines the legacy of the Mustang brand with modern electric capabilities. It boasts a sporty design, all-wheel-drive options, and innovative driver-assistance features.",
-            "ImageURL": ""
+            "ImageURL": "https://ar.ml-vehicle.com/uploads/38258/2024-changan-uni-k-idd-phev-suvc9d22.jpg"
           },
           {
             "Name": "Tesla Model Y",
@@ -215,7 +214,7 @@
               "PortType": "Tesla Supercharger, CCS"
             },
             "Explanation": "Tesla Model Y is a versatile SUV designed for families. It offers plenty of space, advanced safety features, and Tesla's full self-driving capability.",
-            "ImageURL": ""
+            "ImageURL": "https://www.yeslak.com/cdn/shop/articles/2024_Tesla_Model_Y_Project_Juniper_Unveiling_the_Future_of_Electric_SUVs_1920x.jpg?v=1706866705"
           },
           {
             "Name": "Rivian R1S",
@@ -231,7 +230,7 @@
               "PortType": "CCS"
             },
             "Explanation": "Rivian R1S is an off-road-friendly electric SUV with rugged capabilities and luxury interiors. It’s perfect for adventurous families who seek performance and comfort.",
-            "ImageURL": ""
+            "ImageURL": "https://images.cars.com/cldstatic/wp-content/uploads/rivian-rs1-2023-01-exterior-front-angle-scaled.jpg"
           },
           {
             "Name": "Nissan Ariya",
@@ -247,7 +246,7 @@
               "PortType": "CCS"
             },
             "Explanation": "The Nissan Ariya is a stylish electric SUV offering a balance of comfort, performance, and advanced technology features.",
-            "ImageURL": ""
+            "ImageURL": "https://hips.hearstapps.com/hmg-prod/images/2023-nissan-ariya-empower-297-1669827758.jpg?crop=0.651xw:0.549xh;0.282xw,0.415xh&resize=2048:*"
           },
           {
             "Name": "Hyundai Ioniq 7",
@@ -263,7 +262,7 @@
               "PortType": "CCS"
             },
             "Explanation": "The Hyundai Ioniq 7 is a futuristic three-row electric SUV designed for families, featuring bold styling and sustainable materials.",
-            "ImageURL": ""
+            "ImageURL": "https://di-uploads-pod36.dealerinspire.com/qualitykiaofgreenwood/uploads/2023/11/ev9-1.jpeg"
           },
           {
             "Name": "Volvo C40 Recharge",
@@ -279,7 +278,7 @@
               "PortType": "CCS"
             },
             "Explanation": "The Volvo C40 Recharge delivers stylish looks and a premium feel in a compact luxury SUV package.",
-            "ImageURL": ""
+            "ImageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3hf-Ui-RV08AkI1gCBO9Q5__FHCcUxHtwSA&s"
           },
           {
             "Name": "Hyundai Kona Electric",
@@ -295,7 +294,7 @@
               "PortType": "CCS"
             },
             "Explanation": "The Hyundai Kona Electric is a small, affordable SUV with an excellent range and modern features.",
-            "ImageURL": ""
+            "ImageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJfgpi3DAjaOSm8ibzvDrWVdvl0UtpnuZ3lQ&s"
           },
           {
             "Name": "Ford Mustang Mach-E",
@@ -311,7 +310,7 @@
               "PortType": "CCS"
             },
             "Explanation": "The Ford Mustang Mach-E blends the iconic Mustang performance with modern electric efficiency and technology.",
-            "ImageURL": ""
+            "ImageURL": "https://hips.hearstapps.com/hmg-prod/images/2021-ford-mustang-mach-e-gt-1665-1640391077.jpg?crop=0.662xw:0.556xh;0.123xw,0.350xh&resize=2048:*"
           },
           {
             "Name": "Audi Q4 e-tron",
@@ -327,8 +326,41 @@
               "PortType": "CCS"
             },
             "Explanation": "The Audi Q4 e-tron is a compact luxury SUV offering an electric alternative with high-quality design and advanced tech.",
-            "ImageURL": ""
+            "ImageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxRTeOIdS-akL1icwBqCud11CDOZpfALIYUQ&s"
+          },
+          {
+            "Name": "BYD Atto 3",
+            "Year": 2024,
+            "Range": "260 miles",
+            "Price": "$38,000",
+            "Performance": {
+              "TopSpeed": "99 mph",
+              "Acceleration": "0-60 mph in 7.3 seconds"
+            },
+            "Charging": {
+              "FastCharging": "80% in 35 minutes",
+              "PortType": "CCS"
+            },
+            "Explanation": "The BYD Atto 3 is a compact SUV that combines style, tech, and efficiency.",
+            "ImageURL": "https://www.racv.com.au/royalauto/transport/electric-vehicles/2024-byd-atto-3-price-specs-release-date/_jcr_content/root/container/articlepagecontent/image.coreimg.jpeg/1718669351090/byd-atto-3-2025--7-.jpeg"
+          },
+          {
+            "Name": "MG ZS EV",
+            "Year": 2024,
+            "Range": "273 miles",
+            "Price": "$29,000",
+            "Performance": {
+              "TopSpeed": "87 mph",
+              "Acceleration": "0-60 mph in 8.5 seconds"
+            },
+            "Charging": {
+              "FastCharging": "80% in 40 minutes",
+              "PortType": "CCS"
+            },
+            "Explanation": "The MG ZS EV offers excellent value with its range and affordability for an electric SUV.",
+            "ImageURL": "https://i.ytimg.com/vi/txQNbEWPbtk/maxresdefault.jpg"
           }
+          
         ]
       },
       {
@@ -348,7 +380,7 @@
                   "PortType": "CCS"
                 },
                 "Explanation": "The Ford F-150 Lightning combines the power of the iconic F-150 with electric innovation. Its impressive towing capacity and onboard power make it a versatile work truck.",
-                "ImageURL": ""
+                "ImageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJEiXbTlB29UY2jWxbQp6AZzXMgh3Bxf6GIg&s"
               },
               {
                 "Name": "Rivian R1T",
@@ -364,7 +396,135 @@
                   "PortType": "CCS"
                 },
                 "Explanation": "Rivian R1T is a powerful and versatile electric truck with off-road capabilities. It features innovative storage solutions and a luxurious cabin.",
-                "ImageURL": ""
+                "ImageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUGUgasDAhkRz9FycKo2135m_nLW9RO-Cmcg&s"
+              },
+              {
+                "Name": "Chevrolet Silverado EV",
+                "Year": 2024,
+                "Range": "400 miles",
+                "Price": "$41,595",
+                "Performance": {
+                  "TopSpeed": "120 mph",
+                  "Acceleration": "0-60 mph in 4.5 seconds"
+                },
+                "Charging": {
+                  "FastCharging": "100 miles in 10 minutes",
+                  "PortType": "CCS"
+                },
+                "Explanation": "The Chevrolet Silverado EV blends the practicality of a work truck with impressive range and cutting-edge technology.",
+                "ImageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQP26yhjvFM3sLgvCiL9fz1ffA1_5tEh0Ahbg&s"
+              },
+              {
+                "Name": "Tesla Cybertruck",
+                "Year": 2024,
+                "Range": "500 miles",
+                "Price": "$69,900",
+                "Performance": {
+                  "TopSpeed": "130 mph",
+                  "Acceleration": "0-60 mph in 2.9 seconds"
+                },
+                "Charging": {
+                  "FastCharging": "200 miles in 15 minutes",
+                  "PortType": "Tesla Supercharger"
+                },
+                "Explanation": "The Tesla Cybertruck is a futuristic electric truck designed for durability and high performance, offering unmatched towing and storage capabilities.",
+                "ImageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnKw-7sxvfX41abrQ6rdXDjmTbZ6XQ8R8TIA&s"
+              },
+              {
+                "Name": "Lordstown Endurance",
+                "Year": 2024,
+                "Range": "250 miles",
+                "Price": "$65,000",
+                "Performance": {
+                  "TopSpeed": "90 mph",
+                  "Acceleration": "0-60 mph in 6.3 seconds"
+                },
+                "Charging": {
+                  "FastCharging": "80% in 40 minutes",
+                  "PortType": "CCS"
+                },
+                "Explanation": "The Lordstown Endurance is a reliable electric truck focused on simplicity and durability for fleet and business users.",
+                "ImageURL": "https://i0.wp.com/electrek.co/wp-content/uploads/sites/3/2022/09/Lordstown-Endurance.jpg?resize=1200%2C628&quality=82&strip=all&ssl=1"
+              },
+              {
+                "Name": "GMC Hummer EV Truck",
+                "Year": 2024,
+                "Range": "329 miles",
+                "Price": "$108,700",
+                "Performance": {
+                  "TopSpeed": "106 mph",
+                  "Acceleration": "0-60 mph in 3.0 seconds"
+                },
+                "Charging": {
+                  "FastCharging": "100 miles in 10 minutes",
+                  "PortType": "CCS"
+                },
+                "Explanation": "The GMC Hummer EV Truck offers extreme off-road capabilities and a luxurious interior, making it a standout electric pickup.",
+                "ImageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTuI86LZV7SKYgprvgNebigMTwvE-B6_8ezJQ&s"
+              },
+              {
+                "Name": "Nikola Badger",
+                "Year": 2024,
+                "Range": "300 miles",
+                "Price": "$60,000",
+                "Performance": {
+                  "TopSpeed": "95 mph",
+                  "Acceleration": "0-60 mph in 4.5 seconds"
+                },
+                "Charging": {
+                  "FastCharging": "100 miles in 20 minutes",
+                  "PortType": "CCS"
+                },
+                "Explanation": "The Nikola Badger is designed for rugged utility with a hydrogen-electric hybrid option for extended range.",
+                "ImageURL": "https://professionalpickup.com/wp-content/uploads/2020/12/Nikola-Badger-Electric-Pickup-Truck-2020-Professional-Pickup-4x4-1.jpg"
+              },
+              {
+                "Name": "Bollinger B2",
+                "Year": 2024,
+                "Range": "200 miles",
+                "Price": "$125,000",
+                "Performance": {
+                  "TopSpeed": "100 mph",
+                  "Acceleration": "0-60 mph in 4.5 seconds"
+                },
+                "Charging": {
+                  "FastCharging": "100 miles in 30 minutes",
+                  "PortType": "CCS"
+                },
+                "Explanation": "The Bollinger B2 is a no-frills, high-capacity electric truck built for off-road adventures and heavy-duty tasks.",
+                "ImageURL": "https://hips.hearstapps.com/hmg-prod/images/bollinger-b2-201-1607721643.jpg"
+              },
+              {
+                "Name": "Maxus T90EV",
+                "Year": 2024,
+                "Range": "220 miles",
+                "Price": "$45,000",
+                "Performance": {
+                  "TopSpeed": "80 mph",
+                  "Acceleration": "0-60 mph in 12.0 seconds"
+                },
+                "Charging": {
+                  "FastCharging": "80% in 45 minutes",
+                  "PortType": "Type 2"
+                },
+                "Explanation": "The Maxus T90EV is a practical, affordable electric truck with solid range and towing capabilities.",
+                "ImageURL": "https://vanreviewer.co.uk/wp-content/uploads/2023/02/1Z9A1491.webp"
+              },
+              {
+                "Name": "Changan Lantu Free Pickup",
+                "Year": 2024,
+                "Range": "275 miles",
+                "Price": "$50,000",
+                "Performance": {
+                  "TopSpeed": "92 mph",
+                  "Acceleration": "0-60 mph in 7.5 seconds"
+                },
+                "Charging": {
+                  "FastCharging": "80% in 40 minutes",
+                  "PortType": "CCS"
+                },
+                "Explanation": "The Changan Lantu Free Pickup combines modern design with reliable performance for light commercial use.",
+                "ImageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStB48TXhHl6o3jhuUnSjhLgs5dmhJyBpbCNw&s"
               }
         ]
       },
@@ -385,7 +545,7 @@
                   "PortType": "CCS"
                 },
                 "Explanation": "The Porsche Taycan Turbo S offers the perfect balance of luxury and performance. Its responsive handling and breathtaking speed set it apart in the EV market.",
-                "ImageURL": ""
+                "ImageURL": "https://vehicle-images.dealerinspire.com/4fed-11000359/WP0AC2Y19RSA52381/41a1dd6bff9b54c17e41a03addc4fbe2.jpg"
               },
               {
                 "Name": "Mercedes-Benz EQS",
@@ -401,7 +561,7 @@
                   "PortType": "CCS"
                 },
                 "Explanation": "The Mercedes-Benz EQS is the flagship of luxury EVs, featuring a futuristic design, a spacious interior, and cutting-edge technology like the Hyperscreen dashboard.",
-                "ImageURL": ""
+                "ImageURL": "https://media.ed.edmunds-media.com/mercedes-benz/eqs/2024/oem/2024_mercedes-benz_eqs_sedan_amg-eqs_fq_oem_1_1600.jpg"
               },
               {
                 "Name": "BMW i7",
@@ -417,7 +577,7 @@
                   "PortType": "CCS"
                 },
                 "Explanation": "The BMW i7 is a luxury sedan with cutting-edge technology and an ultra-premium interior. It's designed for comfort, performance, and sustainability.",
-                "ImageURL": ""
+                "ImageURL": "https://cdn.arstechnica.net/wp-content/uploads/2023/09/2024-BMW-i7-M70-first-drive-3-1152x648.jpg"
               },
               {
                 "Name": "Audi e-tron GT",
@@ -433,7 +593,7 @@
                   "PortType": "CCS"
                 },
                 "Explanation": "Audi e-tron GT is a stylish electric sedan with a sporty edge, offering a thrilling ride and luxurious features for discerning EV enthusiasts.",
-                "ImageURL": ""
+                "ImageURL": "https://hips.hearstapps.com/hmg-prod/images/2024-audi-rs-e-tron-gt-101-649dc205d9a24.jpg?crop=0.586xw:0.496xh;0.207xw,0.315xh&resize=2048:*"
               },
               {
                 "Name": "Mercedes-Benz EQS SUV",
@@ -449,7 +609,7 @@
                   "PortType": "CCS"
                 },
                 "Explanation": "The Mercedes-Benz EQS SUV elevates luxury electric vehicles with unparalleled craftsmanship, comfort, and advanced tech.",
-                "ImageURL": ""
+                "ImageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRoYm2OtoEFxX5tA0Z33LPZmU1rZKtGf26lQ&s"
               },
               {
                 "Name": "Rolls-Royce Spectre",
@@ -465,7 +625,87 @@
                   "PortType": "CCS"
                 },
                 "Explanation": "The Rolls-Royce Spectre is the epitome of luxury in the EV market, offering bespoke elegance with whisper-quiet performance.",
-                "ImageURL": ""
+                "ImageURL": "https://vehicle-images.dealerinspire.com/0fe6-110006186/SCATK2C0XRU225053/c64970118c9bc37a8bb3ad369ff8d117.jpg"
+              },
+              {
+                "Name": "Lucid Air Dream Edition",
+                "Year": 2024,
+                "Range": "520 miles",
+                "Price": "$169,000",
+                "Performance": {
+                  "TopSpeed": "168 mph",
+                  "Acceleration": "0-60 mph in 2.5 seconds"
+                },
+                "Charging": {
+                  "FastCharging": "300 miles in 20 minutes",
+                  "PortType": "CCS"
+                },
+                "Explanation": "The Lucid Air Dream Edition sets a new standard in luxury and range, combining sleek design with unparalleled performance.",
+                "ImageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2qW-YenxfIYlBL9WOdswcxOiRDqW7x-RucQ&s"
+              },
+              {
+                "Name": "Tesla Model S Plaid",
+                "Year": 2024,
+                "Range": "396 miles",
+                "Price": "$135,990",
+                "Performance": {
+                  "TopSpeed": "200 mph",
+                  "Acceleration": "0-60 mph in 1.99 seconds"
+                },
+                "Charging": {
+                  "FastCharging": "200 miles in 15 minutes",
+                  "PortType": "Tesla Supercharger"
+                },
+                "Explanation": "The Tesla Model S Plaid is a high-performance luxury sedan with industry-leading speed, range, and technology.",
+                "ImageURL": "https://v2charge.com/wp-content/uploads/2024/08/tesla-model-s-precio.jpg"
+              },
+              {
+                "Name": "Bentley Bentayga Electric",
+                "Year": 2024,
+                "Range": "250 miles",
+                "Price": "$200,000",
+                "Performance": {
+                  "TopSpeed": "155 mph",
+                  "Acceleration": "0-60 mph in 4.5 seconds"
+                },
+                "Charging": {
+                  "FastCharging": "80% in 30 minutes",
+                  "PortType": "CCS"
+                },
+                "Explanation": "The Bentley Bentayga Electric offers unparalleled luxury in the SUV market with elegant craftsmanship and high performance.",
+                "ImageURL": "https://hips.hearstapps.com/hmg-prod/images/bentayga-ewb-mulliner-11-64dfb327ec8cb.jpg?crop=0.633xw:0.534xh;0.229xw,0.216xh&resize=2048:*"
+              },
+              {
+                "Name": "Jaguar I-PACE",
+                "Year": 2024,
+                "Range": "292 miles",
+                "Price": "$71,300",
+                "Performance": {
+                  "TopSpeed": "124 mph",
+                  "Acceleration": "0-60 mph in 4.5 seconds"
+                },
+                "Charging": {
+                  "FastCharging": "168 miles in 30 minutes",
+                  "PortType": "CCS"
+                },
+                "Explanation": "The Jaguar I-PACE combines British luxury with impressive electric performance and agility, ideal for urban and highway driving.",
+                "ImageURL": "https://images.autodaily.com.au/2023/08/Jaguar-I-Pace-2023-facelift-4.webp"
+              },
+              {
+                "Name": "Aston Martin Lagonda Electric",
+                "Year": 2024,
+                "Range": "300 miles",
+                "Price": "$250,000",
+                "Performance": {
+                  "TopSpeed": "155 mph",
+                  "Acceleration": "0-60 mph in 4.2 seconds"
+                },
+                "Charging": {
+                  "FastCharging": "200 miles in 25 minutes",
+                  "PortType": "CCS"
+                },
+                "Explanation": "The Aston Martin Lagonda Electric combines ultra-luxury and environmental consciousness, representing the pinnacle of electric vehicle design.",
+                "ImageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrN_errIRj7tIsfXRkoa1RH3Rv1GqXbdKlgQ&s"
               }
         ]
       },
@@ -486,7 +726,7 @@
                   "PortType": "CCS"
                 },
                 "Explanation": "The Chevrolet Bolt EV is a compact and affordable electric hatchback, ideal for city driving with its excellent range and spacious interior for its size.",
-                "ImageURL": ""
+                "ImageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-PIAICuoGKPo53bPzpm5d9ttvDsyhgC0sWQ&s"
               },
               {
                 "Name": "Nissan Leaf",
@@ -502,7 +742,7 @@
                   "PortType": "CHAdeMO"
                 },
                 "Explanation": "The Nissan Leaf is one of the pioneers in electric mobility, offering an eco-friendly and reliable option for drivers prioritizing sustainability.",
-                "ImageURL": ""
+                "ImageURL": "https://www.motortrend.com/uploads/2024/01/000-2024-nissan-leaf-sv-plus.jpg"
               },
               {
                 "Name": "Honda e",
@@ -518,7 +758,7 @@
                   "PortType": "CCS"
                 },
                 "Explanation": "The Honda e is a compact and stylish electric hatchback with a futuristic interior and advanced connectivity, perfect for urban lifestyles.",
-                "ImageURL": ""
+                "ImageURL": "https://cdn.motor1.com/images/mgl/vE0EQ/s1/honda-e-type-r-rendering.jpg"
               },
               {
                 "Name": "Renault Zoe",
@@ -534,8 +774,41 @@
                   "PortType": "Type 2"
                 },
                 "Explanation": "The Renault Zoe is a practical and efficient electric hatchback, offering excellent range and affordability for eco-conscious drivers.",
-                "ImageURL": ""
+                "ImageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRo0Sea86tPUT_I8j73lwvcfUNTXbSN_0DrTg&s"
+              },
+              {
+                "Name": "Changan Benni E-Star",
+                "Year": 2024,
+                "Range": "180 miles",
+                "Price": "$18,000",
+                "Performance": {
+                  "TopSpeed": "68 mph",
+                  "Acceleration": "0-60 mph in 12.5 seconds"
+                },
+                "Charging": {
+                  "FastCharging": "80% in 50 minutes",
+                  "PortType": "Type 2"
+                },
+                "Explanation": "The Benni E-Star is a compact and economical electric hatchback ideal for city driving.",
+                "ImageURL": "https://www.chinapev.com/wp-content/uploads/2020/04/Changan-Benni-E-Star1.jpg"
+              },
+              {
+                "Name": "BYD Dolphin",
+                "Year": 2024,
+                "Range": "250 miles",
+                "Price": "$22,000",
+                "Performance": {
+                  "TopSpeed": "90 mph",
+                  "Acceleration": "0-60 mph in 7.9 seconds"
+                },
+                "Charging": {
+                  "FastCharging": "80% in 30 minutes",
+                  "PortType": "CCS"
+                },
+                "Explanation": "The BYD Dolphin offers great range and performance in a compact, affordable package.",
+                "ImageURL": "https://image.made-in-china.com/2f0j00cevksgZMEtbG/Byd-Dolphin-Electric-Car-2024-Fashion-Edition-420km-EV-Car-Cost-Effective-Compact-Electric-Vehicle.webp"
               }
+              
         ]
       },
       {
@@ -555,7 +828,7 @@
                   "PortType": "Tesla Supercharger, CCS"
                 },
                 "Explanation": "The Tesla Roadster redefines electric sports cars with jaw-dropping acceleration, record-breaking range, and a futuristic design that turns heads everywhere.",
-                "ImageURL": ""
+                "ImageURL": "https://static0.carbuzzimages.com/wordpress/wp-content/uploads/gallery-images/original/1023000/500/1023536.jpg"
               },
               {
                 "Name": "Lotus Evija",
@@ -571,7 +844,7 @@
                   "PortType": "CCS"
                 },
                 "Explanation": "The Lotus Evija is a hypercar masterpiece, blending iconic Lotus engineering with cutting-edge electric performance for an exhilarating driving experience.",
-                "ImageURL": ""
+                "ImageURL": "https://smartcdn.gprod.postmedia.digital/driving/wp-content/uploads/2022/10/LOT_0806_Fittipaldi_Evija-scaled.jpg"
               },
               {
                 "Name": "Rimac Nevera",
@@ -587,7 +860,7 @@
                   "PortType": "CCS"
                 },
                 "Explanation": "The Rimac Nevera is a hypercar that sets new standards in electric vehicle performance, with mind-boggling speed and handling.",
-                "ImageURL": ""
+                "ImageURL": "https://media.drive.com.au/obj/tx_q:50,rs:auto:1920:1080:1/caradvice/private/fkxoxfygcqm9kemlxixh"
               },
               {
                 "Name": "Lotus Evija",
@@ -603,7 +876,7 @@
                   "PortType": "CCS"
                 },
                 "Explanation": "The Lotus Evija is an electric hypercar, offering world-class performance with a futuristic design.",
-                "ImageURL": ""
+                "ImageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVTxN6FKHuSSKiMnLcBo_g2P_6O8Xt5a3XLA&s"
               },
               {
                 "Name": "Porsche Taycan 4S",
@@ -619,7 +892,7 @@
                   "PortType": "CCS"
                 },
                 "Explanation": "The Porsche Taycan 4S offers the perfect balance of performance and luxury with Porsche's distinctive styling.",
-                "ImageURL": ""
+                "ImageURL": "https://www.autoblog.com/.image/t_share/MjA5MTIyNDA1OTMyMzQ1MTg4/2020-porsche-taycan-4s.jpg"
               },
               {
                 "Name": "Tesla Roadster",
@@ -635,7 +908,71 @@
                   "PortType": "Tesla Supercharger"
                 },
                 "Explanation": "The Tesla Roadster is a supercar that delivers extreme performance and luxury with impressive speed and range.",
-                "ImageURL": ""
+                "ImageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvXoKo28GyNF2Jb7BMraYmsz01bsU9KCOOKg&s"
+              },
+              {
+                "Name": "Pininfarina Battista",
+                "Year": 2024,
+                "Range": "311 miles",
+                "Price": "$2,200,000",
+                "Performance": {
+                  "TopSpeed": "217 mph",
+                  "Acceleration": "0-60 mph in 1.9 seconds"
+                },
+                "Charging": {
+                  "FastCharging": "80% in 25 minutes",
+                  "PortType": "CCS"
+                },
+                "Explanation": "The Pininfarina Battista is a hypercar masterpiece, delivering breathtaking performance and luxurious craftsmanship for the ultimate driving experience.",
+                "ImageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_-u8hC8kGOSaNXgfDRb8sLNAvSXno0mROHQ&s"
+              },
+              {
+                "Name": "Rimac Nevera",
+                "Year": 2024,
+                "Range": "340 miles",
+                "Price": "$2,400,000",
+                "Performance": {
+                  "TopSpeed": "258 mph",
+                  "Acceleration": "0-60 mph in 1.85 seconds"
+                },
+                "Charging": {
+                  "FastCharging": "80% in 30 minutes",
+                  "PortType": "CCS"
+                },
+                "Explanation": "The Rimac Nevera sets a new standard in electric hypercars with its incredible speed, advanced aerodynamics, and cutting-edge technology.",
+                "ImageURL": "https://smartcdn.gprod.postmedia.digital/driving/wp-content/uploads/2023/08/Nevera-eperience9.jpg"
+              },
+              {
+                "Name": "Abarth 500e",
+                "Year": 2024,
+                "Range": "199 miles",
+                "Price": "$36,000",
+                "Performance": {
+                  "TopSpeed": "93 mph",
+                  "Acceleration": "0-60 mph in 7.0 seconds"
+                },
+                "Charging": {
+                  "FastCharging": "80% in 35 minutes",
+                  "PortType": "CCS"
+                },
+                "Explanation": "The Abarth 500e combines sporty aesthetics and performance in a compact electric package for thrill-seeking city drivers.",
+                "ImageURL": "https://i.ytimg.com/vi/rVtZJzMcxck/maxresdefault.jpg"
+              },
+              {
+                "Name": "Honda e",
+                "Year": 2024,
+                "Range": "137 miles",
+                "Price": "$32,000",
+                "Performance": {
+                  "TopSpeed": "90 mph",
+                  "Acceleration": "0-60 mph in 8.3 seconds"
+                },
+                "Charging": {
+                  "FastCharging": "80% in 30 minutes",
+                  "PortType": "CCS"
+                },
+                "Explanation": "The Honda e is a retro-modern EV that blends unique styling with advanced technology, perfect for urban commuters.",
+                "ImageURL": "https://noticias.coches.com/wp-content/uploads/2021/01/Honda-e-prueba-09-1536x864.jpg"
               }
         ]
       },
@@ -656,7 +993,7 @@
                   "PortType": "CCS"
                 },
                 "Explanation": "The Mini Cooper SE combines the classic Mini charm with modern electric capabilities, making it a stylish choice for urban commuters.",
-                "ImageURL": ""
+                "ImageURL": "https://hips.hearstapps.com/hmg-prod/images/2024-mini-cooper-electric-101-63ff8395c399b.jpg?crop=0.829xw:0.702xh;0.122xw,0.276xh&resize=2048:*"
               },
               {
                 "Name": "Fiat 500 Electric",
@@ -672,23 +1009,7 @@
                   "PortType": "CCS"
                 },
                 "Explanation": "The Fiat 500 Electric maintains its iconic retro design while delivering a modern electric drivetrain, perfect for navigating crowded city streets.",
-                "ImageURL": ""
-              },
-              {
-                "Name": "Mini Cooper SE",
-                "Year": 2024,
-                "Range": "114 miles",
-                "Price": "$29,900",
-                "Performance": {
-                  "TopSpeed": "93 mph",
-                  "Acceleration": "0-60 mph in 6.9 seconds"
-                },
-                "Charging": {
-                  "FastCharging": "80% in 35 minutes",
-                  "PortType": "CCS"
-                },
-                "Explanation": "The Mini Cooper SE is a charming and nimble electric compact car, ideal for city driving with a focus on style and practicality.",
-                "ImageURL": ""
+                "ImageURL": "https://hips.hearstapps.com/hmg-prod/images/2024-fiat-500e-101-656e4dbcdfce3.jpg?crop=1.00xw:0.753xh;0,0.112xh&resize=300:*"
               },
               {
                 "Name": "Chevrolet Bolt EV",
@@ -704,7 +1025,7 @@
                   "PortType": "CCS"
                 },
                 "Explanation": "The Chevrolet Bolt EV is a budget-friendly compact electric car with a solid range, modern technology, and strong performance for its size.",
-                "ImageURL": ""
+                "ImageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-PIAICuoGKPo53bPzpm5d9ttvDsyhgC0sWQ&s"
               },
               {
                 "Name": "Chevrolet Bolt EV",
@@ -720,7 +1041,7 @@
                   "PortType": "CCS"
                 },
                 "Explanation": "The Chevrolet Bolt EV is an affordable compact EV, ideal for city driving and short commutes with great range for its class.",
-                "ImageURL": ""
+                "ImageURL": "https://hips.hearstapps.com/hmg-prod/images/2022-chevrolet-bolt-ev-101-1613168160.jpg?crop=0.819xw:0.922xh;0.0489xw,0.0122xh&resize=768:*"
               },
               {
                 "Name": "Mini Cooper SE",
@@ -736,7 +1057,7 @@
                   "PortType": "CCS"
                 },
                 "Explanation": "The Mini Cooper SE brings iconic Mini design to the EV world with nimble handling and an upscale interior.",
-                "ImageURL": ""
+                "ImageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3RQ7SacA65OUDx82nArQMM-HxiT2lygLIFQ&s"
               },
               {
                 "Name": "Nissan Leaf",
@@ -752,7 +1073,7 @@
                   "PortType": "CHAdeMO"
                 },
                 "Explanation": "The Nissan Leaf remains a reliable, budget-friendly choice for first-time EV buyers, with proven technology and practicality.",
-                "ImageURL": ""
+                "ImageURL": "https://hips.hearstapps.com/hmg-prod/images/2023-nissan-leaf-13-1200x800-1649784914.jpg"
               },
               {
                 "Name": "Volkswagen ID.3",
@@ -768,7 +1089,7 @@
                   "PortType": "CCS"
                 },
                 "Explanation": "The Volkswagen ID.3 offers a perfect blend of affordability, range, and European engineering in a compact design.",
-                "ImageURL": ""
+                "ImageURL": "https://i.gaw.to/content/photos/54/17/541736-volkswagen-id.jpeg?1024x640"
               },
               {
                 "Name": "Mini Cooper SE",
@@ -784,7 +1105,7 @@
                   "PortType": "CCS"
                 },
                 "Explanation": "The Mini Cooper SE brings classic styling with electric efficiency, perfect for urban driving.",
-                "ImageURL": ""
+                "ImageURL": "https://i.ytimg.com/vi/iMqAyyO4eOc/maxresdefault.jpg"
               },
               {
                 "Name": "Chevrolet Bolt EV",
@@ -800,8 +1121,41 @@
                   "PortType": "CCS"
                 },
                 "Explanation": "The Chevrolet Bolt EV is an affordable and practical electric hatchback with a solid range and low price tag.",
-                "ImageURL": ""
+                "ImageURL": "https://www.motortrend.com/uploads/sites/5/2021/02/2022-Chevrolet-Bolt-EV-10.jpg"
+              },
+              {
+                "Name": "Geely Geometry C",
+                "Year": 2024,
+                "Range": "275 miles",
+                "Price": "$28,000",
+                "Performance": {
+                  "TopSpeed": "92 mph",
+                  "Acceleration": "0-60 mph in 8.0 seconds"
+                },
+                "Charging": {
+                  "FastCharging": "70% in 35 minutes",
+                  "PortType": "CCS"
+                },
+                "Explanation": "The Geometry C balances advanced technology and performance in a compact size.",
+                "ImageURL": "https://www.almuraba.net/wp-content/uploads/2023/09/%D8%AC%D9%8A%D9%84%D9%8A-%D8%AC%D9%8A%D9%88%D9%85%D8%AA%D8%B1%D9%8A-C-2024-%D8%A7%D9%84%D9%85%D8%B1%D8%A8%D8%B9-%D9%86%D8%AA-1.jpg"
+              },
+              {
+                "Name": "ORA Good Cat",
+                "Year": 2024,
+                "Range": "263 miles",
+                "Price": "$25,000",
+                "Performance": {
+                  "TopSpeed": "87 mph",
+                  "Acceleration": "0-60 mph in 8.3 seconds"
+                },
+                "Charging": {
+                  "FastCharging": "80% in 30 minutes",
+                  "PortType": "CCS"
+                },
+                "Explanation": "The ORA Good Cat combines retro styling with modern electric car capabilities.",
+                "ImageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbK_15dV4F82oA-avveVjS2n-CJmCx63TrRw&s"
               }
+              
         ]
       },
       {
@@ -821,7 +1175,7 @@
               "PortType": "CCS"
             },
             "Explanation": "The Hyundai Ioniq 5 is a stylish and versatile crossover with a spacious interior, innovative tech features, and impressive charging speeds.",
-            "ImageURL": ""
+            "ImageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcdakWXt1XrG-ivfaO03MORnSmjRCVqOx7Sw&s"
           },
           {
             "Name": "Kia EV6",
@@ -837,7 +1191,7 @@
               "PortType": "CCS"
             },
             "Explanation": "The Kia EV6 combines bold design with strong performance and cutting-edge features, offering a compelling option for crossover enthusiasts.",
-            "ImageURL": ""
+            "ImageURL": "https://vehicle-images.dealerinspire.com/80f2-11002126/KNDC4DLC9R5165205/6fee7cb7154466a1da97c8dbedb19970.jpg"
           },
           {
             "Name": "Toyota bZ4X",
@@ -853,7 +1207,7 @@
               "PortType": "CCS"
             },
             "Explanation": "The Toyota bZ4X marks Toyota's leap into EV crossovers, delivering reliable performance with a focus on durability and efficiency.",
-            "ImageURL": ""
+            "ImageURL": "https://villagerpublishing.com/wp-content/uploads/2023/12/Toyota-bZ4X.png"
           },
           {
             "Name": "Subaru Solterra",
@@ -869,7 +1223,87 @@
               "PortType": "CCS"
             },
             "Explanation": "The Subaru Solterra combines rugged all-wheel-drive capabilities with EV efficiency, making it a solid choice for outdoor enthusiasts.",
-            "ImageURL": ""
+            "ImageURL": "https://cdn.jdpower.com/JDP_2024%20Subaru%20Solterra%20Touring%20Blue%20Front%20Quarter%20View.jpg"
+          },
+          {
+            "Name": "Ford Mustang Mach-E",
+            "Year": 2024,
+            "Range": "312 miles",
+            "Price": "$45,995",
+            "Performance": {
+              "TopSpeed": "130 mph",
+              "Acceleration": "0-60 mph in 4.8 seconds"
+            },
+            "Charging": {
+              "FastCharging": "59 miles in 10 minutes",
+              "PortType": "CCS"
+            },
+            "Explanation": "The Ford Mustang Mach-E combines the iconic Mustang heritage with modern EV technology, offering excellent range and performance.",
+            "ImageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCBj38FdaVgLDkzZi4Y31iLAbO3hvbDUhILg&s"
+          },
+          {
+            "Name": "Tesla Model Y",
+            "Year": 2024,
+            "Range": "330 miles",
+            "Price": "$48,490",
+            "Performance": {
+              "TopSpeed": "135 mph",
+              "Acceleration": "0-60 mph in 3.5 seconds"
+            },
+            "Charging": {
+              "FastCharging": "200 miles in 15 minutes",
+              "PortType": "Tesla Supercharger"
+            },
+            "Explanation": "The Tesla Model Y offers outstanding performance, an advanced driver-assistance system, and access to Tesla’s vast Supercharger network.",
+            "ImageURL": "https://cdn.prod.website-files.com/63c4bd441c21782eb0d195d5/65c4aeb794fe513fb18d4e68_Tesla%20Model%20Y_Exterior2.webp"
+          },
+          {
+            "Name": "Chevrolet Equinox EV",
+            "Year": 2024,
+            "Range": "300 miles",
+            "Price": "$37,000",
+            "Performance": {
+              "TopSpeed": "112 mph",
+              "Acceleration": "0-60 mph in 6.0 seconds"
+            },
+            "Charging": {
+              "FastCharging": "80 miles in 10 minutes",
+              "PortType": "CCS"
+            },
+            "Explanation": "The Chevrolet Equinox EV is an affordable and family-friendly crossover with a comfortable ride and impressive range.",
+            "ImageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzJwy9ZGdQVh4dJLhouZGGWqgA_dCqy7AlaA&s"
+          },
+          {
+            "Name": "Volkswagen ID.4",
+            "Year": 2024,
+            "Range": "275 miles",
+            "Price": "$38,995",
+            "Performance": {
+              "TopSpeed": "112 mph",
+              "Acceleration": "0-60 mph in 7.6 seconds"
+            },
+            "Charging": {
+              "FastCharging": "190 miles in 30 minutes",
+              "PortType": "CCS"
+            },
+            "Explanation": "The Volkswagen ID.4 is a well-rounded electric crossover with great range, a comfortable interior, and modern tech features.",
+            "ImageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAPWzehKiU9aHMwXJBRlrL31Nlc5wQcrnWkg&s"
+          },
+          {
+            "Name": "Nissan Ariya",
+            "Year": 2024,
+            "Range": "304 miles",
+            "Price": "$43,190",
+            "Performance": {
+              "TopSpeed": "124 mph",
+              "Acceleration": "0-60 mph in 5.1 seconds"
+            },
+            "Charging": {
+              "FastCharging": "130 miles in 30 minutes",
+              "PortType": "CCS"
+            },
+            "Explanation": "The Nissan Ariya offers a blend of futuristic styling, robust range, and a smooth, quiet ride for crossover lovers.",
+            "ImageURL": "https://vehicle-images.dealerinspire.com/cb45-110007321/JN1DF0BB7RM734870/ce4b9efd7fe1e6a749550e66e4baefbe.jpg"
           }
         ]
       },
@@ -890,7 +1324,7 @@
               "PortType": "CCS"
             },
             "Explanation": "The Volkswagen ID. Buzz reimagines the classic VW Microbus for the electric era, blending nostalgia with modern EV tech and family-friendly features.",
-            "ImageURL": ""
+            "ImageURL": "https://techcrunch.com/wp-content/uploads/2024/08/vw-id-buzz-three-row.jpg"
           },
           {
             "Name": "Ford E-Transit",
@@ -906,44 +1340,87 @@
               "PortType": "CCS"
             },
             "Explanation": "The Ford E-Transit is an all-electric van designed for businesses, offering a variety of configurations and a reliable range for daily commercial use.",
-            "ImageURL": ""
-          }
-        ]
-      },
-      {
-        "Category": "Sports",
-        "Cars": [
-          {
-            "Name": "Pininfarina Battista",
-            "Year": 2024,
-            "Range": "311 miles",
-            "Price": "$2,200,000",
-            "Performance": {
-              "TopSpeed": "217 mph",
-              "Acceleration": "0-60 mph in 1.9 seconds"
-            },
-            "Charging": {
-              "FastCharging": "80% in 25 minutes",
-              "PortType": "CCS"
-            },
-            "Explanation": "The Pininfarina Battista is a hypercar masterpiece, delivering breathtaking performance and luxurious craftsmanship for the ultimate driving experience.",
-            "ImageURL": ""
+            "ImageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDL4ehm0PJ11XBvieGIzVogG693i2FGKhrBA&s"
           },
           {
-            "Name": "Rimac Nevera",
+            "Name": "Mercedes-Benz EQV",
             "Year": 2024,
-            "Range": "340 miles",
-            "Price": "$2,400,000",
+            "Range": "213 miles",
+            "Price": "$70,000",
             "Performance": {
-              "TopSpeed": "258 mph",
-              "Acceleration": "0-60 mph in 1.85 seconds"
+              "TopSpeed": "99 mph",
+              "Acceleration": "0-60 mph in 9.0 seconds"
+            },
+            "Charging": {
+              "FastCharging": "80% in 45 minutes",
+              "PortType": "CCS"
+            },
+            "Explanation": "The Mercedes-Benz EQV offers a luxurious and spacious electric van, ideal for families or businesses looking for both performance and comfort.",
+            "ImageURL": "https://media.autoexpress.co.uk/image/private/s--X-WVjvBW--/f_auto,t_content-image-full-desktop@1/v1709570489/autoexpress/2024/03/Mercedes%20EQV%202024-8.jpg"
+          },
+          {
+            "Name": "Peugeot e-Expert",
+            "Year": 2024,
+            "Range": "205 miles",
+            "Price": "$44,500",
+            "Performance": {
+              "TopSpeed": "81 mph",
+              "Acceleration": "0-60 mph in 11.0 seconds"
             },
             "Charging": {
               "FastCharging": "80% in 30 minutes",
               "PortType": "CCS"
             },
-            "Explanation": "The Rimac Nevera sets a new standard in electric hypercars with its incredible speed, advanced aerodynamics, and cutting-edge technology.",
-            "ImageURL": ""
+            "Explanation": "The Peugeot e-Expert is an electric van designed for businesses, offering great cargo space and a practical range for everyday operations.",
+            "ImageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSE67zpucmo1Hx-Tgh73YCU_K28vhGMXtgZGw&s"
+          },
+          {
+            "Name": "Renault Master E-Tech",
+            "Year": 2024,
+            "Range": "124 miles",
+            "Price": "$55,000",
+            "Performance": {
+              "TopSpeed": "75 mph",
+              "Acceleration": "0-60 mph in 12.0 seconds"
+            },
+            "Charging": {
+              "FastCharging": "80% in 1 hour",
+              "PortType": "Type 2"
+            },
+            "Explanation": "The Renault Master E-Tech is a robust electric van designed for businesses, offering flexibility and a strong work ethic in an eco-friendly package.",
+            "ImageURL": "https://evpowered.co.uk/wp-content/uploads/2024/10/New-Renault-Master-E-Tech-electric-scaled.jpg"
+          },
+          {
+            "Name": "Maxus EV80",
+            "Year": 2024,
+            "Range": "120 miles",
+            "Price": "$42,000",
+            "Performance": {
+              "TopSpeed": "75 mph",
+              "Acceleration": "0-60 mph in 13.0 seconds"
+            },
+            "Charging": {
+              "FastCharging": "80% in 45 minutes",
+              "PortType": "CCS"
+            },
+            "Explanation": "The Maxus EV80 is a compact electric van, ideal for urban deliveries with a solid range and efficient cargo space.",
+            "ImageURL": "https://image.made-in-china.com/2f0j00cmhbKkOdcHqo/Maxus-Electric-Vehicle-2024-EV80-PRO-3-Seats-Long-Axis-Hight-Top-Car-Logistics-Cargo-Van-Pure-Electricity-MPV-Commercial-Truck.jpg"
+          },
+          {
+            "Name": "Nissan e-NV200",
+            "Year": 2024,
+            "Range": "124 miles",
+            "Price": "$36,790",
+            "Performance": {
+              "TopSpeed": "77 mph",
+              "Acceleration": "0-60 mph in 14.0 seconds"
+            },
+            "Charging": {
+              "FastCharging": "80% in 40 minutes",
+              "PortType": "Type 2"
+            },
+            "Explanation": "The Nissan e-NV200 offers an electric alternative to the traditional van, with a practical range for light commercial use and flexible cargo space.",
+            "ImageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQP5sUkxOovGdSWMhNJbrnRafmddkjKWX4qzQ&s"
           }
         ]
       },
@@ -964,7 +1441,7 @@
               "PortType": "Tesla Supercharger, CCS"
             },
             "Explanation": "Tesla Model X Plaid offers luxury and unmatched performance in the SUV category, with unique features like Falcon Wing doors.",
-            "ImageURL": ""
+            "ImageURL": "https://dreamcars77.com/wp-content/uploads/Tesla-Model-X-Plaid-2024-1-1005x675.jpg"
           },
           {
             "Name": "Jaguar I-PACE",
@@ -980,7 +1457,7 @@
               "PortType": "CCS"
             },
             "Explanation": "The Jaguar I-PACE is an all-electric luxury SUV that combines stunning design with exceptional driving dynamics and advanced technology.",
-            "ImageURL": ""
+            "ImageURL": "https://images.autodaily.com.au/2023/08/Jaguar-I-Pace-2023-facelift-4.webp"
           },
           {
             "Name": "BMW iX M60",
@@ -996,7 +1473,7 @@
               "PortType": "CCS"
             },
             "Explanation": "The BMW iX M60 is a high-performance luxury SUV with impressive handling, top-tier tech, and spacious comfort.",
-            "ImageURL": ""
+            "ImageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHTA8aXhIlwTmNA54YBhnmHxV837l1ao5QSA&s"
           },
           {
             "Name": "Audi Q8 e-tron",
@@ -1012,7 +1489,7 @@
               "PortType": "CCS"
             },
             "Explanation": "The Audi Q8 e-tron merges luxury and performance in a sleek electric SUV with refined interiors and advanced tech.",
-            "ImageURL": ""
+            "ImageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQeo1SGPnAxrXQtXFzQoDLSuJILnRzgVKal0A&s"
           },
           {
             "Name": "Mercedes-Benz EQB 350 4MATIC",
@@ -1028,7 +1505,7 @@
               "PortType": "CCS"
             },
             "Explanation": "The EQB 350 combines Mercedes-Benz's luxury with the practicality of an electric SUV, featuring a spacious interior.",
-            "ImageURL": ""
+            "ImageURL": "https://www.digitaltrends.com/wp-content/uploads/2022/07/2022-Mercedes-Benz-EQB-front-three-quarter.jpg?fit=1500%2C1000&p=1"
           },
           {
             "Name": "Jaguar I-PACE",
@@ -1044,7 +1521,7 @@
               "PortType": "CCS"
             },
             "Explanation": "The Jaguar I-PACE is a luxury electric SUV that offers top-tier performance and stylish design.",
-            "ImageURL": ""
+            "ImageURL": "https://www.motortrend.com/uploads/2022/06/2022-Jaguar-I-Pace-First-Test-21.jpg"
           },
           {
             "Name": "Tesla Model Y",
@@ -1060,7 +1537,7 @@
               "PortType": "Tesla Supercharger"
             },
             "Explanation": "The Tesla Model Y is a versatile electric SUV offering impressive range, performance, and advanced features.",
-            "ImageURL": ""
+            "ImageURL": "https://hips.hearstapps.com/hmg-prod/images/2021-tesla-model-y-mmp-1-1604701558.jpg"
           },
           {
             "Name": "Audi Q4 e-tron",
@@ -1076,7 +1553,7 @@
               "PortType": "CCS"
             },
             "Explanation": "The Audi Q4 e-tron is a compact luxury electric SUV with a modern design and refined technology.",
-            "ImageURL": ""
+            "ImageURL": "https://ev-database.org/img/auto/Audi_Q4_e-tron_2021/Audi_Q4_e-tron_2021-01.jpg"
           },
           {
             "Name": "Jaguar I-Pace",
@@ -1092,7 +1569,7 @@
               "PortType": "CCS"
             },
             "Explanation": "The Jaguar I-Pace is a luxury electric SUV that blends stunning design, performance, and advanced technology.",
-            "ImageURL": ""
+            "ImageURL": "https://carsguide-res.cloudinary.com/image/upload/c_fit,h_726,w_1290,f_auto,t_cg_base/v1/editorial/segment_review/hero_image/jaguar-i-pace-ev400-s-tw-1001x565-(1)_0.jpg"
           },
           {
             "Name": "Audi e-tron",
@@ -1108,7 +1585,7 @@
               "PortType": "CCS"
             },
             "Explanation": "The Audi e-tron is an all-electric SUV that delivers a smooth, quiet ride with a luxury feel.",
-            "ImageURL": ""
+            "ImageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcCFuQOmQ1x3f4q3eQxvEj_OU1hNhsTitqlQ&s"
           }
         ]
       },
@@ -1129,7 +1606,7 @@
               "PortType": "CCS"
             },
             "Explanation": "The Rivian R1T is a groundbreaking electric pickup with off-road capabilities, a spacious bed, and cutting-edge tech for adventure enthusiasts.",
-            "ImageURL": ""
+            "ImageURL": "https://www.motortrend.com/uploads/2024/01/005-2024-Rivian-R1T-Dual-Motor-front-view.jpg"
           },
           {
             "Name": "Ford F-150 Lightning",
@@ -1145,7 +1622,7 @@
               "PortType": "CCS"
             },
             "Explanation": "The Ford F-150 Lightning electrifies America’s favorite truck, offering powerful towing, advanced features, and impressive range.",
-            "ImageURL": ""
+            "ImageURL": "https://images.hgmsites.net/hug/2024-ford-f-150-lightning_100899902_h.webp"
           },
           {
             "Name": "Ford F-150 Lightning",
@@ -1161,7 +1638,7 @@
               "PortType": "CCS"
             },
             "Explanation": "The Ford F-150 Lightning electrifies the classic work truck, offering exceptional towing capacity and off-road capabilities.",
-            "ImageURL": ""
+            "ImageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRTVu8t8h29r90oAOt8rTEldi9HxHV7RG6wg&s"
           },
           {
             "Name": "Rivian R1T",
@@ -1177,7 +1654,7 @@
               "PortType": "CCS"
             },
             "Explanation": "The Rivian R1T redefines adventure with a rugged design, innovative storage, and outstanding off-road capabilities.",
-            "ImageURL": ""
+            "ImageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQt3kxaYcORH4TW681ZI0I-g5imKEPVArGYWQ&s"
           },
           {
             "Name": "Ford F-150 Lightning",
@@ -1193,7 +1670,7 @@
               "PortType": "CCS"
             },
             "Explanation": "The Ford F-150 Lightning brings the electric powertrain to America's best-selling pickup truck, offering rugged capability with modern tech.",
-            "ImageURL": ""
+            "ImageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMpjCyl9TwuON_kjl3aiy14KRGlvi5Pvn65Q&s"
           },
           {
             "Name": "Rivian R1T",
@@ -1209,7 +1686,7 @@
               "PortType": "CCS"
             },
             "Explanation": "The Rivian R1T is an all-electric pickup truck designed for both utility and adventure, offering incredible performance.",
-            "ImageURL": ""
+            "ImageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTuFFP2vitTWEuNKkhN9-umn0gt2BASe40m3Q&s"
           }
         ]
       },
@@ -1230,7 +1707,7 @@
               "PortType": "CCS"
             },
             "Explanation": "The Aspark Owl is a luxurious and insanely fast hypercar with world-class performance and exclusivity for elite car collectors.",
-            "ImageURL": ""
+            "ImageURL": "https://static1.topspeedimages.com/wordpress/wp-content/uploads/2024/07/aspark-owl-2024-driving.jpg"
           },
           {
             "Name": "Lotus Evija",
@@ -1246,7 +1723,103 @@
               "PortType": "CCS"
             },
             "Explanation": "The Lotus Evija is a lightweight all-electric hypercar combining bold design, aerodynamic precision, and unmatched handling for a track-like experience.",
-            "ImageURL": ""
+            "ImageURL": "https://smartcdn.gprod.postmedia.digital/driving/wp-content/uploads/2022/10/LOT_0806_Fittipaldi_Evija-scaled.jpg"
+          },
+          {
+            "Name": "Rimac Nevera",
+            "Year": 2024,
+            "Range": "340 miles",
+            "Price": "$2,400,000",
+            "Performance": {
+              "TopSpeed": "258 mph",
+              "Acceleration": "0-60 mph in 1.85 seconds"
+            },
+            "Charging": {
+              "FastCharging": "80% in 30 minutes",
+              "PortType": "CCS"
+            },
+            "Explanation": "The Rimac Nevera is a cutting-edge electric hypercar that delivers unparalleled performance, combining top speed, acceleration, and advanced technology.",
+            "ImageURL": "https://smartcdn.gprod.postmedia.digital/driving/wp-content/uploads/2023/08/Nevera-eperience9.jpg"
+          },
+          {
+            "Name": "Pininfarina Battista",
+            "Year": 2024,
+            "Range": "280 miles",
+            "Price": "$2,500,000",
+            "Performance": {
+              "TopSpeed": "217 mph",
+              "Acceleration": "0-60 mph in 1.9 seconds"
+            },
+            "Charging": {
+              "FastCharging": "80% in 30 minutes",
+              "PortType": "CCS"
+            },
+            "Explanation": "The Pininfarina Battista is a stunning Italian electric hypercar offering high performance with an emphasis on luxury and innovative design.",
+            "ImageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_-u8hC8kGOSaNXgfDRb8sLNAvSXno0mROHQ&s"
+          },
+          {
+            "Name": "Tesla Roadster 2.0",
+            "Year": 2024,
+            "Range": "620 miles",
+            "Price": "$200,000",
+            "Performance": {
+              "TopSpeed": "250 mph",
+              "Acceleration": "0-60 mph in 1.9 seconds"
+            },
+            "Charging": {
+              "FastCharging": "200 miles in 15 minutes",
+              "PortType": "Tesla Supercharger"
+            },
+            "Explanation": "The Tesla Roadster 2.0 is an electrifying revival of Tesla's original Roadster, offering astonishing speed, range, and cutting-edge technology.",
+            "ImageURL": "https://i.ytimg.com/vi/knM7560fIYM/maxresdefault.jpg"
+          },
+          {
+            "Name": "Nio EP9",
+            "Year": 2024,
+            "Range": "265 miles",
+            "Price": "$1,480,000",
+            "Performance": {
+              "TopSpeed": "194 mph",
+              "Acceleration": "0-60 mph in 2.7 seconds"
+            },
+            "Charging": {
+              "FastCharging": "80% in 45 minutes",
+              "PortType": "CCS"
+            },
+            "Explanation": "The Nio EP9 is an ultra-high-performance electric vehicle that blends futuristic design with mind-blowing acceleration and track-worthy capabilities.",
+            "ImageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBLxMD48U7T_W7UCIBFXDUW_Suas1I3boFKg&s"
+          },
+          {
+            "Name": "McLaren Speedtail Electric",
+            "Year": 2024,
+            "Range": "250 miles",
+            "Price": "$2,200,000",
+            "Performance": {
+              "TopSpeed": "250 mph",
+              "Acceleration": "0-60 mph in 3.0 seconds"
+            },
+            "Charging": {
+              "FastCharging": "80% in 20 minutes",
+              "PortType": "CCS"
+            },
+            "Explanation": "The McLaren Speedtail Electric is a hybrid electric hypercar that combines incredible speed and futuristic design with McLaren's legendary engineering.",
+            "ImageURL": "https://imgcdn.oto.com/large/gallery/exterior/24/2941/mclaren-speedtail-front-angle-low-view-378391.jpg"
+          },
+          {
+            "Name": "Aston Martin Rapide E",
+            "Year": 2024,
+            "Range": "200 miles",
+            "Price": "$255,000",
+            "Performance": {
+              "TopSpeed": "155 mph",
+              "Acceleration": "0-60 mph in 4.0 seconds"
+            },
+            "Charging": {
+              "FastCharging": "80% in 45 minutes",
+              "PortType": "CCS"
+            },
+            "Explanation": "The Aston Martin Rapide E offers a luxurious and electrified experience with the performance and elegance of Aston Martin’s iconic design.",
+            "ImageURL": "https://www.topgear.com/sites/default/files/cars-car/image/2018/08/image_388.jpg"
           }
         ]
       },
@@ -1267,7 +1840,7 @@
               "PortType": "CCS"
             },
             "Explanation": "The MG Cyberster is an exciting electric convertible designed to provide an exhilarating open-top driving experience.",
-            "ImageURL": ""
+            "ImageURL": "https://imageio.forbes.com/specials-images/imageserve/66882dae50112e9567a12091/MG-Cyberster-01/960x0.jpg?height=399&width=711&fit=bounds"
           },
           {
             "Name": "Tesla Roadster (2nd Gen)",
@@ -1283,44 +1856,103 @@
               "PortType": "Tesla Supercharger, CCS"
             },
             "Explanation": "The Tesla Roadster 2nd Gen redefines the electric sports car category with an unprecedented range and unparalleled performance.",
-            "ImageURL": ""
-          }
-        ]
-      },
-      {
-        "Category": "Compact Sports",
-        "Cars": [
-          {
-            "Name": "Abarth 500e",
-            "Year": 2024,
-            "Range": "199 miles",
-            "Price": "$36,000",
-            "Performance": {
-              "TopSpeed": "93 mph",
-              "Acceleration": "0-60 mph in 7.0 seconds"
-            },
-            "Charging": {
-              "FastCharging": "80% in 35 minutes",
-              "PortType": "CCS"
-            },
-            "Explanation": "The Abarth 500e combines sporty aesthetics and performance in a compact electric package for thrill-seeking city drivers.",
-            "ImageURL": ""
+            "ImageURL": "https://www.teslarati.com/wp-content/uploads/2024/02/tesla-roadster-new-1024x630.jpeg"
           },
           {
-            "Name": "Honda e",
+            "Name": "Porsche Taycan 4S Cabriolet",
             "Year": 2024,
-            "Range": "137 miles",
-            "Price": "$32,000",
+            "Range": "246 miles",
+            "Price": "$125,000",
             "Performance": {
-              "TopSpeed": "90 mph",
-              "Acceleration": "0-60 mph in 8.3 seconds"
+              "TopSpeed": "186 mph",
+              "Acceleration": "0-60 mph in 3.8 seconds"
+            },
+            "Charging": {
+              "FastCharging": "80% in 22 minutes",
+              "PortType": "CCS"
+            },
+            "Explanation": "The Porsche Taycan 4S Cabriolet offers the perfect blend of open-air luxury and high-performance electric driving with a distinct Porsche feel.",
+            "ImageURL": "https://content.homenetiol.com/2000292/2253739/0x0/d93c45252de44a7cbd187234a250e8a9.jpg"
+          },
+          {
+            "Name": "BMW i8 Roadster",
+            "Year": 2024,
+            "Range": "330 miles",
+            "Price": "$160,000",
+            "Performance": {
+              "TopSpeed": "155 mph",
+              "Acceleration": "0-60 mph in 4.2 seconds"
             },
             "Charging": {
               "FastCharging": "80% in 30 minutes",
               "PortType": "CCS"
             },
-            "Explanation": "The Honda e is a retro-modern EV that blends unique styling with advanced technology, perfect for urban commuters.",
-            "ImageURL": ""
+            "Explanation": "The BMW i8 Roadster is a futuristic plug-in hybrid convertible that merges cutting-edge technology with the thrill of open-air driving.",
+            "ImageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9n27u5_W5AbkpxZt33SBKhCsTGjgVro33DQ&s"
+          },
+          {
+            "Name": "Audi R8 Spyder e-tron",
+            "Year": 2024,
+            "Range": "280 miles",
+            "Price": "$200,000",
+            "Performance": {
+              "TopSpeed": "198 mph",
+              "Acceleration": "0-60 mph in 3.4 seconds"
+            },
+            "Charging": {
+              "FastCharging": "80% in 25 minutes",
+              "PortType": "CCS"
+            },
+            "Explanation": "The Audi R8 Spyder e-tron is an all-electric supercar with a convertible top, offering incredible speed and a dynamic driving experience.",
+            "ImageURL": "https://www.autocar.co.uk/sites/autocar.co.uk/files/images/car-reviews/first-drives/legacy/electric-audi-r8.jpg"
+          },
+          {
+            "Name": "Mercedes-Benz EQS Cabriolet",
+            "Year": 2024,
+            "Range": "350 miles",
+            "Price": "$180,000",
+            "Performance": {
+              "TopSpeed": "155 mph",
+              "Acceleration": "0-60 mph in 4.5 seconds"
+            },
+            "Charging": {
+              "FastCharging": "80% in 35 minutes",
+              "PortType": "CCS"
+            },
+            "Explanation": "The Mercedes-Benz EQS Cabriolet blends luxury, performance, and an electric powertrain, offering an elegant and smooth open-top ride.",
+            "ImageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNvWe-95_CMOh_ENuQWuBG35INRIo0ExoNvQ&s"
+          },
+          {
+            "Name": "Jaguar F-Type EV Convertible",
+            "Year": 2024,
+            "Range": "280 miles",
+            "Price": "$110,000",
+            "Performance": {
+              "TopSpeed": "186 mph",
+              "Acceleration": "0-60 mph in 3.9 seconds"
+            },
+            "Charging": {
+              "FastCharging": "80% in 30 minutes",
+              "PortType": "CCS"
+            },
+            "Explanation": "The Jaguar F-Type EV Convertible offers a thrilling sports car experience with the added benefit of a fully electric powertrain and a drop-top design.",
+            "ImageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJFAsWnarWJq35AHISoZ-M_Scjc7Svpd_rbw&s"
+          },
+          {
+            "Name": "Maserati Alfieri Convertible",
+            "Year": 2024,
+            "Range": "310 miles",
+            "Price": "$150,000",
+            "Performance": {
+              "TopSpeed": "185 mph",
+              "Acceleration": "0-60 mph in 4.0 seconds"
+            },
+            "Charging": {
+              "FastCharging": "80% in 28 minutes",
+              "PortType": "CCS"
+            },
+            "Explanation": "The Maserati Alfieri Convertible offers a perfect mix of electric power, stunning design, and exhilarating performance in an open-top vehicle.",
+            "ImageURL": "https://hips.hearstapps.com/hmg-prod/images/2024-maserati-grancabrio-trofeo-102-667af237d6677.jpg?crop=0.657xw:0.738xh;0.226xw,0.178xh&resize=768:*"
           }
         ]
       },
@@ -1341,7 +1973,7 @@
             "PortType": "CCS"
           },
           "Explanation": "The Lamborghini Lanzador redefines exotic SUVs with aggressive styling and race-inspired performance in an electric package.",
-          "ImageURL": ""
+          "ImageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDQBJ59aUoEsd8erwa7sv3Wk9y45Ln6Pnnlw&s"
         },
         {
           "Name": "Ferrari Purosangue EV",
@@ -1357,44 +1989,87 @@
             "PortType": "CCS"
           },
           "Explanation": "The Ferrari Purosangue EV is Ferrari's first electric SUV, delivering uncompromising luxury and unparalleled performance.",
-          "ImageURL": ""
-        }
-      ]
-    },
-    {
-      "Category": "Performance",
-      "Cars": [
-        {
-          "Name": "Porsche Taycan Turbo S",
-          "Year": 2023,
-          "Range": "238 miles",
-          "Price": "$187,400",
-          "Performance": {
-            "TopSpeed": "162 mph",
-            "Acceleration": "0-60 mph in 2.6 seconds"
-          },
-          "Charging": {
-            "FastCharging": "80% in 22 minutes",
-            "PortType": "CCS"
-          },
-          "Explanation": "The Porsche Taycan Turbo S delivers exhilarating speed and unmatched handling in an elegant electric sedan.",
-          "ImageURL": ""
+          "ImageURL": "https://hips.hearstapps.com/hmg-prod/images/2025-ferrari-purosangue-101-67116b9b2e5e5.jpg?crop=0.671xw:0.504xh;0.183xw,0.374xh&resize=2048:*"
         },
         {
-          "Name": "Tesla Model S Plaid",
-          "Year": 2023,
-          "Range": "396 miles",
-          "Price": "$104,990",
+          "Name": "Aston Martin DBX EV",
+          "Year": 2024,
+          "Range": "300 miles",
+          "Price": "$200,000",
           "Performance": {
-            "TopSpeed": "200 mph",
-            "Acceleration": "0-60 mph in 1.99 seconds"
+            "TopSpeed": "155 mph",
+            "Acceleration": "0-60 mph in 3.9 seconds"
           },
           "Charging": {
-            "FastCharging": "200 miles in 15 minutes",
-            "PortType": "Tesla Supercharger"
+            "FastCharging": "80% in 30 minutes",
+            "PortType": "CCS"
           },
-          "Explanation": "The Tesla Model S Plaid sets benchmarks in range, speed, and technology, making it a leader in the performance EV segment.",
-          "ImageURL": ""
+          "Explanation": "The Aston Martin DBX EV offers a perfect combination of luxury, performance, and cutting-edge electric technology in a beautifully designed SUV.",
+          "ImageURL": "https://vehicle-photos-published.vauto.com/39/12/69/08-93d6-4438-8c3c-76c9b0a7173f/image-1.jpg"
+        },
+        {
+          "Name": "Bentley Bentayga Electric",
+          "Year": 2024,
+          "Range": "310 miles",
+          "Price": "$230,000",
+          "Performance": {
+            "TopSpeed": "160 mph",
+            "Acceleration": "0-60 mph in 4.1 seconds"
+          },
+          "Charging": {
+            "FastCharging": "80% in 40 minutes",
+            "PortType": "CCS"
+          },
+          "Explanation": "The Bentley Bentayga Electric combines luxury craftsmanship with powerful electric performance, ensuring a smooth and sophisticated driving experience.",
+          "ImageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5wPEZWpSdpjkX-MGsN9h_zFowBKGEYd7brg&s"
+        },
+        {
+          "Name": "Rolls-Royce Cullinan EV",
+          "Year": 2024,
+          "Range": "290 miles",
+          "Price": "$400,000",
+          "Performance": {
+            "TopSpeed": "155 mph",
+            "Acceleration": "0-60 mph in 5.0 seconds"
+          },
+          "Charging": {
+            "FastCharging": "80% in 35 minutes",
+            "PortType": "CCS"
+          },
+          "Explanation": "The Rolls-Royce Cullinan EV offers the ultimate in luxury SUV performance, with an all-electric powertrain and exquisite attention to detail.",
+          "ImageURL": "https://www.topgear.com/sites/default/files/cars-car/image/2023/07/LIPMAN_JL93884_0.jpg"
+        },
+        {
+          "Name": "Maserati Levante Electric",
+          "Year": 2024,
+          "Range": "280 miles",
+          "Price": "$170,000",
+          "Performance": {
+            "TopSpeed": "155 mph",
+            "Acceleration": "0-60 mph in 4.5 seconds"
+          },
+          "Charging": {
+            "FastCharging": "80% in 32 minutes",
+            "PortType": "CCS"
+          },
+          "Explanation": "The Maserati Levante Electric is a stunning luxury SUV that combines Maserati's iconic design with electrifying performance.",
+          "ImageURL": "https://vehicle-images.dealerinspire.com/88db-110009518/ZN661XUM4RX446829/101fadda9e907765252415e3a10e7086.jpg"
+        },
+        {
+          "Name": "Jaguar I-Pace SVR",
+          "Year": 2024,
+          "Range": "250 miles",
+          "Price": "$150,000",
+          "Performance": {
+            "TopSpeed": "155 mph",
+            "Acceleration": "0-60 mph in 4.2 seconds"
+          },
+          "Charging": {
+            "FastCharging": "80% in 28 minutes",
+            "PortType": "CCS"
+          },
+          "Explanation": "The Jaguar I-Pace SVR is a high-performance electric SUV that delivers an exciting driving experience, with luxury and sportiness combined.",
+          "ImageURL": "https://www.carmag.co.za/wp-content/uploads/2024/08/jaguar-1-1-jpg.webp"
         }
       ]
     },
@@ -1415,7 +2090,7 @@
             "PortType": "CCS"
           },
           "Explanation": "The Kia Niro EV offers a practical and affordable choice for small families, with ample space and solid range.",
-          "ImageURL": ""
+          "ImageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSavYHMBF_olF6k0up9HUtqJDOX3-OulnQR5g&s"
         },
         {
           "Name": "Mazda MX-30",
@@ -1431,7 +2106,87 @@
             "PortType": "CCS"
           },
           "Explanation": "The Mazda MX-30 is a uniquely styled EV crossover with sustainable interiors and a focus on urban driving.",
-          "ImageURL": ""
+          "ImageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwMkenkTwRVHPCcQz4QZDa50CUh4HB5nDhcg&s"
+        },
+        {
+          "Name": "Hyundai Kona Electric",
+          "Year": 2023,
+          "Range": "258 miles",
+          "Price": "$37,490",
+          "Performance": {
+            "TopSpeed": "104 mph",
+            "Acceleration": "0-60 mph in 7.6 seconds"
+          },
+          "Charging": {
+            "FastCharging": "80% in 54 minutes",
+            "PortType": "CCS"
+          },
+          "Explanation": "The Hyundai Kona Electric offers an affordable and well-rounded electric crossover with a solid range and practical features.",
+          "ImageURL": "https://www.motortrend.com/uploads/2022/08/2023-Hyundai-Kona-Electric-44710.jpg"
+        },
+        {
+          "Name": "Chevrolet Bolt EUV",
+          "Year": 2023,
+          "Range": "247 miles",
+          "Price": "$34,495",
+          "Performance": {
+            "TopSpeed": "93 mph",
+            "Acceleration": "0-60 mph in 7.0 seconds"
+          },
+          "Charging": {
+            "FastCharging": "95 miles in 30 minutes",
+            "PortType": "CCS"
+          },
+          "Explanation": "The Chevrolet Bolt EUV combines practicality and affordability in a spacious crossover with modern tech features.",
+          "ImageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXx9kOTcrQASR9P3qFgyTufhTey6BkcTsprQ&s"
+        },
+        {
+          "Name": "Nissan Ariya",
+          "Year": 2023,
+          "Range": "300 miles",
+          "Price": "$40,000",
+          "Performance": {
+            "TopSpeed": "124 mph",
+            "Acceleration": "0-60 mph in 5.4 seconds"
+          },
+          "Charging": {
+            "FastCharging": "80% in 35 minutes",
+            "PortType": "CCS"
+          },
+          "Explanation": "The Nissan Ariya is a stylish and versatile electric crossover offering a balanced range and cutting-edge technology.",
+          "ImageURL": "https://hips.hearstapps.com/hmg-prod/images/2023-nissan-ariya-empower-108-1669827730.jpg?crop=0.720xw:0.607xh;0.237xw,0.379xh&resize=2048:*"
+        },
+        {
+          "Name": "Ford Mustang Mach-E Standard Range",
+          "Year": 2023,
+          "Range": "230 miles",
+          "Price": "$43,895",
+          "Performance": {
+            "TopSpeed": "111 mph",
+            "Acceleration": "0-60 mph in 5.8 seconds"
+          },
+          "Charging": {
+            "FastCharging": "61 miles in 10 minutes",
+            "PortType": "CCS"
+          },
+          "Explanation": "The Ford Mustang Mach-E brings iconic performance to the electric crossover segment with a sleek design and impressive tech features.",
+          "ImageURL": "https://i.gaw.to/vehicles/photos/40/32/403229-2023-ford-mustang-mach-e.jpg?640x400"
+        },
+        {
+          "Name": "BMW iX3",
+          "Year": 2023,
+          "Range": "285 miles",
+          "Price": "$55,400",
+          "Performance": {
+            "TopSpeed": "124 mph",
+            "Acceleration": "0-60 mph in 6.8 seconds"
+          },
+          "Charging": {
+            "FastCharging": "80% in 34 minutes",
+            "PortType": "CCS"
+          },
+          "Explanation": "The BMW iX3 delivers a premium driving experience with electric performance, spacious interior, and advanced technology.",
+          "ImageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsUgGB4r7zvTlss-DrKPwui4j2Wy6zI5AoVQ&s"
         }
       ]
     },
@@ -1452,7 +2207,7 @@
             "PortType": "CCS"
           },
           "Explanation": "The Mercedes-Benz EQS is a luxury EV flagship offering unparalleled comfort, advanced technology, and smooth performance.",
-          "ImageURL": ""
+          "ImageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsN3u7TZDUDTx2IzQjiNciNwlY6VvuQSAbOw&s"
         },
         {
           "Name": "BMW i4 M50",
@@ -1468,7 +2223,7 @@
             "PortType": "CCS"
           },
           "Explanation": "The BMW i4 M50 blends sports-car performance with electric efficiency in a luxurious package.",
-          "ImageURL": ""
+          "ImageURL": "https://www.cnet.com/a/img/resize/e54c4af3ab00e6673a3d2851e1bea7729f30b6d2/hub/2022/10/13/08448dfe-938c-4533-bf39-b2a48ec08436/bmw-i4-m50-2022-734311.jpg?auto=webp&width=1200"
         },
         {
             "Name": "Lucid Air Touring",
@@ -1484,7 +2239,7 @@
               "PortType": "CCS"
             },
             "Explanation": "The Lucid Air Touring offers an exceptional blend of range, luxury, and technology in an ultra-modern package.",
-            "ImageURL": ""
+            "ImageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUjjyQuWyuS4us6o3SfMP1cR5eW3EErjk15g&s"
           },
           {
             "Name": "Porsche Taycan",
@@ -1500,7 +2255,7 @@
               "PortType": "CCS"
             },
             "Explanation": "The Porsche Taycan offers high-performance driving with luxury features and state-of-the-art technology.",
-            "ImageURL": ""
+            "ImageURL": "https://forzaclienti.com/blobs/stock/30/images/4447ce29-e3a9-4b64-a972-1f73390b179a.jpg?width=2000&height=1333"
           },
           {
             "Name": "Tesla Model S",
@@ -1516,7 +2271,7 @@
               "PortType": "Tesla Supercharger"
             },
             "Explanation": "The Tesla Model S is a high-performance luxury electric sedan with long-range capabilities and cutting-edge technology.",
-            "ImageURL": ""
+            "ImageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSAtqCBbERZaprrwcv0F2zISTNIWi8jLDKjA&s"
           },
           {
             "Name": "Lucid Air",
@@ -1532,8 +2287,41 @@
               "PortType": "CCS"
             },
             "Explanation": "The Lucid Air is a luxury electric sedan offering an industry-leading range and impressive performance.",
-            "ImageURL": ""
+            "ImageURL": "https://i.insider.com/646cf783fee1b300197a6c10?width=750&format=jpeg&auto=webp"
+          },
+          {
+            "Name": "Mercedes-Benz EQS",
+            "Year": 2024,
+            "Range": "450 miles",
+            "Price": "$105,000",
+            "Performance": {
+              "TopSpeed": "130 mph",
+              "Acceleration": "0-60 mph in 4.1 seconds"
+            },
+            "Charging": {
+              "FastCharging": "80% in 31 minutes",
+              "PortType": "CCS"
+            },
+            "Explanation": "The EQS sets new standards for luxury, technology, and range in electric sedans.",
+            "ImageURL": "https://media.ed.edmunds-media.com/mercedes-benz/eqs/2024/oem/2024_mercedes-benz_eqs_sedan_amg-eqs_fq_oem_1_1600.jpg"
+          },
+          {
+            "Name": "BMW i7",
+            "Year": 2024,
+            "Range": "390 miles",
+            "Price": "$119,000",
+            "Performance": {
+              "TopSpeed": "120 mph",
+              "Acceleration": "0-60 mph in 4.5 seconds"
+            },
+            "Charging": {
+              "FastCharging": "80% in 34 minutes",
+              "PortType": "CCS"
+            },
+            "Explanation": "The BMW i7 delivers unmatched elegance, comfort, and advanced electric performance.",
+            "ImageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdQIRV0KfaJDSwbgDG7bToY-bUf9k9TkIUrg&s"
           }
+          
       ]
     },
     {
@@ -1553,7 +2341,7 @@
             "PortType": "CCS"
           },
           "Explanation": "The Lucid Air Sapphire is a luxury hyper-performance EV setting new benchmarks in range and speed.",
-          "ImageURL": ""
+          "ImageURL": "https://www.motortrend.com/uploads/2022/08/2023-Lucid-Air-Sapphire-day-motion-1.jpg"
         },
         {
           "Name": "Rimac Nevera",
@@ -1569,7 +2357,7 @@
             "PortType": "CCS"
           },
           "Explanation": "The Rimac Nevera is an electric hypercar with unparalleled performance, showcasing cutting-edge technology.",
-          "ImageURL": ""
+          "ImageURL": "https://media.autoexpress.co.uk/image/private/s--X-WVjvBW--/f_auto,t_content-image-full-desktop@1/v1671100028/autoexpress/2022/12/Rimac%20Nevera%202023-2.jpg"
         },
         {
             "Name": "Tesla Roadster",
@@ -1585,7 +2373,7 @@
               "PortType": "Tesla Supercharger"
             },
             "Explanation": "The Tesla Roadster is an all-electric hypercar, setting new standards for speed, acceleration, and range.",
-            "ImageURL": ""
+            "ImageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOcZdpGKyau0jTPdUjJBkZ-7uqn-kNxwqBDA&s"
           },
           {
             "Name": "Rimac C_Two",
@@ -1601,7 +2389,7 @@
               "PortType": "CCS"
             },
             "Explanation": "The Rimac C_Two is a record-breaking hypercar that combines cutting-edge performance with electric power.",
-            "ImageURL": ""
+            "ImageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDHRQIm5YZ0wbx1a-SeJpyCRAUN8-jDk6PgA&s"
           }
       ]
     },
@@ -1622,7 +2410,7 @@
             "PortType": "CCS"
           },
           "Explanation": "The MG4 Electric is an affordable compact EV with modern design and a competitive range.",
-          "ImageURL": ""
+          "ImageURL": "https://ev-database.org/img/auto/MG_MG4_Electric_2022/MG_MG4_Electric_2022-01@2x.jpg"
         },
         {
           "Name": "Renault Megane E-Tech",
@@ -1638,7 +2426,7 @@
             "PortType": "CCS"
           },
           "Explanation": "The Renault Megane E-Tech provides a stylish, practical option for those seeking a European-designed EV.",
-          "ImageURL": ""
+          "ImageURL": "https://www.autocar.co.uk/sites/autocar.co.uk/files/images/car-reviews/long-term-review/legacy/renault-megan-e-lt-al-c-202320230213_4147.jpg"
         },
         {
             "Name": "Fiat 500 Electric",
@@ -1654,7 +2442,7 @@
               "PortType": "CCS"
             },
             "Explanation": "The Fiat 500 Electric is a compact, stylish, and affordable EV ideal for urban driving.",
-            "ImageURL": ""
+            "ImageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSArWGIOhclXNB0xurHRkKxRcPr_a958YH89Q&s"
           },
           {
             "Name": "Honda e",
@@ -1670,7 +2458,55 @@
               "PortType": "CCS"
             },
             "Explanation": "The Honda e is a quirky and fun urban car offering great technology and an easy-to-park size.",
-            "ImageURL": ""
+            "ImageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRuQAyIUgkgT5DsFh3hvnAZNnaQ6eiIxbiERg&s"
+          },
+          {
+            "Name": "Mini Electric",
+            "Year": 2023,
+            "Range": "145 miles",
+            "Price": "$29,900",
+            "Performance": {
+              "TopSpeed": "93 mph",
+              "Acceleration": "0-60 mph in 7.3 seconds"
+            },
+            "Charging": {
+              "FastCharging": "80% in 36 minutes",
+              "PortType": "CCS"
+            },
+            "Explanation": "The Mini Electric combines iconic styling with electric performance in a compact and efficient package.",
+            "ImageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3RQ7SacA65OUDx82nArQMM-HxiT2lygLIFQ&s"
+          },
+          {
+            "Name": "Peugeot e-208",
+            "Year": 2023,
+            "Range": "217 miles",
+            "Price": "$32,000",
+            "Performance": {
+              "TopSpeed": "93 mph",
+              "Acceleration": "0-60 mph in 8.1 seconds"
+            },
+            "Charging": {
+              "FastCharging": "80% in 30 minutes",
+              "PortType": "CCS"
+            },
+            "Explanation": "The Peugeot e-208 is a stylish, affordable hatchback offering a great balance of performance and range.",
+            "ImageURL": "https://www.carscoops.com/wp-content/uploads/2022/10/Peugeot-208-Facelift-Rendering-Red.jpg"
+          },
+          {
+            "Name": "Skoda Enyaq iV",
+            "Year": 2023,
+            "Range": "258 miles",
+            "Price": "$35,000",
+            "Performance": {
+              "TopSpeed": "99 mph",
+              "Acceleration": "0-60 mph in 8.5 seconds"
+            },
+            "Charging": {
+              "FastCharging": "80% in 35 minutes",
+              "PortType": "CCS"
+            },
+            "Explanation": "The Skoda Enyaq iV is a spacious and affordable electric hatchback that offers practical features for everyday use.",
+            "ImageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSN6flYGGtLNZXRvyGkai0wYteAlu6ysyw-JA&s"
           }
       ]
     },
@@ -1691,7 +2527,7 @@
               "PortType": "CCS"
             },
             "Explanation": "The Hyundai Ioniq 6 provides impressive range, performance, and comfort for a family sedan with eco-friendly features.",
-            "ImageURL": ""
+            "ImageURL": "https://www.cnet.com/a/img/resize/41cebeb3734a93b13c962c7a750cfbb6f1bda683/hub/2022/06/28/3e5c74e3-3510-4c08-bfd2-5ed7bb8eb0dc/hyundai-ioniq-6-ev-sedan-116.jpg?auto=webp&fit=crop&height=675&width=1200"
           },
           {
             "Name": "BMW i4",
@@ -1707,7 +2543,7 @@
               "PortType": "CCS"
             },
             "Explanation": "The BMW i4 is a stylish electric sedan that offers sports car performance while maintaining luxury comfort.",
-            "ImageURL": ""
+            "ImageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6T3_By8BfRloPdSGoeb9g-rotFirycJBnCA&s"
           },
           {
             "Name": "Tesla Model 3",
@@ -1723,7 +2559,7 @@
               "PortType": "Tesla Supercharger"
             },
             "Explanation": "The Tesla Model 3 is a highly efficient and affordable electric sedan with cutting-edge technology and great performance.",
-            "ImageURL": ""
+            "ImageURL": "https://cdn.mos.cms.futurecdn.net/VXc2ZjzWGGKGSLAymgeHZ.jpg"
           },
           {
             "Name": "Ford Mustang Mach-E",
@@ -1739,7 +2575,7 @@
               "PortType": "CCS"
             },
             "Explanation": "The Ford Mustang Mach-E offers great performance with a variety of configurations, from the standard to high-performance GT version.",
-            "ImageURL": ""
+            "ImageURL": "https://media.ford.com/content/fordmedia/fna/us/en/products/evs/mustang-mach-e/mustang-mach-e/jcr:content/content/media-section-parsys/textimage_f597/image.img.951.535.jpg/1608221793793.jpg"
           }
         ]
       },
@@ -1760,7 +2596,7 @@
               "PortType": "CCS"
             },
             "Explanation": "The Audi e-tron GT combines the elegance of a luxury coupe with high-performance electric power.",
-            "ImageURL": ""
+            "ImageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPKtmk4_YdOSyvrYHGZ275ggJJZvC7TgxAMw&s"
           },
           {
             "Name": "Porsche Taycan Cross Turismo",
@@ -1776,7 +2612,7 @@
               "PortType": "CCS"
             },
             "Explanation": "The Porsche Taycan Cross Turismo offers a blend of off-road capability and high-end performance in a coupe form factor.",
-            "ImageURL": ""
+            "ImageURL": "https://blogmedia.dealerfire.com/wp-content/uploads/sites/1150/2021/09/2022-Porsche-Taycan-Cross-Turismo-front_o.jpg"
           },
           {
             "Name": "Porsche Taycan",
@@ -1792,7 +2628,7 @@
               "PortType": "CCS"
             },
             "Explanation": "The Porsche Taycan is a luxury sports sedan that delivers exceptional performance with Porsche's signature handling.",
-            "ImageURL": ""
+            "ImageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRp7b7z_a5ky-ullzamjG8VutvHammtK_9WSQ&s"
           },
           {
             "Name": "BMW i4",
@@ -1808,7 +2644,7 @@
               "PortType": "CCS"
             },
             "Explanation": "The BMW i4 offers a mix of performance, luxury, and electric power, with a stylish coupe design.",
-            "ImageURL": ""
+            "ImageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQB4MyJ9IDFfimBH1HgWvba9JYq4LE1DBycKw&s"
           }
         ]
       },
@@ -1829,7 +2665,7 @@
               "PortType": "CCS"
             },
             "Explanation": "The Rivian R1T is an electric adventure pickup designed for performance and off-road capabilities.",
-            "ImageURL": ""
+            "ImageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0FwSP9rXgD9F2W8XDvloRIYDNmEibp5HE6g&s"
           },
           {
             "Name": "Tesla Model X",
@@ -1845,7 +2681,7 @@
               "PortType": "Tesla Supercharger"
             },
             "Explanation": "The Tesla Model X is an all-electric SUV with a large interior, remarkable performance, and futuristic features like Falcon Wing doors.",
-            "ImageURL": ""
+            "ImageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQk7ncIjCKIbB6LNOJwJbfWGPX-A1KkuXEgxA&s"
           },
           {
             "Name": "Volkswagen ID.4",
@@ -1861,7 +2697,7 @@
               "PortType": "CCS"
             },
             "Explanation": "The Volkswagen ID.4 is an electric SUV offering a comfortable and eco-friendly driving experience, perfect for families.",
-            "ImageURL": ""
+            "ImageURL": "https://www.khaberni.com/uploads/news_model/2022/06/main_image62a8cc89b7d7f.jpg"
           },
           {
             "Name": "Hyundai Kona Electric",
@@ -1877,7 +2713,7 @@
               "PortType": "CCS"
             },
             "Explanation": "The Hyundai Kona Electric offers an affordable entry into the electric SUV market, with solid range and good tech features.",
-            "ImageURL": ""
+            "ImageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQMi6W1qyg_dmW0eJwkTUwfvo-Y661SkUwJw&s"
           }
         ]
       },
@@ -1898,7 +2734,7 @@
               "PortType": "CHAdeMO"
             },
             "Explanation": "The Nissan Leaf is one of the most affordable and practical electric cars, ideal for urban driving with solid range.",
-            "ImageURL": ""
+            "ImageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4cnxWL5erFicwU6M5ITm8IhCrJpp_AfBJMg&s"
           },
           {
             "Name": "Kia Niro EV",
@@ -1914,7 +2750,7 @@
               "PortType": "CCS"
             },
             "Explanation": "The Kia Niro EV offers practicality, efficiency, and value for drivers looking for an affordable electric crossover.",
-            "ImageURL": ""
+            "ImageURL": "https://platform.cstatic-images.com/in/v2/stock_photos/b75174d0-e4c0-4ac4-b17b-887ede67eabb/c8b1e67a-1662-4c23-af75-a75ff8583df6.png"
           },
           {
             "Name": "Nissan Leaf Plus",
@@ -1930,7 +2766,7 @@
               "PortType": "CHAdeMO"
             },
             "Explanation": "The Nissan Leaf Plus offers an affordable price for a range that works well for daily commutes and urban driving.",
-            "ImageURL": ""
+            "ImageURL": "https://images.cars.com/cldstatic/wp-content/uploads/2020-Nissan-Nissan-LEAF-SV-Plus-2-source.jpg"
           },
           {
             "Name": "Chevrolet Bolt EV",
@@ -1946,155 +2782,7 @@
               "PortType": "CCS"
             },
             "Explanation": "The Chevrolet Bolt EV is an affordable electric vehicle with great range and features, making it ideal for urban and suburban driving.",
-            "ImageURL": ""
-          }
-        ]
-      },
-      {
-        "Category": "Compact SUV",
-        "Cars": [
-          {
-            "Name": "Chevrolet Bolt EUV",
-            "Year": 2020,
-            "Range": "247 miles",
-            "Price": "$33,995",
-            "Performance": {
-              "TopSpeed": "93 mph",
-              "Acceleration": "0-60 mph in 6.5 seconds"
-            },
-            "Charging": {
-              "FastCharging": "100 miles in 30 minutes",
-              "PortType": "CCS"
-            },
-            "Explanation": "The Chevrolet Bolt EUV offers a compact electric SUV design with decent range and affordable pricing.",
-            "ImageURL": ""
-          },
-          {
-            "Name": "Ford Mustang Mach-E",
-            "Year": 2020,
-            "Range": "300 miles",
-            "Price": "$42,895",
-            "Performance": {
-              "TopSpeed": "111 mph",
-              "Acceleration": "0-60 mph in 5.1 seconds"
-            },
-            "Charging": {
-              "FastCharging": "61 miles in 10 minutes",
-              "PortType": "CCS"
-            },
-            "Explanation": "The Ford Mustang Mach-E combines iconic Mustang styling with modern electric performance.",
-            "ImageURL": ""
-          }
-        ]
-      },
-      {
-        "Category": "Crossover SUV",
-        "Cars": [
-          {
-            "Name": "BMW iX3",
-            "Year": 2020,
-            "Range": "285 miles",
-            "Price": "$69,000",
-            "Performance": {
-              "TopSpeed": "112 mph",
-              "Acceleration": "0-60 mph in 6.8 seconds"
-            },
-            "Charging": {
-              "FastCharging": "80% in 34 minutes",
-              "PortType": "CCS"
-            },
-            "Explanation": "The BMW iX3 is an electric crossover offering premium performance and luxury in a practical SUV package.",
-            "ImageURL": ""
-          },
-          {
-            "Name": "Volvo XC40 Recharge",
-            "Year": 2020,
-            "Range": "223 miles",
-            "Price": "$53,990",
-            "Performance": {
-              "TopSpeed": "112 mph",
-              "Acceleration": "0-60 mph in 4.9 seconds"
-            },
-            "Charging": {
-              "FastCharging": "80% in 40 minutes",
-              "PortType": "CCS"
-            },
-            "Explanation": "The Volvo XC40 Recharge is a compact luxury electric SUV with a simple and stylish design and solid performance.",
-            "ImageURL": ""
-          }
-        ]
-      },
-      {
-        "Category": "Affordable Sedan",
-        "Cars": [
-          {
-            "Name": "Nissan Leaf",
-            "Year": 2020,
-            "Range": "226 miles",
-            "Price": "$31,620",
-            "Performance": {
-              "TopSpeed": "93 mph",
-              "Acceleration": "0-60 mph in 7.4 seconds"
-            },
-            "Charging": {
-              "FastCharging": "80% in 40 minutes",
-              "PortType": "CHAdeMO"
-            },
-            "Explanation": "The Nissan Leaf is an affordable, compact electric sedan that's perfect for everyday use and urban driving.",
-            "ImageURL": ""
-          },
-          {
-            "Name": "Hyundai Ioniq Electric",
-            "Year": 2020,
-            "Range": "170 miles",
-            "Price": "$33,045",
-            "Performance": {
-              "TopSpeed": "103 mph",
-              "Acceleration": "0-60 mph in 9.9 seconds"
-            },
-            "Charging": {
-              "FastCharging": "80% in 54 minutes",
-              "PortType": "CCS"
-            },
-            "Explanation": "The Hyundai Ioniq Electric is a budget-friendly, eco-conscious compact electric sedan.",
-            "ImageURL": ""
-          }
-        ]
-      },
-      {
-        "Category": "Family SUV",
-        "Cars": [
-          {
-            "Name": "Kia Niro EV",
-            "Year": 2020,
-            "Range": "239 miles",
-            "Price": "$39,090",
-            "Performance": {
-              "TopSpeed": "104 mph",
-              "Acceleration": "0-60 mph in 7.8 seconds"
-            },
-            "Charging": {
-              "FastCharging": "80% in 54 minutes",
-              "PortType": "CCS"
-            },
-            "Explanation": "The Kia Niro EV is an electric compact SUV that offers a practical range and value for families.",
-            "ImageURL": ""
-          },
-          {
-            "Name": "Mazda MX-30",
-            "Year": 2020,
-            "Range": "130 miles",
-            "Price": "$34,645",
-            "Performance": {
-              "TopSpeed": "87 mph",
-              "Acceleration": "0-60 mph in 9.7 seconds"
-            },
-            "Charging": {
-              "FastCharging": "80% in 40 minutes",
-              "PortType": "CCS"
-            },
-            "Explanation": "The Mazda MX-30 is a compact electric SUV offering Mazda's signature driving dynamics in a sustainable package.",
-            "ImageURL": ""
+            "ImageURL": "https://cdn.dlron.us/static/dealer-16692/2021-Chevy-ChevyMyWay-BoltEV-3_4_Driver_Side1.jpg"
           }
         ]
       }

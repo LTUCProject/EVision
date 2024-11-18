@@ -5,12 +5,20 @@ import "./ElectricCars.css";
 const ElectricCars = () => {
   const [searchTerm, setSearchTerm] = useState("");
 
-  // Filter cars by search term
+  // Filter cars by search term across all fields
   const filteredCategories = ElectricCarsData.ElectricCars.map((category) => ({
     ...category,
-    Cars: category.Cars.filter((car) =>
-      car.Name.toLowerCase().includes(searchTerm.toLowerCase())
-    ),
+    Cars: category.Cars.filter((car) => {
+      // Convert all relevant car data to lowercase for case-insensitive matching
+      const carData = `
+        ${car.Name} ${car.Year} ${car.Range} ${car.Price} ${car.Performance.TopSpeed} 
+        ${car.Performance.Acceleration} ${car.Charging.FastCharging} ${car.Charging.PortType} 
+        ${car.Explanation}
+      `.toLowerCase();
+
+      // Check if the search term is in the car data
+      return carData.includes(searchTerm.toLowerCase());
+    }),
   })).filter((category) => category.Cars.length > 0);
 
   return (
@@ -21,7 +29,7 @@ const ElectricCars = () => {
       <div className="electric-cars-search">
         <input
           type="text"
-          placeholder="Search cars by name..."
+          placeholder="Search cars..."
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
           className="electric-cars-search-input"
