@@ -24,6 +24,7 @@ import Booking from "./components/Client/Booking/Booking";
 // import ClientFavorite from "./components/Client/ClientFavorite/ClientFavorite";
 import ServiceReq from "./components/Client/ServiceReq/ServiceReq"
 import ElectricCars from "./components/ElectricCars/ElectricCars"
+import ScrollUpButton from "./components/ScrollUpButton/ScrollUpButton";
 
 
 const App = () => {
@@ -93,6 +94,10 @@ const App = () => {
             </>
           )}
         </Routes>
+        <>
+        {/* ScrollUpButton placed alongside Routes */}
+        <ScrollUpButton />
+      </>
         <Footer />
       </Router>
     </div>

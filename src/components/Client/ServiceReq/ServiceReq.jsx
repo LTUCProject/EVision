@@ -15,6 +15,8 @@ const ServiceReq = () => {
     const [feedbacks, setFeedbacks] = useState({}); // State to store feedbacks for each serviceInfoId
     const [rating, setRating] = useState(0); // Default rating is 0
     const [comment, setComment] = useState(''); // Default comment is empty
+    const [favoriteServices, setFavoriteServices] = useState([]); // State to store the client's favorite services
+
 
 
     // Fetch client vehicles
@@ -62,6 +64,38 @@ const ServiceReq = () => {
         }
     };
 
+    // Function to add a service to favorites
+    const addToFavorites = async (serviceInfoId) => {
+        // Check if service is already in favorites
+        if (favoriteServices.some(service => service.serviceInfoId === serviceInfoId)) {
+            alert("This service is already in your favorites!");
+            return; // Do nothing if already in favorites
+        }
+    
+        const favoriteData = {
+            clientId: GetClientIdFromToken(),
+            serviceInfoId: serviceInfoId,
+        };
+    
+        try {
+            const response = await axios.post(
+                'https://localhost:7080/api/Clients/ServiceInfoFavorites',
+                favoriteData,
+                {
+                    headers: {
+                        Authorization: `Bearer ${localStorage.getItem('token')}`,
+                        'Content-Type': 'application/json',
+                    },
+                }
+            );
+            alert(`Service ${response.data.serviceInfoName} added to favorites successfully!`);
+            setFavoriteServices((prevFavorites) => [...prevFavorites, response.data]); // Update favorites state
+        } catch (error) {
+            console.error('Error adding to favorites:', error);
+            alert('Failed to add service to favorites.');
+        }
+    };
+    
     // Fetch feedbacks for a specific serviceInfoId
     const loadFeedbacksForService = async (serviceInfoId) => {
         try {
@@ -246,6 +280,14 @@ const ServiceReq = () => {
                                 <h3 className="provider-title">Provider:</h3>
                                 <p className="pN">Name: <span>{service.provider.name}</span></p>
                             </div>
+                            {/* Add to Favorites Button */}
+                            <button
+    onClick={() => addToFavorites(service.serviceInfoId)}
+    className="add-favorite-btn"
+    disabled={favoriteServices.some(favService => favService.serviceInfoId === service.serviceInfoId)} // Disable if already in favorites
+>
+    {favoriteServices.some(favService => favService.serviceInfoId === service.serviceInfoId) ? 'Already in Favorites' : 'Add to Favorite'}
+</button>
 
                             {/* Buttons to open modals */}
                             <button onClick={() => openFeedbackModal(service)} className="modal-btnPR">

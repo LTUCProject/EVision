@@ -301,8 +301,8 @@ const ChargingStationAndLocationForm = () => {
                     >
                         <option value="" disabled>Select Payment Method</option>
                         <option value="Credit Card">Credit Card</option>
-                        <option value="Cash">Mobile Payment</option>
-                        <option value="Both">Cash</option>
+                        <option value="Cash">Cash</option>
+                        <option value="Credit Card & Cash">Credit Card & Cash</option>
                     </select>
                 </label>
 

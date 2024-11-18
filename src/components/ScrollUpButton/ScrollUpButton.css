@@ -1,0 +1,22 @@
+.scrollup {
+  position: fixed;
+  bottom: 150px;
+  right: 70px;
+  background-color: rgb(158, 158, 138); /* الخلفية الصفراء */
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  border-radius: 50%; /* شكل دائري */
+  color: black; /* اللون الأسود للأيقونة */
+  font-size: 1.5rem;
+  z-index: 1000; /* فوق جميع العناصر */
+  transition: transform 0.3s ease;
+}
+
+.scrollup:hover {
+  transform: translateY(-0.25rem); /* تأثير الحركة عند التمرير */
+  background-color: #726e5d; /* لون أصفر مختلف عند التمرير */
+  color: black; /* التأكد من اللون الأسود للأيقونة */
+}
