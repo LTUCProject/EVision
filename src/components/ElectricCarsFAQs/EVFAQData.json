@@ -1,0 +1,242 @@
+[
+    {
+        "question": "What is an electric car?",
+        "answer": "An electric car is a vehicle powered entirely by electricity stored in a battery, instead of using a traditional internal combustion engine.",
+        "image": "data:image/jpeg;base64,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"
+    },
+    {
+        "question": "How does an electric car work?",
+        "answer": "Electric cars use electric motors powered by a battery pack. The motor converts electricity into mechanical energy to move the vehicle.",
+        "image": "data:image/jpeg;base64,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"
+    },
+    {
+        "question": "What are the benefits of driving an electric car?",
+        "answer": "Electric cars are eco-friendly, reduce greenhouse gas emissions, have lower running costs, and require less maintenance.",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQm1QPtS3R8rkajNA-BfnTViffz_1d5S2CIHw&s"
+    },
+    {
+        "question": "How long does it take to charge an electric car?",
+        "answer": "Charging time depends on the charger type and battery size, ranging from 30 minutes (fast chargers) to several hours (home chargers).",
+        "image": "https://a-us.storyblok.com/f/1006159/600x350/a0ae3ab3cd/ev-charging.png/m/810x0/filters:format(png):quality(70)"
+    },
+    {
+        "question": "What types of chargers are available for electric cars?",
+        "answer": "There are three types: Level 1 (120V), Level 2 (240V), and DC fast chargers, which provide different charging speeds.",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3L7S5ZA-IxUHn4sHXCqfxKsVePRC4Z8YDxg&s"
+    },
+    {
+        "question": "Can I charge my electric car at home?",
+        "answer": "Yes, you can charge an electric car at home using a standard outlet or by installing a Level 2 charging station.",
+        "image": "https://www.heatelec.uk/wp-content/uploads/2022/03/home_car_charging.jpg"
+    },
+    {
+        "question": "What is a charging station?",
+        "answer": "A charging station is a location equipped with electric vehicle chargers where drivers can recharge their cars.",
+        "image": "https://images.squarespace-cdn.com/content/v1/5f3b08d4515c242514c95656/f7890c9c-7fcc-439b-b285-5d1328b375c1/commercial-ev-charging-station.jpg"
+    },
+    {
+        "question": "How much does it cost to charge an electric car?",
+        "answer": "Costs vary by electricity rates and charger type but are generally cheaper than fueling a gas-powered vehicle.",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-K4U_HMjEm5OMEd58L2hNgsW7USALiUm0vw&s"
+    },
+    {
+        "question": "What is range anxiety?",
+        "answer": "Range anxiety is the fear of running out of battery power before reaching a charging station.",
+        "image": "https://media.licdn.com/dms/image/D5612AQGOqYzIwLoYQw/article-cover_image-shrink_720_1280/0/1718715610683?e=2147483647&v=beta&t=QcmFQq2L_JxRJgG_IXkMGtMZr3-ZQO-NSjrqc8Anxds"
+    },
+    {
+        "question": "How can I find charging stations near me?",
+        "answer": "You can use apps or websites like PlugShare, ChargePoint, or your car's navigation system to locate nearby charging stations.",
+        "image": "https://4frontenergy.com/wp-content/uploads/2024/10/how-to-find-free-ev-charging-stations.webp"
+    },
+    {
+        "question": "What is the lifespan of an electric car battery?",
+        "answer": "Most electric car batteries last between 8 to 15 years, depending on usage and environmental factors.",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDwUCG2uN3fa0rusm6R3dkpiUqqzPFdB0DAQ&s"
+    },
+    {
+        "question": "Are electric cars suitable for long-distance travel?",
+        "answer": "Yes, modern electric cars have ranges of over 300 miles per charge, and charging stations are becoming more widespread.",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmcFR9Wc5pD6GESj6KFGTm5rePcmtZeSN07Q&s"
+    },
+    {
+        "question": "What factors affect the range of an electric car?",
+        "answer": "Range is affected by factors like driving habits, weather conditions, battery size, and the use of accessories like air conditioning.",
+        "image": "https://loadsofvans.com/images/123/1/1685614801647870d151de6_factor-affecting-electric-van-range-infographic-min.jpg"
+    },
+    {
+        "question": "What is regenerative braking?",
+        "answer": "Regenerative braking is a system in electric cars that recovers energy during braking and stores it in the battery.",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9oLshOYrM_cQB0MwngeDoxr9FCb7mDcfICQ&s"
+    },
+    {
+        "question": "Are electric cars more expensive to buy?",
+        "answer": "Electric cars may have higher upfront costs, but lower running and maintenance costs can make them more affordable in the long term.",
+        "image": "https://www.motortrend.com/uploads/sites/11/2020/08/2008-AMAG-LEAD-What-Do-Teslas-Cost-and-other-EVs-TL.jpg"
+    },
+    {
+        "question": "Can electric cars charge in the rain?",
+        "answer": "Yes, electric cars can be safely charged in the rain as charging equipment is designed to handle outdoor conditions.",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUR4BUaBnAWU7nuzShm9Sc6-PGwNC6BlcpFg&s"
+    },
+    {
+        "question": "What are the environmental benefits of electric cars?",
+        "answer": "Electric cars produce no tailpipe emissions, reducing air pollution and dependence on fossil fuels.",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQpv3MrOe-xhiPNSXOS3vG2ebUQDiuyvn12g&s"
+    },
+    {
+        "question": "How do electric car batteries impact the environment?",
+        "answer": "While battery production has an environmental impact, the overall carbon footprint of electric cars is lower than gasoline vehicles.",
+        "image": "https://cdn.prod.website-files.com/5ec85520c4dfff034b036be2/66a9530bf974fb6d1cbdc872_envrionmental-impact-of-batteries_main.webp"
+    },
+    {
+        "question": "Can I take an electric car through a car wash?",
+        "answer": "Yes, electric cars are safe to take through car washes, as they are designed to withstand water exposure.",
+        "image": "https://www.goodsight.com.au/wp-content/uploads/2023/09/can-you-take-an-ev-through-a-car-wash.jpg"
+    },
+    {
+        "question": "What is the difference between hybrid and electric cars?",
+        "answer": "Hybrid cars use both an internal combustion engine and an electric motor, while electric cars rely entirely on electricity.",
+        "image": "https://buyfromturkey.co/wp-content/uploads/2022/04/hybridvselectriccar.jpg"
+    },
+    {
+        "question": "What is the difference between AC and DC charging?",
+        "answer": "AC charging uses alternating current, which is slower and ideal for home charging, while DC charging uses direct current for faster charging at public stations.",
+        "image": "https://blog.evbox.com/hs-fs/hubfs/Difference%20AC%20DC_2.png?width=1280&height=720&name=Difference%20AC%20DC_2.png"
+    },
+    {
+        "question": "What is a fast charger?",
+        "answer": "A fast charger is a high-power charging device that significantly reduces charging time by supplying DC power directly to the battery.",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfLKhs7Q1RW9Qwz0OnGRS2xAvVWYLILUtHcQ&s"
+    },
+    {
+        "question": "What is a CHAdeMO charger?",
+        "answer": "CHAdeMO is a type of DC fast charging standard used by some electric vehicles, allowing quick recharging.",
+        "image": "https://www.elecpeek.com/wp-content/uploads/2022/01/1-3-4.jpg"
+    },
+    {
+        "question": "What is a CCS charger?",
+        "answer": "CCS (Combined Charging System) is a fast-charging standard that combines AC and DC charging options in one connector.",
+        "image": "https://media.drivingelectric.com/image/private/s--X-WVjvBW--/f_auto,t_content-image-full-desktop@1/v1597771552/drivingelectric/2018-10/ccs.jpg"
+    },
+    {
+        "question": "Can I use any charging station for my electric car?",
+        "answer": "No, you need to ensure the charging station supports the connector type and charging standard compatible with your vehicle.",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjZGQrejhm7ffD73NVY83RrzohZJAetasMTA&s"
+    },
+    {
+        "question": "What happens if an electric car runs out of charge?",
+        "answer": "If an electric car runs out of charge, it will stop functioning. You will need to tow it to the nearest charging station.",
+        "image": "https://www.motoringelectric.com/wp-content/uploads/2020/04/shutterstock_648746158-1024x576.jpg"
+    },
+    {
+        "question": "Can an electric car battery be recycled?",
+        "answer": "Yes, electric car batteries can be recycled to recover valuable materials like lithium, cobalt, and nickel.",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3pdeCpB2rOC_g0u3aycz9-9d9NguG8Y1QiA&s"
+    },
+    {
+        "question": "What is battery swapping?",
+        "answer": "Battery swapping involves replacing a depleted battery with a fully charged one, offering a quick alternative to charging.",
+        "image": "https://media.licdn.com/dms/image/C4E12AQF4YACSNEXJzw/article-cover_image-shrink_600_2000/0/1625396164900?e=2147483647&v=beta&t=wB3uRID_waby3IDUahsdykD1h5aHUxPU6Idr4YnxuZw"
+    },
+    {
+        "question": "Are all electric car batteries the same?",
+        "answer": "No, electric car batteries differ in size, capacity, and chemistry, depending on the vehicle model and manufacturer.",
+        "image": "https://i.ytimg.com/vi/nrxmQhbZUTc/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLD8Xp81qGordQRKzOdIvIfohVZqGw"
+    },
+    {
+        "question": "What is the impact of cold weather on electric cars?",
+        "answer": "Cold weather can reduce battery efficiency and driving range, as well as increase charging time.",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWkOR7kakV1kOO0kAAaZjC_KbFoB0rzynDzA&s"
+    },
+    {
+        "question": "How does hot weather affect electric cars?",
+        "answer": "Hot weather can lead to overheating of the battery, which may reduce its lifespan if not properly managed.",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7HEqtXEt-tU2NTEzHgKhTYBrjf6PC0yTw5w&s"
+    },
+    {
+        "question": "What is a Tesla Supercharger?",
+        "answer": "A Tesla Supercharger is a network of fast chargers designed specifically for Tesla vehicles, providing quick and convenient charging.",
+        "image": "https://images.ctfassets.net/3xid768u5joa/DK6rLvbGRsqLl5LtjVLzi/6210cec1451d7f2847922bf0e6b0601f/tesla-supercharger.jpg"
+    },
+    {
+        "question": "Can I use a Tesla charger for a non-Tesla car?",
+        "answer": "Some Tesla chargers, like Destination Chargers, are compatible with non-Tesla vehicles, but Superchargers typically require adapters.",
+        "image": "https://www.electrifying.com/files/NgkjYhRizolT-MSm/TeslaThumbHome.jpg"
+    },
+    {
+        "question": "What is a home charging station?",
+        "answer": "A home charging station is a Level 2 charger installed at home, offering faster charging than a standard outlet.",
+        "image": "https://cdn.prod.website-files.com/63053218ec1dde0a99cc4fee/667552d1dfd540727bd826d5_ft.png"
+    },
+    {
+        "question": "How do electric cars handle hills and steep roads?",
+        "answer": "Electric cars handle hills efficiently using regenerative braking and electric motors, which provide instant torque.",
+        "image": "https://www.mynrma.com.au/-/media/ev6_hill.jpg?h=449&w=800&hash=4087A81319A95D20B6D13AAFA81AE5B2"
+    },
+    {
+        "question": "Do electric cars require oil changes?",
+        "answer": "No, electric cars do not require oil changes as they lack an internal combustion engine.",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTiJbAR4BvX9f1FwxolTjiZpr8AoQFE63DpHA&s"
+    },
+    {
+        "question": "What maintenance does an electric car need?",
+        "answer": "Electric cars need minimal maintenance, such as tire rotations, brake inspections, and coolant replacement for the battery.",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlOkMX6X4wriJ24i-6ObQdUnPUD2RzYk7CUg&s"
+    },
+    {
+        "question": "Can I install a charging station in an apartment building?",
+        "answer": "Yes, but you need to coordinate with the building management to install a charging station or shared charging infrastructure.",
+        "image": "https://butterflymx.com/wp-content/uploads/2023/10/apartment-ev-charging-jpg.webp"
+    },
+    {
+        "question": "What is the difference between kW and kWh?",
+        "answer": "kW (kilowatt) measures power, while kWh (kilowatt-hour) measures energy consumed over time.",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxadwHeFkLViH9xnjP7iVowkFGVzq4Uiswiw&s"
+    },
+    {
+        "question": "How do I maximize the range of my electric car?",
+        "answer": "You can maximize range by driving efficiently, avoiding rapid acceleration, and minimizing the use of climate control systems.",
+        "image": "https://3950862.fs1.hubspotusercontent-na1.net/hub/3950862/hubfs/shutterstock_2115845192-min.jpg?width=1600&name=shutterstock_2115845192-min.jpg"
+    },
+    {
+        "question": "Are electric cars quieter than gas cars?",
+        "answer": "Yes, electric cars are much quieter because they lack a combustion engine and use silent electric motors.",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfkVkiyye3QEP7i2mSZSrUtVHPQ5negwIq8g&s"
+    },
+    {
+        "question": "What is the future of electric cars?",
+        "answer": "The future of electric cars involves longer ranges, faster charging, and advancements in battery technology.",
+        "image": "https://media.licdn.com/dms/image/D4E12AQG58TmFlw91Wg/article-cover_image-shrink_720_1280/0/1695568375285?e=2147483647&v=beta&t=b6zIqYkYjKNsjNeShVxz3XN3JGnLzVG5EXRxPMpiIac"
+    },
+    {
+        "question": "What incentives are available for electric cars?",
+        "answer": "Many governments offer tax credits, rebates, and reduced registration fees for purchasing electric cars.",
+        "image": "https://lh3.googleusercontent.com/proxy/0aO_fooJC3yZNgMvF_gTo3fLFq9HwVEMpTaUNOkVxQ3TtPcaqMJxbDv58dK7USIXxMAndGN5cNEnkKqnPMrB8nkJQfRjpYFdXJH-xmjtiS2kvC-u7Cp1Ysbk3Q"
+    },
+    {
+        "question": "Do electric cars have gears?",
+        "answer": "Most electric cars have a single-speed transmission, as electric motors provide a wide range of torque.",
+        "image": "https://stat.overdrive.in/wp-content/uploads/2021/04/1-1-900x506.jpg"
+    },
+    {
+        "question": "Can electric cars tow trailers?",
+        "answer": "Yes, some electric cars are designed for towing, but you should check the vehicle's towing capacity.",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQB1L6DWBLLtfUuYcFIgek0vMihUigtKxOh6g&s"
+    },
+    {
+        "question": "What is wireless charging for electric cars?",
+        "answer": "Wireless charging uses electromagnetic fields to transfer energy from a pad on the ground to the car's battery without cables.",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyvCsRawQVpRDcPOlj9CgZS5PpSoYDTjPjiw&s"
+    },
+    {
+        "question": "What is the cost of replacing an electric car battery?",
+        "answer": "Battery replacement costs vary by model but typically range from $5,000 to $15,000, depending on size and technology.",
+        "image": "https://cdn.prod.website-files.com/5ec85520c4dfff034b036be2/66c5f91420f1710558ee9914_63cf095ca3a118a453225643_WF54060_LITGRE_GreenCarsBlogImageUpdate_CosttoReplaceanEVBattery_body3.webp"
+    },
+    {
+        "question": "What is bidirectional charging?",
+        "answer": "Bidirectional charging allows electric cars to supply power back to the grid or to power a home during outages.",
+        "image": "https://i0.wp.com/blog.wallbox.com/wp-content/uploads/2020/06/graphic-showing-the-difference-between-ac-and-dc-charging.jpg?resize=879%2C399&ssl=1"
+    }
+]

@@ -1,0 +1,140 @@
+/* Container */
+.banana-container {
+    padding: 30px;
+    font-family: 'Roboto', sans-serif;
+    background-color: #0000;
+    max-width: 9000px;
+    margin: 0 auto;
+    border-radius: 15px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Title */
+  .apple-title {
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 2.5em;
+    font-weight: bold;
+    color: #2c3e50;
+    letter-spacing: 1px;
+  }
+  
+  /* Search Box */
+  .orange-search-box {
+    margin-bottom: 30px;
+    text-align: center;
+  }
+  
+  .pear-search-input {
+    padding: 12px;
+    width: 60%;
+    font-size: 16px;
+    border: 2px solid #d1d1d1;
+    border-radius: 8px;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .pear-search-input:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: #767676;
+  }
+  
+  /* Grid Container */
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two columns */
+    gap: 20px; /* Space between cards */
+  }
+  
+  /* FAQ Card */
+  .grape-faq-card {
+    background-color: #ffffff;
+    border: 1px solid #eaeaea;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .grape-faq-card:hover {
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
+    transform: translateY(-3px);
+  }
+  
+  /* Image Styling */
+  .pineapple-image {
+    width: 300px;
+    height: 200px;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    border: 2px solid #3498db;
+  }
+  
+  /* Question Styling */
+  .cherry-question {
+    color: #2c3e50;
+    font-size: 1.5em;
+    font-weight: bold;
+    text-align: center;
+    margin: 10px 0;
+    letter-spacing: 0.5px;
+  }
+  
+  /* Answer Styling */
+  .lemon-answer {
+    color: #7f8c8d;
+    line-height: 1.8;
+    text-align: justify;
+    font-size: 1.1em;
+  }
+  
+  /* No Results */
+  .strawberry-no-results {
+    text-align: center;
+    color: #bdc3c7;
+    font-size: 1.2em;
+    font-style: italic;
+  }
+  
+  /* Pagination */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+  gap: 10px;
+}
+
+.page-button {
+  background-color: #ffffff;
+  color: #3498db;
+  border: 2px solid #3498db;
+  padding: 10px 15px;
+  border-radius: 50%; /* Always circular */
+  font-size: 1em;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.4s ease-in-out;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+.page-button:hover {
+  background-color: #dadada;
+  color: #ffffff;
+  transform: scale(1.1);
+}
+
+.page-button.active {
+  background-color: #767676;
+  color: #ffffff;
+  border-color: #767676;
+  transform: scale(1.15);
+  box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.4);
+  border-radius: 50%; /* Ensures circular shape for active button */
+}
+
+  
