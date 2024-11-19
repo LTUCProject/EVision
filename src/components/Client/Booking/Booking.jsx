@@ -23,7 +23,7 @@ const apiRequest = async (method, url, data = null) => {
         return response.data;
     } catch (error) {
         console.error('API request error:', error);
-        toast.error(error.response?.data?.message || "Server error");
+        // toast.error(error.response?.data?.message || "Server error");
         throw error;
     }
 };
@@ -42,6 +42,7 @@ const Booking = () => {
     const [selectedStation, setSelectedStation] = useState(null);
     const [startTime, setStartTime] = useState('');
     const [endTime, setEndTime] = useState('');
+    const [clientBookings, setClientBookings] = useState([]);  // State for storing bookings
 
     // Fetch vehicles and charging stations on mount
     useEffect(() => {
@@ -69,11 +70,24 @@ const Booking = () => {
             }
         };
 
+        // Fetch client bookings
+        const fetchClientBookings = async () => {
+            try {
+                const data = await apiRequest('GET', 'https://localhost:7080/api/Clients/bookings');
+                setClientBookings(data.$values);  // Set the fetched bookings in state
+            } catch (error) {
+                // console.error('Error fetching bookings:', error);
+                // toast.error('You dont have any Booking.');
+            }
+        };
+
         fetchVehicles();
         fetchChargingStations();
+        fetchClientBookings();  // Fetch bookings on mount
     }, []);
 
-    // Handle form submission to create a booking
+    
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (!selectedVehicle || !selectedStation || !startTime || !endTime) {
@@ -91,8 +105,14 @@ const Booking = () => {
         };
 
         try {
-            await apiRequest('POST', 'https://localhost:7080/api/Clients/bookings', bookingData);
+            // Send the POST request to create the booking
+            const response = await apiRequest('POST', 'https://localhost:7080/api/Clients/bookings', bookingData);
+
+            // Assuming the API returns the full booking object with bookingId
             toast.success("Booking created successfully.");
+
+            // Add the new booking to the clientBookings state with the bookingId from the response
+            setClientBookings((prevBookings) => [...prevBookings, response]);
 
             // Clear fields after successful booking
             setSelectedVehicle(null);
@@ -104,11 +124,24 @@ const Booking = () => {
         }
     };
 
+    const handleDeleteBooking = async (bookingId) => {
+        try {
+            await apiRequest('DELETE', `https://localhost:7080/api/Clients/bookings/${bookingId}`);
+            toast.success("Booking deleted successfully.");
+
+            // Update the clientBookings state by removing the deleted booking
+            setClientBookings((prevBookings) => prevBookings.filter((booking) => booking.bookingId !== bookingId));
+        } catch (error) {
+            console.error('Failed to delete booking:', error);
+            toast.error('Failed to delete booking.');
+        }
+    };
+
     return (
         <div className="backGR">
             <div className="reservation-form">
                 <h2 className="form-title">Book a Charging Station</h2>
-                
+
                 {/* Vehicle Selection */}
                 <label className="label-field">
                     Select Vehicle:
@@ -184,16 +217,29 @@ const Booking = () => {
                 <button onClick={handleSubmit} className="submit-button">Create Booking</button>
             </div>
 
-            {/* Toast Container */}
-            <ToastContainer 
-                position="top-center" 
-                autoClose={3000} 
-                hideProgressBar={false} 
-                closeOnClick 
-                draggable 
-                pauseOnHover 
-                style={{ fontSize: '20px', maxWidth: '500px' }} // Centered and larger font
-            />
+
+            <div className="client-bookings">
+                <h3>Your Bookings</h3>
+                {clientBookings && clientBookings.length === 0 ? (
+                    <p>No bookings found.</p>
+                ) : (
+                    <ul>
+                        {clientBookings.map((booking) => (
+                            <li key={booking.bookingId}>
+                                <div>
+                                    <p><strong>Start Time:</strong> {new Date(booking.startTime).toLocaleString()}</p>
+                                    <p><strong>End Time:</strong> {new Date(booking.endTime).toLocaleString()}</p>
+                                    <p><strong>Status:</strong> {booking.status}</p>
+                                    <p><strong>Cost:</strong> ${booking.cost}</p>
+                                </div>
+                                <button onClick={() => handleDeleteBooking(booking.bookingId)} className="delete-button">Delete</button>
+                            </li>
+                        ))}
+                    </ul>
+                )}
+            </div>
+
+
         </div>
     );
 };

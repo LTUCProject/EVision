@@ -225,9 +225,6 @@ const Booking = ({ stationId }) => {
                     </div>
                 </div>
             )}
-
-
-
         </div>
     );
 };
