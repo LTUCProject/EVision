@@ -27,6 +27,7 @@ import Booking from "./components/Client/Booking/Booking";
 import ServiceReq from "./components/Client/ServiceReq/ServiceReq"
 import ElectricCars from "./components/ElectricCars/ElectricCars"
 import ScrollUpButton from "./components/ScrollUpButton/ScrollUpButton";
+import EVFAQ from "./components/ElectricCarsFAQs/EVFAQ";
 
 
 const App = () => {
@@ -73,6 +74,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<EVisionPage />} />
           <Route path="/electriccars" element={<ElectricCars />} />
+          <Route path="/evfaq" element={<EVFAQ />} />
           <Route path="/login" element={<LoginSignup setIsAuthenticated={setIsAuthenticated} />} />
           <Route path="/logout" element={<Logout onLogout={handleLogout} />} />
 
