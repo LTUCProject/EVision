@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Route, Routes, useNavigate } from "react-router-dom";
+import { ToastContainer } from "react-toastify"; // Import ToastContainer
+import "react-toastify/dist/ReactToastify.css"; // Import Toastify styles
 import AOS from "aos";
 import "aos/dist/aos.css";
 
@@ -100,6 +102,7 @@ const App = () => {
       </>
         <Footer />
       </Router>
+      <ToastContainer position="top-right" autoClose={3000} />
     </div>
   );
 };

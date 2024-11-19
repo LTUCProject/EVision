@@ -234,3 +234,110 @@
     transform: translateY(2px); /* Subtle compression effect on click */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow reduces on click */
 }
+
+
+/* Booking List Styling */
+.client-bookings {
+    max-width: 1000px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 18px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.05);
+    font-family: 'Helvetica Neue', 'Arial', sans-serif;
+    color: #333;
+    line-height: 1.75;
+    transition: box-shadow 0.3s ease, transform 0.3s ease, filter 0.3s ease;
+    background-image: linear-gradient(135deg, rgba(0, 54, 121, 0.1), rgba(255, 255, 255, 0.4), rgba(52, 152, 219, 0.1));
+    background-size: 200% 200%;
+    animation: backgroundShift 8s ease infinite;
+}
+
+/* Booking List Hover Effect */
+.client-bookings:hover {
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15), 0 10px 30px rgba(0, 0, 0, 0.1);
+    transform: translateY(-8px);
+    filter: brightness(1.05);
+}
+
+/* Booking Item Styling */
+.client-bookings ul {
+    list-style: none;
+    padding: 0;
+}
+
+.client-bookings li {
+    padding: 20px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fafafa;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.client-bookings li:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Booking Details Styling */
+.client-bookings li div p {
+    margin: 10px 0;
+    font-size: 16px;
+    color: #333;
+}
+
+/* Button Styling */
+.delete-button {
+    margin-top: 15px;
+    padding: 10px 15px;
+    font-size: 14px;
+    color: white;
+    background-color: #e74c3c;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.delete-button:hover {
+    background-color: #c0392b;
+    transform: translateY(-3px);
+}
+
+.delete-button:active {
+    background-color: #a93226;
+    transform: translateY(2px);
+}
+
+/* Empty Bookings Message Styling */
+.client-bookings p {
+    font-size: 18px;
+    color: #7f8c8d;
+    text-align: center;
+    margin-top: 30px;
+}
+
+
+/* Styling for the "Your Bookings" heading */
+.client-bookings h3 {
+    font-size: 24px; /* Larger font size for emphasis */
+    font-weight: 600; /* Bold for stronger emphasis */
+    color: #34495e; /* Sophisticated dark blue-grey color */
+    text-align: center; /* Center the heading */
+    margin-bottom: 25px; /* Space below the heading */
+    text-transform: capitalize; /* Capitalizes each word for a polished look */
+    letter-spacing: 1px; /* Adds spacing between letters for a more modern feel */
+    font-family: 'Helvetica Neue', 'Arial', sans-serif; /* Clean, modern font stack */
+    background: linear-gradient(90deg, rgba(52, 152, 219, 0.1), rgba(41, 128, 185, 0.1)); /* Subtle gradient background */
+    padding: 15px 20px; /* Soft padding around the text */
+    border-radius: 8px; /* Rounded corners for a modern look */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    transition: transform 0.3s ease, color 0.3s ease; /* Smooth transition effects */
+}
+
+/* Hover effect for the heading */
+.client-bookings h3:hover {
+    transform: translateY(-5px); /* Slight lift on hover */
+    color: #2980b9; /* Accent color on hover */
+}
