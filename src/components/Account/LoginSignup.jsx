@@ -144,7 +144,7 @@ const LoginSignup = ({ setIsAuthenticated }) => {
             <div className="auth-form auth-sign-up">
               <div className="auth-input-group">
                 <i className='bx bxs-user'></i>
-                <input type="text" placeholder="Username" value={signupUsername} onChange={(e) => setSignupUsername(e.target.value)} />
+                <input type="username" placeholder="Username" value={signupUsername} onChange={(e) => setSignupUsername(e.target.value)} />
               </div>
               <div className="auth-input-group">
                 <i className='bx bx-mail-send'></i>
@@ -203,7 +203,7 @@ const LoginSignup = ({ setIsAuthenticated }) => {
               <div className="auth-form auth-sign-in">
                 <div className="auth-input-group">
                   <i className='bx bxs-user'></i>
-                  <input type="text" placeholder="Username" value={loginUsername} onChange={(e) => setLoginUsername(e.target.value)} />
+                  <input type="username" placeholder="Username" value={loginUsername} onChange={(e) => setLoginUsername(e.target.value)} />
                 </div>
                 <div className="auth-input-group">
                   <i className='bx bxs-lock-alt'></i>
