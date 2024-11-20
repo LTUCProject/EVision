@@ -38,7 +38,6 @@ const Booking = ({ stationId }) => {
             setBookings(fetchedBookings);
         } catch (error) {
             console.error('Error fetching bookings:', error);
-            toast.error("Failed to load bookings.");
         }
     };
 

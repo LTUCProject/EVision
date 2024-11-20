@@ -40,10 +40,26 @@ const carList = [
   { name: "Changan", image: car3, aosDelay: "1000" },
 ];
 const testimonialData = [
-  { name: "Dilshad", description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit.", aosDelay: "0" },
-  { name: "Satya", description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit.", aosDelay: "300" },
-  { name: "Sabir", description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit.", aosDelay: "1000" },
+  {
+    name: "Khalid",
+    description: "This platform has made managing EV charging stations so much easier! The real-time updates and intuitive interface are fantastic. Highly recommend it to station operators.",
+    rating: 5,
+    aosDelay: "0"
+  },
+  {
+    name: "Ahmad",
+    description: "I love the user-friendly design and the seamless integration with payment options. However, adding more analytics features would be a great improvement.",
+    rating: 4,
+    aosDelay: "300"
+  },
+  {
+    name: "Omar",
+    description: "The scheduling tool is a game-changer! It saves me so much time in coordinating charging slots for clients. Looking forward to more updates!",
+    rating: 5,
+    aosDelay: "1000"
+  }
 ];
+
 
 const EVisionPage = ({ theme }) => {
   useEffect(() => {
@@ -77,9 +93,9 @@ const EVisionPage = ({ theme }) => {
               Simplify your electric vehicle experience with our comprehensive services. From booking charging stations
               to scheduling maintenance, we’re here to support you every step of the way.
             </p>
-            <button data-aos="fade-up" data-aos-delay="1500" className="rounded-md bg-primary py-2 px-6 text-black">
+           <a href="/login"> <button   data-aos="fade-up" data-aos-delay="1500" className="rounded-md bg-primary py-2 px-6 text-black" >
               Get Started
-            </button>
+            </button> </a>
           </div>
         </div>
       </section>
@@ -96,7 +112,7 @@ const EVisionPage = ({ theme }) => {
               Welcome to our EV Charging Station and Service Management platform! Our app lets users manage their
               electric vehicles, book charging stations, and schedule maintenance.
             </p>
-            <button data-aos="fade-up" className="button-outline">Get Started</button>
+            <a href="/login">    <button data-aos="fade-up" className="button-outline">Get Started</button> </a>
           </div>
         </div>
       </section>
@@ -114,7 +130,7 @@ const EVisionPage = ({ theme }) => {
                 className="card text-center group p-4 bg-dark text-white hover:bg-primary rounded-lg"
               >
                 <div className="grid place-items-center">{skill.icon}</div>
-                <h1 className="text-2xl font-bold">{skill.name}</h1>
+                <h1 className="text-2xl font-bold">{skill.name}</h1> <br />
                 <p >{skill.description}</p>
               </div>
             ))}
@@ -125,19 +141,21 @@ const EVisionPage = ({ theme }) => {
       {/* Car List Section */}
       <section className="pb-24">
         <div className="container">
-          <h1 data-aos="fade-up" className="text-3xl font-serif font-semibold mb-3"  style={{ color: 'black'}}>Electric Vehicles We Support</h1>
+          <h1 data-aos="fade-up" className="text-3xl font-serif font-semibold mb-3"  style={{ color: 'black',
+    textAlign: 'center', // Horizontal centering
+    margin: '0 auto',}}>  Electric Vehicles We Support</h1> <br/>
           <p data-aos="fade-up" className="text-sm pb-10"  style={{ color: 'black'}}>Explore a selection of popular EV models for which we provide reliable charging and maintenance services.</p>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-16">
             {carList.map((data) => (
               <div key={data.name} data-aos="fade-up" data-aos-delay={data.aosDelay} className="border-2 p-3 rounded-xl group">
                 <img src={data.image} alt={data.name} className="w-full h-[120px] object-contain group-hover:translate-x-8 duration-700" />
                 <h1 className="text-primary font-semibold">{data.name}</h1>
-                <a href="#" className="text-xl font-semibold">Details</a>
+                {/* <a href="#" className="text-xl font-semibold">Details</a> */}
               </div>
             ))}
           </div>
           <div className="grid place-items-center mt-8">
-            <button data-aos="fade-up" className="button-outline">Get Started</button>
+        <a href="/electriccars">   <button data-aos="fade-up" className="button-outline">See More</button> </a> 
           </div>
         </div>
       </section>
@@ -149,10 +167,10 @@ const EVisionPage = ({ theme }) => {
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 text-black dark:text-white">
             {testimonialData.map((testimonial) => (
               <div key={testimonial.name} data-aos="fade-up" data-aos-delay={testimonial.aosDelay} className="card group p-4 bg-gray-100 dark:bg-white/20 rounded-lg">
-                <img src="https://picsum.photos/200" alt="" className="rounded-full w-20 h-20" />
+                <img src="https://t4.ftcdn.net/jpg/00/65/77/27/360_F_65772719_A1UV5kLi5nCEWI0BNLLiFaBPEkUbv5Fv.jpg" alt="" className="rounded-full w-20 h-20" />
                 <div className="text-2xl">⭐⭐⭐⭐⭐</div>
-                <p  style={{ color: 'black'}}>{testimonial.description}</p>
-                <p className="font-semibold"  style={{ color: 'black'}}>{testimonial.name}</p>
+                <p  style={{ color: 'black'}}>{testimonial.description}</p> <br/>
+                <h2 className="font-semibold"  style={{ color: 'black'}}>{testimonial.name}</h2>
               </div>
             ))}
           </div>

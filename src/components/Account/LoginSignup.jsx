@@ -155,17 +155,38 @@ const LoginSignup = ({ setIsAuthenticated }) => {
                 <input type="password" placeholder="Password" value={signupPassword} onChange={(e) => setSignupPassword(e.target.value)} />
               </div>
               <div className="auth-input-group">
-                <i className='bx bx-mail-send'></i>
-                <select
-                  value={signupRole}
-                  onChange={(e) => setSignupRole(e.target.value)}
-                >
-                  <option value="Admin">Admin</option>
-                  <option value="Client">Client</option>
-                  <option value="Owner">Owner</option>
-                  <option value="Servicer">Servicer</option>
-                </select>
-              </div>
+  <i className='bx bx-mail-send'></i>
+  <div className="checkbox-group">
+    <label>
+      <input
+        type="checkbox"
+        value="Client"
+        checked={signupRole === "Client"}
+        onChange={(e) => setSignupRole(e.target.value)}
+      />
+      Client
+    </label>
+    <label>
+      <input
+        type="checkbox"
+        value="Owner"
+        checked={signupRole === "Owner"}
+        onChange={(e) => setSignupRole(e.target.value)}
+      />
+      Owner
+    </label>
+    <label>
+      <input
+        type="checkbox"
+        value="Servicer"
+        checked={signupRole === "Servicer"}
+        onChange={(e) => setSignupRole(e.target.value)}
+      />
+      Servicer
+    </label>
+  </div>
+</div>
+
               <button onClick={handleSignupSubmit}>Sign up</button>
               <p>
                 <span>Already have an account?</span>

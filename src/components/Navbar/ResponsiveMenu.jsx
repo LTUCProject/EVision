@@ -44,7 +44,22 @@ const ResponsiveMenu = ({ showMenu, onLogout }) => {
     }
   };
 
-  
+  // Filter Navlinks based on role
+  const getLinksForRole = () => {
+    return Navlinks.filter(({ name }) => {
+      if (role === "Owner" && ["CHARGING STATION", "OwnerCommunity"].includes(name)) {
+        return true;
+      }
+      if (role === "Client" && ["STATIONS", "ClientCommunity", "VEHICLES", "BOOKING", "SERVICES"].includes(name)) {
+        return true;
+      }
+      if (role === "Servicer" && ["My Services", "ServicerCommunity"].includes(name)) {
+        return true;
+      }
+      return false; // Exclude links for other roles
+    });
+  };
+
   return (
     <div
       className={`${
@@ -61,10 +76,10 @@ const ResponsiveMenu = ({ showMenu, onLogout }) => {
         </div>
         <nav className="mt-12">
           <ul className="space-y-4 text-xl">
-            {Navlinks.map((data, index) => (
-              <li key={index}>
-                <a href={data.link} className="mb-5 inline-block">
-                  {data.name}
+            {getLinksForRole().map(({ id, name, link }) => (
+              <li key={id}>
+                <a href={link} className="mb-5 inline-block">
+                  {name}
                 </a>
               </li>
             ))}
@@ -75,7 +90,6 @@ const ResponsiveMenu = ({ showMenu, onLogout }) => {
         <button onClick={handleDeleteAccount} className="btn-delete-account text-red-500">
           Delete Account
         </button>
-        
         <h1>
           Made with ❤ by <a href="https://github.com/LTUCProject">PowerTeam</a>
         </h1>
