@@ -59,7 +59,7 @@ const Navbar = ({ theme, setTheme, isAuthenticated, onLogout }) => {
                 <a href="/#" className="text-lg font-medium hover:text-primary py-2 hover:border-b-2 hover:border-primary transition-colors duration-500">HOME</a>
               </li>
               <li className="py-4">
-                <a href="/electriccars" className="text-lg font-medium hover:text-primary py-2 hover:border-b-2 hover:border-primary transition-colors duration-500">ElectricCars</a>
+                <a href="/electriccars" className="text-lg font-medium hover:text-primary py-2 hover:border-b-2 hover:border-primary transition-colors duration-500">EVCARS</a>
               </li>
               <li className="py-4">
                 <a href="/evfaq" className="text-lg font-medium hover:text-primary py-2 hover:border-b-2 hover:border-primary transition-colors duration-500">EVFAQ</a>
@@ -196,7 +196,7 @@ const Navbar = ({ theme, setTheme, isAuthenticated, onLogout }) => {
             )}
             
             {userRole === "Client" && (
-              <button onClick={toggleNotifications} className="relative">
+              <button onClick={toggleNotifications} className="relative bg-none" style={{ backgroundColor: 'transparent' }}>
                 <span className="text-2xl">🔔</span>
                 {showNotifications && (
                   <NotificationDropdown clientId={clientId} />

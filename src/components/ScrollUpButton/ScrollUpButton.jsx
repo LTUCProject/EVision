@@ -31,6 +31,7 @@ const ScrollUpButton = () => {
     <div>
       {isVisible && (
         <button className="scrollup" onClick={scrollToTop}>
+          🢁
           <i className="bx bx-chevrons-up"></i>
         </button>
       )}
