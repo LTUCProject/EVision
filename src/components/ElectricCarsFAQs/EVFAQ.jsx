@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import EVFAQData from "./EVFAQData.json";
+import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/20/solid";
 import "./EVFAQ.css";
 
 const EVFAQ = () => {
@@ -18,13 +19,12 @@ const EVFAQ = () => {
   const currentItems = filteredFAQs.slice(startIndex, startIndex + itemsPerPage);
 
   // Handle Page Change
-const handlePageChange = (page) => {
-    setCurrentPage(page);
-    // Scroll to the top of the page
-    window.scrollTo({ top: 0, behavior: "smooth" });
+  const handlePageChange = (page) => {
+    if (page >= 1 && page <= totalPages) {
+      setCurrentPage(page);
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
   };
-  
-  
 
   return (
     <div className="banana-container">
@@ -54,25 +54,47 @@ const handlePageChange = (page) => {
             </div>
           ))
         ) : (
-          <p className="strawberry-no-results">
-            No FAQs found matching your search.
-          </p>
+          <p className="strawberry-no-results">No FAQs found matching your search.</p>
         )}
       </div>
       {/* Pagination */}
       {totalPages > 1 && (
         <div className="pagination">
-          {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+          <nav aria-label="Pagination" className="isolate inline-flex -space-x-px">
             <button
-              key={page}
-              onClick={() => handlePageChange(page)}
-              className={`page-button ${
-                page === currentPage ? "active" : ""
+              onClick={() => handlePageChange(currentPage - 1)}
+              className={`relative inline-flex items-center rounded-l-md px-2 py-2 ${
+                currentPage === 1 ? "text-gray-400" : "text-indigo-600 hover:bg-gray-50"
               }`}
+              disabled={currentPage === 1}
             >
-              {page}
+              <ChevronLeftIcon className="h-5 w-5" />
+              <span className="sr-only">Previous</span>
             </button>
-          ))}
+            {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+              <button
+                key={page}
+                onClick={() => handlePageChange(page)}
+                className={`px-4 py-2 text-sm font-semibold ${
+                  page === currentPage
+                    ? "bg-indigo-600 text-white"
+                    : "text-gray-900 hover:bg-gray-50"
+                }`}
+              >
+                {page}
+              </button>
+            ))}
+            <button
+              onClick={() => handlePageChange(currentPage + 1)}
+              className={`relative inline-flex items-center rounded-r-md px-2 py-2 ${
+                currentPage === totalPages ? "text-gray-400" : "text-indigo-600 hover:bg-gray-50"
+              }`}
+              disabled={currentPage === totalPages}
+            >
+              <ChevronRightIcon className="h-5 w-5" />
+              <span className="sr-only">Next</span>
+            </button>
+          </nav>
         </div>
       )}
     </div>

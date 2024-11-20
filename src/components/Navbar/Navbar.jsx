@@ -3,6 +3,8 @@ import { BiSolidSun, BiSolidMoon } from "react-icons/bi";
 import { HiMenuAlt3, HiMenuAlt1 } from "react-icons/hi";
 import ResponsiveMenu from "./ResponsiveMenu";
 import NotificationDropdown from "../Client/Notifications/Notification";
+import { Link } from "react-router-dom";
+
 
 export const Navlinks = [
   { id: 1, name: "HOME", link: "/#" },
@@ -45,13 +47,28 @@ const Navbar = ({ theme, setTheme, isAuthenticated, onLogout }) => {
   const toggleNotifications = () => {
     setShowNotifications(!showNotifications);
   };
+  const EvisionComponent = () => {
+    return (
+      <Link to="/" className="flex items-center space-x-2">
+        {/* Logo Image */}
+        <img
+          src="/public/Logo2.png" // Path to the logo image
+          alt="Evision Logo"
+          width="80" // Adjust size as needed
+          height="80" // Adjust size as needed
+        />
+        {/* Logo Text */}
+        <span className="text-3xl font-bold font-serif">EVISION</span>
+      </Link>
+    );
+  };
 
   return (
     <div className="relative z-10 shadow-md w-full dark:bg-black dark:text-white duration-300">
       <div className="container py-2">
         <div className="flex justify-between items-center">
           <div>
-            <span className="text-3xl font-bold font-serif">EVISION</span>
+          <EvisionComponent />
           </div>
           <nav className="hidden md:flex">
             <ul className="flex items-center gap-8">
