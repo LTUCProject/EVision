@@ -3,6 +3,9 @@ import ibraheem from "../../assets/ibraheem.png";
 import jafar from "../../assets/jafar.jpg";
 import Abed from "../../assets/abed.png";
 import Moayad from "../../assets/moayad.png";
+import yazan from "../../assets/yazan.jpg";
+import yassin from "../../assets/yassin.jpg";
+
 
 import {
   FaFacebook,
@@ -15,33 +18,33 @@ import {
 const teamMembers = [
   {
     name: "Ibrahim Nemer",
-    specialization: "Software Engineer",
+    specialization: "Electrical Engineer",
     image: ibraheem,
   },
   {
     name: "Jafar Ramadan",
-    specialization: "UI/UX Designer",
+    specialization: "Software Engineer",
     image: jafar,
   },
   {
     name: "Moayad Hamdan",
-    specialization: "Project Manager",
+    specialization: "Software Engineer",
     image: Moayad,
   },
   {
     name: "Abed Radwan",
-    specialization: "Backend Developer",
+    specialization: "Software Engineer",
     image: Abed,
   },
   {
     name: "Yassin",
-    specialization: "DevOps Engineer",
-    image: "https://via.placeholder.com/150",
+    specialization: "Frontend Developer",
+    image: yassin,
   },
   {
     name: "Yazan",
     specialization: "Frontend Developer",
-    image: "https://via.placeholder.com/150",
+    image: yazan,
   },
 ];
 

@@ -4,6 +4,10 @@ import "./ElectricCars.css";
 
 const ElectricCars = () => {
   const [searchTerm, setSearchTerm] = useState("");
+  const [pages, setPages] = useState({}); // New state to manage page numbers per category
+
+  // Number of cars to show per page
+  const carsPerPage = 3;
 
   // Filter cars by search term across all fields
   const filteredCategories = ElectricCarsData.ElectricCars.map((category) => ({
@@ -21,6 +25,30 @@ const ElectricCars = () => {
     }),
   })).filter((category) => category.Cars.length > 0);
 
+  // Function to handle page navigation for a specific category
+  const handleNextPage = (categoryIndex) => {
+    const categoryPage = pages[categoryIndex] || 0;
+    if (
+      filteredCategories[categoryIndex].Cars.length >
+      (categoryPage + 1) * carsPerPage
+    ) {
+      setPages({
+        ...pages,
+        [categoryIndex]: categoryPage + 1,
+      });
+    }
+  };
+
+  const handlePrevPage = (categoryIndex) => {
+    const categoryPage = pages[categoryIndex] || 0;
+    if (categoryPage > 0) {
+      setPages({
+        ...pages,
+        [categoryIndex]: categoryPage - 1,
+      });
+    }
+  };
+
   return (
     <div className="electric-cars-container">
       <h1 className="electric-cars-title">Electric Cars</h1>
@@ -37,14 +65,17 @@ const ElectricCars = () => {
       </div>
 
       {/* Electric Cars by Category */}
-      {filteredCategories.map((category, index) => (
-        <div key={index} className="electric-car-category">
+      {filteredCategories.map((category, categoryIndex) => (
+        <div key={categoryIndex} className="electric-car-category">
           <h2 className="electric-car-category-title">
             Category: {category.Category}
           </h2>
           <div className="electric-car-list-container">
             <div className="electric-car-list">
-              {category.Cars.map((car, carIndex) => (
+              {category.Cars.slice(
+                (pages[categoryIndex] || 0) * carsPerPage,
+                ((pages[categoryIndex] || 0) + 1) * carsPerPage
+              ).map((car, carIndex) => (
                 <div key={carIndex} className="electric-car-card">
                   <div className="electric-car-card-inner">
                     {/* Front Side */}
@@ -85,6 +116,23 @@ const ElectricCars = () => {
                 </div>
               ))}
             </div>
+          </div>
+          {/* Pagination Controls */}
+          <div className="electric-car-pagination">
+            <button
+              onClick={() => handlePrevPage(categoryIndex)}
+              disabled={(pages[categoryIndex] || 0) === 0}
+            >
+              ←
+            </button>
+            <button
+              onClick={() => handleNextPage(categoryIndex)}
+              disabled={
+                ((pages[categoryIndex] || 0) + 1) * carsPerPage >= category.Cars.length
+              }
+            >
+              →
+            </button>
           </div>
         </div>
       ))}

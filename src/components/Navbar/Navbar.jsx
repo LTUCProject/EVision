@@ -12,7 +12,7 @@ export const Navlinks = [
   { id: 3, name: "CHARGING STATION", link: "/charging-station" }, 
   { id: 4, name: "STATIONS", link: "/location" }, 
   { id: 5, name: "My Services", link: "/serviceinfo" },
-  { id: 6, name: "ClientCommunity", link: "/ClientCommunity" },
+  { id: 6, name: "COMMUNITY", link: "/ClientCommunity" },
   // { id: 7, name: "Send Notifications", link: "/SendNotifications" } ,// Adjusted link name for clarity
   // { id: 8, name: "SendOwnerNotifications", link: "/SendOwnerNotifications" }, // New link for Owner
   { id: 9, name: "ServicerCommunity", link: "/ServicerCommunity" },
@@ -79,7 +79,7 @@ const Navbar = ({ theme, setTheme, isAuthenticated, onLogout }) => {
                 <a href="/electriccars" className="text-lg font-medium hover:text-primary py-2 hover:border-b-2 hover:border-primary transition-colors duration-500">EVCARS</a>
               </li>
               <li className="py-4">
-                <a href="/evfaq" className="text-lg font-medium hover:text-primary py-2 hover:border-b-2 hover:border-primary transition-colors duration-500">EVFAQ</a>
+                <a href="/evfaq" className="text-lg font-medium hover:text-primary py-2 hover:border-b-2 hover:border-primary transition-colors duration-500">FAQ</a>
               </li>
               {!isAuthenticated ? (
                 <li className="py-4">
@@ -131,7 +131,7 @@ const Navbar = ({ theme, setTheme, isAuthenticated, onLogout }) => {
       </li>
     );
   }
-   else if (userRole === "Client"  && name === "ClientCommunity") {
+   else if (userRole === "Client"  && name === "COMMUNITY") {
     return (
       <li key={id} className="py-4">
         <a href={link} className="text-lg font-medium hover:text-primary py-2 hover:border-b-2 hover:border-primary transition-colors duration-500">
@@ -198,7 +198,7 @@ const Navbar = ({ theme, setTheme, isAuthenticated, onLogout }) => {
 
                   {isAuthenticated && (
                     <li className="py-4">
-                      <button onClick={onLogout} className="text-lg font-medium hover:text-primary py-2">LOGOUT</button>
+                      <button onClick={onLogout} className="text-lg font-medium hover:text-primary py-2" style={{ backgroundColor: 'transparent' }}>LOGOUT</button>
                     </li>
                   )}
                 </>
