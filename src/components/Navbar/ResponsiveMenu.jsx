@@ -87,7 +87,7 @@ const ResponsiveMenu = ({ showMenu, onLogout }) => {
         </nav>
       </div>
       <div className="footer">
-        <button onClick={handleDeleteAccount} className="btn-delete-account text-red-500">
+        <button onClick={handleDeleteAccount} className="btn-delete-account text-red-500" style={{ backgroundColor: 'transparent' }}>
           Delete Account
         </button>
         <h1>

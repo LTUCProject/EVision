@@ -112,7 +112,9 @@ const EVisionPage = ({ theme }) => {
               Welcome to our EV Charging Station and Service Management platform! Our app lets users manage their
               electric vehicles, book charging stations, and schedule maintenance.
             </p>
-            <a href="/login">    <button data-aos="fade-up" className="button-outline">Get Started</button> </a>
+            <a href="/login"> <button   data-aos="fade-up" data-aos-delay="1500" className="rounded-md bg-primary py-2 px-6 text-black" >
+              Get Started
+            </button> </a>
           </div>
         </div>
       </section>

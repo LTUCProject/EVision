@@ -142,6 +142,8 @@ const LoginSignup = ({ setIsAuthenticated }) => {
         <div className="auth-col auth-align-items-center auth-flex-col auth-sign-up">
           <div className="auth-form-wrapper auth-align-items-center">
             <div className="auth-form auth-sign-up">
+            <h2 className="auth-title">Start Your Journey !</h2>
+
               <div className="auth-input-group">
                 <i className='bx bxs-user'></i>
                 <input type="username" placeholder="Username" value={signupUsername} onChange={(e) => setSignupUsername(e.target.value)} />
@@ -189,7 +191,7 @@ const LoginSignup = ({ setIsAuthenticated }) => {
 
               <button onClick={handleSignupSubmit}>Sign up</button>
               <p>
-                <span>Already have an account?</span>
+                <span>Already have an account?</span><br/>
                 <b onClick={handleSwitch} className="auth-pointer">Sign in here</b>
               </p>
             </div>
@@ -201,8 +203,11 @@ const LoginSignup = ({ setIsAuthenticated }) => {
           <div className="auth-col auth-align-items-center auth-flex-col auth-sign-in">
             <div className="auth-form-wrapper auth-align-items-center">
               <div className="auth-form auth-sign-in">
+              <h2 className="auth-title">Welcome Back! Please Sign In</h2>
                 <div className="auth-input-group">
+                  
                   <i className='bx bxs-user'></i>
+                  
                   <input type="username" placeholder="Username" value={loginUsername} onChange={(e) => setLoginUsername(e.target.value)} />
                 </div>
                 <div className="auth-input-group">
@@ -212,7 +217,7 @@ const LoginSignup = ({ setIsAuthenticated }) => {
                 <button onClick={handleLoginSubmit}>Sign in</button>
                 <p><b onClick={showForgetPassword} className="auth-pointer">Forgot password?</b></p>
                 <p>
-                  <span>Don't have an account?</span>
+                  <span>Don't have an account?</span><br></br>
                   <b onClick={handleSwitch} className="auth-pointer">Sign up here</b>
                 </p>
               </div>
@@ -225,6 +230,8 @@ const LoginSignup = ({ setIsAuthenticated }) => {
           <div className="auth-col auth-align-items-center auth-flex-col auth-sign-in">
             <div className="auth-form-wrapper auth-align-items-center">
               <div className="auth-form auth-sign-in">
+              <h2 className="auth-title">Enter Your Email Below</h2>
+
                 <div className="auth-input-group">
                   <i className='bx bx-mail-send'></i>
                   <input type="email" placeholder="Email" value={forgetPasswordEmail} onChange={(e) => setForgetPasswordEmail(e.target.value)} />
@@ -240,6 +247,8 @@ const LoginSignup = ({ setIsAuthenticated }) => {
           <div className="auth-col auth-align-items-center auth-flex-col auth-sign-in">
             <div className="auth-form-wrapper auth-align-items-center">
               <div className="auth-form auth-sign-in">
+              <h2 className="auth-title">Enter Verification Code</h2>
+
                 <div className="auth-input-group">
                   <i className='bx bxs-lock-alt'></i>
                   <input type="text" placeholder="Enter Verification Code" value={verificationCode} onChange={(e) => setVerificationCode(e.target.value)} />
