@@ -248,12 +248,15 @@ const ServiceReq = () => {
                             </div>
 
                             {/* Buttons to open modals */}
-                            <button onClick={() => openFeedbackModal(service)} className="modal-btnPR">
-                                Provide Feedback
-                            </button>
-                            <button onClick={() => openFeedbackListModal(service)} className="modal-btnVI">
-                                View Feedback
-                            </button>
+                            <div className="button-container">
+    <button onClick={() => openFeedbackModal(service)} className="modal-btnPR">
+        Provide Feedback
+    </button>
+    <button onClick={() => openFeedbackListModal(service)} className="modal-btnVI">
+        View Feedback
+    </button>
+</div>
+
                         </div>
                     ))
                 )}

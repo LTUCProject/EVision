@@ -709,6 +709,8 @@
   transition: all 0.3s ease;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   margin-right: 0.5rem; /* Spacing between buttons */
+  
+  
 }
 
 .modal-btnPR:hover, .modal-btnVI:hover {
@@ -943,4 +945,41 @@
 
 .add-favorite-btn:hover {
   background-color: #0056b3;
+}
+.button-container {
+  display: flex;
+  gap: 10px; /* Space between buttons */
+  justify-content: center; /* Center the buttons horizontally */
+  align-items: center;
+  margin-top: 20px; /* Optional spacing from other content */
+}
+
+.modal-btnPR,
+.modal-btnVI {
+  padding: 10px 20px; /* Adjusts button size */
+  font-size: 16px; /* Text size */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.modal-btnPR {
+  background-color: #007bff; /* Blue color */
+  color: white;
+}
+
+.modal-btnVI {
+  background-color: #28a745; /* Green color */
+  color: white;
+}
+
+.modal-btnPR:hover,
+.modal-btnVI:hover {
+  background-color: #0056b3; /* Darker blue for "Provide Feedback" on hover */
+  transform: scale(1.05); /* Slightly enlarges button */
+}
+
+.modal-btnVI:hover {
+  background-color: #218838; /* Darker green for "View Feedback" on hover */
 }

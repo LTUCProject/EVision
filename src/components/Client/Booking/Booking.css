@@ -14,18 +14,7 @@
     animation: backgroundShift 8s ease infinite;
 }
 
-/* Gradient Background Animation */
-@keyframes backgroundShift {
-    0% {
-        background-position: 0% 0%;
-    }
-    50% {
-        background-position: 100% 100%;
-    }
-    100% {
-        background-position: 0% 0%;
-    }
-}
+
 
 /* Hover and Focus Effects */
 .reservation-form:hover {
@@ -49,17 +38,19 @@
     font-style: italic;
 }
 
-/* Professional Background Image Styling for .backGR */
+/* Professional Background Image Styling for .backGR
 .backGR {
     position: relative;
     margin-top: 0;
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
-    animation: slide 20s infinite; /* Adjust timing as needed */
+    animation: slide 20s infinite; 
 }
 
-@keyframes slide {
+*/
+
+/* @keyframes slide {
     0% {
         background-image: url('../../../assets/ch1.jpg');
     }
@@ -75,7 +66,7 @@
     100% {
         background-image: url('../../../assets/ch5.jpg');
     }
-}
+} */
 
 
 .label-field {
