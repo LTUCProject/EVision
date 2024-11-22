@@ -158,7 +158,7 @@ const Vehicle = () => {
                             <table className="vehicle-info-table">
                                 <thead>
                                     <tr>
-                                        <th>ID</th>
+                                        {/* <th>ID</th> */}
                                         <th>License Plate</th>
                                         <th>Model</th>
                                         <th>Year</th>
@@ -170,7 +170,7 @@ const Vehicle = () => {
                                 <tbody>
                                     {vehicles.map((vehicle) => (
                                         <tr key={vehicle.vehicleId}>
-                                            <td>{vehicle.vehicleId}</td>
+                                            {/* <td>{vehicle.vehicleId}</td> */}
                                             <td>{vehicle.licensePlate}</td>
                                             <td>{vehicle.model}</td>
                                             <td>{vehicle.year}</td>

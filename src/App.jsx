@@ -99,7 +99,7 @@ const App = () => {
           )}
         </Routes>
         <>
-        {/* ScrollUpButton placed alongside Routes */}
+        {/* ScrollUpButton placed alongside Routes  */}
         <ScrollUpButton />
       </>
         <Footer />
