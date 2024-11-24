@@ -246,14 +246,19 @@ const Navbar = ({ theme, setTheme, isAuthenticated, onLogout }) => {
 
                   {isAuthenticated && (
                     <li className="py-4">
-                      <button
-                        onClick={onLogout}
-                        className="text-lg font-medium hover:text-primary py-2"
-                        style={{ backgroundColor: "transparent" }}
-                      >
-                        LOGOUT
-                      </button>
-                    </li>
+                    <button
+                      onClick={onLogout}
+                      className="text-lg font-medium hover:text-primary"
+                      style={{
+                        backgroundColor: "transparent", // بدون خلفية
+                        padding: "0", // إزالة المسافات الداخلية
+                        border: "none", // بدون إطار
+                        cursor: "pointer", // المؤشر يشير للنقر
+                      }}
+                    >
+                      LOGOUT
+                    </button>
+                  </li>                  
                   )}
                 </>
               )}
