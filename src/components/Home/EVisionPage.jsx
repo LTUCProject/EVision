@@ -122,7 +122,6 @@ const EVisionPage = ({ theme }) => {
                 className="rounded-md py-2 px-6 text-black"
                 style={{
                   backgroundColor: "#003366", // Default background color
-                  transition: "background-color 0.3s ease", // Smooth transition
                 }}
                 onMouseEnter={(e) =>
                   (e.target.style.backgroundColor = "blue")
@@ -164,7 +163,6 @@ const EVisionPage = ({ theme }) => {
                 className="rounded-md py-2 px-6 text-black"
                 style={{
                   backgroundColor: "#003366", // Default background color
-                  transition: "background-color 0.3s ease", // Smooth transition
                 }}
                 onMouseEnter={(e) =>
                   (e.target.style.backgroundColor = "blue")
