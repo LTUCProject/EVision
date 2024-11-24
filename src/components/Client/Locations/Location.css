@@ -50,7 +50,7 @@
 }
 
 .btL {
-  background-color: #4CAF50; /* Primary green color */
+  background-color: #2980b9; /* Primary green color */
   color: white;
   padding: 12px 24px; /* Sufficient padding for better button size */
   font-size: 16px;
@@ -68,18 +68,18 @@
 
 /* Hover and active states for improved interaction */
 .btL:hover {
-  background-color: #45a049;
+  background-color: #2980b9;
   transform: translateY(-2px); /* Slight lift effect on hover */
 }
 
 .btL:active {
-  background-color: #388e3c; /* Darker shade when the button is pressed */
+  background-color: #2980b9; /* Darker shade when the button is pressed */
   transform: translateY(0); /* Remove lift effect when pressed */
 }
 
 /* Focus state for accessibility */
 .btL:focus {
-  outline: 3px solid #80e27e; /* Green focus outline for better accessibility */
+  outline: 3px solid #2980b9; /* Green focus outline for better accessibility */
 }
 
 /* Disabled state for the button */
