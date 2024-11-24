@@ -131,7 +131,7 @@
   font-size: 1.8rem;
   font-weight: 600;
   color: #1a202c;
-  border-bottom: 3px solid #27ae60;
+  border-bottom: 3px solid #2c5282;
   padding-bottom: 0.6rem;
   margin-bottom: 1.5rem;
   letter-spacing: 0.5px;
@@ -140,8 +140,8 @@
 
 .service-info-title:hover,
 .service-req-title:hover {
-  color: #14532d;
-  border-bottom-color: #1abc9c;
+  color: #2c5282;
+  border-bottom-color: #2c5282;
 }
 
 .error-message {

@@ -1,8 +1,8 @@
 import React from "react";
 import ibraheem from "../../assets/ibraheem.png";
 import jafar from "../../assets/jafar.jpg";
-import Abed from "../../assets/abed.png";
-import Moayad from "../../assets/moayad.png";
+import Abed from "../../assets/abed2.jpg";
+import Moayad from "../../assets/moayad2.jpg";
 import yazan from "../../assets/yazan.jpg";
 import yassin from "../../assets/yassin.jpg";
 
@@ -12,7 +12,7 @@ import {
   FaInstagram,
   FaLinkedin,
   FaLocationArrow,
-  FaMobileAlt,
+  FaEnvelope,
 } from "react-icons/fa";
 
 const teamMembers = [
@@ -69,8 +69,8 @@ const Footer = () => {
               <p style={{ color: "black" }}>Amman, Jordan</p>
             </div>
             <div className="flex items-center gap-3 mt-3">
-              <FaMobileAlt />
-              <p style={{ color: "black" }}>+962788114394</p>
+              <FaEnvelope />
+              <p style={{ color: "black" }}>electrovehicleworld@gmail.com</p>
             </div>
             {/* Social Handle */}
             <div className="flex items-center gap-3 mt-6">
