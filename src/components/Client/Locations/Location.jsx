@@ -1,15 +1,21 @@
-import React, { useEffect, useState } from 'react';
-import { MapContainer, TileLayer, Marker, Popup, useMapEvents } from 'react-leaflet';
-import 'leaflet/dist/leaflet.css';
-import L from 'leaflet';
-import axios from 'axios';
-import { toast } from 'react-toastify';
-import markerIcon from 'leaflet/dist/images/marker-icon.png';
-import markerIconRetina from 'leaflet/dist/images/marker-icon-2x.png';
-import markerShadow from 'leaflet/dist/images/marker-shadow.png';
-import Modal from 'react-modal'; // Ensure to install react-modal or use your preferred modal library
-import ClientFavorite from '../ClientFavorite/ClientFavorite';
-import './Location.css';
+import React, { useEffect, useState } from "react";
+import {
+  MapContainer,
+  TileLayer,
+  Marker,
+  Popup,
+  useMapEvents,
+} from "react-leaflet";
+import "leaflet/dist/leaflet.css";
+import L from "leaflet";
+import axios from "axios";
+import { toast } from "react-toastify";
+import markerIcon from "leaflet/dist/images/marker-icon.png";
+import markerIconRetina from "leaflet/dist/images/marker-icon-2x.png";
+import markerShadow from "leaflet/dist/images/marker-shadow.png";
+import Modal from "react-modal"; // Ensure to install react-modal or use your preferred modal library
+import ClientFavorite from "../ClientFavorite/ClientFavorite";
+import "./Location.css";
 
 // Default icon setup for Leaflet
 delete L.Icon.Default.prototype._getIconUrl;
@@ -21,7 +27,7 @@ L.Icon.Default.mergeOptions({
 
 // Custom user location icon using a circle
 const userLocationIcon = L.divIcon({
-  className: 'user-location-marker', // Custom class for styling
+  className: "user-location-marker", // Custom class for styling
   html: `<div style="background-color: #ff0000; border-radius: 50%; width: 20px; height: 20px; border: 2px solid #fff;"></div>`, // Circle shape with white border
   iconSize: [20, 20], // Icon size
   iconAnchor: [10, 10], // Anchor point in the center of the circle
@@ -43,7 +49,7 @@ const apiRequest = async (method, url, data = null) => {
     const response = await axios(options);
     return response.data;
   } catch (error) {
-    console.error('Error with API request:', error);
+    console.error("Error with API request:", error);
     toast.error(error.response?.data?.message || "Server error");
     throw error;
   }
@@ -85,17 +91,20 @@ const Location = () => {
     } else {
       toast.error("Geolocation is not supported by this browser.");
     }
-  
+
     const fetchChargingStations = async () => {
       try {
-        const data = await apiRequest('GET', 'https://localhost:7080/api/Clients/ChargingStations');
+        const data = await apiRequest(
+          "GET",
+          "https://localhost:7080/api/Clients/ChargingStations"
+        );
         const stations = data.$values; // Extracting the charging stations from the API response
         setChargingStations(stations);
       } catch (error) {
-        console.error('Failed to fetch charging stations:', error);
+        console.error("Failed to fetch charging stations:", error);
       }
     };
-  
+
     fetchChargingStations();
   }, []);
 
@@ -119,61 +128,100 @@ const Location = () => {
 
   const handleFavoriteClick2 = async (stationId) => {
     try {
-      await apiRequest('POST', 'https://localhost:7080/api/Clients/ChargingStationFavorites', {
-        ChargingStationId: stationId,
-      });
+      await apiRequest(
+        "POST",
+        "https://localhost:7080/api/Clients/ChargingStationFavorites",
+        {
+          ChargingStationId: stationId,
+        }
+      );
       toast.success("Favorite added");
       //setModalIsOpen(true); // Open modal
     } catch (error) {
-      console.error('Error adding favorite:', error);
+      console.error("Error adding favorite:", error);
     }
   };
   const [isMapVisible, setIsMapVisible] = useState(true);
 
   const handleViewFavoriteStations = () => {
     setIsMapVisible(false);
-    setModalIsOpen(true); 
+    setModalIsOpen(true);
   };
   const handleCloseModal = () => {
     setIsMapVisible(true);
-    setModalIsOpen(false); 
+    setModalIsOpen(false);
   };
   return (
     <div className="backpage">
       {isMapVisible && (
         <MapContainer
-         className="map-container"
+          className="map-container"
           center={mapCenter}
           zoom={8}
           bounds={jordanBounds}
         >
-          <TileLayer className="tilelyer"
+          <TileLayer
+            className="tilelyer"
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           />
           {/* Render charging station markers */}
           {chargingStations.map((station) => (
-            <Marker className="marker2"
+            <Marker
+              className="marker2"
               key={station.chargingStationId}
               position={[station.latitude, station.longitude]}
               eventHandlers={{
-                click: () => handleLocationSelect(station.latitude, station.longitude),
+                click: () =>
+                  handleLocationSelect(station.latitude, station.longitude),
               }}
             >
               <Popup className="prpupp1">
-                <strong>{station.name}</strong><br />
-                {station.address}<br />
-                Status: {station.status}<br />
-                Payment Method: {station.paymentMethod}<br />
-                Provider: {station.provider.name} ({station.provider.email})<br />
+                <strong>{station.name}</strong>
+                <br />
+                {station.address}
+                <br />
+                Status: {station.status}
+                <br />
+                Payment Method: {station.paymentMethod}
+                <br />
+                Provider: {station.provider.name} ({station.provider.email})
+                <br />
+                {/* Display Chargers Details */}
+                {station.chargers &&
+                station.chargers.$values &&
+                station.chargers.$values.length > 0 ? (
+                  <div>
+                    <strong>Chargers:</strong>
+                    {station.chargers.$values.map((charger, index) => (
+                      <div key={index}>
+                        <p>Type: {charger.type}</p>
+                        <p>Power: {charger.power} kW</p>
+                        <p>Speed: {charger.speed}</p>
+                      </div>
+                    ))}
+                  </div>
+                ) : (
+                  <p>No chargers available.</p>
+                )}
                 <button onClick={handleGetLocationClick}>Get Location</button>
-                <button onClick={() => handleFavoriteClick2(station.chargingStationId)}>Add to Favorite</button>
+                <button
+                  onClick={() =>
+                    handleFavoriteClick2(station.chargingStationId)
+                  }
+                >
+                  Add to Favorite
+                </button>
               </Popup>
             </Marker>
           ))}
           {/* Render user's unique location marker */}
           {userLocation && (
-            <Marker position={[userLocation.lat, userLocation.lng]} icon={userLocationIcon} className="marker">
+            <Marker
+              position={[userLocation.lat, userLocation.lng]}
+              icon={userLocationIcon}
+              className="marker"
+            >
               <Popup className="prpupp2">
                 <div>
                   <p>Your current location</p>
@@ -185,16 +233,24 @@ const Location = () => {
       )}
 
       <br />
-      <button onClick={handleViewFavoriteStations} className="btL">View Favorite Stations</button>
+      <button onClick={handleViewFavoriteStations} className="btL">
+        View Favorite Stations
+      </button>
 
       {/* Modal for Favorite component */}
-      <Modal className="modell"
+      <Modal
+        className="modell"
         isOpen={modalIsOpen}
         onRequestClose={handleCloseModal}
         contentLabel="Favorite Modal"
       >
-        <ClientFavorite stationId={favoriteStationId} onClose={handleCloseModal} />
-        <button onClick={handleCloseModal} className="close">Close</button>
+        <ClientFavorite
+          stationId={favoriteStationId}
+          onClose={handleCloseModal}
+        />
+        <button onClick={handleCloseModal} className="close">
+          Close
+        </button>
       </Modal>
     </div>
   );

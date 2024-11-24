@@ -1,13 +1,12 @@
 import React, { useState } from "react";
 import ElectricCarsData from "./ElectricCarsData.json";
+import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/20/solid";
 import "./ElectricCars.css";
 
 const ElectricCars = () => {
   const [searchTerm, setSearchTerm] = useState("");
-  const [pages, setPages] = useState({}); // New state to manage page numbers per category
-
-  // Number of cars to show per page
-  const carsPerPage = 3;
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 30; // Display 50 cars per page
 
   // Filter cars by search term across all fields
   const filteredCategories = ElectricCarsData.ElectricCars.map((category) => ({
@@ -25,27 +24,23 @@ const ElectricCars = () => {
     }),
   })).filter((category) => category.Cars.length > 0);
 
-  // Function to handle page navigation for a specific category
-  const handleNextPage = (categoryIndex) => {
-    const categoryPage = pages[categoryIndex] || 0;
-    if (
-      filteredCategories[categoryIndex].Cars.length >
-      (categoryPage + 1) * carsPerPage
-    ) {
-      setPages({
-        ...pages,
-        [categoryIndex]: categoryPage + 1,
-      });
-    }
-  };
+  // Calculate pagination
+  const totalCars = filteredCategories.reduce(
+    (acc, category) => acc + category.Cars.length,
+    0
+  );
+  const totalPages = Math.ceil(totalCars / itemsPerPage);
+  const startIndex = (currentPage - 1) * itemsPerPage;
 
-  const handlePrevPage = (categoryIndex) => {
-    const categoryPage = pages[categoryIndex] || 0;
-    if (categoryPage > 0) {
-      setPages({
-        ...pages,
-        [categoryIndex]: categoryPage - 1,
-      });
+  // Flatten cars into a single array for pagination
+  const allCars = filteredCategories.flatMap((category) => category.Cars);
+  const currentCars = allCars.slice(startIndex, startIndex + itemsPerPage);
+
+  // Handle Page Change
+  const handlePageChange = (page) => {
+    if (page >= 1 && page <= totalPages) {
+      setCurrentPage(page);
+      window.scrollTo({ top: 0, behavior: "smooth" });
     }
   };
 
@@ -65,83 +60,111 @@ const ElectricCars = () => {
       </div>
 
       {/* Electric Cars by Category */}
-      {filteredCategories.map((category, categoryIndex) => (
-        <div key={categoryIndex} className="electric-car-category">
-          <h2 className="electric-car-category-title">
-            Category: {category.Category}
-          </h2>
-          <div className="electric-car-list-container">
-            <div className="electric-car-list">
-              {category.Cars.slice(
-                (pages[categoryIndex] || 0) * carsPerPage,
-                ((pages[categoryIndex] || 0) + 1) * carsPerPage
-              ).map((car, carIndex) => (
-                <div key={carIndex} className="electric-car-card">
-                  <div className="electric-car-card-inner">
-                    {/* Front Side */}
-                    <div className="electric-car-card-front">
-                      <h3 className="electric-car-name">{car.Name}</h3>
-                      {car.ImageURL && (
-                        <img
-                          src={car.ImageURL}
-                          alt={car.Name}
-                          className="electric-car-image"
-                        />
-                      )}
-                    </div>
-                    {/* Back Side */}
-                    <div className="electric-car-card-back">
-                      <div className="electric-car-details">
-                        <p><strong>Year:</strong> {car.Year}</p>
-                        <p><strong>Range:</strong> {car.Range}</p>
-                        <p><strong>Price:</strong> {car.Price}</p>
-                        <p>
-                          <strong>Performance:</strong>
-                          <ul>
-                            <li>Top Speed: {car.Performance.TopSpeed}</li>
-                            <li>Acceleration: {car.Performance.Acceleration}</li>
-                          </ul>
-                        </p>
-                        <p>
-                          <strong>Charging:</strong>
-                          <ul>
-                            <li>Fast Charging: {car.Charging.FastCharging}</li>
-                            <li>Port Type: {car.Charging.PortType}</li>
-                          </ul>
-                        </p>
-                        <p><strong>Explanation:</strong> {car.Explanation}</p>
-                      </div>
-                    </div>
-                  </div>
+      <div className="electric-car-list-container">
+        {currentCars.length > 0 ? (
+          currentCars.map((car, index) => (
+            <div key={index} className="electric-car-card">
+              <h3 className="electric-car-name">{car.Name}</h3>
+              {car.ImageURL && (
+                <img
+                  src={car.ImageURL}
+                  alt={car.Name}
+                  className="electric-car-image"
+                />
+              )}
+              <div className="electric-car-detailss">
+                <div className="electric-car-meta" style={{ color: "#6a7074" }}>
+                  <p style={{ color: "#6a7074" }}>
+                    <strong>Year:</strong> {car.Year}
+                  </p>
+                  <p style={{ color: "#6a7074" }}>
+                    <strong>Range:</strong> {car.Range}
+                  </p>
+                  <p style={{ color: "#6a7074" }}>
+                    <strong>Price:</strong> {car.Price}
+                  </p>
                 </div>
-              ))}
+                <p style={{ color: "#6a7074", textAlign: "left" }}>
+                  <strong>Performance:</strong>
+                  <ul>
+                    <li style={{ color: "#6a7074", textAlign: "left" }}>
+                      Top Speed: {car.Performance.TopSpeed}
+                    </li>
+                    <li style={{ color: "#6a7074", textAlign: "left" }}>
+                      Acceleration: {car.Performance.Acceleration}
+                    </li>
+                  </ul>
+                </p>
+                <p style={{ color: "#6a7074", textAlign: "left" }}>
+                  <strong>Charging:</strong>
+                  <ul>
+                    <li style={{ color: "#6a7074", textAlign: "left" }}>
+                      Fast Charging: {car.Charging.FastCharging}
+                    </li>
+                    <li style={{ color: "#6a7074", textAlign: "left" }}>
+                      Port Type: {car.Charging.PortType}
+                    </li>
+                  </ul>
+                </p>
+                <p style={{ color: "#6a7074", textAlign: "left" }}>
+                  <strong>Explanation:</strong> {car.Explanation}
+                </p>
+              </div>
             </div>
-          </div>
-          {/* Pagination Controls */}
-          <div className="electric-car-pagination">
-            <button
-              onClick={() => handlePrevPage(categoryIndex)}
-              disabled={(pages[categoryIndex] || 0) === 0}
-            >
-              ←
-            </button>
-            <button
-              onClick={() => handleNextPage(categoryIndex)}
-              disabled={
-                ((pages[categoryIndex] || 0) + 1) * carsPerPage >= category.Cars.length
-              }
-            >
-              →
-            </button>
-          </div>
-        </div>
-      ))}
+          ))
+        ) : (
+          <p className="electric-cars-no-results">
+            No cars match your search criteria.
+          </p>
+        )}
+      </div>
 
-      {/* No Results Message */}
-      {filteredCategories.length === 0 && (
-        <p className="electric-cars-no-results">
-          No cars match your search criteria.
-        </p>
+      {/* Pagination */}
+      {totalPages > 1 && (
+        <div className="pagination">
+          <nav
+            aria-label="Pagination"
+            className="isolate inline-flex -space-x-px"
+          >
+            <button
+              onClick={() => handlePageChange(currentPage - 1)}
+              className={`relative inline-flex items-center rounded-l-md px-2 py-2 ${
+                currentPage === 1
+                  ? "text-gray-400"
+                  : "text-indigo-600 hover:bg-gray-50"
+              }`}
+              disabled={currentPage === 1}
+            >
+              <ChevronLeftIcon className="h-5 w-5" />
+              <span className="sr-only">Previous</span>
+            </button>
+            {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+              <button
+                key={page}
+                onClick={() => handlePageChange(page)}
+                className={`px-4 py-2 text-sm font-semibold ${
+                  page === currentPage
+                    ? "bg-indigo-600 text-white"
+                    : "text-gray-900 hover:bg-gray-50"
+                }`}
+              >
+                {page}
+              </button>
+            ))}
+            <button
+              onClick={() => handlePageChange(currentPage + 1)}
+              className={`relative inline-flex items-center rounded-r-md px-2 py-2 ${
+                currentPage === totalPages
+                  ? "text-gray-400"
+                  : "text-indigo-600 hover:bg-gray-50"
+              }`}
+              disabled={currentPage === totalPages}
+            >
+              <ChevronRightIcon className="h-5 w-5" />
+              <span className="sr-only">Next</span>
+            </button>
+          </nav>
+        </div>
       )}
     </div>
   );
