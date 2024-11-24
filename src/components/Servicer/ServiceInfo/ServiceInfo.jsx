@@ -177,21 +177,21 @@ const ServiceInfo = () => {
         <strong className="service-name">{service.name}</strong>
         <p className="service-description">{service.description}</p>
       </div>
-      <div className="button-group">
+      <div className="button-grouppp">
         <button
-          className="button edit-button"
+          className="button edit-buttonnn"
           onClick={() => handleEdit(service)}
         >
           Edit
         </button>
         <button
-          className="button delete-button"
+          className="button delete-buttonnn"
           onClick={() => handleDelete(service.serviceInfoId)}
         >
           Delete
         </button>
         <button
-          className="button details-button"
+          className="button details-buttonnn"
           onClick={() => fetchServiceRequestById(service.serviceInfoId)}
         >
           View Request
