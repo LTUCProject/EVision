@@ -8,19 +8,12 @@ const ElectricCars = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 30; // Display 50 cars per page
 
-  // Filter cars by search term across all fields
+  // Filter cars by name only
   const filteredCategories = ElectricCarsData.ElectricCars.map((category) => ({
     ...category,
     Cars: category.Cars.filter((car) => {
-      // Convert all relevant car data to lowercase for case-insensitive matching
-      const carData = `
-        ${car.Name} ${car.Year} ${car.Range} ${car.Price} ${car.Performance.TopSpeed} 
-        ${car.Performance.Acceleration} ${car.Charging.FastCharging} ${car.Charging.PortType} 
-        ${car.Explanation}
-      `.toLowerCase();
-
-      // Check if the search term is in the car data
-      return carData.includes(searchTerm.toLowerCase());
+      // Only check if the car name includes the search term
+      return car.Name.toLowerCase().includes(searchTerm.toLowerCase());
     }),
   })).filter((category) => category.Cars.length > 0);
 
@@ -52,7 +45,7 @@ const ElectricCars = () => {
       <div className="electric-cars-search">
         <input
           type="text"
-          placeholder="Search cars..."
+          placeholder="Search by car name..."
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
           className="electric-cars-search-input"
@@ -122,16 +115,11 @@ const ElectricCars = () => {
       {/* Pagination */}
       {totalPages > 1 && (
         <div className="pagination">
-          <nav
-            aria-label="Pagination"
-            className="isolate inline-flex -space-x-px"
-          >
+          <nav aria-label="Pagination" className="isolate inline-flex -space-x-px">
             <button
               onClick={() => handlePageChange(currentPage - 1)}
               className={`relative inline-flex items-center rounded-l-md px-2 py-2 ${
-                currentPage === 1
-                  ? "text-gray-400"
-                  : "text-indigo-600 hover:bg-gray-50"
+                currentPage === 1 ? "text-gray-400" : "text-indigo-600 hover:bg-gray-50"
               }`}
               disabled={currentPage === 1}
             >
@@ -143,9 +131,7 @@ const ElectricCars = () => {
                 key={page}
                 onClick={() => handlePageChange(page)}
                 className={`px-4 py-2 text-sm font-semibold ${
-                  page === currentPage
-                    ? "bg-indigo-600 text-white"
-                    : "text-gray-900 hover:bg-gray-50"
+                  page === currentPage ? "bg-indigo-600 text-white" : "text-gray-900 hover:bg-gray-50"
                 }`}
               >
                 {page}
@@ -154,9 +140,7 @@ const ElectricCars = () => {
             <button
               onClick={() => handlePageChange(currentPage + 1)}
               className={`relative inline-flex items-center rounded-r-md px-2 py-2 ${
-                currentPage === totalPages
-                  ? "text-gray-400"
-                  : "text-indigo-600 hover:bg-gray-50"
+                currentPage === totalPages ? "text-gray-400" : "text-indigo-600 hover:bg-gray-50"
               }`}
               disabled={currentPage === totalPages}
             >

@@ -103,7 +103,14 @@ const EVisionPage = ({ theme }) => {
             />
           </div>
           <div className="space-y-5 order-2 sm:order-1 sm:pr-32">
-            <p data-aos="fade-up" className="text-primary text-2xl font-serif">
+          <p
+              data-aos="fade-up"
+              className="text-primary font-serif"
+              style={{
+                fontSize: "3.5rem", // حجم الخط أكبر
+                textShadow: "3px 3px 8px rgba(0, 0, 0, 0.3)", // تأثير الظل
+              }}
+            >
               Effortless EVision
             </p>
             <p
