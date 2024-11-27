@@ -107,8 +107,8 @@ const EVisionPage = ({ theme }) => {
               data-aos="fade-up"
               className="text-primary font-serif"
               style={{
-                fontSize: "3.5rem", // حجم الخط أكبر
-                textShadow: "3px 3px 8px rgba(0, 0, 0, 0.3)", // تأثير الظل
+                fontSize: "3.5rem",
+                textShadow: "3px 3px 8px rgba(0, 0, 0, 0.3)",
               }}
             >
               Effortless EVision
